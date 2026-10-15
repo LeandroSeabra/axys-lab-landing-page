@@ -1,6 +1,5 @@
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-document.querySelectorAll("[data-year]").forEach((el) => { el.textContent = new Date().getFullYear(); });
 
 // Respostas típicas de cada método a cada alvo.
 // amp: intensidade e sinal (resistividade negativa = mais condutor); shape: forma do perfil.
@@ -92,7 +91,7 @@ const toPath = (pts) => pts.map((y, i) => `${i ? "L" : "M"}${i * 6} ${y.toFixed(
   show("agua", false);
 })();
 
-// Entradas das seções: uma vez, com fallback.
+// Elementos que entram ao rolar (a animação fica em assets/js/site.js).
 (() => {
   const sel = [".section-title", ".g-target-intro > p", ".g-response", ".g-table-wrap", ".g-flow-row li", ".g-deliver figure", ".g-deliver dl > div", ".g-contact-side > *", ".g-form"];
   const targets = [];
@@ -101,28 +100,4 @@ const toPath = (pts) => pts.map((y, i) => `${i ? "L" : "M"}${i * 6} ${y.toFixed(
     el.style.setProperty("--d", String(Math.min([...el.parentElement.children].indexOf(el), 6)));
     targets.push(el);
   }));
-  if (!("IntersectionObserver" in window)) { targets.forEach((el) => el.classList.add("is-in")); return; }
-  const io = new IntersectionObserver((entries) => entries.forEach((e) => {
-    if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); }
-  }), { rootMargin: "0px 0px -10% 0px", threshold: 0.1 });
-  targets.forEach((el) => io.observe(el));
-  addEventListener("load", () => setTimeout(() => targets.forEach((el) => {
-    const r = el.getBoundingClientRect();
-    if (r.top < innerHeight && r.bottom > 0) el.classList.add("is-in");
-  }), 2500));
-})();
-
-// Formulário que monta o e-mail.
-(() => {
-  const form = document.querySelector("[data-mailto]");
-  if (!form) return;
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    if (!form.reportValidity()) return;
-    const data = new FormData(form);
-    const lines = [];
-    for (const [k, v] of data.entries()) if (k !== "mensagem") lines.push(`${form.querySelector(`[name="${k}"]`).closest("label").firstChild.textContent.trim()}: ${v || "—"}`);
-    const body = `${lines.join("\n")}\n\n${data.get("mensagem") || ""}`;
-    location.href = `mailto:lab@axysgeosolucoes.com?subject=${encodeURIComponent(form.dataset.subject)}&body=${encodeURIComponent(body)}`;
-  });
 })();

@@ -1,4 +1,3 @@
-document.querySelectorAll("[data-year]").forEach((el) => { el.textContent = new Date().getFullYear(); });
 
 // O lote: vértices em pixels do mapa (1200 × 800); 1 px = 0,5 m. Coordenadas UTM ilustrativas.
 const SCALE = 0.5;
@@ -115,7 +114,7 @@ const dist = (a, b) => Math.hypot(b[0] - a[0], b[1] - a[1]) * SCALE;
   render();
 })();
 
-// Entradas das seções: uma vez, com fallback.
+// Elementos que entram ao rolar (a animação fica em assets/js/site.js).
 (() => {
   const sel = [".section-title", ".t-memorial-intro > p", ".t-doc", ".t-col", ".t-also p", ".t-band figure", ".t-steps li", ".t-contact-side > *", ".t-form"];
   const targets = [];
@@ -124,27 +123,4 @@ const dist = (a, b) => Math.hypot(b[0] - a[0], b[1] - a[1]) * SCALE;
     el.style.setProperty("--d", String(Math.min([...el.parentElement.children].indexOf(el), 6)));
     targets.push(el);
   }));
-  if (!("IntersectionObserver" in window)) { targets.forEach((el) => el.classList.add("is-in")); return; }
-  const io = new IntersectionObserver((entries) => entries.forEach((e) => {
-    if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); }
-  }), { rootMargin: "0px 0px -10% 0px", threshold: 0.1 });
-  targets.forEach((el) => io.observe(el));
-  addEventListener("load", () => setTimeout(() => targets.forEach((el) => {
-    const r = el.getBoundingClientRect();
-    if (r.top < innerHeight && r.bottom > 0) el.classList.add("is-in");
-  }), 2500));
-})();
-
-// Formulário que monta o e-mail.
-(() => {
-  const form = document.querySelector("[data-mailto]");
-  if (!form) return;
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    if (!form.reportValidity()) return;
-    const data = new FormData(form);
-    const lines = [];
-    for (const [k, v] of data.entries()) if (k !== "mensagem") lines.push(`${form.querySelector(`[name="${k}"]`).closest("label").firstChild.textContent.trim()}: ${v || "—"}`);
-    location.href = `mailto:lab@axysgeosolucoes.com?subject=${encodeURIComponent(form.dataset.subject)}&body=${encodeURIComponent(`${lines.join("\n")}\n\n${data.get("mensagem") || ""}`)}`;
-  });
 })();

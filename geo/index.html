@@ -4,27 +4,47 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#0e1317">
-    <meta name="description" content="Axys Geo: levantamentos geofísicos terrestres e com drone na Amazônia. Eletrorresistividade, magnetometria e gamaespectrometria, do planejamento ao relatório.">
-    <title>Axys Geo — Levantamentos geofísicos</title>
+    <meta name="description" content="Axys Geofísica: levantamentos geofísicos terrestres e com drone na Amazônia. Eletrorresistividade, magnetometria e gamaespectrometria, do planejamento ao relatório.">
+    <title>Axys Geofísica — Levantamentos geofísicos na Amazônia</title>
+    <link rel="canonical" href="https://axysgeosolucoes.com/geo/">
+    <link rel="alternate" hreflang="pt-BR" href="https://axysgeosolucoes.com/geo/">
+    <link rel="alternate" hreflang="en" href="https://axysgeosolucoes.com/en/geo/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="Axys Geo Soluções">
+    <meta property="og:title" content="Axys Geofísica — Levantamentos geofísicos">
+    <meta property="og:description" content="Eletrorresistividade, magnetometria e gamaespectrometria em terra e com drone, do planejamento ao relatório.">
+    <meta property="og:url" content="https://axysgeosolucoes.com/geo/">
+    <meta property="og:image" content="https://axysgeosolucoes.com/assets/og/geo.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "Axys Geofísica", "serviceType": "Levantamentos geofísicos", "url": "https://axysgeosolucoes.com/geo/", "provider": {"@type": "ProfessionalService", "name": "Axys Geo Soluções", "url": "https://axysgeosolucoes.com/", "address": {"@type": "PostalAddress", "addressLocality": "Belém", "addressRegion": "PA", "addressCountry": "BR"}}, "areaServed": "Brasil"}</script>
     <link rel="icon" href="../favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@800&family=Onest:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../home.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/widgets.css">
     <link rel="stylesheet" href="geo.css">
     <script>document.documentElement.classList.add('js')</script>
+    <script src="../assets/js/config.js" defer></script>
+    <script src="../assets/js/site.js" defer></script>
     <script src="geo.js" defer></script>
   </head>
-  <body class="geo">
+  <body class="geo" data-wa="Olá! Vim pela página da Axys Geofísica e gostaria de falar sobre um levantamento.">
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
     <header class="site-header">
-      <a class="wordmark" href="#conteudo" aria-label="Axys Geo, início">Axys Geo</a>
-      <nav class="site-nav" aria-label="Seções desta página">
+      <a class="wordmark" href="#conteudo" aria-label="Axys Geofísica, início">Axys Geofísica</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="site-nav" id="site-nav" aria-label="Seções desta página">
         <a href="#alvo">Seu alvo</a>
         <a href="#metodos">Métodos</a>
-        <a href="#entregas">Entregas</a>
-        <a class="nav-contact" href="#contato">Contato</a>
+        <a href="#casos">Casos</a>
+        <a href="#perguntas">Perguntas</a>
+        <a href="#contato">Contato</a>
+        <a class="lang" href="../en/geo/" hreflang="en" lang="en">EN</a>
       </nav>
     </header>
 
@@ -32,7 +52,7 @@
       <!-- Hero: o nome e, embaixo, uma seção de subsolo de ponta a ponta. -->
       <section class="g-hero" aria-labelledby="hero-title">
         <div class="g-hero-top">
-          <h1 id="hero-title">Axys Geo</h1>
+          <h1 id="hero-title">Axys Geofísica</h1>
           <div class="g-hero-copy">
             <p class="g-kind">Levantamentos geofísicos</p>
             <p>Investigação do subsolo em terra e com drone, do planejamento ao relatório, para quem precisa decidir onde perfurar, minerar ou construir na Amazônia.</p>
@@ -137,15 +157,65 @@
       </section>
 
       <!-- Contato -->
-      <section class="g-contact" id="contato" aria-label="Contato">
-        <div class="g-contact-side">
-          <p class="g-contact-lead">Conte o que precisa investigar e onde. Respondemos com o método e a proposta.</p>
-          <a class="g-contact-email" href="mailto:lab@axysgeosolucoes.com?subject=Levantamento%20geof%C3%ADsico%20%E2%80%94%20Axys%20Geo">lab@axysgeosolucoes.com</a>
-          <p class="g-contact-place">Belém, Pará, Brasil</p>
+      <!-- Estudos de caso: estrutura pronta; substituir pelos casos reais da empresa. -->
+      <section class="section" id="casos" data-ph-block aria-labelledby="casos-title">
+        <div class="section-head">
+          <h2 id="casos-title" class="section-title">Casos</h2>
+          <p><span class="ph-tag">A preencher</span> Estrutura pronta para os casos reais. O cliente pode ficar anônimo.</p>
         </div>
-        <form class="g-form" data-mailto data-subject="Levantamento geofísico — Axys Geo" action="mailto:lab@axysgeosolucoes.com" method="post" enctype="text/plain">
+        <div class="cases" data-reveal-children>
+          <article class="case">
+            <div class="case-head"><h3>Água subterrânea para uma comunidade ribeirinha</h3><p class="case-meta">Município, PA · ano · <span class="ph-tag">Exemplo ilustrativo</span></p></div>
+            <dl><div><dt>Desafio</dt><dd>Encontrar o melhor ponto para um poço numa área de sedimentos e laterita.</dd></div><div><dt>Solução</dt><dd>Cinco linhas de eletrorresistividade cruzando a área, com interpretação da zona saturada.</dd></div><div><dt>Resultado</dt><dd>Poço locado na zona condutora indicada, com vazão acima do esperado.</dd></div></dl>
+          </article>
+          <article class="case">
+            <div class="case-head"><h3>Magnetometria com drone em alvo de ferro</h3><p class="case-meta">Província de Carajás, PA · ano · <span class="ph-tag">Exemplo ilustrativo</span></p></div>
+            <dl><div><dt>Desafio</dt><dd>Delimitar um corpo magnético sob floresta densa, sem abrir picadas.</dd></div><div><dt>Solução</dt><dd>Voo a 30 m sobre a copa, linhas a cada 25 m, com redução ao polo.</dd></div><div><dt>Resultado</dt><dd>Mapa usado para priorizar os furos de sondagem da campanha seguinte.</dd></div></dl>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="normas" aria-labelledby="normas-title">
+        <div class="section-head">
+          <h2 id="normas-title" class="section-title">Normas</h2>
+          <p>As referências técnicas e legais que orientam o planejamento, a execução e os relatórios.</p>
+        </div>
+        <div class="norms" data-reveal-children>
+          <div class="norm"><p class="norm-code">ABNT NBR 15935</p><p>Investigações ambientais: aplicação de métodos geofísicos.</p></div>
+          <div class="norm"><p class="norm-code">ASTM D6431</p><p>Guia para o método de eletrorresistividade em corrente contínua na caracterização de terrenos.</p></div>
+          <div class="norm"><p class="norm-code">ASTM D6429</p><p>Guia para a escolha de métodos geofísicos de superfície.</p></div>
+          <div class="norm"><p class="norm-code">Resolução CONAMA 420/2009</p><p>Gerenciamento de áreas contaminadas, onde a geofísica apoia a investigação.</p></div>
+        </div>
+        <p class="norms-note">A aplicação de cada norma depende do projeto e é definida na proposta.</p>
+      </section>
+
+      <section class="section" id="perguntas" aria-labelledby="faq-title">
+        <h2 id="faq-title" class="section-title" style="margin-bottom: clamp(40px, 5vw, 72px)">Perguntas</h2>
+        <div class="faq" data-reveal-children>
+          <details><summary>Quanto custa um levantamento?</summary><div><p>Depende do método, da extensão das linhas, do acesso e da logística. Depois de entender a área e a pergunta do projeto, enviamos uma proposta com escopo, prazo e valor fechados.</p></div></details>
+          <details><summary>Quanto tempo leva?</summary><div><p>O campo costuma levar de alguns dias a poucas semanas, conforme a área. O cronograma completo, incluindo processamento e relatório, vem na proposta.</p></div></details>
+          <details><summary>Até que profundidade vocês enxergam?</summary><div><p>Depende do método e do arranjo: a eletrorresistividade chega a dezenas de metros; a magnetometria responde do raso ao profundo, conforme a fonte; a gamaespectrometria lê a superfície. Definimos isso no planejamento.</p></div></details>
+          <details><summary>Vocês trabalham em áreas remotas?</summary><div><p>Sim. Planejamos a logística para floresta, rio e chuva, e usamos drone onde caminhar é difícil.</p></div></details>
+          <details><summary>O que eu recebo no final?</summary><div><p>Relatório técnico com método, qualidade dos dados, mapas, seções, interpretação e recomendações, além dos dados brutos e processados em formatos abertos.</p></div></details>
+          <details><summary>E as autorizações de voo com drone?</summary><div><p>As operações seguem as regras da ANAC e do DECEA, e cuidamos das autorizações necessárias para cada voo.</p></div></details>
+        </div>
+      </section>
+
+      <section class="contact-block" id="contato" aria-label="Contato">
+        <div class="contact-side">
+          <p class="contact-lead">Conte o que precisa investigar e onde. Respondemos com o método e a proposta.</p>
+          <div class="contact-channels">
+            <a class="contact-email" data-mail="geofisica" data-mail-text data-subject="Levantamento geofísico — Axys Geofísica" href="mailto:lab@axysgeosolucoes.com">lab@axysgeosolucoes.com</a>
+            <span data-wa-block><a class="text-link" data-wa-link href="#">Conversar pelo WhatsApp</a></span>
+            <a class="text-link" href="../assets/pdf/axys-geofisica.pdf" download>Baixar a apresentação em PDF</a>
+          </div>
+          <p class="contact-meta">Belém, Pará, Brasil</p>
+          <p class="contact-meta" data-cfg-block>Responsável técnico: <span data-cfg="empresa.responsavelTecnico" data-ph="nome a preencher"></span>, <span data-cfg="empresa.crea" data-ph="CREA a preencher"></span></p>
+        </div>
+        <form class="form" data-form data-area="geofisica" data-subject="Levantamento geofísico — Axys Geofísica" action="mailto:lab@axysgeosolucoes.com" method="post" enctype="text/plain">
           <label>Nome<input name="nome" autocomplete="name" required></label>
           <label>Empresa ou instituição<input name="empresa" autocomplete="organization"></label>
+          <label>E-mail<input name="email" type="email" autocomplete="email" required></label>
           <label>Alvo
             <select name="alvo" data-target-select>
               <option>Água subterrânea</option>
@@ -156,25 +226,33 @@
               <option>Outro</option>
             </select>
           </label>
-          <label>Local da área<input name="local" placeholder="Município, estado"></label>
-          <label class="g-full">O que você precisa saber<textarea name="mensagem" rows="4"></textarea></label>
-          <div class="g-form-actions">
-            <button class="button" type="submit">Escrever e-mail</button>
-            <p>Abre o seu programa de e-mail com a mensagem pronta.</p>
+          <label class="full">Local da área<input name="local" placeholder="Município, estado"></label>
+          <label class="full">O que você precisa saber<textarea name="mensagem" rows="4"></textarea></label>
+          <input class="hp" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="form-actions">
+            <button class="button" type="submit">Enviar mensagem</button>
+            <p class="form-status" data-form-status role="status"></p>
           </div>
+          <p class="form-legal">Usamos seus dados só para responder a este contato. <a href="../privacidade/">Política de privacidade</a>.</p>
         </form>
       </section>
     </main>
 
     <footer class="site-footer">
-      <p class="footer-mark" aria-hidden="true">Axys Geo</p>
+      <p class="footer-mark" aria-hidden="true">Axys Geofísica</p>
       <div class="footer-row">
-        <p>A Axys Geo é uma área da <a class="text-link" href="../">Axys Geo Soluções <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11.5 4.5M5.5 4.5h6v6"/></svg></a></p>
+        <p>A Axys Geofísica é uma área da <a class="text-link" href="../">Axys Geo Soluções <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11.5 4.5M5.5 4.5h6v6"/></svg></a></p>
         <p>© <span data-year>2026</span> Axys Geo Soluções. Belém, Pará, Brasil.</p>
         <details>
           <summary>Créditos das imagens</summary>
           <p class="credits"><a href="https://www.rawpixel.com/image/4057860/photo-image-public-domain-nature">“Unmanned Aircraft System (UAS)”</a> por U.S. Forest Service, <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>; <a href="https://commons.wikimedia.org/w/index.php?curid=97551129">“Carajas Mine”</a> por Pierre Markuse, <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a>. Seções, perfis e mapas são simulações ilustrativas; as fotos mostram a região e não são da Axys.</p>
         </details>
+      </div>
+      <div class="footer-meta">
+        <span data-cfg-block>CNPJ <span data-cfg="empresa.cnpj" data-ph="a preencher"></span></span>
+        <span data-cfg-block>Responsável técnico <span data-cfg="empresa.responsavelTecnico" data-ph="a preencher"></span></span>
+        <span data-cfg-block><span data-cfg="empresa.crea" data-ph="CREA a preencher"></span></span>
+        <span><a href="../privacidade/">Privacidade</a></span>
       </div>
     </footer>
   </body>

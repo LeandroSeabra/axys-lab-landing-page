@@ -13,10 +13,10 @@ body.geo { --accent: #8fb8ec; --accent-hover: #b6d1f4; }
   padding: 0 var(--m) clamp(40px, 5vw, 72px);
 }
 .g-hero h1 {
-  grid-column: 1 / 8;
+  grid-column: 1 / 9;
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: clamp(2.5rem, 11vw, 10rem);
+  font-size: clamp(1.75rem, 7.4vw, 7.25rem);
   line-height: 0.86;
   letter-spacing: -0.04em;
   text-transform: uppercase;
@@ -81,7 +81,7 @@ body.geo { --accent: #8fb8ec; --accent-hover: #b6d1f4; }
 .g-methods th, .g-methods td { text-align: left; vertical-align: top; padding: 20px 20px 20px 0; border-bottom: 1px solid var(--line); }
 .g-methods thead th { font-weight: 500; color: var(--muted); padding-top: 0; }
 .g-methods tbody th { font-weight: 500; color: var(--accent); width: 22%; }
-.g-methods td { color: var(--ink); }
+.g-methods td { color: var(--ink); max-width: 36ch; }
 
 /* Do campo ao relatório: quatro imagens desiguais em fila */
 .g-flow { padding: var(--section) var(--m) 0; }
@@ -112,34 +112,6 @@ body.geo { --accent: #8fb8ec; --accent-hover: #b6d1f4; }
 .g-deliver dt { font-size: var(--step-lead); line-height: 1.2; font-weight: 500; }
 .g-deliver dd { margin: 6px 0 0; color: var(--muted); }
 
-/* Contato */
-.g-contact {
-  margin-top: var(--section);
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  column-gap: var(--gap);
-  row-gap: 56px;
-  align-items: start;
-  padding: clamp(80px, 9vw, 140px) var(--m);
-  background: var(--surface);
-}
-.g-contact-side { grid-column: 1 / 6; display: grid; gap: 24px; justify-items: start; }
-.g-contact-lead { font-size: var(--step-lead); line-height: 1.3; font-weight: 500; max-width: 30ch; }
-.g-contact-email { font-size: var(--step-lead); color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 8px; overflow-wrap: anywhere; }
-.g-contact-place { color: var(--muted); }
-.g-form { grid-column: 7 / 13; display: grid; grid-template-columns: 1fr 1fr; gap: 22px 24px; }
-.g-form label { display: grid; gap: 8px; font-size: var(--step-small); font-weight: 500; }
-.g-form .g-full { grid-column: 1 / -1; }
-.g-form input, .g-form select, .g-form textarea {
-  width: 100%; min-height: 52px; padding: 12px 14px;
-  background: var(--bg); border: 1px solid var(--line); border-radius: 0;
-  color: var(--ink); font: inherit; font-size: var(--step-body); font-weight: 400;
-}
-.g-form select { appearance: none; padding-right: 44px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 6l4 4 4-4' fill='none' stroke='%23a7b3ba' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; background-size: 16px; }
-.g-form textarea { resize: vertical; min-height: 130px; }
-.g-form input:focus, .g-form select:focus, .g-form textarea:focus { border-color: var(--accent); outline: none; }
-.g-form-actions { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; }
-.g-form-actions p { font-size: var(--step-small); color: var(--muted); }
 
 .geo .footer-mark { margin-bottom: 8px; }
 
@@ -161,14 +133,10 @@ body.geo { --accent: #8fb8ec; --accent-hover: #b6d1f4; }
   .g-flow-row li { flex: 1 1 calc(50% - 10px) !important; margin-top: 0 !important; }
   .g-deliver figure, .g-deliver-copy { grid-column: 1 / -1; }
   .g-deliver-copy { order: -1; margin-bottom: 40px; }
-  .g-contact-side, .g-form { grid-column: 1 / -1; }
 }
 @media (max-width: 600px) {
-  .geo .site-nav a { display: none; }
-  .geo .site-nav a.nav-contact { display: inline-flex; }
   .g-hero { min-height: auto; padding-top: 88px; }
   .g-targets { grid-template-columns: 1fr; }
   .g-response { padding: 20px; }
   .g-flow-row li { flex-basis: 100% !important; }
-  .g-form { grid-template-columns: 1fr; }
 }

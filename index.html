@@ -4,123 +4,225 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#0e1317">
-    <meta name="description" content="Axys Geo Soluções, de Belém do Pará: levantamentos geofísicos, monitoramento de barragens e desenvolvimento de instrumentos geofísicos.">
-    <title>Axys Geo Soluções — Geofísica na Amazônia</title>
+    <title>Axys Geo Soluções — Do subsolo ao registro, na Amazônia</title>
+    <meta name="description" content="Geofísica, monitoramento de barragens, topografia e instrumentos geofísicos a partir de Belém do Pará. Quatro áreas para decidir com dados sobre o terreno.">
+    <link rel="canonical" href="https://axysgeosolucoes.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="Axys Geo Soluções">
+    <meta property="og:title" content="Axys Geo Soluções — Do subsolo ao registro">
+    <meta property="og:description" content="Geofísica, monitoramento de barragens, topografia e instrumentos, a partir de Belém do Pará.">
+    <meta property="og:url" content="https://axysgeosolucoes.com/">
+    <meta property="og:image" content="https://axysgeosolucoes.com/assets/og/home.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@800&family=Onest:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/widgets.css">
+    <link rel="stylesheet" href="assets/css/home.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Axys Geo Soluções",
+      "url": "https://axysgeosolucoes.com/",
+      "logo": "https://axysgeosolucoes.com/favicon.svg",
+      "image": "https://axysgeosolucoes.com/assets/og/home.jpg",
+      "description": "Geofísica, monitoramento de barragens, topografia e desenvolvimento de instrumentos geofísicos.",
+      "address": { "@type": "PostalAddress", "addressLocality": "Belém", "addressRegion": "PA", "addressCountry": "BR" },
+      "areaServed": "Brasil",
+      "email": "lab@axysgeosolucoes.com",
+      "department": [
+        { "@type": "ProfessionalService", "name": "Axys Geofísica", "url": "https://axysgeosolucoes.com/geo/" },
+        { "@type": "ProfessionalService", "name": "Axys Safe", "url": "https://axysgeosolucoes.com/safe/" },
+        { "@type": "ProfessionalService", "name": "Axys Topo", "url": "https://axysgeosolucoes.com/topo/" },
+        { "@type": "Organization", "name": "Axys Lab", "url": "https://axysgeosolucoes.com/lab/" }
+      ]
+    }
+    </script>
     <script>document.documentElement.classList.add('js')</script>
+    <script src="assets/js/config.js" defer></script>
+    <script src="assets/js/site.js" defer></script>
   </head>
-  <body>
+  <body data-wa="Olá! Vim pelo site da Axys Geo Soluções e gostaria de falar sobre um projeto.">
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
     <header class="site-header">
       <a class="wordmark" href="./" aria-label="Axys Geo Soluções, início">Axys Geo Soluções</a>
-      <nav class="site-nav" aria-label="Navegação principal">
-        <a href="geo/">Axys Geo</a>
-        <a href="safe/">Axys Safe</a>
-        <a href="topo/">Axys Topo</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="site-nav" id="site-nav" aria-label="Navegação principal">
+        <a href="#precisa">O que você precisa</a>
+        <a href="#areas">Áreas</a>
+        <a href="sobre/">Quem somos</a>
         <a href="#contato">Contato</a>
-        <a class="nav-lab" href="lab/">Axys Lab <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11.5 4.5M5.5 4.5h6v6"/></svg></a>
       </nav>
     </header>
 
     <main id="conteudo">
-      <section class="hero" aria-labelledby="hero-title">
-        <figure class="hero-picture">
+      <section class="h-hero" aria-labelledby="hero-title">
+        <figure class="h-hero-picture">
           <img src="lab/assets/sm/amazonia-horizonte.jpg" srcset="lab/assets/sm/amazonia-horizonte.jpg 800w, lab/assets/amazonia-horizonte.jpg 1600w" sizes="100vw" width="1600" height="1038" alt="Floresta amazônica contínua até o horizonte">
         </figure>
-        <div class="hero-copy">
-          <h1 id="hero-title">Geofísica na Amazônia</h1>
-          <p>A Axys Geo Soluções mede o terreno e o subsolo a partir de Belém do Pará: faz levantamentos geofísicos e topográficos, monitora barragens e desenvolve os próprios instrumentos.</p>
-          <a class="button" href="#areas">Ver as áreas</a>
+        <div class="h-hero-copy">
+          <h1 id="hero-title">Do subsolo ao registro</h1>
+          <div>
+            <p>Geofísica, monitoramento de barragens, topografia e instrumentos, a partir de Belém do Pará, para quem precisa decidir com dados sobre o terreno.</p>
+            <a class="button" href="#precisa">O que você precisa?</a>
+          </div>
         </div>
       </section>
 
-      <!-- As áreas da empresa. Para incluir outra, copie um <article class="area"> inteiro. -->
-      <section class="areas" id="areas" aria-labelledby="areas-title">
+      <!-- O que você precisa: cada necessidade leva direto à área certa. -->
+      <section class="section h-needs" id="precisa" aria-labelledby="precisa-title">
+        <div class="section-head">
+          <h2 id="precisa-title" class="section-title">O que você precisa?</h2>
+          <p>Escolha o que mais se parece com o seu projeto. Cada área tem equipe e página próprias.</p>
+        </div>
+        <ul class="needs" data-reveal-children>
+          <li><a href="geo/#alvo"><span class="need">Encontrar água subterrânea</span><span class="need-area">Axys Geofísica</span></a></li>
+          <li><a href="geo/#alvo"><span class="need">Pesquisar minério ou mapear a geologia</span><span class="need-area">Axys Geofísica</span></a></li>
+          <li><a href="geo/#metodos"><span class="need">Investigar o terreno antes de uma obra</span><span class="need-area">Axys Geofísica</span></a></li>
+          <li><a href="safe/"><span class="need">Monitorar uma barragem</span><span class="need-area">Axys Safe</span></a></li>
+          <li><a href="safe/#estruturas"><span class="need">Avaliar um talude ou uma encosta</span><span class="need-area">Axys Safe</span></a></li>
+          <li><a href="topo/"><span class="need">Georreferenciar um imóvel rural</span><span class="need-area">Axys Topo</span></a></li>
+          <li><a href="topo/#servicos"><span class="need">Regularizar um imóvel urbano ou fazer usucapião</span><span class="need-area">Axys Topo</span></a></li>
+          <li><a href="lab/"><span class="need">Equipamentos geofísicos para drone e terra</span><span class="need-area">Axys Lab</span></a></li>
+        </ul>
+      </section>
+
+      <!-- As quatro áreas -->
+      <section class="section h-areas" id="areas" aria-labelledby="areas-title">
         <h2 id="areas-title" class="section-title">Nossas áreas</h2>
 
-        <article class="area" aria-labelledby="area-geo">
-          <figure class="area-picture">
-            <img src="lab/assets/sm/drone-campo.jpg" srcset="lab/assets/sm/drone-campo.jpg 800w, lab/assets/drone-campo.jpg 1300w" sizes="(max-width: 760px) 100vw, 45vw" width="1300" height="975" loading="lazy" alt="Drone pousado em campo antes de um voo de levantamento">
-          </figure>
+        <article class="area area-geo" aria-labelledby="area-geo">
+          <figure class="area-picture"><img src="lab/assets/sm/mapa-magnetico.jpg" srcset="lab/assets/sm/mapa-magnetico.jpg 640w, lab/assets/dados/mapa-magnetico.jpg 960w" sizes="(max-width: 900px) 100vw, 45vw" width="960" height="640" loading="lazy" alt="Mapa magnético de campo total, simulado"></figure>
           <div class="area-body">
-            <h3 id="area-geo" class="area-name">Axys Geo</h3>
+            <h3 id="area-geo" class="area-name">Axys Geofísica</h3>
             <p class="area-focus">Levantamentos geofísicos</p>
-            <p>Levantamentos terrestres e com drone para pesquisa mineral, água subterrânea, geotecnia e meio ambiente, do planejamento em campo à interpretação dos dados.</p>
-            <a class="button" href="geo/">Conhecer a Axys Geo</a>
+            <p>Eletrorresistividade, magnetometria e gamaespectrometria em terra e com drone, para água subterrânea, pesquisa mineral, geotecnia e meio ambiente.</p>
+            <a class="button" href="geo/">Conhecer a Axys Geofísica</a>
           </div>
         </article>
 
-        <article class="area" aria-labelledby="area-safe">
-          <figure class="area-picture">
-            <img src="lab/assets/carajas-cava.jpg" width="1024" height="681" loading="lazy" alt="Bancadas de uma cava de mineração em Carajás">
-          </figure>
+        <article class="area area-safe" aria-labelledby="area-safe">
+          <figure class="area-picture"><img src="assets/dados/safe/campanha-5-sm.jpg" srcset="assets/dados/safe/campanha-5-sm.jpg 800w, assets/dados/safe/campanha-5.jpg 1200w" sizes="(max-width: 900px) 100vw, 45vw" width="1200" height="800" loading="lazy" alt="Seção de resistividade de uma barragem com zona de infiltração, simulada"></figure>
           <div class="area-body">
             <h3 id="area-safe" class="area-name">Axys Safe</h3>
             <p class="area-focus">Monitoramento de barragens e segurança geológica</p>
-            <p>Acompanhamento de barragens, taludes e encostas, com investigação geofísica e monitoramento contínuo para identificar riscos antes que virem problema.</p>
+            <p>Campanhas geofísicas periódicas em barragens, taludes e encostas, comparadas no tempo para enxergar a água avançando antes que ela vire risco.</p>
             <a class="button" href="safe/">Conhecer a Axys Safe</a>
           </div>
         </article>
 
-        <article class="area area-lab" aria-labelledby="area-lab">
-          <figure class="area-picture">
-            <img src="lab/assets/sm/mapa-magnetico.jpg" srcset="lab/assets/sm/mapa-magnetico.jpg 640w, lab/assets/dados/mapa-magnetico.jpg 960w" sizes="(max-width: 760px) 100vw, 45vw" width="960" height="640" loading="lazy" alt="Mapa magnético de campo total simulado">
-          </figure>
-          <div class="area-body">
-            <h3 id="area-lab" class="area-name">Axys Lab</h3>
-            <p class="area-focus">Instrumentos geofísicos</p>
-            <p>Desenvolvimento de resistivímetro, magnetômetro e gamaespectrômetro para drone, pensados para o calor, a umidade e a floresta da região.</p>
-            <a class="button" href="lab/">Conhecer o Axys Lab</a>
-          </div>
-        </article>
-
-        <article class="area" aria-labelledby="area-topo">
-          <figure class="area-picture">
-            <img src="assets/dados/topografia-sm.jpg" srcset="assets/dados/topografia-sm.jpg 800w, assets/dados/topografia.jpg 1200w" sizes="(max-width: 760px) 100vw, 45vw" width="1200" height="800" loading="lazy" alt="Mapa de curvas de nível com o limite poligonal de um imóvel">
-          </figure>
+        <article class="area area-topo" aria-labelledby="area-topo">
+          <figure class="area-picture"><img src="assets/dados/topografia-sm.jpg" srcset="assets/dados/topografia-sm.jpg 800w, assets/dados/topografia.jpg 1200w" sizes="(max-width: 900px) 100vw, 45vw" width="1200" height="800" loading="lazy" alt="Mapa de curvas de nível com o limite de um imóvel, simulado"></figure>
           <div class="area-body">
             <h3 id="area-topo" class="area-name">Axys Topo</h3>
             <p class="area-focus">Topografia e regularização de imóveis</p>
-            <p>Serviços de topografia e regularização de imóveis urbanos e rurais, com levantamentos para definir os limites e apoiar a documentação da propriedade.</p>
+            <p>Georreferenciamento rural, regularização urbana, usucapião e levantamentos planialtimétricos, do campo ao cartório.</p>
             <a class="button" href="topo/">Conhecer a Axys Topo</a>
+          </div>
+        </article>
+
+        <article class="area area-lab" aria-labelledby="area-lab">
+          <figure class="area-picture"><img src="lab/assets/sm/pseudossecao.jpg" srcset="lab/assets/sm/pseudossecao.jpg 640w, lab/assets/dados/pseudossecao.jpg 960w" sizes="(max-width: 900px) 100vw, 45vw" width="960" height="640" loading="lazy" alt="Pseudosseção de resistividade, simulada"></figure>
+          <div class="area-body">
+            <h3 id="area-lab" class="area-name">Axys Lab</h3>
+            <p class="area-focus">Instrumentos geofísicos</p>
+            <p>Resistivímetro, magnetômetro e gamaespectrômetro para drone, desenvolvidos em Belém e testados pela própria equipe de campo.</p>
+            <a class="button" href="lab/">Conhecer o Axys Lab</a>
           </div>
         </article>
       </section>
 
-      <section class="contact" id="contato" aria-label="Contato">
-        <p class="contact-lead">Conte o que você precisa investigar e onde. Indicamos a área certa para o seu projeto.</p>
-        <a class="contact-email" href="mailto:lab@axysgeosolucoes.com?subject=Contato%20pelo%20site%20Axys%20Geo%20Solu%C3%A7%C3%B5es">lab@axysgeosolucoes.com</a>
-        <p class="contact-place">Belém, Pará, Brasil</p>
+      <!-- Por que a Axys -->
+      <section class="section h-why" aria-labelledby="why-title">
+        <h2 id="why-title" class="section-title">Por que a Axys</h2>
+        <div class="why" data-reveal-children>
+          <p><strong>Na Amazônia, de verdade.</strong> Base em Belém e logística pensada para floresta, rio, chuva e acesso difícil.</p>
+          <p><strong>Equipe própria em campo.</strong> Quem planeja o levantamento é quem vai ao campo e quem assina o relatório.</p>
+          <p><strong>Instrumentos feitos em casa.</strong> O Axys Lab desenvolve equipamentos com a experiência de campo das outras áreas.</p>
+          <p><strong>Do dado à decisão.</strong> Relatórios objetivos, com mapas, seções e recomendações que um gestor consegue usar.</p>
+        </div>
+      </section>
+
+      <!-- Números e regiões: espaços reservados até a empresa enviar os dados. -->
+      <section class="section h-numbers" data-ph-block aria-labelledby="num-title">
+        <div class="section-head">
+          <h2 id="num-title" class="section-title">Em números</h2>
+          <p><span class="ph-tag">A preencher</span> Números reais da empresa e estados atendidos.</p>
+        </div>
+        <div class="stats" data-reveal-children>
+          <div class="stat"><span class="stat-value is-placeholder">—</span><span class="stat-label">anos de experiência da equipe</span></div>
+          <div class="stat"><span class="stat-value is-placeholder">— km</span><span class="stat-label">de linhas geofísicas levantadas</span></div>
+          <div class="stat"><span class="stat-value is-placeholder">—</span><span class="stat-label">barragens e taludes acompanhados</span></div>
+          <div class="stat"><span class="stat-value is-placeholder">— ha</span><span class="stat-label">de imóveis georreferenciados</span></div>
+        </div>
+        <div class="regions">
+          <p class="regions-title">Onde atuamos <span class="ph-tag">Confirmar estados</span></p>
+          <ul>
+            <li class="is-base">Pará <span>base em Belém</span></li>
+            <li>Amapá</li>
+            <li>Maranhão</li>
+            <li>Tocantins</li>
+            <li>Amazonas</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Contato geral -->
+      <section class="contact-block" id="contato" aria-label="Contato">
+        <div class="contact-side">
+          <p class="contact-lead">Conte o que precisa investigar, acompanhar ou regularizar, e onde. Indicamos o próximo passo.</p>
+          <div class="contact-channels">
+            <a class="contact-email" data-mail="geral" data-mail-text data-subject="Contato pelo site Axys Geo Soluções" href="mailto:lab@axysgeosolucoes.com">lab@axysgeosolucoes.com</a>
+            <span data-wa-block><a class="text-link" data-wa-link href="#">Conversar pelo WhatsApp</a></span>
+          </div>
+          <p class="contact-meta">Belém, Pará, Brasil</p>
+        </div>
+        <form class="form" data-form data-area="geral" data-subject="Contato pelo site — Axys Geo Soluções" action="mailto:lab@axysgeosolucoes.com" method="post" enctype="text/plain">
+          <label>Nome<input name="nome" autocomplete="name" required></label>
+          <label>Empresa ou instituição<input name="empresa" autocomplete="organization"></label>
+          <label>E-mail<input name="email" type="email" autocomplete="email" required></label>
+          <label>Área de interesse
+            <select name="area_de_interesse">
+              <option>Ainda não sei</option>
+              <option>Axys Geofísica: levantamentos</option>
+              <option>Axys Safe: barragens e taludes</option>
+              <option>Axys Topo: topografia e regularização</option>
+              <option>Axys Lab: equipamentos</option>
+            </select>
+          </label>
+          <label class="full">O que você precisa, e onde<textarea name="mensagem" rows="4"></textarea></label>
+          <input class="hp" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="form-actions">
+            <button class="button" type="submit">Enviar mensagem</button>
+            <p class="form-status" data-form-status role="status"></p>
+          </div>
+          <p class="form-legal">Usamos seus dados só para responder a este contato. <a href="privacidade/">Política de privacidade</a>.</p>
+        </form>
       </section>
     </main>
 
     <footer class="site-footer">
-      <p class="footer-mark" aria-hidden="true">AXYS</p>
+      <p class="footer-mark" aria-hidden="true">Axys</p>
       <div class="footer-row">
+        <p><a href="sobre/">Quem somos</a> · <a href="privacidade/">Privacidade</a></p>
         <p>© <span data-year>2026</span> Axys Geo Soluções. Belém, Pará, Brasil.</p>
         <details>
           <summary>Créditos das imagens</summary>
-          <p class="credits"><a href="https://commons.wikimedia.org/w/index.php?curid=30331016">“Amazon14”</a> por CIAT, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>, via Wikimedia Commons; <a href="https://www.rawpixel.com/image/4057860/photo-image-public-domain-nature">“Unmanned Aircraft System (UAS)”</a> por U.S. Forest Service, <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>, via rawpixel; <a href="https://www.flickr.com/photos/43646190@N08/48910475353">“mine de Carajas”</a> por tongeron91, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>, via Flickr. O mapa magnético e o mapa topográfico são simulações. As fotos mostram a região e não são da Axys.</p>
+          <p class="credits"><a href="https://commons.wikimedia.org/w/index.php?curid=30331016">“Amazon14”</a> por CIAT, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>, via Wikimedia Commons. Mapas e seções são simulações ilustrativas.</p>
         </details>
       </div>
+      <div class="footer-meta">
+        <span data-cfg-block>CNPJ <span data-cfg="empresa.cnpj" data-ph="a preencher"></span></span>
+        <span data-cfg-block>Responsável técnico <span data-cfg="empresa.responsavelTecnico" data-ph="a preencher"></span></span>
+        <span data-cfg-block><span data-cfg="empresa.crea" data-ph="CREA a preencher"></span></span>
+      </div>
     </footer>
-    <script>
-      document.querySelector('[data-year]').textContent = new Date().getFullYear();
-      // Entradas: cada parte sobe uma vez ao chegar à tela; sem observador, tudo aparece.
-      (() => {
-        const groups = [document.querySelectorAll('.areas .section-title'), ...[...document.querySelectorAll('.area')].map((a) => [a.querySelector('.area-picture'), ...a.querySelector('.area-body').children]), document.querySelectorAll('.contact > *')];
-        const targets = [];
-        groups.forEach((group) => [...group].forEach((el, i) => { el.setAttribute('data-reveal', ''); el.style.setProperty('--d', i); targets.push(el); }));
-        if (!('IntersectionObserver' in window)) { targets.forEach((el) => el.classList.add('is-in')); return; }
-        const io = new IntersectionObserver((entries) => entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
-        targets.forEach((el) => io.observe(el));
-        addEventListener('load', () => setTimeout(() => targets.forEach((el) => { const r = el.getBoundingClientRect(); if (r.top < innerHeight && r.bottom > 0) el.classList.add('is-in'); }), 2500));
-      })();
-    </script>
   </body>
 </html>

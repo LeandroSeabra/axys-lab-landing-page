@@ -6,25 +6,42 @@
     <meta name="theme-color" content="#0e1317">
     <meta name="description" content="Axys Safe: investigação geofísica e monitoramento de barragens, taludes e encostas na Amazônia, com campanhas periódicas comparadas no tempo.">
     <title>Axys Safe — Monitoramento de barragens e segurança geológica</title>
+    <link rel="canonical" href="https://axysgeosolucoes.com/safe/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="Axys Geo Soluções">
+    <meta property="og:title" content="Axys Safe — Monitoramento de barragens">
+    <meta property="og:description" content="Campanhas geofísicas periódicas em barragens, taludes e encostas, comparadas no tempo.">
+    <meta property="og:url" content="https://axysgeosolucoes.com/safe/">
+    <meta property="og:image" content="https://axysgeosolucoes.com/assets/og/safe.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "Axys Safe", "serviceType": "Monitoramento geofísico de barragens e taludes", "url": "https://axysgeosolucoes.com/safe/", "provider": {"@type": "ProfessionalService", "name": "Axys Geo Soluções", "url": "https://axysgeosolucoes.com/", "address": {"@type": "PostalAddress", "addressLocality": "Belém", "addressRegion": "PA", "addressCountry": "BR"}}, "areaServed": "Brasil"}</script>
     <link rel="icon" href="../favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@800&family=Onest:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../home.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/widgets.css">
     <link rel="stylesheet" href="safe.css">
     <script>document.documentElement.classList.add('js')</script>
+    <script src="../assets/js/config.js" defer></script>
+    <script src="../assets/js/site.js" defer></script>
     <script src="safe.js" defer></script>
   </head>
-  <body class="safe">
+  <body class="safe" data-wa="Olá! Vim pela página da Axys Safe e gostaria de falar sobre monitoramento.">
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
     <header class="site-header">
       <a class="wordmark" href="#conteudo" aria-label="Axys Safe, início">Axys Safe</a>
-      <nav class="site-nav" aria-label="Seções desta página">
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="site-nav" id="site-nav" aria-label="Seções desta página">
         <a href="#estruturas">O que acompanhamos</a>
-        <a href="#niveis">Níveis de resposta</a>
-        <a href="#ciclo">Como funciona</a>
-        <a class="nav-contact" href="#contato">Contato</a>
+        <a href="#niveis">Níveis</a>
+        <a href="#normas">Normas</a>
+        <a href="#perguntas">Perguntas</a>
+        <a href="#contato">Contato</a>
       </nav>
     </header>
 
@@ -121,15 +138,64 @@
       </section>
 
       <!-- Contato -->
-      <section class="s-contact" id="contato" aria-label="Contato">
-        <div class="s-contact-side">
-          <p class="s-contact-lead">Conte qual estrutura acompanhar e onde. Respondemos com um plano de monitoramento.</p>
-          <a class="s-contact-email" href="mailto:lab@axysgeosolucoes.com?subject=Monitoramento%20%E2%80%94%20Axys%20Safe">lab@axysgeosolucoes.com</a>
-          <p class="s-contact-place">Belém, Pará, Brasil</p>
+      <!-- Estudos de caso: estrutura pronta; substituir pelos casos reais da empresa. -->
+      <section class="section" id="casos" data-ph-block aria-labelledby="casos-title">
+        <div class="section-head">
+          <h2 id="casos-title" class="section-title">Casos</h2>
+          <p><span class="ph-tag">A preencher</span> Estrutura pronta para os casos reais. O cliente pode ficar anônimo.</p>
         </div>
-        <form class="s-form" data-mailto data-subject="Monitoramento — Axys Safe" action="mailto:lab@axysgeosolucoes.com" method="post" enctype="text/plain">
+        <div class="cases" data-reveal-children>
+          <article class="case">
+            <div class="case-head"><h3>Linha de base numa barragem de rejeito</h3><p class="case-meta">Região Sudeste do Pará · ano · <span class="ph-tag">Exemplo ilustrativo</span></p></div>
+            <dl><div><dt>Desafio</dt><dd>Conhecer o estado do maciço antes de um alteamento.</dd></div><div><dt>Solução</dt><dd>Seções de resistividade na crista e nos dois taludes, amarradas aos piezômetros existentes.</dd></div><div><dt>Resultado</dt><dd>Duas zonas úmidas identificadas e incluídas no plano de inspeção.</dd></div></dl>
+          </article>
+          <article class="case">
+            <div class="case-head"><h3>Talude de mina após período chuvoso</h3><p class="case-meta">Município, PA · ano · <span class="ph-tag">Exemplo ilustrativo</span></p></div>
+            <dl><div><dt>Desafio</dt><dd>Entender a água acumulada num talude com trincas recentes.</dd></div><div><dt>Solução</dt><dd>Campanha antes e depois das chuvas nas mesmas linhas.</dd></div><div><dt>Resultado</dt><dd>Zona saturada delimitada; drenagem projetada no trecho indicado.</dd></div></dl>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="normas" aria-labelledby="normas-title">
+        <div class="section-head">
+          <h2 id="normas-title" class="section-title">Normas</h2>
+          <p>As referências técnicas e legais que orientam o planejamento, a execução e os relatórios.</p>
+        </div>
+        <div class="norms" data-reveal-children>
+          <div class="norm"><p class="norm-code">Lei 12.334/2010</p><p>Política Nacional de Segurança de Barragens (PNSB), alterada pela Lei 14.066/2020.</p></div>
+          <div class="norm"><p class="norm-code">Resolução ANM 95/2022</p><p>Regras de segurança para barragens de mineração: plano de segurança, inspeções e revisões periódicas.</p></div>
+          <div class="norm"><p class="norm-code">Plano de Segurança da Barragem</p><p>Os dados geofísicos entram como apoio às inspeções e à revisão periódica de segurança.</p></div>
+          <div class="norm"><p class="norm-code">ASTM D6431</p><p>Guia para o método de eletrorresistividade, usado nas seções de cada campanha.</p></div>
+        </div>
+        <p class="norms-note">A aplicação de cada norma depende do projeto e é definida na proposta.</p>
+      </section>
+
+      <section class="section" id="perguntas" aria-labelledby="faq-title">
+        <h2 id="faq-title" class="section-title" style="margin-bottom: clamp(40px, 5vw, 72px)">Perguntas</h2>
+        <div class="faq" data-reveal-children>
+          <details><summary>A geofísica substitui a instrumentação da barragem?</summary><div><p>Não. Ela complementa piezômetros, marcos e inspeções visuais: mostra o que acontece entre os instrumentos, ao longo de toda a seção.</p></div></details>
+          <details><summary>Com que frequência devem ser feitas as campanhas?</summary><div><p>Depende da estrutura, do histórico e do nível de risco. Em geral, começamos com uma linha de base e definimos o intervalo junto com o responsável pela barragem.</p></div></details>
+          <details><summary>É preciso interromper a operação?</summary><div><p>Não. Os eletrodos são instalados na crista e nos taludes, sem interferir na operação.</p></div></details>
+          <details><summary>Vocês atendem barragens de mineração?</summary><div><p>Sim, e os relatórios são feitos para apoiar o cumprimento das exigências de segurança da ANM.</p></div></details>
+          <details><summary>O que acontece se aparecer uma mudança forte?</summary><div><p>O responsável recebe um relatório imediato com a localização da zona e a recomendação de inspeção, sem esperar o relatório periódico.</p></div></details>
+        </div>
+      </section>
+
+      <section class="contact-block" id="contato" aria-label="Contato">
+        <div class="contact-side">
+          <p class="contact-lead">Conte qual estrutura acompanhar e onde. Respondemos com um plano de monitoramento.</p>
+          <div class="contact-channels">
+            <a class="contact-email" data-mail="safe" data-mail-text data-subject="Monitoramento — Axys Safe" href="mailto:lab@axysgeosolucoes.com">lab@axysgeosolucoes.com</a>
+            <span data-wa-block><a class="text-link" data-wa-link href="#">Conversar pelo WhatsApp</a></span>
+            <a class="text-link" href="../assets/pdf/axys-safe.pdf" download>Baixar a apresentação em PDF</a>
+          </div>
+          <p class="contact-meta">Belém, Pará, Brasil</p>
+          <p class="contact-meta" data-cfg-block>Responsável técnico: <span data-cfg="empresa.responsavelTecnico" data-ph="nome a preencher"></span>, <span data-cfg="empresa.crea" data-ph="CREA a preencher"></span></p>
+        </div>
+        <form class="form" data-form data-area="safe" data-subject="Monitoramento — Axys Safe" action="mailto:lab@axysgeosolucoes.com" method="post" enctype="text/plain">
           <label>Nome<input name="nome" autocomplete="name" required></label>
           <label>Empresa<input name="empresa" autocomplete="organization"></label>
+          <label>E-mail<input name="email" type="email" autocomplete="email" required></label>
           <label>Estrutura
             <select name="estrutura">
               <option>Barragem de rejeito</option>
@@ -140,12 +206,14 @@
               <option>Outra</option>
             </select>
           </label>
-          <label>Local<input name="local" placeholder="Município, estado"></label>
-          <label class="s-full">Situação atual<textarea name="mensagem" rows="4" placeholder="Instrumentação existente, histórico, o que preocupa"></textarea></label>
-          <div class="s-form-actions">
-            <button class="button" type="submit">Escrever e-mail</button>
-            <p>Abre o seu programa de e-mail com a mensagem pronta.</p>
+          <label class="full">Local<input name="local" placeholder="Município, estado"></label>
+          <label class="full">Situação atual<textarea name="mensagem" rows="4" placeholder="Instrumentação existente, histórico, o que preocupa"></textarea></label>
+          <input class="hp" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="form-actions">
+            <button class="button" type="submit">Enviar mensagem</button>
+            <p class="form-status" data-form-status role="status"></p>
           </div>
+          <p class="form-legal">Usamos seus dados só para responder a este contato. <a href="../privacidade/">Política de privacidade</a>.</p>
         </form>
       </section>
     </main>
@@ -159,6 +227,12 @@
           <summary>Créditos das imagens</summary>
           <p class="credits"><a href="https://www.flickr.com/photos/43646190@N08/48910475353">“mine de Carajas”</a> e <a href="https://www.flickr.com/photos/43646190@N08/48910994656">“mine de Carajas”</a> por tongeron91, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>, via Flickr; <a href="https://commons.wikimedia.org/w/index.php?curid=994759">“Laterite formation on basaltic tuff, Madagascar”</a> por Werner Schellmann, <a href="https://creativecommons.org/licenses/by-sa/2.5/">CC BY-SA 2.5</a>, via Wikimedia Commons. A barragem e as campanhas são simulações ilustrativas; as fotos mostram a região e não são da Axys.</p>
         </details>
+      </div>
+      <div class="footer-meta">
+        <span data-cfg-block>CNPJ <span data-cfg="empresa.cnpj" data-ph="a preencher"></span></span>
+        <span data-cfg-block>Responsável técnico <span data-cfg="empresa.responsavelTecnico" data-ph="a preencher"></span></span>
+        <span data-cfg-block><span data-cfg="empresa.crea" data-ph="CREA a preencher"></span></span>
+        <span><a href="../privacidade/">Privacidade</a></span>
       </div>
     </footer>
   </body>
