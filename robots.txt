@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /.claude/
+Disallow: /assets/pdf/src/
 
 Sitemap: https://axysgeosolucoes.com/sitemap.xml
