@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0e1317">
+    <meta name="description" content="Axys Lab, o braço de desenvolvimento de equipamentos da Axys Geo Soluções. Resistivímetro, magnetômetro e gamaespectrômetro para drone, desenvolvidos em Belém do Pará.">
+    <title>Axys Lab — Instrumentos geofísicos do Pará</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@800&family=Onest:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script>document.documentElement.classList.add('js')</script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <header class="site-header" data-header>
+      <a class="wordmark" href="#inicio" aria-label="Axys Lab, início">Axys Lab</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="site-nav" id="site-nav" aria-label="Navegação principal">
+        <a href="#equipamentos">Equipamentos</a>
+        <a href="#altura">Simulação</a>
+        <a href="#desenvolvimento">Desenvolvimento</a>
+        <a href="#aplicacoes">Aplicações</a>
+        <a href="#contato">Contato</a>
+        <a class="nav-parent" href="../">Axys Geo Soluções <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11.5 4.5M5.5 4.5h6v6"/></svg></a>
+      </nav>
+    </header>
+
+    <main id="conteudo">
+      <!-- Hero: a faixa alterna o lugar e a leitura do lugar, da copa até a rocha. -->
+      <section class="hero" id="inicio" aria-labelledby="hero-title">
+        <div class="strip" data-strip tabindex="0" role="region" aria-label="Da copa da floresta até a rocha, com os dados que os instrumentos leem: arraste para o lado">
+          <figure class="frame"><img src="assets/strip/amazonia-horizonte-sm.jpg" srcset="assets/strip/amazonia-horizonte-sm.jpg 1x, assets/strip/amazonia-horizonte.jpg 2x" width="987" height="640" alt="Floresta amazônica contínua até o horizonte"><figcaption>A copa, até o horizonte</figcaption></figure>
+          <figure class="frame"><img src="assets/strip/amazonia-copa-nuvens-sm.jpg" srcset="assets/strip/amazonia-copa-nuvens-sm.jpg 1x, assets/strip/amazonia-copa-nuvens.jpg 2x" width="964" height="640" alt="Sombras de nuvens sobre a copa da floresta amazônica"><figcaption>Sombra de nuvem sobre a floresta</figcaption></figure>
+          <figure class="frame"><img src="assets/strip/carajas-satelite-sm.jpg" srcset="assets/strip/carajas-satelite-sm.jpg 1x, assets/strip/carajas-satelite.jpg 2x" width="874" height="640" alt="Imagem de satélite da mina de Carajás aberta na floresta"><figcaption>Carajás, do satélite</figcaption></figure>
+          <figure class="frame frame-data"><img src="assets/strip/mapa-magnetico-sm.jpg" srcset="assets/strip/mapa-magnetico-sm.jpg 1x, assets/strip/mapa-magnetico.jpg 2x" width="960" height="640" alt="Mapa magnético de campo total com anomalias de baixa latitude e linhas de voo"><figcaption>O que o magnetômetro lê: campo total, simulado</figcaption></figure>
+          <figure class="frame"><img src="assets/strip/carajas-poeira-sm.jpg" srcset="assets/strip/carajas-poeira-sm.jpg 1x, assets/strip/carajas-poeira.jpg 2x" width="962" height="640" alt="Poeira sobre a cava da mina de Carajás ao entardecer"><figcaption>Fim de tarde em Carajás</figcaption></figure>
+          <figure class="frame"><img src="assets/strip/laterita-perfil-sm.jpg" srcset="assets/strip/laterita-perfil-sm.jpg 1x, assets/strip/laterita-perfil.jpg 2x" width="986" height="640" loading="lazy" alt="Corte de terreno mostrando um perfil laterítico vermelho"><figcaption>Perfil laterítico em corte</figcaption></figure>
+          <figure class="frame frame-data"><img src="assets/strip/pseudossecao-sm.jpg" srcset="assets/strip/pseudossecao-sm.jpg 1x, assets/strip/pseudossecao.jpg 2x" width="960" height="640" loading="lazy" alt="Pseudosseção de resistividade com camada laterítica, zona saturada e um corpo condutor"><figcaption>O que o resistivímetro lê: pseudosseção, simulada</figcaption></figure>
+          <figure class="frame"><img src="assets/strip/bif-afloramento-sm.jpg" srcset="assets/strip/bif-afloramento-sm.jpg 1x, assets/strip/bif-afloramento.jpg 2x" width="964" height="640" loading="lazy" alt="Afloramento de formação ferrífera bandada em camadas vermelhas"><figcaption>Formação ferrífera bandada</figcaption></figure>
+          <figure class="frame"><img src="assets/strip/testemunhos-sm.jpg" srcset="assets/strip/testemunhos-sm.jpg 1x, assets/strip/testemunhos.jpg 2x" width="853" height="640" loading="lazy" alt="Caixas com testemunhos de sondagem"><figcaption>Testemunhos de sondagem</figcaption></figure>
+          <figure class="frame frame-data"><img src="assets/strip/ternario-sm.jpg" srcset="assets/strip/ternario-sm.jpg 1x, assets/strip/ternario.jpg 2x" width="960" height="640" loading="lazy" alt="Mapa ternário de potássio, tório e urânio em cores"><figcaption>O que o gamaespectrômetro lê: K, eTh e eU, simulado</figcaption></figure>
+          <figure class="frame"><img src="assets/strip/bif-dobrada-sm.jpg" srcset="assets/strip/bif-dobrada-sm.jpg 1x, assets/strip/bif-dobrada.jpg 2x" width="853" height="640" loading="lazy" alt="Formação ferrífera dobrada e falhada"><figcaption>Rocha dobrada, bilhões de anos</figcaption></figure>
+          <figure class="frame"><img src="assets/strip/carajas-s11d-sm.jpg" srcset="assets/strip/carajas-s11d-sm.jpg 1x, assets/strip/carajas-s11d.jpg 2x" width="962" height="640" loading="lazy" alt="Terraços de minério vermelho na mina S11D, em Carajás"><figcaption>Minério de ferro, S11D</figcaption></figure>
+          <figure class="frame"><img src="assets/strip/argilito-veios-sm.jpg" srcset="assets/strip/argilito-veios-sm.jpg 1x, assets/strip/argilito-veios.jpg 2x" width="1241" height="640" loading="lazy" alt="Rocha escura cortada por veios claros"><figcaption>Veios na rocha escura</figcaption></figure>
+        </div>
+
+        <div class="hero-foot">
+          <div class="hero-copy">
+            <h1 id="hero-title">Instrumentos geofísicos</h1>
+            <p>Resistivímetro e sensores para drone, em desenvolvimento em Belém do Pará, para medir o subsolo onde a floresta não deixa caminhar.</p>
+          </div>
+          <div class="hero-actions">
+            <a class="button" href="#equipamentos">Ver os equipamentos</a>
+            <a class="text-link" href="#altura">Simular um voo</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Intro: a frase fica parada enquanto as imagens passam ao lado. -->
+      <section class="intro" aria-label="Sobre a Axys Lab">
+        <div class="intro-pin">
+          <p class="statement" data-reveal>Projetamos os instrumentos que a equipe da Axys Geo Soluções leva a campo.</p>
+          <p class="intro-body" data-reveal style="--d: 1">A Axys Geo Soluções faz levantamentos geofísicos, com a Axys Geo, e monitora barragens, com a Axys Safe, na Amazônia. O Lab nasceu dessa rotina: desenvolvemos equipamentos pensados para o calor, a umidade, a floresta e a logística da região, e testados pela mesma equipe que depois vai usá-los.</p>
+          <a class="text-link" href="../" data-reveal style="--d: 2">Conhecer a Axys Geo Soluções <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11.5 4.5M5.5 4.5h6v6"/></svg></a>
+        </div>
+        <div class="intro-pictures">
+          <figure class="intro-pic pic-portrait" data-reveal>
+            <img src="assets/sm/drone-campo.jpg" srcset="assets/sm/drone-campo.jpg 800w, assets/drone-campo.jpg 1300w" sizes="(max-width: 760px) 64vw, 30vw" width="1300" height="975" loading="lazy" alt="Drone pousado em campo antes de um voo de levantamento">
+            <figcaption>Drone de levantamento antes da decolagem</figcaption>
+          </figure>
+          <figure class="intro-pic pic-wide" data-reveal>
+            <div class="video-crop">
+              <video src="assets/amazonas-satelite.webm" poster="assets/sm/amazonas-satelite-poster.jpg" width="854" height="480" muted loop playsinline autoplay preload="none" aria-label="Imagem de satélite em movimento do rio Amazonas atravessando a floresta"></video>
+            </div>
+            <figcaption>O rio Amazonas atravessando a floresta, visto pelo satélite GOES</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- Equipamentos: cada instrumento sobre o dado que ele mede. -->
+      <section class="instruments" id="equipamentos" aria-labelledby="equip-title">
+        <div class="instruments-head">
+          <h2 id="equip-title" class="section-title" data-reveal>Três instrumentos</h2>
+          <p data-reveal style="--d: 1">Os três estão em desenvolvimento. Cada um aparece aqui sobre o tipo de dado que produz; desenhos e dados são ilustrativos, e as fotos dos protótipos entram assim que saírem dos testes.</p>
+        </div>
+
+        <article class="instrument" aria-labelledby="spec-res">
+          <figure class="instrument-figure" data-reveal>
+            <svg class="drawing" viewBox="0 0 800 340" role="img" aria-labelledby="res-t">
+              <title id="res-t">Desenho técnico do resistivímetro ligado por cabo multieletrodo a eletrodos cravados no solo</title>
+              <path class="ln dim" d="M0 332H800"/>
+              <path class="ln" d="M56 298H744"/>
+              <g class="ln">
+                <path d="M80 286v54M160 286v54M240 286v54M320 286v54M480 286v54M560 286v54M640 286v54M720 286v54"/>
+              </g>
+              <g class="dot"><circle cx="80" cy="298" r="5"/><circle cx="160" cy="298" r="5"/><circle cx="240" cy="298" r="5"/><circle cx="320" cy="298" r="5"/><circle cx="480" cy="298" r="5"/><circle cx="560" cy="298" r="5"/><circle cx="640" cy="298" r="5"/><circle cx="720" cy="298" r="5"/></g>
+              <path class="ln" d="M400 270v28"/>
+              <rect class="ln body" x="310" y="120" width="180" height="150" rx="10"/>
+              <path class="ln" d="M352 120v-24h96v24"/>
+              <rect class="ln" x="328" y="138" width="104" height="70" rx="3"/>
+              <path class="acc-fill" d="M338 150h84l-22 48h-40z"/>
+              <circle class="ln" cx="458" cy="156" r="10"/>
+              <circle class="ln" cx="458" cy="190" r="10"/>
+              <path class="ln" d="M330 236h14v12h-14zM358 236h14v12h-14zM386 236h14v12h-14zM414 236h14v12h-14zM442 236h14v12h-14z"/>
+              <g class="lbl">
+                <path class="lead" d="M490 150 532 106h12"/><text x="550" y="111">Unidade de controle</text>
+                <path class="lead" d="M120 298 96 250h-8"/><text x="24" y="240">Cabo multieletrodo</text>
+                <path class="lead" d="M720 318 742 262h8"/><text x="676" y="252" text-anchor="start">Eletrodos</text>
+              </g>
+            </svg>
+            <img class="data" src="assets/sm/pseudossecao.jpg" srcset="assets/sm/pseudossecao.jpg 640w, assets/dados/pseudossecao.jpg 960w" sizes="(max-width: 760px) 100vw, 55vw" width="960" height="640" loading="lazy" alt="Pseudosseção de resistividade aparente simulada">
+            <figcaption>Pseudosseção de resistividade aparente, simulada</figcaption>
+          </figure>
+          <div class="instrument-body">
+            <h3 id="spec-res" data-reveal>Resistivímetro</h3>
+            <p data-reveal style="--d: 1">Injeta corrente no solo por um par de eletrodos e mede a diferença de potencial em outros, para montar seções de resistividade elétrica do subsolo.</p>
+            <dl data-reveal style="--d: 2">
+              <div><dt>Método</dt><dd>Eletrorresistividade</dd></div>
+              <div><dt>Mede</dt><dd>Resistividade aparente do subsolo</dd></div>
+              <div><dt>Plataforma</dt><dd>Terrestre, com eletrodos</dd></div>
+              <div><dt>Uso típico</dt><dd>Água subterrânea, barragens, contaminação, geologia rasa</dd></div>
+            </dl>
+            <div class="instrument-actions" data-reveal style="--d: 3">
+              <p class="status">Em desenvolvimento</p>
+              <a class="text-link" href="#contato" data-equip="Resistivímetro">Quero ser avisado</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="instrument" aria-labelledby="spec-mag">
+          <figure class="instrument-figure" data-reveal>
+            <svg class="drawing" viewBox="0 0 800 340" role="img" aria-labelledby="mag-t">
+              <title id="mag-t">Desenho técnico do drone com o sensor magnético suspenso por cabo, sobre a copa da floresta</title>
+              <path class="ln dim" d="M0 334c22-18 40-18 58-4 18-20 42-20 60-2 20-18 44-18 62 0 18-20 44-20 62-2 20-18 42-18 60 0 20-20 44-20 62-2 18-18 42-18 60 0 20-20 44-18 62-2 18-18 42-18 60 0 20-20 42-18 62-2 18-16 40-16 58 0 18-18 40-18 54 0"/>
+              <path class="ln faint" d="M230 80h120M450 80h120"/>
+              <path class="ln faint" d="M366 110 290 92M434 110 510 92"/>
+              <path class="ln" d="M160 88h140M500 88h140"/>
+              <path class="ln" d="M362 114 238 100M438 114 562 100"/>
+              <rect class="ln body" x="222" y="90" width="16" height="14" rx="2"/>
+              <rect class="ln body" x="562" y="90" width="16" height="14" rx="2"/>
+              <rect class="ln body" x="350" y="100" width="100" height="36" rx="14"/>
+              <rect class="ln body" x="372" y="88" width="56" height="14" rx="6"/>
+              <path class="ln" d="M400 88V58"/>
+              <rect class="acc-line" x="382" y="48" width="36" height="10" rx="5"/>
+              <path class="ln" d="M374 136l-18 46M426 136l18 46M330 182h56M414 182h56"/>
+              <path class="ln" d="M400 136v152"/>
+              <rect class="acc-line acc-soft" x="330" y="288" width="140" height="24" rx="12"/>
+              <path class="acc-line" d="M470 292l26-10v40l-26-10"/>
+              <g class="lbl">
+                <path class="lead" d="M418 53 452 34h10"/><text x="468" y="39">Antena GNSS</text>
+                <path class="lead" d="M400 228 436 228"/><text x="444" y="233">Cabo de suspensão</text>
+                <path class="lead" d="M330 300 290 268h-10"/><text x="132" y="258">Sensor magnético</text>
+              </g>
+            </svg>
+            <img class="data" src="assets/sm/mapa-magnetico.jpg" srcset="assets/sm/mapa-magnetico.jpg 640w, assets/dados/mapa-magnetico.jpg 960w" sizes="(max-width: 760px) 100vw, 55vw" width="960" height="640" loading="lazy" alt="Mapa magnético de campo total simulado, com linhas de voo">
+            <figcaption>Mapa magnético de campo total com linhas de voo, simulado</figcaption>
+          </figure>
+          <div class="instrument-body">
+            <h3 id="spec-mag" data-reveal>Magnetômetro para drone</h3>
+            <p data-reveal style="--d: 1">Sensor suspenso abaixo do drone, longe da interferência dos motores, que registra variações do campo magnético da Terra ao longo das linhas de voo.</p>
+            <dl data-reveal style="--d: 2">
+              <div><dt>Método</dt><dd>Magnetometria</dd></div>
+              <div><dt>Mede</dt><dd>Intensidade do campo magnético total</dd></div>
+              <div><dt>Plataforma</dt><dd>Drone multirrotor</dd></div>
+              <div><dt>Uso típico</dt><dd>Pesquisa mineral, mapeamento de estruturas, alvos rasos</dd></div>
+            </dl>
+            <div class="instrument-actions" data-reveal style="--d: 3">
+              <p class="status">Em desenvolvimento</p>
+              <a class="text-link" href="#contato" data-equip="Magnetômetro para drone">Quero ser avisado</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="instrument" aria-labelledby="spec-gam">
+          <figure class="instrument-figure" data-reveal>
+            <svg class="drawing" viewBox="0 0 800 340" role="img" aria-labelledby="gam-t">
+              <title id="gam-t">Desenho técnico do drone com o detector de raios gama sob o corpo, sobre a copa da floresta</title>
+              <path class="ln dim" d="M0 334c22-18 40-18 58-4 18-20 42-20 60-2 20-18 44-18 62 0 18-20 44-20 62-2 20-18 42-18 60 0 20-20 44-20 62-2 18-18 42-18 60 0 20-20 44-18 62-2 18-18 42-18 60 0 20-20 42-18 62-2 18-16 40-16 58 0 18-18 40-18 54 0"/>
+              <g class="acc-dash"><path d="M300 318 382 196"/><path d="M400 318V196"/><path d="M500 318 418 196"/><path d="M230 326 372 200"/><path d="M570 326 428 200"/></g>
+              <path class="ln faint" d="M230 80h120M450 80h120"/>
+              <path class="ln faint" d="M366 110 290 92M434 110 510 92"/>
+              <path class="ln" d="M160 88h140M500 88h140"/>
+              <path class="ln" d="M362 114 238 100M438 114 562 100"/>
+              <rect class="ln body" x="222" y="90" width="16" height="14" rx="2"/>
+              <rect class="ln body" x="562" y="90" width="16" height="14" rx="2"/>
+              <rect class="ln body" x="350" y="100" width="100" height="36" rx="14"/>
+              <rect class="ln body" x="372" y="88" width="56" height="14" rx="6"/>
+              <path class="ln" d="M400 88V58"/>
+              <rect class="acc-line" x="382" y="48" width="36" height="10" rx="5"/>
+              <path class="ln" d="M366 136l-26 60M434 136l26 60M310 196h60M430 196h60"/>
+              <rect class="acc-line acc-soft" x="352" y="142" width="96" height="48" rx="4"/>
+              <rect class="acc-line" x="364" y="154" width="72" height="14" rx="2"/>
+              <g class="lbl">
+                <path class="lead" d="M418 53 452 34h10"/><text x="468" y="39">Antena GNSS</text>
+                <path class="lead" d="M448 166 540 166"/><text x="548" y="171">Detector de raios gama</text>
+                <path class="lead" d="M250 318 196 262h-8"/><text x="60" y="252">Radiação natural do solo</text>
+              </g>
+            </svg>
+            <img class="data" src="assets/sm/ternario.jpg" srcset="assets/sm/ternario.jpg 640w, assets/dados/ternario.jpg 960w" sizes="(max-width: 760px) 100vw, 55vw" width="960" height="640" loading="lazy" alt="Mapa ternário simulado de potássio, tório e urânio">
+            <figcaption>Mapa ternário de potássio, tório e urânio, simulado</figcaption>
+          </figure>
+          <div class="instrument-body">
+            <h3 id="spec-gam" data-reveal>Gamaespectrômetro para drone</h3>
+            <p data-reveal style="--d: 1">Detector que conta os raios gama emitidos naturalmente pelas rochas e solos e separa a contribuição de potássio, tório e urânio.</p>
+            <dl data-reveal style="--d: 2">
+              <div><dt>Método</dt><dd>Gamaespectrometria</dd></div>
+              <div><dt>Mede</dt><dd>Radioatividade natural: K, eTh e eU</dd></div>
+              <div><dt>Plataforma</dt><dd>Drone multirrotor</dd></div>
+              <div><dt>Uso típico</dt><dd>Mapeamento geológico, alteração hidrotermal, solos</dd></div>
+            </dl>
+            <div class="instrument-actions" data-reveal style="--d: 3">
+              <p class="status">Em desenvolvimento</p>
+              <a class="text-link" href="#contato" data-equip="Gamaespectrômetro para drone">Quero ser avisado</a>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- O elemento interativo: altura de voo x anomalia magnética. -->
+      <section class="altitude" id="altura" aria-labelledby="alt-title">
+        <h2 id="alt-title" class="section-title" data-reveal>Mais alto, mais fraco</h2>
+        <div class="altitude-copy">
+          <p data-reveal style="--d: 1">O sinal de um corpo magnético enfraquece rápido com a distância. Por isso o drone voa baixo, logo acima da copa, onde um avião não consegue chegar. Arraste e veja o que acontece com a leitura.</p>
+          <p class="altitude-note" data-reveal style="--d: 2">No norte do Brasil o campo magnético da Terra é quase horizontal, e a anomalia de um corpo aparece como um baixo com dois altos dos lados, e não como um pico. Simulação de uma esfera a 40 m de profundidade, com inclinação de −5°. Valores ilustrativos.</p>
+        </div>
+
+        <div class="altitude-lab" data-altitude data-reveal style="--d: 1">
+          <svg class="altitude-plot" viewBox="0 0 800 480" role="img" aria-labelledby="plot-t plot-d">
+            <title id="plot-t">Perfil da anomalia magnética medida pelo drone</title>
+            <desc id="plot-d">Em cima, a curva da anomalia magnética ao longo de 600 metros. Embaixo, o drone sobre a floresta e o corpo enterrado. Quanto maior a altura de voo, menor e mais larga a curva.</desc>
+            <rect x="0" y="0" width="800" height="262" fill="#172027"/>
+            <g class="grid">
+              <path d="M0 20H800M0 120H800M0 170H800M0 220H800"/>
+              <path class="grid-zero" d="M0 70H800"/>
+            </g>
+            <g class="axis">
+              <text x="12" y="16">+100 nT</text>
+              <text x="12" y="66">0</text>
+              <text x="12" y="116">−100</text>
+              <text x="12" y="166">−200</text>
+              <text x="12" y="216">−300</text>
+              <text x="12" y="252">−300 m</text>
+              <text x="400" y="252" text-anchor="middle">corpo</text>
+              <text x="788" y="252" text-anchor="end">+300 m</text>
+            </g>
+            <path class="plot-curve" data-curve d="M0.0 68.9L5.3 68.9L10.7 68.9L16.0 68.8L21.3 68.8L26.7 68.7L32.0 68.7L37.3 68.6L42.7 68.6L48.0 68.5L53.3 68.5L58.7 68.4L64.0 68.4L69.3 68.3L74.7 68.2L80.0 68.2L85.3 68.1L90.7 68.0L96.0 67.9L101.3 67.8L106.7 67.7L112.0 67.6L117.3 67.5L122.7 67.4L128.0 67.3L133.3 67.2L138.7 67.0L144.0 66.9L149.3 66.8L154.7 66.6L160.0 66.5L165.3 66.3L170.7 66.1L176.0 66.0L181.3 65.8L186.7 65.6L192.0 65.4L197.3 65.2L202.7 64.9L208.0 64.7L213.3 64.5L218.7 64.2L224.0 64.0L229.3 63.8L234.7 63.5L240.0 63.3L245.3 63.1L250.7 62.9L256.0 62.7L261.3 62.6L266.7 62.5L272.0 62.4L277.3 62.5L282.7 62.7L288.0 63.0L293.3 63.4L298.7 64.1L304.0 65.0L309.3 66.2L314.7 67.7L320.0 69.6L325.3 72.0L330.7 74.8L336.0 78.1L341.3 81.9L346.7 86.3L352.0 91.1L357.3 96.2L362.7 101.5L368.0 106.7L373.3 111.6L378.7 115.9L384.0 119.2L389.3 121.4L394.7 122.1L400.0 121.3L405.3 119.0L410.7 115.3L416.0 110.5L421.3 104.9L426.7 98.8L432.0 92.5L437.3 86.4L442.7 80.6L448.0 75.4L453.3 70.9L458.7 67.0L464.0 63.8L469.3 61.2L474.7 59.3L480.0 57.8L485.3 56.8L490.7 56.1L496.0 55.7L501.3 55.6L506.7 55.7L512.0 55.9L517.3 56.3L522.7 56.7L528.0 57.1L533.3 57.6L538.7 58.1L544.0 58.7L549.3 59.2L554.7 59.7L560.0 60.2L565.3 60.7L570.7 61.2L576.0 61.7L581.3 62.1L586.7 62.5L592.0 62.9L597.3 63.3L602.7 63.6L608.0 64.0L613.3 64.3L618.7 64.6L624.0 64.8L629.3 65.1L634.7 65.4L640.0 65.6L645.3 65.8L650.7 66.0L656.0 66.2L661.3 66.4L666.7 66.6L672.0 66.7L677.3 66.9L682.7 67.0L688.0 67.2L693.3 67.3L698.7 67.4L704.0 67.5L709.3 67.6L714.7 67.7L720.0 67.8L725.3 67.9L730.7 68.0L736.0 68.1L741.3 68.2L746.7 68.2L752.0 68.3L757.3 68.4L762.7 68.4L768.0 68.5L773.3 68.6L778.7 68.6L784.0 68.7L789.3 68.7L794.7 68.8L800.0 68.8" fill="none" stroke="#7cc6c2" stroke-width="4" stroke-linejoin="round"/>
+            <rect x="0" y="276" width="800" height="204" fill="#121a20"/>
+            <path d="M0 410c30-24 60-6 60-6s28-22 58-4 34-24 62-4 30-22 58-2 34-26 64-4 28-22 58-2 32-24 62-4 28-22 58-2 32-26 62-4 28-22 58-2 30-24 60-2 28-20 58-2 32-22 62-2V430H0Z" fill="#17291f"/>
+            <rect x="0" y="426" width="800" height="54" fill="#3b2a1f"/>
+            <circle cx="400" cy="460" r="16" fill="#9a5a3a"/>
+            <g class="plot-drone" data-drone transform="translate(0 382.9)">
+              <path d="M368 0h64" stroke="#d9e1e5" stroke-width="5" stroke-linecap="round"/>
+              <path d="M342-6h44M414-6h44" stroke="#d9e1e5" stroke-width="2.5" stroke-linecap="round"/>
+              <rect x="387" y="-4" width="26" height="12" rx="4" fill="#e3e7ea"/>
+            </g>
+          </svg>
+          <div class="altitude-controls">
+            <label for="alt-range">Altura de voo sobre o terreno: <output id="alt-out" for="alt-range">30 m</output></label>
+            <input id="alt-range" type="range" min="10" max="150" step="5" value="30">
+            <p class="altitude-readout"><span>Amplitude pico a pico</span> <strong data-amp>133 nT</strong></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Desenvolvimento: imagens em diagonal. -->
+      <section class="process" id="desenvolvimento" aria-labelledby="proc-title">
+        <h2 id="proc-title" class="section-title" data-reveal>Do campo à bancada</h2>
+        <div class="stage stage-1">
+          <figure data-reveal><img src="assets/carajas-poeira.jpg" width="1024" height="681" loading="lazy" alt="Cava de mina com poeira ao entardecer, em Carajás"></figure>
+          <p data-reveal style="--d: 1"><strong>Primeiro, no campo.</strong> Cada projeto começa num levantamento da Axys Geo Soluções: o que precisa ser medido, a que profundidade, em que terreno, com que calor e com que acesso. Isso vira a lista de requisitos do equipamento.</p>
+        </div>
+        <div class="stage stage-2">
+          <figure data-reveal><img src="assets/sm/perfis.jpg" srcset="assets/sm/perfis.jpg 800w, assets/dados/perfis.jpg 1200w" sizes="(max-width: 760px) 62vw, 24vw" width="1200" height="900" loading="lazy" alt="Perfis magnéticos simulados empilhados, com a anomalia de um corpo no centro"></figure>
+          <p data-reveal style="--d: 1"><strong>Depois, na bancada em Belém.</strong> Eletrônica, firmware, carcaça e calibração são desenvolvidos pelo Lab. Cada versão é testada contra respostas conhecidas, como estes perfis magnéticos simulados, antes de sair da bancada.</p>
+        </div>
+        <div class="stage stage-3">
+          <figure data-reveal><img src="assets/sm/amazonia-copa-nuvens.jpg" srcset="assets/sm/amazonia-copa-nuvens.jpg 800w, assets/amazonia-copa-nuvens.jpg 1600w" sizes="(max-width: 760px) 78vw, 40vw" width="1600" height="1062" loading="lazy" alt="Copa da floresta amazônica com sombras de nuvens"></figure>
+          <p data-reveal style="--d: 1"><strong>Por fim, de volta ao campo.</strong> O protótipo voa e mede em levantamentos reais da Axys Geo, ao lado de equipamentos consolidados. Só depois de passar por isso ele fica pronto para outros clientes.</p>
+        </div>
+      </section>
+
+      <!-- Aplicações: imagem fixa e lista ativa. -->
+      <section class="uses" id="aplicacoes" aria-labelledby="uses-title">
+        <h2 id="uses-title" class="section-title" data-reveal>Onde medir</h2>
+        <div class="uses-body">
+          <div class="uses-picture" aria-hidden="true">
+            <img data-use-img="0" class="is-active" src="assets/carajas-s11d.jpg" width="1024" height="681" loading="lazy" alt="">
+            <img data-use-img="1" src="assets/sm/bif-dobrada.jpg" srcset="assets/sm/bif-dobrada.jpg 800w, assets/bif-dobrada.jpg 1600w" sizes="(max-width: 760px) 100vw, 40vw" width="1600" height="1200" loading="lazy" alt="">
+            <img data-use-img="2" src="assets/sm/amazonia-rio.jpg" srcset="assets/sm/amazonia-rio.jpg 800w, assets/amazonia-rio.jpg 1600w" sizes="(max-width: 760px) 100vw, 40vw" width="1600" height="982" loading="lazy" alt="">
+            <img data-use-img="3" src="assets/carajas-cava.jpg" width="1024" height="681" loading="lazy" alt="">
+            <img data-use-img="4" src="assets/sm/amazonia-rio-escuro.jpg" srcset="assets/sm/amazonia-rio-escuro.jpg 800w, assets/amazonia-rio-escuro.jpg 1600w" sizes="(max-width: 760px) 100vw, 40vw" width="1600" height="1062" loading="lazy" alt="">
+            <img data-use-img="5" src="assets/testemunhos.jpg" width="1024" height="768" loading="lazy" alt="">
+          </div>
+          <div class="uses-list">
+            <ul>
+              <li class="use is-active" data-use="0">
+                <button type="button" aria-expanded="true"><span class="use-name">Pesquisa mineral</span><span class="use-method">Magnetometria, gama</span></button>
+                <p>Delimitar alvos de ferro, cobre, ouro e outros metais em províncias como Carajás, com voos baixos e linhas próximas.</p>
+              </li>
+              <li class="use" data-use="1">
+                <button type="button" aria-expanded="false"><span class="use-name">Mapeamento geológico</span><span class="use-method">Gama, magnetometria</span></button>
+                <p>Separar litologias, seguir falhas e contatos e mapear alteração hidrotermal sob solo e vegetação.</p>
+              </li>
+              <li class="use" data-use="2">
+                <button type="button" aria-expanded="false"><span class="use-name">Água subterrânea</span><span class="use-method">Resistividade</span></button>
+                <p>Localizar aquíferos, estimar a espessura de sedimentos e escolher onde perfurar poços.</p>
+              </li>
+              <li class="use" data-use="3">
+                <button type="button" aria-expanded="false"><span class="use-name">Barragens e geotecnia</span><span class="use-method">Resistividade</span></button>
+                <p>Investigar fundações, zonas de percolação e umidade em maciços de barragens, a área em que a Axys Geo já atua com monitoramento.</p>
+              </li>
+              <li class="use" data-use="4">
+                <button type="button" aria-expanded="false"><span class="use-name">Meio ambiente</span><span class="use-method">Resistividade, gama</span></button>
+                <p>Mapear plumas de contaminação, áreas de disposição de resíduos e solos alterados.</p>
+              </li>
+              <li class="use" data-use="5">
+                <button type="button" aria-expanded="false"><span class="use-name">Pesquisa e ensino</span><span class="use-method">Todos os métodos</span></button>
+                <p>Equipamentos para universidades e institutos que trabalham com geofísica aplicada na Amazônia.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contato: o e-mail como título e um formulário que escreve o e-mail. -->
+      <section class="contact" id="contato" aria-label="Contato">
+        <div class="contact-side">
+          <p class="contact-lead">Conte o que você precisa medir e onde. Respondemos com o que o Lab pode fazer.</p>
+          <div class="contact-channel">
+            <a class="contact-email" href="mailto:lab@axysgeosolucoes.com?subject=Contato%20pelo%20site%20Axys%20Lab">lab@axysgeosolucoes.com</a>
+            <button class="copy-button" type="button" data-copy="lab@axysgeosolucoes.com"><span data-copy-label>Copiar e-mail</span></button>
+          </div>
+          <!-- TODO: telefone/WhatsApp e redes sociais, quando o cliente enviar. -->
+          <p class="contact-place">Belém, Pará, Brasil</p>
+          <a class="text-link" href="../">Axys Geo Soluções <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11.5 4.5M5.5 4.5h6v6"/></svg></a>
+        </div>
+
+        <form class="contact-form" data-mailto action="mailto:lab@axysgeosolucoes.com" method="post" enctype="text/plain">
+          <label>Nome<input name="nome" autocomplete="name" required></label>
+          <label>Empresa ou instituição<input name="empresa" autocomplete="organization"></label>
+          <label>Equipamento de interesse
+            <select name="equipamento" data-equip-select>
+              <option>Ainda não sei</option>
+              <option>Resistivímetro</option>
+              <option>Magnetômetro para drone</option>
+              <option>Gamaespectrômetro para drone</option>
+            </select>
+          </label>
+          <label>Aplicação
+            <select name="aplicacao">
+              <option>Pesquisa mineral</option>
+              <option>Mapeamento geológico</option>
+              <option>Água subterrânea</option>
+              <option>Barragens e geotecnia</option>
+              <option>Meio ambiente</option>
+              <option>Pesquisa e ensino</option>
+              <option>Outra</option>
+            </select>
+          </label>
+          <label class="field-full">O que você precisa medir, e onde<textarea name="mensagem" rows="4"></textarea></label>
+          <div class="form-actions">
+            <button class="button" type="submit">Escrever e-mail</button>
+            <p class="form-note">Abre o seu programa de e-mail com a mensagem pronta para enviar.</p>
+          </div>
+        </form>
+
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-cols">
+        <div>
+          <p class="footer-head">Axys Lab</p>
+          <p>Desenvolvimento de equipamentos da Axys Geo Soluções.</p>
+          <p>Belém, Pará, Brasil</p>
+        </div>
+        <nav aria-label="Navegação do rodapé">
+          <p class="footer-head">Nesta página</p>
+          <a href="#equipamentos">Equipamentos</a>
+          <a href="#altura">Simulação</a>
+          <a href="#desenvolvimento">Desenvolvimento</a>
+          <a href="#aplicacoes">Aplicações</a>
+          <a href="#contato">Contato</a>
+        </nav>
+        <div>
+          <p class="footer-head">Contato</p>
+          <a href="mailto:lab@axysgeosolucoes.com">lab@axysgeosolucoes.com</a>
+          <a href="../">axysgeosolucoes.com</a>
+        </div>
+        <div class="footer-credits">
+          <p class="footer-head">Imagens</p>
+          <p>As fotos mostram a região e a geologia em que trabalhamos; não são fotos da Axys nem dos nossos equipamentos. Mapas, perfis e desenhos são simulações feitas para este site.</p>
+          <details>
+            <summary>Créditos das imagens</summary>
+            <p class="credits">Fotos e vídeo: <a href="https://commons.wikimedia.org/w/index.php?curid=18572902">“Aerial view of the Amazon Rainforest”</a> por lubasi, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>, via Wikimedia Commons; <a href="https://commons.wikimedia.org/w/index.php?curid=28394053">“Amazon CIAT (5)”</a> e <a href="https://commons.wikimedia.org/w/index.php?curid=28393993">“Amazon CIAT (3)”</a> por Neil Palmer/CIAT, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>, via Wikimedia Commons; <a href="https://commons.wikimedia.org/w/index.php?curid=30331016">“Amazon14”</a> por CIAT, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>, via Wikimedia Commons; <a href="https://commons.wikimedia.org/w/index.php?curid=97551129">“Carajas Mine”</a> por Pierre Markuse, <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a>, via Wikimedia Commons; <a href="https://www.flickr.com/photos/43646190@N08/48910994656">“mine de Carajas”</a>, <a href="https://www.flickr.com/photos/43646190@N08/48944889861">“mine de fer S11D”</a> e <a href="https://www.flickr.com/photos/43646190@N08/48910475353">“mine de Carajas”</a> por tongeron91, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>, via Flickr; <a href="https://commons.wikimedia.org/w/index.php?curid=30889569">“Banded iron formation Dales Gorge”</a> por Graeme Churchard, <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a>, via Wikimedia Commons; <a href="https://commons.wikimedia.org/w/index.php?curid=82969891">“Folded-faulted banded iron formation”</a> e <a href="https://commons.wikimedia.org/w/index.php?curid=84626618">“Sulfidic argillite”</a> por James St. John, <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a>, via Wikimedia Commons; <a href="https://www.rawpixel.com/image/6034980/photo-image-public-domain-free-boxes">“Mining drill cores box”</a>, <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>, via rawpixel; <a href="https://www.rawpixel.com/image/4057860/photo-image-public-domain-nature">“Unmanned Aircraft System (UAS)”</a> por U.S. Forest Service, <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>, via rawpixel; <a href="https://commons.wikimedia.org/w/index.php?curid=994759">“Laterite formation on basaltic tuff, Madagascar”</a> por Werner Schellmann, <a href="https://creativecommons.org/licenses/by-sa/2.5/">CC BY-SA 2.5</a>, via Wikimedia Commons; <a href="https://commons.wikimedia.org/wiki/File:Amazon_River_Snakes_Through_the_Rainforest_(CIRA_2026-07-08_-_nolabels).webm">“Amazon River Snakes Through the Rainforest”</a>, imagem GOES: CSU/CIRA e NOAA, <a href="https://creativecommons.org/publicdomain/mark/1.0/">domínio público</a>, via Wikimedia Commons. Imagens redimensionadas e recortadas para o site.</p>
+          </details>
+        </div>
+      </div>
+      <p class="footer-mark" aria-hidden="true">AXYS LAB</p>
+      <p class="legal">© <span data-year>2026</span> Axys Geo Soluções. Equipamentos em desenvolvimento; características sujeitas a alteração.</p>
+    </footer>
+  </body>
+</html>
