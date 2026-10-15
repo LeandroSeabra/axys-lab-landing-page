@@ -235,44 +235,12 @@ document.addEventListener("keydown", (event) => { if (event.key === "Escape" && 
   }, { rootMargin: "200px 0px" }).observe(video);
 })();
 
-// Contato: copiar o e-mail, e o formulário que escreve a mensagem no programa de e-mail.
+// "Quero ser avisado" e "Quero participar do piloto" já deixam o assunto escolhido no formulário.
+// (Copiar o e-mail e enviar o formulário ficam em assets/js/site.js.)
 (() => {
-  const copy = document.querySelector("[data-copy]");
-  if (copy && navigator.clipboard) {
-    const label = copy.querySelector("[data-copy-label]");
-    let timer;
-    copy.addEventListener("click", async () => {
-      try {
-        await navigator.clipboard.writeText(copy.dataset.copy);
-        copy.setAttribute("data-copied", "");
-        label.textContent = "E-mail copiado";
-        clearTimeout(timer);
-        timer = setTimeout(() => { copy.removeAttribute("data-copied"); label.textContent = "Copiar e-mail"; }, 2200);
-      } catch { label.textContent = "Selecione e copie o endereço acima"; }
-    });
-  } else if (copy) {
-    copy.hidden = true;
-  }
-
-  const form = document.querySelector("[data-mailto]");
-  if (!form) return;
-  const select = form.querySelector("[data-equip-select]");
+  const select = document.querySelector("[data-equip-select]");
+  if (!select) return;
   document.querySelectorAll("[data-equip]").forEach((link) => {
     link.addEventListener("click", () => { select.value = link.dataset.equip; });
-  });
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    if (!form.reportValidity()) return;
-    const data = new FormData(form);
-    const subject = `${data.get("equipamento")} — contato pelo site Axys Lab`;
-    const body = [
-      `Nome: ${data.get("nome")}`,
-      `Empresa ou instituição: ${data.get("empresa") || "—"}`,
-      `Equipamento de interesse: ${data.get("equipamento")}`,
-      `Aplicação: ${data.get("aplicacao")}`,
-      "",
-      data.get("mensagem") || "",
-    ].join("\n");
-    window.location.href = `mailto:lab@axysgeosolucoes.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   });
 })();

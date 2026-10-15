@@ -704,3 +704,48 @@ html:not(.js) .use p { max-height: none; opacity: 1; padding-bottom: 20px; }
   .footer-cols > *, .footer-cols > .footer-credits { grid-column: span 6; }
   .footer-cols > .footer-credits { grid-column: 1 / -1; }
 }
+
+/* ---------- Programa piloto, ficha técnica e perguntas ---------- */
+.pilot { display: grid; grid-template-columns: repeat(12, 1fr); column-gap: var(--gap); align-items: start; padding: var(--section) var(--m) 0; }
+.pilot-head { grid-column: 1 / 5; display: grid; gap: 20px; justify-items: start; }
+.pilot-body { grid-column: 6 / 13; display: grid; gap: 36px; justify-items: start; }
+.pilot-body .statement { max-width: 28ch; }
+.pilot-terms { margin: 0; display: grid; gap: 22px; }
+.pilot-terms div { display: grid; grid-template-columns: 10rem 1fr; gap: 16px; }
+.pilot-terms dt { color: var(--accent); font-weight: 500; }
+.pilot-terms dd { margin: 0; max-width: 52ch; }
+
+.spec-sheet { padding: var(--section) var(--m) 0; }
+.spec-sheet .section-title { margin-bottom: 16px; }
+.spec-sheet-note { color: var(--muted); margin-bottom: 40px; }
+.spec-table { overflow-x: auto; }
+.spec-table table { width: 100%; min-width: 640px; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.spec-table th, .spec-table td { text-align: left; padding: 16px 16px 16px 0; border-bottom: 1px solid var(--line); }
+.spec-table thead th { color: var(--muted); font-weight: 500; }
+.spec-table tbody th { font-weight: 500; }
+
+.lab-faq { padding: var(--section) var(--m) 0; }
+.lab-faq .section-title { margin-bottom: clamp(40px, 5vw, 72px); }
+.faq { display: grid; gap: 6px; max-width: 1080px; }
+.faq details { background: var(--surface); }
+.faq summary { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 64px; padding: 18px clamp(20px, 2.4vw, 32px); font-weight: 500; cursor: pointer; list-style: none; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; flex: none; font-size: 1.5em; line-height: 1; color: var(--accent); transition: transform 200ms var(--ease-out); }
+.faq details[open] summary::after { transform: rotate(45deg); }
+.faq details > div { padding: 0 clamp(20px, 2.4vw, 32px) 24px; color: var(--muted); }
+.faq details > div p { max-width: 58ch; }
+
+.site-nav .lang { color: var(--muted); }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; } /* taste-skill-ignore: campo-isca invisível contra spam */
+.form-status[data-kind="ok"] { color: var(--accent); }
+.form-legal { grid-column: 1 / -1; max-width: 64ch; }
+.form-legal a { color: var(--ink); }
+.contact-side [data-wa-block], .contact-side p:has(> a[download]) { margin: 0; }
+
+@media (max-width: 1080px) {
+  .pilot-head, .pilot-body { grid-column: 1 / -1; }
+  .pilot-body { margin-top: 40px; }
+}
+@media (max-width: 760px) {
+  .pilot-terms div { grid-template-columns: 1fr; gap: 6px; }
+}
