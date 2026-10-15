@@ -36,8 +36,26 @@ const TARGETS = {
   },
 };
 
+// Versão em inglês (página en/geo): mesmos valores, outros textos.
+const EN = (document.documentElement.lang || "").startsWith("en");
+if (EN) {
+  const T = {
+    agua: ["Groundwater", "Water makes the ground more conductive: resistivity drops where it is.", "Water is not magnetic; the field does not change.", "It reads only the surface; it notices water only if it changes the topsoil."],
+    ferro: ["Iron ore", "Massive ore tends to be more conductive than the host rock.", "Magnetite in the ore distorts the field; near the magnetic equator it shows as a low flanked by two highs.", "Iron formations carry little radioactivity; the response is a slight low."],
+    falha: ["Fault or contact", "A fault separates different materials and often carries water: resistivity changes from one side to the other.", "Rocks with different magnetisation on each side create a step in the field.", "If the contact separates different rocks at surface, radiometrics changes too."],
+    argila: ["Clay and contamination", "Clay and saline plumes are highly conductive: the most direct method for this target.", "Without magnetic minerals, the field barely changes.", "Clays hold potassium and thorium; radiometrics rises where they crop out."],
+    alteracao: ["Hydrothermal alteration", "Altered, fractured zones tend to be somewhat more conductive.", "Alteration destroys magnetite: a magnetic low appears over the zone.", "Potassic alteration enriches the soil in potassium: the clearest signal for this target."],
+  };
+  Object.entries(T).forEach(([k, [label, res, mag, gam]]) => {
+    TARGETS[k].label = label;
+    TARGETS[k].res.text = res;
+    TARGETS[k].mag.text = mag;
+    TARGETS[k].gam.text = gam;
+  });
+}
+
 const level = (amp) => { const a = Math.abs(amp); return a > 0.7 ? 3 : a > 0.3 ? 2 : a > 0.12 ? 1 : 0; };
-const VERDICT = ["Não responde", "Responde pouco", "Responde", "Responde forte"];
+const VERDICT = EN ? ["No response", "Weak response", "Responds", "Strong response"] : ["Não responde", "Responde pouco", "Responde", "Responde forte"];
 
 // Perfil em 600 × 120; o eixo fica em y = 60 e a amplitude máxima ocupa 48 px.
 const profile = ({ amp, shape }) => {

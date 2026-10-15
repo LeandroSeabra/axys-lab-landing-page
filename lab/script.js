@@ -14,7 +14,7 @@ const setMenu = (open) => {
   menuOpen = open;
   menuButton.setAttribute("aria-expanded", String(open));
   siteNav.classList.toggle("is-open", open);
-  menuButton.textContent = open ? "Fechar" : "Menu";
+  menuButton.textContent = open ? menuButton.dataset.close || "Fechar" : menuButton.dataset.open || "Menu";
   document.body.style.overflow = open ? "hidden" : "";
   if (open) header.classList.remove("is-hidden");
 };
