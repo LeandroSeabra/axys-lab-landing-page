@@ -304,5 +304,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 @media (max-width: 600px) {
   .norm { grid-template-columns: 1fr; }
   .case dl { grid-template-columns: 1fr; }
+  .case-head h3 { font-size: 1.125rem; }
+  .stats { grid-template-columns: 1fr; }
   .form { grid-template-columns: 1fr; }
 }
