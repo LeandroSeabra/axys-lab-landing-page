@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /.claude/
+
+Sitemap: https://axysgeosolucoes.com/sitemap.xml
