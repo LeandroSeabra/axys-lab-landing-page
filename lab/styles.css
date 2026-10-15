@@ -22,7 +22,7 @@
   --step-body: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
   --step-lead: clamp(1.25rem, 0.9rem + 1.2vw, 2rem);
   --step-head: clamp(1.625rem, 0.9rem + 3.1vw, 4rem);
-  --step-display: clamp(2rem, 7vw, 6.5rem);
+  --step-display: clamp(1.625rem, 7vw, 6.5rem);
 
   --m: max(clamp(20px, 5vw, 72px), (100vw - 1560px) / 2);
   --gap: clamp(16px, 2vw, 28px);
@@ -160,6 +160,9 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .site-header.is-hidden { transform: translateY(-100%); transition-duration: 200ms; }
 
 .wordmark {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   font-family: var(--font-display);
   font-weight: 800;
   font-size: 1.0625rem;
