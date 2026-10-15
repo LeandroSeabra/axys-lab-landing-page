@@ -186,7 +186,7 @@ a { color: inherit; }
 
 /* Rodapé */
 .site-footer { padding: 72px var(--m) 28px; background: var(--footer); color: var(--muted); font-size: var(--step-small); }
-.footer-mark { font-family: var(--font-display); font-weight: 800; font-size: var(--step-head); line-height: 1; letter-spacing: -0.03em; color: var(--ink); }
+.footer-mark { font-family: var(--font-display); font-weight: 800; font-size: var(--step-head); line-height: 1; letter-spacing: -0.03em; text-transform: uppercase; color: var(--ink); }
 .footer-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px 40px; margin-top: 40px; }
 .footer-row details { max-width: 60ch; }
 .footer-row summary { cursor: pointer; color: var(--ink); min-height: 32px; display: flex; align-items: center; }
