@@ -231,6 +231,16 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .case dt { color: var(--accent); font-weight: 500; margin-bottom: 6px; }
 .case dd { margin: 0; color: var(--muted); max-width: 40ch; }
 
+/* Experiência da equipe (enquanto a empresa não tem projetos próprios) */
+.xp { display: grid; grid-template-columns: repeat(12, 1fr); column-gap: var(--gap); align-items: start; }
+.xp-statement { grid-column: 1 / 5; font-size: var(--step-lead); line-height: 1.25; font-weight: 500; color: var(--accent); max-width: 16ch; }
+.xp-list { grid-column: 6 / 13; margin: 0; display: grid; gap: 0; }
+.xp-list div { display: grid; grid-template-columns: minmax(180px, 0.9fr) 1.6fr; gap: 8px var(--gap); padding: 18px 0; }
+.xp-list dt { font-weight: 500; }
+.xp-list dd { margin: 0; color: var(--muted); max-width: 52ch; }
+.xp-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 24px; margin-top: 28px; }
+.xp-foot span { font-size: var(--step-small); color: var(--muted); max-width: 60ch; }
+
 /* Números */
 .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
 .stat { padding: clamp(22px, 2.6vw, 34px); background: var(--surface); display: grid; gap: 6px; }
@@ -300,11 +310,14 @@ button, input, select, textarea { font: inherit; color: inherit; }
   .section-head p { margin-top: 20px; }
   .contact-side, .contact-block .form { grid-column: 1 / -1; }
   .stats { grid-template-columns: 1fr 1fr; }
+  .xp-statement, .xp-list { grid-column: 1 / -1; }
+  .xp-statement { margin-bottom: 24px; max-width: none; }
 }
 @media (max-width: 600px) {
   .norm { grid-template-columns: 1fr; }
   .case dl { grid-template-columns: 1fr; }
   .case-head h3 { font-size: 1.125rem; }
+  .xp-list div { grid-template-columns: 1fr; }
   .stats { grid-template-columns: 1fr; }
   .form { grid-template-columns: 1fr; }
 }
