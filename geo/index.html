@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#0e1317">
-    <meta name="description" content="Axys Geofísica: levantamentos geofísicos terrestres e com drone na Amazônia. Eletrorresistividade, magnetometria e gamaespectrometria, do planejamento ao relatório.">
+    <meta name="description" content="Axys Geofísica: levantamentos geofísicos terrestres e com drone na Amazônia. Eletrorresistividade, GPR, magnetometria e gamaespectrometria, do planejamento ao relatório.">
     <title>Axys Geofísica — Levantamentos geofísicos na Amazônia</title>
     <link rel="canonical" href="https://axysgeosolucoes.com/geo/">
     <link rel="alternate" hreflang="pt-BR" href="https://axysgeosolucoes.com/geo/">
@@ -13,7 +13,7 @@
     <meta property="og:locale" content="pt_BR">
     <meta property="og:site_name" content="Axys Geo Soluções">
     <meta property="og:title" content="Axys Geofísica — Levantamentos geofísicos">
-    <meta property="og:description" content="Eletrorresistividade, magnetometria e gamaespectrometria em terra e com drone, do planejamento ao relatório.">
+    <meta property="og:description" content="Eletrorresistividade, GPR, magnetometria e gamaespectrometria em terra e com drone, do planejamento ao relatório.">
     <meta property="og:url" content="https://axysgeosolucoes.com/geo/">
     <meta property="og:image" content="https://axysgeosolucoes.com/assets/og/geo.jpg">
     <meta property="og:image:width" content="1200">
@@ -76,6 +76,7 @@
             <button type="button" data-target="ferro" aria-pressed="false">Minério de ferro</button>
             <button type="button" data-target="falha" aria-pressed="false">Falha ou contato</button>
             <button type="button" data-target="argila" aria-pressed="false">Argila e contaminação</button>
+            <button type="button" data-target="estruturas" aria-pressed="false">Tubulações e estruturas enterradas</button>
             <button type="button" data-target="alteracao" aria-pressed="false">Alteração hidrotermal</button>
           </div>
         </div>
@@ -96,6 +97,11 @@
             <svg viewBox="0 0 600 120" aria-hidden="true"><path class="g-axis" d="M0 60H600"/><path class="g-curve" data-curve d="M0 60H600"/></svg>
             <p data-text>Só lê a superfície; percebe a água apenas se ela mudar o solo de cima.</p>
           </article>
+          <article class="g-response" data-method="gpr">
+            <header><h3>GPR</h3><p class="g-verdict" data-verdict>Responde</p></header>
+            <svg viewBox="0 0 600 120" aria-hidden="true"><path class="g-axis" d="M0 60H600"/><path class="g-curve" data-curve d="M0 60H600"/></svg>
+            <p data-text>Em solo arenoso, o topo da água é um refletor forte e aparece como uma camada contínua; em solo argiloso, o sinal se perde antes de chegar lá.</p>
+          </article>
           <p class="g-note">Respostas típicas e simplificadas. O método certo depende da profundidade, do contraste e do terreno, e é isso que definimos no planejamento.</p>
         </div>
       </section>
@@ -112,6 +118,7 @@
               <tr><th scope="row">Eletrorresistividade</th><td data-label="O que mede">Resistividade elétrica do subsolo</td><td data-label="Até onde vê">Dezenas de metros, conforme o arranjo</td><td data-label="Plataforma">Terrestre</td><td data-label="Bom para">Água subterrânea, contaminação, fundações, geologia rasa</td></tr>
               <tr><th scope="row">Magnetometria</th><td data-label="O que mede">Intensidade do campo magnético</td><td data-label="Até onde vê">Do raso ao profundo, conforme a fonte</td><td data-label="Plataforma">Terrestre ou drone</td><td data-label="Bom para">Minério de ferro, diques, falhas, estruturas</td></tr>
               <tr><th scope="row">Gamaespectrometria</th><td data-label="O que mede">Radiação natural de K, eTh e eU</td><td data-label="Até onde vê">Superfície, cerca de 30 cm</td><td data-label="Plataforma">Drone</td><td data-label="Bom para">Mapeamento de rochas e solos, alteração hidrotermal</td></tr>
+              <tr><th scope="row">GPR (radar de penetração no solo)</th><td data-label="O que mede">Reflexões de ondas de radar nos contrastes do subsolo</td><td data-label="Até onde vê">Poucos metros, menos em solo argiloso</td><td data-label="Plataforma">Terrestre</td><td data-label="Bom para">Tubulações e estruturas enterradas, fundações, camadas rasas, nível d’água em solo arenoso</td></tr>
             </tbody>
           </table>
         </div>
@@ -150,7 +157,7 @@
           <h2 id="ent-title" class="section-title">Entregas</h2>
           <dl>
             <div><dt>Mapas</dt><dd>Campo magnético, radiometria e produtos derivados, georreferenciados.</dd></div>
-            <div><dt>Seções</dt><dd>Modelos de resistividade em profundidade ao longo de cada linha.</dd></div>
+            <div><dt>Seções</dt><dd>Modelos de resistividade em profundidade e radargramas de GPR ao longo de cada linha.</dd></div>
             <div><dt>Relatório</dt><dd>Método, qualidade dos dados, interpretação e recomendações.</dd></div>
             <div><dt>Arquivos</dt><dd>Dados brutos e processados em formatos abertos, prontos para o seu SIG.</dd></div>
           </dl>
@@ -185,6 +192,7 @@
           <div class="norm"><p class="norm-code">ABNT NBR 15935</p><p>Investigações ambientais: aplicação de métodos geofísicos.</p></div>
           <div class="norm"><p class="norm-code">ASTM D6431</p><p>Guia para o método de eletrorresistividade em corrente contínua na caracterização de terrenos.</p></div>
           <div class="norm"><p class="norm-code">ASTM D6429</p><p>Guia para a escolha de métodos geofísicos de superfície.</p></div>
+          <div class="norm"><p class="norm-code">ASTM D6432</p><p>Guia para o uso do radar de penetração no solo (GPR) na investigação do subsolo.</p></div>
           <div class="norm"><p class="norm-code">Resolução CONAMA 420/2009</p><p>Gerenciamento de áreas contaminadas, onde a geofísica apoia a investigação.</p></div>
         </div>
         <p class="norms-note">A aplicação de cada norma depende do projeto e é definida na proposta.</p>
@@ -195,7 +203,7 @@
         <div class="faq" data-reveal-children>
           <details><summary>Quanto custa um levantamento?</summary><div><p>Depende do método, da extensão das linhas, do acesso e da logística. Depois de entender a área e a pergunta do projeto, enviamos uma proposta com escopo, prazo e valor fechados.</p></div></details>
           <details><summary>Quanto tempo leva?</summary><div><p>O campo costuma levar de alguns dias a poucas semanas, conforme a área. O cronograma completo, incluindo processamento e relatório, vem na proposta.</p></div></details>
-          <details><summary>Até que profundidade vocês enxergam?</summary><div><p>Depende do método e do arranjo: a eletrorresistividade chega a dezenas de metros; a magnetometria responde do raso ao profundo, conforme a fonte; a gamaespectrometria lê a superfície. Definimos isso no planejamento.</p></div></details>
+          <details><summary>Até que profundidade vocês enxergam?</summary><div><p>Depende do método e do arranjo: a eletrorresistividade chega a dezenas de metros; o GPR vê os primeiros metros com detalhe de centímetros, menos em solo argiloso; a magnetometria responde do raso ao profundo, conforme a fonte; a gamaespectrometria lê a superfície. Definimos isso no planejamento.</p></div></details>
           <details><summary>Vocês trabalham em áreas remotas?</summary><div><p>Sim. Planejamos a logística para floresta, rio e chuva, e usamos drone onde caminhar é difícil.</p></div></details>
           <details><summary>O que eu recebo no final?</summary><div><p>Relatório técnico com método, qualidade dos dados, mapas, seções, interpretação e recomendações, além dos dados brutos e processados em formatos abertos.</p></div></details>
           <details><summary>E as autorizações de voo com drone?</summary><div><p>As operações seguem as regras da ANAC e do DECEA, e cuidamos das autorizações necessárias para cada voo.</p></div></details>
@@ -223,6 +231,7 @@
               <option>Minério de ferro</option>
               <option>Falha ou contato</option>
               <option>Argila e contaminação</option>
+              <option>Tubulações e estruturas enterradas</option>
               <option>Alteração hidrotermal</option>
               <option>Outro</option>
             </select>

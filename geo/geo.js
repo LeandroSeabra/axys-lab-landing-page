@@ -9,30 +9,42 @@ const TARGETS = {
     res: { amp: -0.9, shape: "peak", text: "A água deixa o terreno mais condutor: a resistividade cai onde ela está." },
     mag: { amp: 0.04, shape: "peak", text: "Água não é magnética; o campo não muda." },
     gam: { amp: -0.18, shape: "peak", text: "Só lê a superfície; percebe a água apenas se ela mudar o solo de cima." },
+    gpr: { amp: 0.55, shape: "step", text: "Em solo arenoso, o topo da água é um refletor forte e aparece como uma camada contínua; em solo argiloso, o sinal se perde antes de chegar lá." },
   },
   ferro: {
     label: "Minério de ferro",
     res: { amp: -0.5, shape: "peak", text: "Minério maciço costuma ser mais condutor que a rocha ao redor." },
     mag: { amp: 1, shape: "dipole", text: "A magnetita do minério altera o campo; perto do equador magnético aparece como um baixo com dois altos." },
     gam: { amp: -0.28, shape: "peak", text: "Formações ferríferas têm pouca radioatividade; a resposta é um leve baixo." },
+    gpr: { amp: 0.12, shape: "peak", text: "Não é o método para este alvo: rocha mineralizada e condutora absorve o sinal do radar." },
   },
   falha: {
     label: "Falha ou contato",
     res: { amp: -0.6, shape: "step", text: "A falha separa materiais diferentes e muitas vezes conduz água: a resistividade muda de um lado para o outro." },
     mag: { amp: 0.62, shape: "step", text: "Rochas com magnetização diferente dos dois lados criam um degrau no campo." },
     gam: { amp: 0.45, shape: "step", text: "Se o contato separa rochas diferentes na superfície, a radiometria também muda." },
+    gpr: { amp: 0.5, shape: "step", text: "Perto da superfície, o radar mostra as camadas cortadas e deslocadas pela falha, com detalhe de centímetros." },
   },
   argila: {
     label: "Argila e contaminação",
     res: { amp: -0.92, shape: "peak", text: "Argila e plumas com sais são muito condutoras: o método mais direto para este alvo." },
     mag: { amp: 0.05, shape: "peak", text: "Sem minerais magnéticos, o campo praticamente não muda." },
     gam: { amp: 0.42, shape: "peak", text: "Argilas retêm potássio e tório; a radiometria sobe onde elas afloram." },
+    gpr: { amp: -0.25, shape: "peak", text: "A argila absorve o sinal: a perda de penetração delimita a área argilosa ou contaminada, mas não mostra o que há abaixo." },
+  },
+  estruturas: {
+    label: "Tubulações e estruturas enterradas",
+    res: { amp: -0.25, shape: "spike", text: "Pode indicar tubos metálicos ou galerias, mas sem a resolução de que este alvo precisa." },
+    mag: { amp: 0.75, shape: "dipole", text: "Tubos e tanques metálicos alteram o campo; tubulações plásticas e de concreto passam despercebidas." },
+    gam: { amp: 0.04, shape: "peak", text: "Não responde: estruturas enterradas não mudam a radiação do solo." },
+    gpr: { amp: 1, shape: "spike", text: "O método mais direto: cada tubo, cabo ou laje aparece como um reflexo nítido, com posição e profundidade, inclusive plásticos e concreto." },
   },
   alteracao: {
     label: "Alteração hidrotermal",
     res: { amp: -0.42, shape: "peak", text: "Zonas alteradas e fraturadas tendem a ser um pouco mais condutoras." },
     mag: { amp: -0.55, shape: "peak", text: "A alteração destrói a magnetita: aparece um baixo magnético sobre a zona." },
     gam: { amp: 0.92, shape: "peak", text: "A alteração potássica enriquece o solo em potássio: o sinal mais claro deste alvo." },
+    gpr: { amp: 0.08, shape: "peak", text: "A alteração costuma estar fundo demais para o radar, que vê só os primeiros metros." },
   },
 };
 
@@ -44,13 +56,22 @@ if (EN) {
     ferro: ["Iron ore", "Massive ore tends to be more conductive than the host rock.", "Magnetite in the ore distorts the field; near the magnetic equator it shows as a low flanked by two highs.", "Iron formations carry little radioactivity; the response is a slight low."],
     falha: ["Fault or contact", "A fault separates different materials and often carries water: resistivity changes from one side to the other.", "Rocks with different magnetisation on each side create a step in the field.", "If the contact separates different rocks at surface, radiometrics changes too."],
     argila: ["Clay and contamination", "Clay and saline plumes are highly conductive: the most direct method for this target.", "Without magnetic minerals, the field barely changes.", "Clays hold potassium and thorium; radiometrics rises where they crop out."],
+    estruturas: ["Buried utilities and structures", "It may hint at metal pipes or culverts, but without the resolution this target needs.", "Metal pipes and tanks distort the field; plastic and concrete pipes go unnoticed.", "No response: buried structures do not change ground radiation.", "The most direct method: every pipe, cable or slab shows up as a sharp reflection, with position and depth, plastics and concrete included."],
     alteracao: ["Hydrothermal alteration", "Altered, fractured zones tend to be somewhat more conductive.", "Alteration destroys magnetite: a magnetic low appears over the zone.", "Potassic alteration enriches the soil in potassium: the clearest signal for this target."],
   };
-  Object.entries(T).forEach(([k, [label, res, mag, gam]]) => {
+  const GPR_EN = {
+    agua: "In sandy soil the water table is a strong reflector that shows as a continuous layer; in clay the signal dies before reaching it.",
+    ferro: "Not the method for this target: conductive, mineralised rock absorbs the radar signal.",
+    falha: "Near the surface, radar shows layers cut and offset by the fault, at centimetre detail.",
+    argila: "Clay absorbs the signal: the loss of penetration outlines the clayey or contaminated area, but shows nothing beneath it.",
+    alteracao: "Alteration usually lies too deep for radar, which sees only the first few metres.",
+  };
+  Object.entries(T).forEach(([k, [label, res, mag, gam, gpr]]) => {
     TARGETS[k].label = label;
     TARGETS[k].res.text = res;
     TARGETS[k].mag.text = mag;
     TARGETS[k].gam.text = gam;
+    TARGETS[k].gpr.text = gpr || GPR_EN[k];
   });
 }
 
@@ -65,6 +86,7 @@ const profile = ({ amp, shape }) => {
     let v;
     if (shape === "dipole") v = -Math.exp(-u * u) * 1 + 0.45 * (Math.exp(-((u - 1.6) ** 2) * 1.2) + Math.exp(-((u + 1.6) ** 2) * 1.2));
     else if (shape === "step") v = Math.tanh(u * 1.4);
+    else if (shape === "spike") v = Math.exp(-((u * 2.4) ** 2));
     else v = Math.exp(-u * u);
     const noise = Math.sin(x * 0.21) * 0.025 + Math.sin(x * 0.07 + 1) * 0.02;
     pts.push(60 - (amp * v + noise) * 48);

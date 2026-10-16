@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#0e1317">
-    <meta name="description" content="Axys Geofísica: ground and drone geophysical surveys in the Brazilian Amazon. Resistivity, magnetics and gamma-ray spectrometry, from planning to final report.">
+    <meta name="description" content="Axys Geofísica: ground and drone geophysical surveys in the Brazilian Amazon. Resistivity, GPR, magnetics and gamma-ray spectrometry, from planning to final report.">
     <title>Axys Geofísica — Geophysical surveys in the Brazilian Amazon</title>
     <link rel="canonical" href="https://axysgeosolucoes.com/en/geo/">
     <link rel="alternate" hreflang="pt-BR" href="https://axysgeosolucoes.com/geo/">
@@ -13,7 +13,7 @@
     <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="Axys Geo Soluções">
     <meta property="og:title" content="Axys Geofísica — Geophysical surveys">
-    <meta property="og:description" content="Resistivity, magnetics and gamma-ray spectrometry on the ground and by drone, from planning to report.">
+    <meta property="og:description" content="Resistivity, GPR, magnetics and gamma-ray spectrometry on the ground and by drone, from planning to report.">
     <meta property="og:url" content="https://axysgeosolucoes.com/en/geo/">
     <meta property="og:image" content="https://axysgeosolucoes.com/assets/og/geo-en.jpg">
     <meta property="og:image:width" content="1200">
@@ -76,6 +76,7 @@
             <button type="button" data-target="ferro" aria-pressed="false">Iron ore</button>
             <button type="button" data-target="falha" aria-pressed="false">Fault or contact</button>
             <button type="button" data-target="argila" aria-pressed="false">Clay and contamination</button>
+            <button type="button" data-target="estruturas" aria-pressed="false">Buried utilities and structures</button>
             <button type="button" data-target="alteracao" aria-pressed="false">Hydrothermal alteration</button>
           </div>
         </div>
@@ -96,6 +97,11 @@
             <svg viewBox="0 0 600 120" aria-hidden="true"><path class="g-axis" d="M0 60H600"/><path class="g-curve" data-curve d="M0 60H600"/></svg>
             <p data-text>It reads only the surface; it notices water only if it changes the topsoil.</p>
           </article>
+          <article class="g-response" data-method="gpr">
+            <header><h3>GPR</h3><p class="g-verdict" data-verdict>Responds</p></header>
+            <svg viewBox="0 0 600 120" aria-hidden="true"><path class="g-axis" d="M0 60H600"/><path class="g-curve" data-curve d="M0 60H600"/></svg>
+            <p data-text>In sandy soil the water table is a strong reflector that shows as a continuous layer; in clay the signal dies before reaching it.</p>
+          </article>
           <p class="g-note">Typical, simplified responses. The right method depends on depth, contrast and terrain, which is what we define during planning.</p>
         </div>
       </section>
@@ -112,6 +118,7 @@
               <tr><th scope="row">Electrical resistivity</th><td data-label="O que mede">Electrical resistivity of the subsurface</td><td data-label="Até onde vê">Tens of metres, depending on the array</td><td data-label="Plataforma">Ground</td><td data-label="Bom para">Groundwater, contamination, foundations, shallow geology</td></tr>
               <tr><th scope="row">Magnetics</th><td data-label="O que mede">Magnetic field intensity</td><td data-label="Até onde vê">Shallow to deep, depending on the source</td><td data-label="Plataforma">Ground or drone</td><td data-label="Bom para">Iron ore, dykes, faults, structures</td></tr>
               <tr><th scope="row">Gamma-ray spectrometry</th><td data-label="O que mede">Natural K, eTh and eU radiation</td><td data-label="Até onde vê">Surface, about 30 cm</td><td data-label="Plataforma">Drone</td><td data-label="Bom para">Rock and soil mapping, hydrothermal alteration</td></tr>
+              <tr><th scope="row">GPR (ground-penetrating radar)</th><td data-label="O que mede">Radar wave reflections at subsurface contrasts</td><td data-label="Até onde vê">A few metres, less in clay soils</td><td data-label="Plataforma">Ground</td><td data-label="Bom para">Buried utilities and structures, foundations, shallow layers, water table in sandy soils</td></tr>
             </tbody>
           </table>
         </div>
@@ -150,7 +157,7 @@
           <h2 id="ent-title" class="section-title">Deliverables</h2>
           <dl>
             <div><dt>Maps</dt><dd>Magnetic field, radiometrics and derived products, georeferenced.</dd></div>
-            <div><dt>Sections</dt><dd>Resistivity-depth models along every line.</dd></div>
+            <div><dt>Sections</dt><dd>Resistivity-depth models and GPR radargrams along every line.</dd></div>
             <div><dt>Report</dt><dd>Method, data quality, interpretation and recommendations.</dd></div>
             <div><dt>Files</dt><dd>Raw and processed data in open formats, ready for your GIS.</dd></div>
           </dl>
@@ -185,6 +192,7 @@
           <div class="norm"><p class="norm-code">ABNT NBR 15935</p><p>Brazilian standard for geophysical methods in environmental investigations.</p></div>
           <div class="norm"><p class="norm-code">ASTM D6431</p><p>Standard guide for the DC resistivity method in subsurface site characterisation.</p></div>
           <div class="norm"><p class="norm-code">ASTM D6429</p><p>Standard guide for selecting surface geophysical methods.</p></div>
+          <div class="norm"><p class="norm-code">ASTM D6432</p><p>Standard guide for using surface ground-penetrating radar (GPR) for subsurface investigation.</p></div>
           <div class="norm"><p class="norm-code">CONAMA Resolution 420/2009</p><p>Brazilian rules for contaminated sites, where geophysics supports the investigation.</p></div>
         </div>
         <p class="norms-note">Which standards apply depends on the project and is set out in the proposal.</p>
@@ -195,7 +203,7 @@
         <div class="faq" data-reveal-children>
           <details><summary>How much does a survey cost?</summary><div><p>It depends on the method, line length, access and logistics. Once we understand the area and the project question, we send a fixed-scope proposal with schedule and price.</p></div></details>
           <details><summary>How long does it take?</summary><div><p>Fieldwork usually takes from a few days to a few weeks, depending on the area. The full schedule, including processing and reporting, is in the proposal.</p></div></details>
-          <details><summary>How deep can you see?</summary><div><p>It depends on the method and array: resistivity reaches tens of metres; magnetics responds from shallow to deep depending on the source; gamma-ray spectrometry reads the surface. We define this during planning.</p></div></details>
+          <details><summary>How deep can you see?</summary><div><p>It depends on the method and array: resistivity reaches tens of metres; GPR sees the first few metres at centimetre detail, less in clay; magnetics responds from shallow to deep depending on the source; gamma-ray spectrometry reads the surface. We define this during planning.</p></div></details>
           <details><summary>Do you work in remote areas?</summary><div><p>Yes. We plan logistics for forest, rivers and rain, and fly drones where walking is hard.</p></div></details>
           <details><summary>What do I receive at the end?</summary><div><p>A technical report with method, data quality, maps, sections, interpretation and recommendations, plus raw and processed data in open formats.</p></div></details>
           <details><summary>What about drone flight permits?</summary><div><p>Operations follow Brazilian aviation rules (ANAC and DECEA), and we handle the permits required for each flight.</p></div></details>
@@ -223,6 +231,7 @@
               <option>Iron ore</option>
               <option>Fault or contact</option>
               <option>Clay and contamination</option>
+              <option>Buried utilities and structures</option>
               <option>Hydrothermal alteration</option>
               <option>Other</option>
             </select>
