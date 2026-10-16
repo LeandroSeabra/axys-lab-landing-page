@@ -48,6 +48,88 @@
 .ab-cat-title { font-size: var(--step-lead); line-height: 1.2; font-weight: 500; color: var(--accent); display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
 .ab-disclosure { grid-column: 8 / 13; font-size: var(--step-small); color: var(--muted); max-width: 52ch; }
 
+.back-link { color: var(--accent); }
+.partner-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 24px; margin-top: 8px; }
+
+/* Currículo: janela por cima da página (é uma sobreposição real, por isso pode ter sombra) */
+html.cv-open { overflow: hidden; }
+dialog.cv {
+  width: min(920px, calc(100vw - 32px));
+  max-width: none;
+  max-height: calc(100svh - 48px);
+  padding: 0;
+  border: 0;
+  background: var(--surface);
+  color: var(--ink);
+  overflow: auto;
+  overscroll-behavior: contain;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55); /* taste-skill-ignore: diálogo */
+}
+dialog.cv::backdrop { background: rgba(5, 8, 10, 0.78); }
+dialog.cv[open] { animation: cv-in 240ms var(--ease-out); }
+dialog.cv[open]::backdrop { animation: cv-fade 240ms ease; }
+dialog.cv.is-closing { animation: cv-out 160ms var(--ease-out) forwards; }
+dialog.cv.is-closing::backdrop { animation: cv-fade 160ms ease reverse forwards; }
+@keyframes cv-in { from { opacity: 0; transform: translateY(16px) scale(0.98); } to { opacity: 1; transform: none; } }
+@keyframes cv-out { to { opacity: 0; transform: translateY(8px) scale(0.99); } }
+@keyframes cv-fade { from { opacity: 0; } to { opacity: 1; } }
+
+.cv-inner { position: relative; display: grid; gap: 0; padding: clamp(24px, 4vw, 56px); }
+.cv-close {
+  position: sticky;
+  top: 0;
+  justify-self: end;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  margin: calc(clamp(24px, 4vw, 56px) * -0.5) calc(clamp(24px, 4vw, 56px) * -0.5) 8px 0;
+  padding: 0 16px;
+  background: var(--surface-2);
+  border: 0;
+  border-radius: 0;
+  color: var(--ink);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 160ms ease, transform 140ms var(--ease-out);
+}
+.cv-close:active { transform: scale(0.97); }
+.cv-close .cv-x { width: 1em; height: 1em; stroke-width: 1.8; }
+@media (hover: hover) and (pointer: fine) { .cv-close:hover { background: var(--line); } }
+
+.cv-head { display: grid; grid-template-columns: 160px 1fr; gap: clamp(20px, 3vw, 36px); align-items: end; padding-bottom: 32px; }
+.cv-photo { aspect-ratio: 4 / 5; }
+.cv-id { display: grid; gap: 8px; justify-items: start; }
+.cv-name { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 1rem + 2vw, 2.5rem); line-height: 1; letter-spacing: -0.03em; text-transform: uppercase; }
+.cv-role { color: var(--accent); font-weight: 500; font-size: var(--step-lead); line-height: 1.2; }
+.cv-reg { color: var(--muted); }
+.cv-links { display: flex; flex-wrap: wrap; gap: 4px 24px; }
+
+.cv-block { padding: 28px 0; display: grid; gap: 14px; }
+.cv-block + .cv-block { padding-top: 28px; }
+.cv-block h3 { font-size: var(--step-small); font-weight: 500; color: var(--accent); }
+.cv-block > p { max-width: 64ch; }
+.cv-two { grid-template-columns: 1fr 1fr; gap: 28px var(--gap); }
+.cv-two > div { display: grid; gap: 14px; align-content: start; }
+.cv-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.cv-timeline { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; }
+.cv-timeline li { display: grid; grid-template-columns: 11rem 1fr; gap: 16px var(--gap); padding: 18px 20px; background: var(--surface-2); }
+.cv-period { color: var(--muted); font-variant-numeric: tabular-nums; }
+.cv-job { font-weight: 500; margin-bottom: 4px; }
+.cv-desc { color: var(--muted); max-width: 60ch; }
+.cv-note { font-size: var(--step-small); color: var(--muted); }
+.cv-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; padding-top: 20px; }
+.cv-back { background: none; border: 0; padding: 0; cursor: pointer; color: var(--ink); }
+
+@media (max-width: 600px) {
+  dialog.cv { width: 100vw; max-height: 100svh; height: 100svh; }
+  .cv-head { grid-template-columns: 1fr; }
+  .cv-photo { width: 120px; }
+  .cv-two { grid-template-columns: 1fr; }
+  .cv-timeline li { grid-template-columns: 1fr; gap: 4px; }
+}
+
 .ab-company .section-title { margin-bottom: clamp(40px, 5vw, 64px); }
 .ab-data { margin: 0; display: grid; gap: 0; max-width: 980px; }
 .ab-data div { display: grid; grid-template-columns: minmax(180px, 1fr) 2fr; gap: 8px var(--gap); padding: 18px 0; }

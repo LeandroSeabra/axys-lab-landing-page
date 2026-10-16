@@ -25,6 +25,7 @@
     <script>document.documentElement.classList.add('js')</script>
     <script src="../assets/js/config.js" defer></script>
     <script src="../assets/js/site.js" defer></script>
+    <script src="sobre.js" defer></script>
   </head>
   <body data-wa="Olá! Vim pela página Quem somos da Axys Geo Soluções.">
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -33,6 +34,7 @@
       <a class="wordmark" href="../" aria-label="Axys Geo Soluções, início">Axys Geo Soluções</a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
       <nav class="site-nav" id="site-nav" aria-label="Navegação principal">
+        <a class="back-link" href="../" data-back>← Voltar ao site</a>
         <a href="#historia">História</a>
         <a href="#socios">Os sócios</a>
         <a href="#empresa">Dados da empresa</a>
@@ -97,7 +99,10 @@
                 <div data-ph-block><dt>Formação</dt><dd class="is-placeholder">Curso, instituição e ano</dd></div>
                 <div data-ph-block><dt>Experiência</dt><dd class="is-placeholder">— anos</dd></div>
               </dl>
-              <a class="text-link" href="#" data-ph-block>LinkedIn <span class="ph-tag">a preencher</span></a>
+              <div class="partner-actions">
+                <a class="button button-quiet" href="#cv-socio-1" data-cv="cv-socio-1" aria-haspopup="dialog">Ver currículo completo</a>
+                <a class="text-link" href="#" data-ph-block>LinkedIn <span class="ph-tag">a preencher</span></a>
+              </div>
             </div>
           </article>
 
@@ -113,7 +118,10 @@
                 <div data-ph-block><dt>Formação</dt><dd class="is-placeholder">Curso, instituição e ano</dd></div>
                 <div data-ph-block><dt>Experiência</dt><dd class="is-placeholder">— anos</dd></div>
               </dl>
-              <a class="text-link" href="#" data-ph-block>LinkedIn <span class="ph-tag">a preencher</span></a>
+              <div class="partner-actions">
+                <a class="button button-quiet" href="#cv-socio-2" data-cv="cv-socio-2" aria-haspopup="dialog">Ver currículo completo</a>
+                <a class="text-link" href="#" data-ph-block>LinkedIn <span class="ph-tag">a preencher</span></a>
+              </div>
             </div>
           </article>
         </div>
@@ -161,10 +169,147 @@
       </section>
     </main>
 
+
+    <!-- Currículo do sócio 1: abre por cima da página. Endereço direto: /sobre/#cv-socio-1 -->
+    <dialog class="cv" id="cv-socio-1" aria-labelledby="cv-socio-1-nome">
+      <div class="cv-inner">
+        <button class="cv-close" type="button" data-cv-close aria-label="Fechar currículo">Fechar <svg class="icon cv-x" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg></button>
+        <header class="cv-head">
+          <div class="person-photo cv-photo" role="img" aria-label="Foto do sócio a inserir"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="22" r="12"/><path d="M8 62c0-14 11-22 24-22s24 8 24 22z"/></svg></div>
+          <div class="cv-id">
+            <h2 class="cv-name is-placeholder" id="cv-socio-1-nome">Nome do sócio</h2>
+            <p class="cv-role">Sócio · Aquisição e processamento geofísico</p>
+            <p class="cv-reg is-placeholder">CREA a preencher · Belém, Pará</p>
+            <div class="cv-links"><a class="text-link" href="#" data-ph-block>LinkedIn <span class="ph-tag">a preencher</span></a><a class="text-link" href="#" data-ph-block>Baixar currículo em PDF <span class="ph-tag">a preencher</span></a></div>
+          </div>
+        </header>
+
+        <section class="cv-block">
+          <h3>Resumo</h3>
+          <p>Profissional de geofísica com experiência em levantamentos de campo e processamento de dados. Antes de fundar a Axys, atuou como consultor, por meio de empresa própria, em projetos que envolveram dados de grandes empresas de óleo e gás.</p>
+        </section>
+
+        <section class="cv-block">
+          <h3>Experiência profissional</h3>
+          <ol class="cv-timeline">
+              <li>
+                <p class="cv-period is-placeholder">Período a preencher</p>
+                <div><p class="cv-job">Consultor em geofísica (PJ)</p><p class="cv-desc is-placeholder">Levantamentos de campo e processamento de dados geofísicos para empresa de serviços do setor, em projetos que envolveram dados de grandes empresas de óleo e gás. Nome da empresa contratante: confirmar autorização.</p></div>
+              </li>
+              <li>
+                <p class="cv-period is-placeholder">Período a preencher</p>
+                <div><p class="cv-job">Cargo ou função</p><p class="cv-desc is-placeholder">Empresa e principais atividades.</p></div>
+              </li>
+          </ol>
+          <p class="cv-note">Experiência anterior à fundação da Axys, apresentada como experiência individual. Nomes de clientes só com autorização.</p>
+        </section>
+
+        <section class="cv-block cv-two">
+          <div>
+            <h3>Formação</h3>
+            <ul class="cv-list"><li class="is-placeholder">Graduação · curso, instituição, ano</li><li class="is-placeholder">Pós-graduação · curso, instituição, ano</li></ul>
+          </div>
+          <div>
+            <h3>Especialidades</h3>
+            <ul class="chips"><li>Aquisição de dados geofísicos</li><li>Processamento</li><li>Controle de qualidade</li><li class="is-placeholder">Método a confirmar</li></ul>
+          </div>
+        </section>
+
+        <section class="cv-block cv-two">
+          <div>
+            <h3>Softwares e ferramentas</h3>
+            <ul class="chips"><li class="is-placeholder">Software</li><li class="is-placeholder">Software</li><li class="is-placeholder">Software</li></ul>
+          </div>
+          <div>
+            <h3>Idiomas</h3>
+            <ul class="cv-list"><li>Português · nativo</li><li class="is-placeholder">Inglês · nível</li></ul>
+          </div>
+        </section>
+
+        <section class="cv-block">
+          <h3>Cursos, certificações e acervo técnico</h3>
+          <ul class="cv-list"><li class="is-placeholder">Curso ou certificação · instituição · ano</li><li class="is-placeholder">Certidão de Acervo Técnico (CAT) · CREA · confirmar</li></ul>
+        </section>
+
+        <footer class="cv-foot">
+          <a class="button" href="#contato" data-cv-close>Falar com a Axys</a>
+          <button class="text-link cv-back" type="button" data-cv-close>Voltar para Quem somos</button>
+        </footer>
+      </div>
+    </dialog>
+
+    <!-- Currículo do sócio 2: abre por cima da página. Endereço direto: /sobre/#cv-socio-2 -->
+    <dialog class="cv" id="cv-socio-2" aria-labelledby="cv-socio-2-nome">
+      <div class="cv-inner">
+        <button class="cv-close" type="button" data-cv-close aria-label="Fechar currículo">Fechar <svg class="icon cv-x" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg></button>
+        <header class="cv-head">
+          <div class="person-photo cv-photo" role="img" aria-label="Foto do sócio a inserir"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="22" r="12"/><path d="M8 62c0-14 11-22 24-22s24 8 24 22z"/></svg></div>
+          <div class="cv-id">
+            <h2 class="cv-name is-placeholder" id="cv-socio-2-nome">Nome do sócio</h2>
+            <p class="cv-role is-placeholder">Sócio · área de atuação</p>
+            <p class="cv-reg is-placeholder">CREA a preencher · Belém, Pará</p>
+            <div class="cv-links"><a class="text-link" href="#" data-ph-block>LinkedIn <span class="ph-tag">a preencher</span></a><a class="text-link" href="#" data-ph-block>Baixar currículo em PDF <span class="ph-tag">a preencher</span></a></div>
+          </div>
+        </header>
+
+        <section class="cv-block">
+          <h3>Resumo</h3>
+          <p class="is-placeholder">Resumo profissional em duas ou três frases: formação, anos de experiência e principais áreas.</p>
+        </section>
+
+        <section class="cv-block">
+          <h3>Experiência profissional</h3>
+          <ol class="cv-timeline">
+              <li>
+                <p class="cv-period is-placeholder">Período a preencher</p>
+                <div><p class="cv-job">Cargo ou função</p><p class="cv-desc is-placeholder">Empresa e principais atividades, como experiência pessoal.</p></div>
+              </li>
+              <li>
+                <p class="cv-period is-placeholder">Período a preencher</p>
+                <div><p class="cv-job">Cargo ou função</p><p class="cv-desc is-placeholder">Empresa e principais atividades.</p></div>
+              </li>
+          </ol>
+          <p class="cv-note">Experiência anterior à fundação da Axys, apresentada como experiência individual. Nomes de clientes só com autorização.</p>
+        </section>
+
+        <section class="cv-block cv-two">
+          <div>
+            <h3>Formação</h3>
+            <ul class="cv-list"><li class="is-placeholder">Graduação · curso, instituição, ano</li><li class="is-placeholder">Pós-graduação · curso, instituição, ano</li></ul>
+          </div>
+          <div>
+            <h3>Especialidades</h3>
+            <ul class="chips"><li class="is-placeholder">Especialidade</li><li class="is-placeholder">Especialidade</li><li class="is-placeholder">Especialidade</li></ul>
+          </div>
+        </section>
+
+        <section class="cv-block cv-two">
+          <div>
+            <h3>Softwares e ferramentas</h3>
+            <ul class="chips"><li class="is-placeholder">Software</li><li class="is-placeholder">Software</li><li class="is-placeholder">Software</li></ul>
+          </div>
+          <div>
+            <h3>Idiomas</h3>
+            <ul class="cv-list"><li>Português · nativo</li><li class="is-placeholder">Inglês · nível</li></ul>
+          </div>
+        </section>
+
+        <section class="cv-block">
+          <h3>Cursos, certificações e acervo técnico</h3>
+          <ul class="cv-list"><li class="is-placeholder">Curso ou certificação · instituição · ano</li><li class="is-placeholder">Certidão de Acervo Técnico (CAT) · CREA · confirmar</li></ul>
+        </section>
+
+        <footer class="cv-foot">
+          <a class="button" href="#contato" data-cv-close>Falar com a Axys</a>
+          <button class="text-link cv-back" type="button" data-cv-close>Voltar para Quem somos</button>
+        </footer>
+      </div>
+    </dialog>
+
     <footer class="site-footer">
       <p class="footer-mark" aria-hidden="true">Axys</p>
       <div class="footer-row">
-        <p><a href="../">Página inicial</a> · <a href="../privacidade/">Privacidade</a></p>
+        <p><a href="../" data-back>← Voltar ao site</a> · <a href="../">Página inicial</a> · <a href="../privacidade/">Privacidade</a></p>
         <p>© <span data-year>2026</span> Axys Geo Soluções. Belém, Pará, Brasil.</p>
         <details>
           <summary>Créditos das imagens</summary>
