@@ -107,6 +107,9 @@ const toPath = (pts) => pts.map((y, i) => `${i ? "L" : "M"}${i * 6} ${y.toFixed(
     if (select) select.value = t.label;
     rows.forEach((row) => {
       const m = t[row.dataset.method];
+      // Sem dados para este método (por exemplo, script e página de versões diferentes): esconde o cartão em vez de travar.
+      row.hidden = !m;
+      if (!m) return;
       const lv = level(m.amp);
       row.dataset.level = String(lv);
       row.querySelector("[data-verdict]").textContent = VERDICT[lv];

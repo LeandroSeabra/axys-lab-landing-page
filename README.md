@@ -134,5 +134,14 @@ e abra http://127.0.0.1:8765/
 
 ## Publicação
 
+Antes de publicar uma alteração em CSS ou JavaScript, rode:
+
+```bash
+python3 tools/versionar.py
+```
+
+Isso põe um número de versão nos arquivos (`geo.js?v=...`), para o navegador dos visitantes baixar
+os arquivos novos junto com a página nova, em vez de usar uma cópia antiga guardada em cache.
+
 - O GitHub Pages publica a branch `main` deste repositório no domínio do arquivo `CNAME`.
 - Nas configurações do repositório (Settings → Pages), mantenha **Enforce HTTPS** ligado.
