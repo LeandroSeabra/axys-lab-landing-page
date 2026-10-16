@@ -63,7 +63,7 @@ dialog.cv {
   color: var(--ink);
   overflow: auto;
   overscroll-behavior: contain;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55); /* taste-skill-ignore: diálogo */
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
 }
 dialog.cv::backdrop { background: rgba(5, 8, 10, 0.78); }
 dialog.cv[open] { animation: cv-in 240ms var(--ease-out); }

@@ -273,7 +273,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .form-status[data-kind="error"] { color: var(--ink); }
 .form-legal { grid-column: 1 / -1; font-size: var(--step-small); color: var(--muted); max-width: 64ch; }
 .form-legal a { color: var(--ink); }
-.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; } /* taste-skill-ignore: campo-isca invisível contra spam */
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 
 /* Bloco de contato padrão: texto à esquerda, formulário à direita */
 .contact-block { margin-top: var(--section); display: grid; grid-template-columns: repeat(12, 1fr); column-gap: var(--gap); row-gap: 56px; align-items: start; padding: clamp(80px, 9vw, 140px) var(--m); background: var(--surface); }

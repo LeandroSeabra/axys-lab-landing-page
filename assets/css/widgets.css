@@ -20,7 +20,7 @@
   font-size: 0.9375rem;
   font-weight: 500;
   text-decoration: none;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), 0 0 18px rgba(37, 211, 102, 0.35); /* taste-skill-ignore: brilho pedido pelo cliente */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), 0 0 18px rgba(37, 211, 102, 0.35);
   animation: wa-in 520ms cubic-bezier(0.23, 1, 0.32, 1) 500ms both;
   transition: background-color 160ms ease, box-shadow 200ms ease, transform 140ms cubic-bezier(0.23, 1, 0.32, 1);
 }
@@ -38,7 +38,7 @@
 .wa-float svg { width: 26px; height: 26px; flex: none; fill: var(--wa); }
 .wa-float:active { transform: scale(0.96); }
 @media (hover: hover) and (pointer: fine) {
-  .wa-float:hover { background: #18352a; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), 0 0 26px rgba(37, 211, 102, 0.55); } /* taste-skill-ignore */
+  .wa-float:hover { background: #18352a; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), 0 0 26px rgba(37, 211, 102, 0.55); }
 }
 @keyframes wa-in { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
 @keyframes wa-pulse {

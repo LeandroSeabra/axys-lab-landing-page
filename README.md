@@ -31,7 +31,6 @@ assets/
   pdf/              apresentações em PDF de cada área (e pdf/src, as páginas que geram os PDFs)
 geo/ safe/ topo/    cada área com o seu index.html, CSS e JS próprios
 lab/                o Axys Lab tem sistema visual próprio (styles.css, script.js) e as fotos em lab/assets/
-.claude/skills/     skills de design usadas no desenvolvimento (não aparecem no site)
 ```
 
 ## O que preencher antes de divulgar
