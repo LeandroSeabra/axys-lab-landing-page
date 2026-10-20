@@ -104,7 +104,8 @@ const toPath = (pts) => pts.map((y, i) => `${i ? "L" : "M"}${i * 6} ${y.toFixed(
   const show = (key, animate) => {
     const t = TARGETS[key];
     buttons.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.target === key)));
-    if (select) select.value = t.label;
+    // A demonstração inicial não deve substituir o interesse trazido por um artigo.
+    if (select && animate) select.value = t.label;
     rows.forEach((row) => {
       const m = t[row.dataset.method];
       // Sem dados para este método (por exemplo, script e página de versões diferentes): esconde o cartão em vez de travar.

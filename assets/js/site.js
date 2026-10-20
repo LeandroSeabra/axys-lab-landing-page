@@ -75,22 +75,65 @@
     else el.hidden = true;
   });
 
+  // O endereço carrega apenas um identificador conhecido, nunca dados pessoais ou texto livre.
+  const articleContexts = {
+    "o-que-e-geofisica": { area: "geofisica", route: "/geo/", subject: "Investigação geofísica" },
+    "geofisica-agua-subterranea-poco": { area: "geofisica", route: "/geo/", subject: "Investigação de água subterrânea", field: "alvo", value: "Água subterrânea" },
+    "gpr-localizar-tubulacoes": { area: "geofisica", route: "/geo/", subject: "GPR para tubulações e estruturas enterradas", field: "alvo", value: "Tubulações e estruturas enterradas" },
+    "georreferenciamento-imovel-rural-sigef": { area: "topo", route: "/topo/", subject: "Georreferenciamento de imóvel rural", field: "imovel", value: "Rural" },
+    "monitoramento-geofisico-barragens": { area: "safe", route: "/safe/", subject: "Investigação geofísica de barragens" },
+  };
+  const articleSlug = new URLSearchParams(location.search).get("artigo") || location.pathname.match(/^\/conteudos\/([^/]+)\//)?.[1];
+  const context = Object.hasOwn(articleContexts, articleSlug) ? articleContexts[articleSlug] : null;
+  const contextForm = context && document.querySelector(`form[data-area="${context.area}"]`);
+  const onArticle = context && location.pathname === `/conteudos/${articleSlug}/`;
+  const activeContext = context && (contextForm || onArticle) ? context : null;
+  const contextMessage = activeContext ? `Olá! Li o artigo da Axys e gostaria de conversar sobre ${activeContext.subject.toLowerCase()}.` : "";
+  const articleUrl = activeContext ? `${location.origin}/conteudos/${articleSlug}/` : "";
+  const contextContactUrl = activeContext ? `${activeContext.route}?artigo=${articleSlug}#contato` : "";
+  if (activeContext) {
+    document.querySelectorAll('a[href="/#contato"], a[href="#contato"]').forEach(link => { link.href = contextContactUrl; });
+  }
+  if (contextForm) {
+    const message = contextForm.elements.namedItem("mensagem");
+    if (message && !message.value) { message.value = contextMessage; message.defaultValue = contextMessage; }
+    const select = activeContext.field && contextForm.elements.namedItem(activeContext.field);
+    if (select && (select.selectedIndex <= 0)) {
+      select.value = activeContext.value;
+      [...select.options].forEach(option => { option.defaultSelected = option.value === activeContext.value; });
+      select.dispatchEvent(new Event("change", { bubbles: true }));
+    }
+    const label = document.createElement("label");
+    label.className = "full";
+    label.append("Assunto do contato");
+    const subjectInput = document.createElement("input");
+    subjectInput.name = "assunto";
+    subjectInput.value = subjectInput.defaultValue = activeContext.subject;
+    label.append(subjectInput);
+    contextForm.prepend(label);
+    const originInput = document.createElement("input");
+    originInput.type = "hidden";
+    originInput.name = "artigo_origem";
+    originInput.value = originInput.defaultValue = articleUrl;
+    contextForm.append(originInput);
+  }
+
   // E-mails por área: <a data-mail="safe" data-subject="...">
   document.querySelectorAll("[data-mail]").forEach((a) => {
     const addr = (C.emails && (C.emails[a.dataset.mail] || C.emails.geral)) || "";
     if (!addr) { a.hidden = true; return; }
-    const subject = a.dataset.subject ? `?subject=${encodeURIComponent(a.dataset.subject)}` : "";
+    const subject = activeContext ? `?subject=${encodeURIComponent(activeContext.subject)}&body=${encodeURIComponent(contextMessage+"\n\nArtigo de origem: "+articleUrl)}` : (a.dataset.subject ? `?subject=${encodeURIComponent(a.dataset.subject)}` : "");
     a.href = `mailto:${addr}${subject}`;
     if (a.hasAttribute("data-mail-text")) a.textContent = addr;
   });
 
   // WhatsApp
   const waNumber = (C.whatsapp || "").replace(/\D/g, "");
-  const waMsg = document.body.dataset.wa || T.waDefault;
+  const waMsg = activeContext ? `${contextMessage}\n\nArtigo de origem: ${articleUrl}` : (document.body.dataset.wa || T.waDefault);
   const waHref = (msg) => `https://wa.me/${waNumber}?text=${encodeURIComponent(msg || waMsg)}`;
   document.querySelectorAll("[data-wa-link]").forEach((a) => {
     if (!waNumber) { (a.closest("[data-wa-block]") || a).hidden = true; return; }
-    a.href = waHref(a.dataset.waLink);
+    a.href = waHref(activeContext ? waMsg : a.dataset.waLink);
     a.target = "_blank";
     a.rel = "noopener";
   });
@@ -104,7 +147,7 @@
       btn.target = "_blank";
       btn.rel = "noopener";
     } else {
-      btn.href = document.querySelector("#contato") ? "#contato" : "/#contato";
+      btn.href = activeContext ? contextContactUrl : (document.querySelector("#contato") ? "#contato" : "/#contato");
       btn.dataset.waPending = "";
     }
     btn.setAttribute("aria-label", T.waLabel);
@@ -163,6 +206,7 @@
     const to = (C.emails && (C.emails[area] || C.emails.geral)) || "";
     const say = (msg, kind) => { if (status) { status.textContent = msg; status.dataset.kind = kind || ""; } };
     const fieldLabel = (name) => {
+      if (name === "artigo_origem") return "Artigo de origem";
       const el = form.elements[name];
       const label = el && el.closest("label");
       return label ? label.firstChild.textContent.trim() : name;
@@ -173,7 +217,7 @@
       const data = new FormData(form);
       if (data.get("botcheck")) return;
       data.delete("botcheck");
-      const subject = form.dataset.subject || "Contato pelo site";
+      const subject = data.get("assunto") || form.dataset.subject || "Contato pelo site";
       const lines = [];
       for (const [k, v] of data.entries()) if (k !== "mensagem") lines.push(`${fieldLabel(k)}: ${v || "—"}`);
       const body = `${lines.join("\n")}\n\n${data.get("mensagem") || ""}`;

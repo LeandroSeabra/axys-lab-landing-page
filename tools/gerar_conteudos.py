@@ -139,10 +139,12 @@ def build(root):
             items = ''.join(f'<li id="referencia-{i}"><span>{e(ref["institution"])} · {e(ref["year"])}</span><a href="{e(ref["url"])}">{e(ref["title"])}</a></li>' for i, ref in enumerate(references, 1))
             values['references'] = '<section class="article-references" id="referencias"><h2>Referências e fontes</h2><ol>'+items+'</ol><p class="reference-note">Síntese editorial de fontes técnicas e institucionais. Não apresenta pesquisa inédita nem revisão por pares. Fontes consultadas em '+e(post.get('sources_checked', post['display_date']))+'.</p></section>'
         cta = post.get('cta')
-        values['conversion'] = '' if not cta else '<section class="article-conversion" aria-label="Próximo passo"><span class="eyebrow">APLIQUE AO SEU PROJETO</span><h2>'+e(cta['heading'])+'</h2><p>'+e(cta['text'])+'</p><a class="button" href="'+e(cta['url'])+'">'+e(cta['label'])+' ↗</a></section>'
-        candidates = [p for p in posts if p['slug'] != post['slug']]
-        candidates.sort(key=lambda p: (p['slug'] not in post.get('related', []), p['area'] != post['area']))
-        related = candidates[:2]
+        destination = urlsplit(cta['url']) if cta else None
+        contact_url = '' if not cta else destination.path+'?artigo='+post['slug']+('#'+destination.fragment if destination.fragment else '')
+        values['conversion'] = '' if not cta else '<section class="article-conversion" aria-label="Próximo passo"><span class="eyebrow">APLIQUE AO SEU PROJETO</span><h2>'+e(cta['heading'])+'</h2><p>'+e(cta['text'])+'</p><a class="button" href="'+e(contact_url)+'">'+e(cta['label'])+' ↗</a></section>'
+        # Só exiba leituras escolhidas editorialmente; não complete com assuntos aleatórios.
+        published = {p['slug']: p for p in posts if p['slug'] != post['slug']}
+        related = [published[slug] for slug in post.get('related', []) if slug in published][:2]
         values['related'] = '<section class="related wrap"><h2>Continue explorando</h2><div class="cards">'+''.join(map(card, related))+'</div></section>' if related else ''
         path = f'/conteudos/{post["slug"]}/'
         structured = {'@context':'https://schema.org', '@type':'NewsArticle' if post['type']=='Notícias' else 'BlogPosting', 'headline':post['title'], 'description':post['description'], 'datePublished':post['date'], 'author':{'@type':'Organization','name':post['author']}, 'publisher':{'@type':'Organization','name':'Axys Geo Soluções','url':DOMAIN}, 'image':DOMAIN+post['image'], 'mainEntityOfPage':DOMAIN+path, 'inLanguage':'pt-BR'}

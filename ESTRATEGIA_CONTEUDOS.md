@@ -38,3 +38,11 @@ Atualize os JSON em `content/posts/` ou os mesmos campos no Decap. Há campos pa
 Antes de incorporar um estudo novo, confira autoria, título, ano, DOI/URL, ambiente investigado e o alcance da conclusão. Resultados de laboratório ou de uma barragem estrangeira não devem virar garantia para um projeto local.
 
 O antigo conteúdo `preparar-projeto-para-conversa-com-axys/` foi removido da fonte, da listagem, dos arquivos gerados e do sitemap conforme solicitado. Não foi criado redirecionamento porque era uma página local ainda não publicada nesta sessão.
+
+## Continuidade entre artigo e contato
+
+O botão principal envia `?artigo=<identificador>` à página do serviço. Apenas cinco identificadores conhecidos são aceitos. O assunto e a referência do artigo acompanham o formulário e os links de e-mail; o WhatsApp usa o mesmo contexto quando houver um número configurado. Sem número, o botão flutuante preserva o assunto ao levar à página de contato da área. O contato do cabeçalho dos artigos usa o mesmo caminho.
+
+O formulário apresenta um assunto editável e uma mensagem inicial editável. Nome, e-mail, local, empresa e condições do projeto não são inferidos. O artigo sobre barragens não determina o tipo da estrutura. O simulador de métodos não substitui o alvo do formulário durante a inicialização.
+
+As recomendações são exclusivamente as escolhidas nos arquivos editoriais: o guia de geofísica apresenta água e GPR; estes retornam ao guia. Georreferenciamento e barragens não recebem artigos de outro assunto para preencher espaço. Suas chamadas já conduzem aos serviços Topo e Safe. Não foram criados textos ou alegações para completar recomendações.

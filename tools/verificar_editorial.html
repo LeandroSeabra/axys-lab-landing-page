@@ -38,6 +38,40 @@
       }
       messages.push(`PASS ${width}px ${path}`);
     }
+    const contacts = [
+      ['/geo/', 'gpr-localizar-tubulacoes', 'alvo', 'Tubulações e estruturas enterradas'],
+      ['/geo/', 'geofisica-agua-subterranea-poco', 'alvo', 'Água subterrânea'],
+      ['/geo/', 'o-que-e-geofisica', 'alvo', ''],
+      ['/topo/', 'georreferenciamento-imovel-rural-sigef', 'imovel', 'Rural'],
+      ['/safe/', 'monitoramento-geofisico-barragens', 'estrutura', ''],
+    ];
+    for (const [route, slug, field, value] of contacts) {
+      await new Promise(resolve => { frame.onload = resolve; frame.src = `${route}?artigo=${slug}#contato`; });
+      const doc = frame.contentDocument;
+      const form = doc.querySelector('form[data-form]');
+      assert(form.elements[field].value === value, `Interesse preservado: ${slug}`);
+      assert(form.elements.assunto.value && form.elements.mensagem.value, `Assunto e mensagem: ${slug}`);
+      assert(form.elements.artigo_origem.value.endsWith(`/conteudos/${slug}/`), `Origem: ${slug}`);
+      assert(!form.elements.nome.value && !form.elements.email.value, `Sem dados pessoais inventados: ${slug}`);
+      const mail = new URL(doc.querySelector('[data-mail]').href);
+      assert(mail.searchParams.get('body').includes(slug), `Contexto no e-mail: ${slug}`);
+      const fallback = new URL(doc.querySelector('.wa-float').href);
+      assert(fallback.pathname === route && fallback.searchParams.get('artigo') === slug, `Contexto no contato flutuante: ${slug}`);
+      form.elements.mensagem.value = 'Minha descrição do projeto';
+      assert(new frame.contentWindow.FormData(form).get('mensagem') === 'Minha descrição do projeto', 'Mensagem editável');
+      messages.push(`PASS contexto ${slug}`);
+    }
+    for (const [route, slug] of contacts) {
+      await new Promise(resolve => { frame.onload = resolve; frame.src = `/conteudos/${slug}/`; });
+      const doc = frame.contentDocument;
+      const headerContact = [...doc.querySelectorAll('.site-nav a')].find(link => link.textContent.trim() === 'Contato');
+      assert(new URL(headerContact.href).searchParams.get('artigo') === slug, `Origem pelo cabeçalho: ${slug}`);
+      assert(new URL(doc.querySelector('.wa-float').href).pathname === route, `Área no contato do artigo: ${slug}`);
+    }
+    await new Promise(resolve => { frame.onload = resolve; frame.src = '/geo/?artigo=__proto__#contato'; });
+    assert(!frame.contentDocument.querySelector('[name="artigo_origem"]'), 'Origem desconhecida ignorada');
+    await new Promise(resolve => { frame.onload = resolve; frame.src = '/topo/?artigo=gpr-localizar-tubulacoes#contato'; });
+    assert(!frame.contentDocument.querySelector('[name="artigo_origem"]'), 'Origem de outra área ignorada');
     document.body.dataset.test = 'PASS'; result.textContent = messages.join('\n');
   } catch (error) { document.body.dataset.test = 'FAIL'; result.textContent = messages.join('\n') + '\nFAIL: ' + error.message; }
 })();

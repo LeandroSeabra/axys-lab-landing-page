@@ -46,3 +46,7 @@ Abra `http://localhost:8765/conteudos/`. Não abra as páginas geradas diretamen
 Os modelos ficam em `tools/templates/`; conteúdo, em `content/posts/*.json`; estilo, em `assets/css/conteudos.css`; busca e filtros, em `assets/js/conteudos.js`. Não edite os HTML gerados: a próxima geração os substitui. O gerador não depende de bibliotecas externas. A versão dos assets editoriais é calculada pelo conteúdo do arquivo.
 
 O workflow exclui fontes editoriais, ferramentas e mockups do artefato público. O diretório de mockup é mantido localmente para referência. Não há integração de geração de texto por IA no painel nesta implementação.
+
+## Assunto trazido do artigo
+
+Os destinos das chamadas recebem o identificador do artigo. O mapa de assuntos em `assets/js/site.js` limita o preenchimento aos cinco artigos existentes e às áreas correspondentes. Ao adicionar um novo percurso de contato, inclua o assunto e a área nesse mapa e teste em `/tools/verificar_editorial.html`. As recomendações de leitura usam apenas os identificadores selecionados no campo `related`, sem preenchimento automático com outros temas.

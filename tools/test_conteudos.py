@@ -62,7 +62,7 @@ class ContentBuildTest(unittest.TestCase):
         self.assertIn('id="referencia-1"', result)
         self.assertIn('href="#referencia-1"', result)
         self.assertIn('https://www.epa.gov/environmental-geophysics', result)
-        self.assertIn('href="/geo/#contato"', result)
+        self.assertIn('href="/geo/?artigo=artigo#contato"', result)
         self.assertIn('Avalie seu terreno', result)
         listing = (self.root / 'conteudos/index.html').read_text()
         featured = listing.split('class="feature wrap"')[1].split('</section>')[0]
@@ -86,6 +86,15 @@ class ContentBuildTest(unittest.TestCase):
         self.assertIn('tabindex="0" role="region"', result)
         self.write(sections=[dict(heading='Comparação', text='Contexto', table=dict(headers=['A', 'B'], rows=[dict(cells=['Só uma'])]))])
         with self.assertRaises(ValueError): build(self.root)
+
+    def test_context_follows_cta_and_unrelated_articles_are_not_added(self):
+        self.write(cta=dict(heading='Investigar', text='Avaliar a área.', label='Contato', url='/geo/#contato'), related=[])
+        self.write('outro', title='Outro tema', area='Topografia')
+        build(self.root)
+        result = (self.root / 'conteudos/artigo/index.html').read_text()
+        self.assertIn('/geo/?artigo=artigo#contato', result)
+        self.assertNotIn('Outro tema', result)
+        self.assertNotIn('Continue explorando', result)
 
     def test_deterministic_output(self):
         self.write()
