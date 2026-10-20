@@ -36,7 +36,17 @@ collections:
       - {label: Visível no site, name: published, widget: boolean, default: false, hint: Ative após revisar. Datas futuras só aparecem na próxima geração após a data escolhida.}
       - {label: Imagem de capa, name: image, widget: image, allow_multiple: false, choose_url: false}
       - {label: Descrição da imagem para acessibilidade, name: image_alt, widget: string}
-      - {label: Legenda e créditos da imagem, name: caption, widget: text, required: false}
+      - {label: Legenda e contexto da imagem, name: caption, widget: text, required: false}
+      - label: Direitos da imagem
+        name: image_credit
+        widget: object
+        hint: Use somente imagens com autorização documentada ou licença compatível com uso comercial. Atribuição não substitui autorização.
+        fields:
+          - {label: Título original da foto, name: title, widget: string}
+          - {label: Autor ou instituição, name: creator, widget: string}
+          - {label: Página de origem (HTTPS), name: source, widget: string}
+          - {label: Licença ou autorização, name: license, widget: string}
+          - {label: Página da licença (HTTPS), name: license_url, widget: string}
       - {label: Ideia central, name: summary, widget: text}
       - label: Seções do artigo
         name: sections

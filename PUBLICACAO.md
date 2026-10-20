@@ -50,3 +50,6 @@ O workflow exclui fontes editoriais, ferramentas e mockups do artefato público.
 ## Assunto trazido do artigo
 
 Os destinos das chamadas recebem o identificador do artigo. O mapa de assuntos em `assets/js/site.js` limita o preenchimento aos cinco artigos existentes e às áreas correspondentes. Ao adicionar um novo percurso de contato, inclua o assunto e a área nesse mapa e teste em `/tools/verificar_editorial.html`. As recomendações de leitura usam apenas os identificadores selecionados no campo `related`, sem preenchimento automático com outros temas.
+
+
+Imagens: informe também os campos de autoria, fonte e licença. Use apenas material autorizado para o contexto de uso. Confira DIREITOS_DAS_IMAGENS.md e a página /creditos/. O preenchimento dos campos não substitui a verificação da licença.

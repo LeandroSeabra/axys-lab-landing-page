@@ -7,9 +7,9 @@
   "date": "2026-10-20",
   "published": true,
   "featured": false,
-  "image": "/assets/dados/safe/campanha-1.jpg",
-  "image_alt": "Seção de resistividade ilustrativa de uma campanha de investigação",
-  "caption": "Simulação de seção geofísica do acervo do site. Não representa uma barragem real nem uma avaliação de segurança.",
+  "image": "/assets/fotos/barragem-lookout.jpg",
+  "image_alt": "Vertedouro de concreto da barragem Lookout Point",
+  "caption": "Vertedouro da barragem Lookout Point, Oregon, EUA. A foto não documenta monitoramento geofísico da estrutura. Imagem de terceiro, sem vínculo com projetos da Axys.",
   "summary": "A geofísica pode acrescentar informação espacial sobre o maciço e sua evolução. Ela deve ser integrada à inspeção, à instrumentação e à análise de engenharia; uma anomalia geofísica isolada não determina a segurança de uma barragem.",
   "sections": [
     {
@@ -74,5 +74,12 @@
     "label": "Discutir investigação com a Axys Safe",
     "url": "/safe/#contato"
   },
-  "related": []
+  "related": [],
+  "image_credit": {
+    "title": "Spillway of Lookout Point Dam",
+    "creator": "USGS / Oregon Water Science Center",
+    "source": "https://www.usgs.gov/media/images/spillway-lookout-point-dam",
+    "license": "Domínio público",
+    "license_url": "https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits"
+  }
 }

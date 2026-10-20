@@ -7,9 +7,9 @@
   "date": "2026-10-20",
   "published": true,
   "featured": false,
-  "image": "/assets/dados/gpr-radargrama.jpg",
-  "image_alt": "Radargrama ilustrativo com resposta de difração destacada",
-  "caption": "Radargrama usado no exemplo técnico da página de Geofísica. As condições desse exemplo não determinam o desempenho de outro levantamento.",
+  "image": "/assets/fotos/gpr-campo.jpg",
+  "image_alt": "Equipamento de radar de penetração no solo sendo rebocado em um caminho",
+  "caption": "Equipamento de GPR em levantamento em Fire Island, Nova York, EUA. A foto mostra o método, não uma investigação de tubulações. Imagem de terceiro, sem vínculo com projetos da Axys.",
   "summary": "O GPR registra reflexões de ondas eletromagnéticas e pode ajudar a investigar tubulações e outras estruturas rasas. O resultado depende do contraste, do terreno, da configuração e da interpretação; ausência de sinal não comprova ausência de rede.",
   "sections": [
     {
@@ -73,5 +73,12 @@
   },
   "related": [
     "o-que-e-geofisica"
-  ]
+  ],
+  "image_credit": {
+    "title": "Ground-penetrating radar equipment being towed along the ground",
+    "creator": "USGS",
+    "source": "https://www.usgs.gov/media/images/ground-penetrating-radar-equipment-being-towed-along-ground",
+    "license": "Domínio público",
+    "license_url": "https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits"
+  }
 }

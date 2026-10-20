@@ -18,12 +18,25 @@ class ContentBuildTest(unittest.TestCase):
         for name in ('listing.html', 'article.html', 'shell.html'):
             (self.root / 'tools/templates' / name).write_text((ROOT / 'tools/templates' / name).read_text())
         (self.root / 'sitemap.xml').write_text('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://axysgeosolucoes.com/</loc></url></urlset>')
-        self.post = dict(title='Título <script>alert(1)</script>', description='Resumo', type='Artigos e guias', area='Geofísica', author='Equipe Axys', date='2026-01-01', published=True, image='/assets/og/geo.jpg', image_alt='Terreno', caption='Acervo', summary='Resumo central', sections=[dict(heading='Contexto', text='Texto <img src=x onerror=alert(1)>\n\nOutro parágrafo.')])
+        self.post = dict(title='Título <script>alert(1)</script>', description='Resumo', type='Artigos e guias', area='Geofísica', author='Equipe Axys', date='2026-01-01', published=True, image='/assets/og/geo.jpg', image_alt='Terreno', caption='Acervo', image_credit=dict(title='Foto', creator='Autor', source='https://example.org/foto', license='CC BY 4.0', license_url='https://creativecommons.org/licenses/by/4.0/'), summary='Resumo central', sections=[dict(heading='Contexto', text='Texto <img src=x onerror=alert(1)>\n\nOutro parágrafo.')])
         (self.root / 'assets/og').mkdir(parents=True)
         (self.root / 'assets/og/geo.jpg').touch()
 
     def write(self, slug='artigo', **changes):
         (self.root / 'content/posts' / (slug + '.json')).write_text(json.dumps(self.post | changes))
+
+    def test_image_credit_required_and_links_safe(self):
+        self.write(image_credit=None)
+        with self.assertRaises(ValueError):
+            build(self.root)
+        self.write(image_credit=self.post['image_credit'] | {'source': 'javascript:alert(1)'})
+        with self.assertRaises(ValueError):
+            build(self.root)
+        self.write()
+        build(self.root)
+        page = (self.root / 'conteudos/artigo/index.html').read_text()
+        self.assertIn('href="https://example.org/foto"', page)
+        self.assertIn('creativecommons.org/licenses/by/4.0/', page)
 
     def test_only_published_nonfuture_posts_and_escape(self):
         self.write()

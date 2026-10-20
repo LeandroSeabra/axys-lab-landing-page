@@ -7,9 +7,9 @@
   "date": "2026-10-20",
   "published": true,
   "featured": true,
-  "image": "/assets/dados/secao-panoramica.jpg",
-  "image_alt": "Seção geofísica ilustrativa com contrastes no subsolo",
-  "caption": "Seção de resistividade simulada do acervo do site. Ilustração conceitual, sem dados de um projeto real.",
+  "image": "/assets/fotos/geofisica-resistividade.jpg",
+  "image_alt": "Equipamento e cabos de um levantamento de resistividade em campo",
+  "caption": "Levantamento de resistividade elétrica realizado pelo USGS em 2006. Imagem de terceiro, sem vínculo com projetos da Axys.",
   "summary": "Geofísica é o estudo da Terra por medidas de propriedades físicas. Em projetos, ajuda a investigar o subsolo e orientar decisões, desde que os resultados sejam interpretados com contexto e limites explícitos.",
   "sections": [
     {
@@ -138,5 +138,12 @@
   "related": [
     "geofisica-agua-subterranea-poco",
     "gpr-localizar-tubulacoes"
-  ]
+  ],
+  "image_credit": {
+    "title": "Near-Surface Geophysics: Two-Dimensional Resistivity",
+    "creator": "USGS Office of Groundwater, Branch of Geophysics",
+    "source": "https://www.usgs.gov/media/images/near-surface-geophysics-two-dimensional-resistivity",
+    "license": "Domínio público",
+    "license_url": "https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits"
+  }
 }

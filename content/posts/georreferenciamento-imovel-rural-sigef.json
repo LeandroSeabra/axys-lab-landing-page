@@ -7,9 +7,9 @@
   "date": "2026-10-20",
   "published": true,
   "featured": false,
-  "image": "/assets/dados/topografia-base.jpg",
-  "image_alt": "Base cartográfica ilustrativa para discussão de levantamento territorial",
-  "caption": "Base topográfica simulada do acervo do site. Não representa um imóvel certificado nem um documento do SIGEF.",
+  "image": "/assets/fotos/levantamento-gnss.jpg",
+  "image_alt": "Tripé e receptor GPS usados em levantamento geodésico",
+  "caption": "Equipamento GPS em levantamento geodésico na Virgínia, EUA. A foto não representa um imóvel certificado pelo Incra. Imagem de terceiro, sem vínculo com projetos da Axys.",
   "summary": "Georreferenciar descreve os limites do imóvel por coordenadas e critérios técnicos. A certificação pelo Incra verifica aspectos do levantamento e sua relação com a base do SIGEF; não substitui a análise do título nem o registro imobiliário.",
   "sections": [
     {
@@ -141,5 +141,12 @@
     "label": "Conversar com a Axys Topo",
     "url": "/topo/#contato"
   },
-  "related": []
+  "related": [],
+  "image_credit": {
+    "title": "GPS tripod used in geodedic surveys of eastern Virginia",
+    "creator": "Rowan Johnson / USGS",
+    "source": "https://www.usgs.gov/media/images/gps-tripod-used-geodedic-surveys-eastern-virginia",
+    "license": "Domínio público",
+    "license_url": "https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits"
+  }
 }

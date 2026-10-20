@@ -38,3 +38,6 @@
 /* A largura mínima das tabelas deve rolar dentro da coluna, sem alargar a página. */
 .reading-layout>.prose{min-width:0}
 .article-head h1,.prose h2,.article-conversion .button,.card h3{overflow-wrap:anywhere;hyphens:auto}
+
+img[src$="/gpr-campo.jpg"] { object-position: 50% 68%; }
+.article-cover figcaption a { text-decoration: underline; text-underline-offset: 3px; }

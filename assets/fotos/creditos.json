@@ -1,0 +1,62 @@
+[
+  {
+    "file": "/assets/fotos/geofisica-resistividade.jpg",
+    "title": "Near-Surface Geophysics: Two-Dimensional Resistivity",
+    "creator": "USGS Office of Groundwater, Branch of Geophysics",
+    "source": "https://www.usgs.gov/media/images/near-surface-geophysics-two-dimensional-resistivity",
+    "license": "Domínio público",
+    "license_url": "https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits",
+    "download": "https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/2006_Parris-Island-2dres.JPG",
+    "changes": "Redimensionamento e compressão JPEG; recorte de exibição conforme o layout.",
+    "verified": "2026-10-20",
+    "sha256": "28e46d8234446546512402e187502f68135c54d6650c847200bde9b992d547d5"
+  },
+  {
+    "file": "/assets/fotos/agua-subterranea.jpg",
+    "title": "Measuring the groundwater level in a well near Lame Deer, Montana",
+    "creator": "Rodney R. Caldwell / USGS",
+    "source": "https://www.usgs.gov/media/images/measuring-groundwater-level-a-well-near-lame-deer-montana",
+    "license": "Domínio público",
+    "license_url": "https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits",
+    "download": "https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/thumbnails/image/Groundwater-level%20measurement%20July%2025%2C%202017.jpg",
+    "changes": "Redimensionamento e compressão JPEG; recorte de exibição conforme o layout.",
+    "verified": "2026-10-20",
+    "sha256": "e575311fc6e333499abc768628e43e58d43eba0fca807af77a672c46447797cb"
+  },
+  {
+    "file": "/assets/fotos/gpr-campo.jpg",
+    "title": "Ground-penetrating radar equipment being towed along the ground",
+    "creator": "USGS",
+    "source": "https://www.usgs.gov/media/images/ground-penetrating-radar-equipment-being-towed-along-ground",
+    "license": "Domínio público",
+    "license_url": "https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits",
+    "download": "https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/thumbnails/image/5_CSC_Intro_GPRacquisition.jpg",
+    "changes": "Redimensionamento e compressão JPEG; recorte de exibição conforme o layout.",
+    "verified": "2026-10-20",
+    "sha256": "2f7aa64acd6795e76fcc8b5ec4ebc47db04a6bd0233218d9683e335ae752819c"
+  },
+  {
+    "file": "/assets/fotos/levantamento-gnss.jpg",
+    "title": "GPS tripod used in geodedic surveys of eastern Virginia",
+    "creator": "Rowan Johnson / USGS",
+    "source": "https://www.usgs.gov/media/images/gps-tripod-used-geodedic-surveys-eastern-virginia",
+    "license": "Domínio público",
+    "license_url": "https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits",
+    "download": "https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/media/images/20221102_112226.jpg",
+    "changes": "Redimensionamento e compressão JPEG; recorte de exibição conforme o layout. Recorte do arquivo para destacar o equipamento, sem o rosto do operador.",
+    "verified": "2026-10-20",
+    "sha256": "403767e5211881bf7b88b8567c2884badf81459dd3b9dc78d23fb74f349c1519"
+  },
+  {
+    "file": "/assets/fotos/barragem-lookout.jpg",
+    "title": "Spillway of Lookout Point Dam",
+    "creator": "USGS / Oregon Water Science Center",
+    "source": "https://www.usgs.gov/media/images/spillway-lookout-point-dam",
+    "license": "Domínio público",
+    "license_url": "https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits",
+    "download": "https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/media/images/03-alt_Lookout-Point-Dam_IMG_0088_Schwid_adj.jpg",
+    "changes": "Redimensionamento e compressão JPEG; recorte de exibição conforme o layout.",
+    "verified": "2026-10-20",
+    "sha256": "b1fd46d66506d3363c7196ff88561fa206f28c2a24af2659ba079689713bd407"
+  }
+]

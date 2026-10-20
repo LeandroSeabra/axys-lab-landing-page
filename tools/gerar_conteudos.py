@@ -42,6 +42,13 @@ def read_posts(root):
         target = (root / image.lstrip('/')).resolve()
         if not target.is_relative_to(root.resolve()) or not target.is_file() or target.suffix.lower() not in ('.jpg', '.jpeg', '.png', '.webp'):
             raise ValueError(f'{file.name}: imagem ausente ou formato inválido')
+        credit = data.get('image_credit')
+        if not isinstance(credit, dict) or not all(isinstance(credit.get(k), str) and credit[k].strip() for k in ('title', 'creator', 'source', 'license', 'license_url')):
+            raise ValueError(f'{file.name}: informe autoria, fonte e licença da imagem')
+        for key in ('source', 'license_url'):
+            url = urlsplit(credit[key])
+            if url.scheme != 'https' or not url.hostname or url.username or url.password or any(c.isspace() for c in credit[key]):
+                raise ValueError(f'{file.name}: crédito de imagem deve usar HTTPS')
         sections = data.get('sections')
         if not isinstance(sections, list) or not sections:
             raise ValueError(f'{file.name}: inclua ao menos uma seção')
@@ -119,7 +126,8 @@ def build(root):
     pages['index.html'] = shell('Conteúdos: conhecimento que vem do campo', 'Artigos e notícias sobre geofísica, monitoramento, topografia e instrumentação. Conhecimento sobre o terreno, a partir da Amazônia.', '/conteudos/', '/assets/og/home.jpg', listing)
     for post in posts:
         values = {k: e(v) for k, v in post.items() if isinstance(v, (str, int))}
-        values['caption'] = e(post.get('caption', ''))
+        credit = post['image_credit']
+        values['caption'] = e(post.get('caption', '')) + ' Foto: ' + e(credit['creator']) + ' · <a href="' + e(credit['source']) + '">' + e(credit['title']) + '</a> · <a href="' + e(credit['license_url']) + '">' + e(credit['license']) + '</a>. Redimensionada; pode haver recorte de exibição.'
         values['toc'] = ''.join(f'<a href="#secao-{i}">{i:02d} &nbsp; {e(s["heading"])}</a>' for i, s in enumerate(post['sections'], 1))
         sections = []
         for i, section in enumerate(post['sections'], 1):

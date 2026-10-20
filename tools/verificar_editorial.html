@@ -29,6 +29,9 @@
       } else {
         assert(doc.querySelectorAll('.article-conversion').length === 1, `Uma chamada contextual: ${path}`);
         assert(doc.querySelector('.article-references li'), `Referências presentes: ${path}`);
+        const creditLinks = doc.querySelectorAll('.article-cover figcaption a');
+        assert(creditLinks.length === 2 && [...creditLinks].every(link => link.protocol === 'https:'), `Fonte e licença da foto: ${path}`);
+        assert(doc.querySelector('.article-cover img').getAttribute('src').startsWith('/assets/fotos/'), `Fotografia editorial: ${path}`);
         const schema = JSON.parse(doc.querySelector('script[type="application/ld+json"]').textContent);
         assert(schema.citation.length === doc.querySelectorAll('.article-references li').length, `Citações no schema: ${path}`);
       }

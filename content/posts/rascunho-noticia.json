@@ -15,5 +15,12 @@
       "heading": "O que aconteceu",
       "text": "Descreva uma novidade verificada, sua data, contexto e fontes. Não publique este rascunho como notícia real."
     }
-  ]
+  ],
+  "image_credit": {
+    "title": "Amazon14 (5641588550)",
+    "creator": "CIAT",
+    "source": "https://commons.wikimedia.org/w/index.php?curid=30331016",
+    "license": "CC BY-SA 2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0/"
+  }
 }

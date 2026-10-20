@@ -7,9 +7,9 @@
   "date": "2026-10-20",
   "published": true,
   "featured": false,
-  "image": "/lab/assets/dados/pseudossecao.jpg",
-  "image_alt": "Pseudosseção de resistividade simulada",
-  "caption": "Pseudosseção simulada do acervo do site. As cores representam resposta elétrica e não comprovam presença ou produtividade de água.",
+  "image": "/assets/fotos/agua-subterranea.jpg",
+  "image_alt": "Técnicos medindo o nível de água de um poço no campo",
+  "caption": "Medição do nível de água em poço próximo a Lame Deer, Montana, EUA. Imagem de terceiro, sem vínculo com projetos da Axys.",
   "summary": "A geofísica pode ajudar a selecionar alvos para investigação de água subterrânea. Ela não garante vazão, potabilidade nem sucesso da perfuração: essas respostas exigem etapas e verificações próprias.",
   "sections": [
     {
@@ -82,5 +82,12 @@
   },
   "related": [
     "o-que-e-geofisica"
-  ]
+  ],
+  "image_credit": {
+    "title": "Measuring the groundwater level in a well near Lame Deer, Montana",
+    "creator": "Rodney R. Caldwell / USGS",
+    "source": "https://www.usgs.gov/media/images/measuring-groundwater-level-a-well-near-lame-deer-montana",
+    "license": "Domínio público",
+    "license_url": "https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits"
+  }
 }
