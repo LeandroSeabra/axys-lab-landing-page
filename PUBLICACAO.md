@@ -55,7 +55,7 @@ Os destinos das chamadas recebem o identificador do artigo. O mapa de assuntos e
 Imagens: informe também os campos de autoria, fonte e licença. Use apenas material autorizado para o contexto de uso. Confira DIREITOS_DAS_IMAGENS.md e a página /creditos/. O preenchimento dos campos não substitui a verificação da licença.
 
 
-## Axys Conhecimento
+## Portal Axys
 
 O portal permanece em `/conteudos/`, preservando os endereços dos artigos. Temas publicados ganham coleções em `/conteudos/temas/<tema>/`; `/conteudos/noticias/` reúne somente notícias publicadas, sem exemplos fictícios. A política editorial está em `/conteudos/politica-editorial/`.
 

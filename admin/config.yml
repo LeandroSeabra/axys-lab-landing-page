@@ -14,7 +14,7 @@ slug:
   clean_accents: true
 collections:
   - name: posts
-    label: Axys Conhecimento
+    label: Portal Axys
     label_singular: Conteúdo
     folder: content/posts
     create: true

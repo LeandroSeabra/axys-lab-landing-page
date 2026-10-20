@@ -157,15 +157,15 @@ def build(root):
         listing = listing.replace('1 conteúdos para explorar', '1 conteúdo para explorar')
     if not posts:
         listing = listing.replace('<div id="empty" hidden>', '<div id="empty">').replace('Nenhum conteúdo encontrado.', 'Os primeiros conteúdos chegam em breve.')
-    pages['index.html'] = shell('Axys Conhecimento: geologia, geofísica e território', 'Artigos, guias e notícias sobre geologia, geofísica, água subterrânea, topografia e monitoramento. Um portal da Axys Geo Soluções.', '/conteudos/', '/assets/og/home.jpg', listing)
+    pages['index.html'] = shell('Portal Axys: geologia, geofísica e território', 'Artigos, guias e notícias sobre geologia, geofísica, água subterrânea, topografia e monitoramento. Um portal da Axys Geo Soluções.', '/conteudos/', '/assets/og/home.jpg', listing)
     def collection(path, title, description, selected, eyebrow):
         empty = '' if selected else '<div class="portal-news-empty"><h2>Ainda não há notícias publicadas.</h2><p>Você pode consultar os artigos e guias já disponíveis no portal.</p><a class="text-link" href="/conteudos/#biblioteca">Explorar os artigos ↗</a></div>'
         content = templates['collection'].substitute(label=e(title), title=e(title), description=e(description), eyebrow=e(eyebrow), count=len(selected), count_label='publicação' if len(selected) == 1 else 'publicações', cards=''.join(map(card, selected)), empty=empty)
-        pages[path+'index.html'] = shell(title+' — Axys Conhecimento', description, '/conteudos/'+path, '/assets/og/home.jpg', content)
+        pages[path+'index.html'] = shell(title+' — Portal Axys', description, '/conteudos/'+path, '/assets/og/home.jpg', content)
     for key, (label, description) in active_topics.items():
         collection('temas/'+key+'/', label, description, [post for post in posts if key in post['topics']], 'EXPLORE POR TEMA')
-    collection('noticias/', 'Notícias', 'Acontecimentos, pesquisas e atualizações da área, com contexto e fontes identificadas.', news, 'AXYS CONHECIMENTO')
-    pages['politica-editorial/index.html'] = shell('Sobre o portal e política editorial — Axys Conhecimento', 'Conheça a relação com a Axys, os critérios de fontes, autoria, revisão, correções e uso de imagens.', '/conteudos/politica-editorial/', '/assets/og/home.jpg', templates['policy'].substitute())
+    collection('noticias/', 'Notícias', 'Acontecimentos, pesquisas e atualizações da área, com contexto e fontes identificadas.', news, 'PORTAL AXYS')
+    pages['politica-editorial/index.html'] = shell('Sobre o portal e política editorial — Portal Axys', 'Conheça a relação com a Axys, os critérios de fontes, autoria, revisão, correções e uso de imagens.', '/conteudos/politica-editorial/', '/assets/og/home.jpg', templates['policy'].substitute())
     for post in posts:
         values = {k: e(v) for k, v in post.items() if isinstance(v, (str, int))}
         values['topic_tags'] = '<nav class="article-topics" aria-label="Assuntos desta publicação">'+''.join(f'<a href="/conteudos/temas/{key}/">{e(TOPICS[key][0])}</a>' for key in post['topics'])+'</nav>'
