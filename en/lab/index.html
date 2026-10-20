@@ -24,12 +24,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@800&family=Onest:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../lab/styles.css?v=202610201248">
-    <link rel="stylesheet" href="../../assets/css/widgets.css?v=202610201248">
+    <link rel="stylesheet" href="../../lab/styles.css?v=202610201307">
+    <link rel="stylesheet" href="../../assets/css/widgets.css?v=202610201307">
     <script>document.documentElement.classList.add('js')</script>
-    <script src="../../assets/js/config.js?v=202610201248" defer></script>
-    <script src="../../assets/js/site.js?v=202610201248" defer></script>
-    <script src="../../lab/script.js?v=202610201248" defer></script>
+    <script src="../../assets/js/config.js?v=202610201307" defer></script>
+    <script src="../../assets/js/site.js?v=202610201307" defer></script>
+    <script src="../../lab/script.js?v=202610201307" defer></script>
   </head>
   <body data-wa="Hello! I found the Axys Lab page and would like to know more about the instruments.">
     <a class="skip-link" href="#conteudo">Skip to content</a>
@@ -71,7 +71,7 @@
         <div class="hero-foot">
           <div class="hero-copy">
             <h1 id="hero-title">Geophysical instruments</h1>
-            <p>A resistivity meter and drone sensors, in development in Belém, Brazil, to measure the subsurface where the forest will not let you walk.</p>
+            <p>A ground resistivity meter and drone-mounted magnetic and gamma-ray instruments, in development in Belém, Brazil.</p>
           </div>
           <div class="hero-actions">
             <a class="button" href="#equipamentos">See the instruments</a>
@@ -84,7 +84,7 @@
       <section class="intro" aria-label="About Axys Lab">
         <div class="intro-pin">
           <p class="statement" data-reveal>We design field instruments with the experience of people who run surveys.</p>
-          <p class="intro-body" data-reveal style="--d: 1">Axys Geo Soluções brings together professionals with years of experience in geophysical surveys and data processing. The Lab grew out of that experience: we build instruments for the region's heat, humidity, forest and logistics, which will be field-tested before launch.</p>
+          <p class="intro-body" data-reveal style="--d: 1">Axys Geo Soluções brings together professionals with years of experience in geophysical surveys and data processing. The Lab grew out of that experience: we build instruments for the region's heat, humidity, forest and logistics, with bench and field assessments included in development planning.</p>
         </div>
         <div class="intro-pictures">
           <figure class="intro-pic pic-portrait" data-reveal>
@@ -180,7 +180,7 @@
           </figure>
           <div class="instrument-body">
             <h3 id="spec-mag" data-reveal>Drone magnetometer</h3>
-            <p data-reveal style="--d: 1">A sensor towed below the drone, away from motor interference, recording variations in the Earth's magnetic field along the flight lines.</p>
+            <p data-reveal style="--d: 1">A sensor suspended below the drone to reduce motor influence while recording magnetic-field variations along flight lines.</p>
             <dl data-reveal style="--d: 2">
               <div><dt>Method</dt><dd>Magnetics</dd></div>
               <div><dt>Measures</dt><dd>Total magnetic field intensity</dd></div>
@@ -243,8 +243,8 @@
       <section class="altitude" id="altura" aria-labelledby="alt-title">
         <h2 id="alt-title" class="section-title" data-reveal>Higher means weaker</h2>
         <div class="altitude-copy">
-          <p data-reveal style="--d: 1">The signal of a magnetic body fades fast with distance. That is why the drone flies low, just above the canopy, where an aircraft cannot go. Drag and watch the reading change.</p>
-          <p class="altitude-note" data-reveal style="--d: 2">In northern Brazil the Earth's field is almost horizontal, so a body shows up as a low flanked by two highs rather than as a peak. Simulation of a sphere 40 m deep, with −5° inclination. Illustrative values.</p>
+          <p data-reveal style="--d: 1">Distance between sensor and source affects magnetic signal strength. Explore this relation in the simulation. Survey flight height depends on safety and operating conditions.</p>
+          <p class="altitude-note" data-reveal style="--d: 2">This curve represents the simulation model: a sphere at 40 m depth and −5° inclination. Response shape depends on source geometry, properties and magnetisation. Illustrative values.</p>
         </div>
 
         <div class="altitude-lab" data-altitude data-reveal style="--d: 1">
@@ -294,11 +294,11 @@
         </div>
         <div class="stage stage-2">
           <figure data-reveal><img src="../../lab/assets/sm/perfis.jpg" srcset="../../lab/assets/sm/perfis.jpg 800w, ../../lab/assets/dados/perfis.jpg 1200w" sizes="(max-width: 760px) 62vw, 24vw" width="1200" height="900" loading="lazy" alt="Stacked simulated magnetic profiles with a body's anomaly in the middle"></figure>
-          <p data-reveal style="--d: 1"><strong>Then, on the bench in Belém.</strong> Electronics, firmware, housing and calibration are developed in the Lab. Each version is tested against known responses, like these simulated magnetic profiles, before it leaves the bench.</p>
+          <p data-reveal style="--d: 1"><strong>Then, on the bench in Belém.</strong> Development involves electronics, embedded software and component integration. Simulations support processing studies; physical calibration and instrument assessment require separate tests.</p>
         </div>
         <div class="stage stage-3">
           <figure data-reveal><img src="../../lab/assets/sm/amazonia-copa-nuvens.jpg" srcset="../../lab/assets/sm/amazonia-copa-nuvens.jpg 800w, ../../lab/assets/amazonia-copa-nuvens.jpg 1600w" sizes="(max-width: 760px) 78vw, 40vw" width="1600" height="1062" loading="lazy" alt="Amazon canopy with cloud shadows"></figure>
-          <p data-reveal style="--d: 1"><strong>Finally, back to the field.</strong> Each prototype will be tested on real surveys, alongside established equipment. Only then will it reach clients.</p>
+          <p data-reveal style="--d: 1"><strong>Finally, back to the field.</strong> Bench and field assessments are part of development planning. Procedures, dates and specifications will be described when defined.</p>
         </div>
       </section>
 
@@ -318,15 +318,15 @@
             <ul>
               <li class="use is-active" data-use="0">
                 <button type="button" aria-expanded="true"><span class="use-name">Mineral exploration</span><span class="use-method">Magnetics, gamma</span></button>
-                <p>Outlining iron, copper, gold and other targets in provinces such as Carajás, with low flights and tight line spacing.</p>
+                <p>Investigating physical contrasts and structures of interest to mineral exploration. Response depends on minerals, geology and survey method.</p>
               </li>
               <li class="use" data-use="1">
                 <button type="button" aria-expanded="false"><span class="use-name">Geological mapping</span><span class="use-method">Gamma, magnetics</span></button>
-                <p>Separating lithologies, tracing faults and contacts, and mapping hydrothermal alteration under soil and vegetation.</p>
+                <p>Investigating contrasts associated with rocks, soils and geological structures, depending on method and target depth.</p>
               </li>
               <li class="use" data-use="2">
                 <button type="button" aria-expanded="false"><span class="use-name">Groundwater</span><span class="use-method">Resistivity</span></button>
-                <p>Locating aquifers, estimating sediment thickness and choosing where to drill wells.</p>
+                <p>Investigating subsurface contrasts that may support target selection alongside hydrogeological interpretation.</p>
               </li>
               <li class="use" data-use="3">
                 <button type="button" aria-expanded="false"><span class="use-name">Dams and geotechnics</span><span class="use-method">Resistivity</span></button>
@@ -334,7 +334,7 @@
               </li>
               <li class="use" data-use="4">
                 <button type="button" aria-expanded="false"><span class="use-name">Environment</span><span class="use-method">Resistivity, gamma</span></button>
-                <p>Mapping contamination plumes, waste disposal areas and disturbed soils.</p>
+                <p>Investigating physical contrasts at environmental sites alongside sampling and other site information.</p>
               </li>
               <li class="use" data-use="5">
                 <button type="button" aria-expanded="false"><span class="use-name">Research and teaching</span><span class="use-method">All methods</span></button>
@@ -345,48 +345,19 @@
         </div>
       </section>
 
-      <!-- Programa piloto: proposta para converter empresas enquanto os equipamentos são testados. -->
-      <section class="pilot" id="piloto" data-ph-block aria-labelledby="pilot-title">
-        <div class="pilot-head">
-          <h2 id="pilot-title" class="section-title" data-reveal>Pilot programme</h2>
-          <p data-reveal style="--d: 1"><span class="ph-tag">Proposal: terms to be confirmed</span></p>
-        </div>
-        <div class="pilot-body">
-          <p class="statement" data-reveal>We are selecting companies and institutions to test the prototypes on real surveys.</p>
-          <dl class="pilot-terms" data-reveal style="--d: 1">
-            <div><dt>You get</dt><dd>The survey run with the prototype and with established equipment side by side, the full dataset, and priority when the instruments go on sale.</dd></div>
-            <div><dt>We get</dt><dd>Technical feedback from people who work in the field, to refine the instrument before launch.</dd></div>
-            <div><dt>Who it is for</dt><dd>Mining companies, geotechnical and environmental firms, universities and research institutes.</dd></div>
-          </dl>
-          <a class="button" href="#contato" data-equip="Pilot programme" data-reveal style="--d: 2">Join the pilot</a>
-        </div>
-      </section>
+      <!-- Contato para discutir aplicações; sem oferta de piloto ou condições comerciais pendentes. -->
+      <section class="pilot" id="piloto" aria-labelledby="pilot-title"><div class="pilot-head"><h2 id="pilot-title" class="section-title" data-reveal>Discuss an application</h2></div><div class="pilot-body"><p class="statement" data-reveal>The instruments are in development. Companies and research institutions can describe their measurement needs to the Lab.</p><p>Specifications, launch dates and pilot participation terms have not been published. An enquiry does not reserve an instrument or a place in field testing.</p><a class="button" href="#contato" data-equip="Not sure yet">Describe an application</a></div></section>
 
       <!-- Ficha técnica: entra quando os protótipos tiverem números medidos. -->
-      <section class="spec-sheet" data-ph-block aria-labelledby="ficha-title">
-        <h2 id="ficha-title" class="section-title" data-reveal>Specifications</h2>
-        <p class="spec-sheet-note" data-reveal style="--d: 1"><span class="ph-tag">To be added</span> Values measured on the prototypes.</p>
-        <div class="spec-table" data-reveal style="--d: 2">
-          <table>
-            <thead><tr><th scope="col">Specification</th><th scope="col">Resistivity meter</th><th scope="col">Magnetometer</th><th scope="col">Gamma-ray spectrometer</th></tr></thead>
-            <tbody>
-              <tr><th scope="row">Sensitivity</th><td class="is-placeholder">to be defined</td><td class="is-placeholder">to be defined</td><td class="is-placeholder">to be defined</td></tr>
-              <tr><th scope="row">Sampling rate</th><td class="is-placeholder">to be defined</td><td class="is-placeholder">to be defined</td><td class="is-placeholder">to be defined</td></tr>
-              <tr><th scope="row">Weight</th><td class="is-placeholder">to be defined</td><td class="is-placeholder">to be defined</td><td class="is-placeholder">to be defined</td></tr>
-              <tr><th scope="row">Endurance</th><td class="is-placeholder">to be defined</td><td class="is-placeholder">to be defined</td><td class="is-placeholder">to be defined</td></tr>
-              <tr><th scope="row">Data output</th><td class="is-placeholder">to be defined</td><td class="is-placeholder">to be defined</td><td class="is-placeholder">to be defined</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
+
 
       <section class="lab-faq" id="perguntas" aria-labelledby="faq-title">
         <h2 id="faq-title" class="section-title" data-reveal>Questions</h2>
         <div class="faq" data-reveal style="--d: 1">
-          <details><summary>When will the instruments be ready?</summary><div><p>All three are in development and will be field-tested before launch. Registered contacts receive the schedule first.</p></div></details>
-          <details><summary>Will you sell or rent them?</summary><div><p>Commercial terms will be presented first to registered contacts and pilot participants.</p></div></details>
+          <details><summary>When will the instruments be ready?</summary><div><p>All three are in development. No launch schedule has been published; contact the team to discuss an application.</p></div></details>
+          <details><summary>Will you sell or rent them?</summary><div><p>Commercial arrangements and terms have not been published.</p></div></details>
           <details><summary>Do the sensors work with any drone?</summary><div><p>They are being designed for heavy-lift survey multirotors. Compatibility by model will be listed in the specifications.</p></div></details>
-          <details><summary>Will there be maintenance and calibration?</summary><div><p>Yes. Maintenance, calibration and technical support are planned in Belém, close to the people working in the Amazon.</p></div></details>
+          <details><summary>Will there be maintenance and calibration?</summary><div><p>Maintenance, calibration and support arrangements will be described for each instrument when defined.</p></div></details>
           <details><summary>Can I order a custom instrument?</summary><div><p>Talk to us: the Lab was born to solve field problems, and custom projects are assessed case by case.</p></div></details>
         </div>
       </section>
@@ -415,7 +386,7 @@
               <option>Resistivity meter</option>
               <option>Drone magnetometer</option>
               <option>Drone gamma-ray spectrometer</option>
-              <option>Pilot programme</option>
+              <option>Discuss an application</option>
             </select>
           </label>
           <label>Application
@@ -435,7 +406,7 @@
             <button class="button" type="submit">Send message</button>
             <p class="form-note form-status" data-form-status role="status"></p>
           </div>
-          <p class="form-note form-legal">We use your details only to reply to this message. <a href="../../privacidade/" hreflang="pt-BR">Privacy policy (in Portuguese)</a>.</p>
+          <p class="form-note form-legal">We use your details to handle your enquiry and discuss the project. <a href="../../privacidade/" hreflang="pt-BR">Privacy policy (in Portuguese)</a>.</p>
         </form>
 
       </section>
@@ -454,7 +425,7 @@
           <a href="#altura">Simulation</a>
           <a href="#desenvolvimento">Development</a>
           <a href="#aplicacoes">Applications</a>
-          <a href="#piloto">Pilot programme</a>
+          <a href="#piloto">Discuss an application</a>
           <a href="#contato">Contact</a>
         </nav>
         <div>

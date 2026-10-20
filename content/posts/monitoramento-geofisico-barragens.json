@@ -29,7 +29,7 @@
     },
     {
       "heading": "O que estudos geofísicos podem investigar",
-      "text": "Um exemplo documentado pelo USGS é a investigação da Hidden Dam, na Califórnia, que utilizou resistividade e potencial espontâneo, junto com modelagem, para estudar padrões de percolação. O caso mostra uma aplicação integrada; não é evidência de que o mesmo desenho produzirá a mesma resposta em qualquer barragem.\n\nAo planejar um trabalho, o que pode ser transferido é a necessidade de uma pergunta específica e de integração com informações da estrutura. O estudo de um local não autoriza extrapolar profundidade, desempenho ou limiares para outro. Também não deve ser apresentado como experiência da Axys: trata-se de uma referência externa identificada.",
+      "text": "O USGS documentou uma investigação na Hidden Dam, na Califórnia, utilizando resistividade, potencial espontâneo e modelagem para estudar padrões de percolação. É um exemplo de como combinar respostas físicas e informações hidrogeológicas para examinar uma pergunta específica.\n\nO estudo descreve as condições daquele local. A aplicação em outra barragem exige avaliar sua geometria, seus materiais e os dados disponíveis. Parâmetros e resultados de um caso não devem ser transferidos automaticamente para outra estrutura.",
       "references": [
         3
       ]
@@ -43,16 +43,8 @@
       "text": "O termo anomalia deve ser acompanhado de explicação: qual observação é diferente, em relação a qual referência e com quais alternativas de interpretação? O contratante deve pedir essa distinção no relatório, sem aceitar a troca de uma hipótese por uma conclusão de segurança.\n\nO serviço precisa indicar como os resultados serão encaminhados à equipe responsável para avaliação conjunta. Um artigo ou uma imagem não estabelece a condição de estabilidade da estrutura. Se o objetivo do contrato envolve uma avaliação de segurança, deixe explícito quem realizará essa análise, com quais informações e sob qual responsabilidade."
     },
     {
-      "heading": "O que incluir em um plano de investigação ou acompanhamento",
-      "text": "Como recomendação de contratação, descreva a pergunta de investigação, a área de interesse, os dados existentes, o desenho das campanhas, o controle de qualidade e os produtos de interpretação. Combine ainda o modo de integrar os resultados às outras informações e quem participará das discussões técnicas.\n\nPara um acompanhamento periódico, a proposta deve esclarecer a lógica de repetição e o tratamento de mudanças no escopo. Para uma campanha pontual, deve explicar quais conclusões poderão ser apoiadas por aquela visita e quais dependerão de uma sequência de observações. Periodicidade não deve ser escolhida por um texto genérico: precisa fazer sentido para a estrutura e para suas exigências aplicáveis."
-    },
-    {
-      "heading": "Quais entregas ajudam a equipe a usar os resultados",
-      "text": "Peça posição das linhas, descrição da aquisição, critérios de qualidade, modelos interpretados, limitações e uma síntese que diferencie achados e hipóteses. Discuta também a forma de reunião dos dados e dos relatórios de campanhas anteriores.\n\nA entrega deve permitir rastrear de onde veio uma interpretação e por que determinada região foi destacada. Um gráfico sem localização ou um mapa sem legenda podem dificultar a análise conjunta, mesmo quando a aquisição foi adequada. O formato deve ser combinado com quem utilizará a informação, e não apenas com quem solicita o orçamento."
-    },
-    {
-      "heading": "Como contratar sem confundir o papel de cada atividade",
-      "text": "Na conversa com o fornecedor, explique se a demanda é reconhecer condições do maciço, investigar uma região específica ou discutir um acompanhamento comparativo. Liste os documentos e séries existentes e identifique a equipe que integrará os resultados.\n\nO escopo geofísico deve complementar o planejamento responsável pela estrutura. Ele não deve prometer antecipar qualquer ocorrência, substituir inspeções ou atestar sozinho a segurança. A relação comercial fica mais clara quando a contribuição, as fronteiras e as entregas estão estabelecidas antes do trabalho."
+      "heading": "Como definir escopo e entregas",
+      "text": "O planejamento deve identificar a pergunta de investigação, a área, os dados existentes e a equipe que integrará os resultados. Uma campanha pontual e um acompanhamento periódico têm objetivos diferentes; a frequência precisa considerar a estrutura e suas necessidades de observação.\n\nPara comparar campanhas, registre a posição das linhas e as condições de aquisição. O relatório deve reunir critérios de qualidade, modelos interpretados, diferenças observadas e limitações, com localização suficiente para que os achados sejam discutidos junto aos registros da estrutura.\n\nA forma de comunicação e as responsabilidades pelas próximas etapas devem ser combinadas antes do trabalho. O levantamento geofísico contribui com informações para a avaliação conjunta; decisões de inspeção ou intervenção dependem da análise da equipe responsável."
     }
   ],
   "references": [

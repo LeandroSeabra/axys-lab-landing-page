@@ -6,77 +6,97 @@ const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").match
 const TARGETS = {
   agua: {
     label: "Água subterrânea",
-    res: { amp: -0.9, shape: "peak", text: "A água deixa o terreno mais condutor: a resistividade cai onde ela está." },
-    mag: { amp: 0.04, shape: "peak", text: "Água não é magnética; o campo não muda." },
-    gam: { amp: -0.18, shape: "peak", text: "Só lê a superfície; percebe a água apenas se ela mudar o solo de cima." },
-    gpr: { amp: 0.55, shape: "step", text: "Em solo arenoso, o topo da água é um refletor forte e aparece como uma camada contínua; em solo argiloso, o sinal se perde antes de chegar lá." },
+    res: { amp: -0.9, shape: "peak", text: "A resposta elétrica varia com a água nos poros, os sais e a composição do terreno. Uma zona condutiva, sozinha, não confirma um aquífero produtivo." },
+    mag: { amp: 0.04, shape: "peak", text: "A magnetometria investiga contrastes magnéticos das rochas e de outros materiais; não é uma medida direta de água subterrânea." },
+    gam: { amp: -0.18, shape: "peak", text: "A radiometria informa sobre materiais próximos à superfície, sem identificar diretamente a água em profundidade." },
+    gpr: { amp: 0.55, shape: "step", text: "O nível d’água pode produzir uma reflexão em condições favoráveis. Condutividade, material e configuração limitam a investigação." },
   },
   ferro: {
     label: "Minério de ferro",
-    res: { amp: -0.5, shape: "peak", text: "Minério maciço costuma ser mais condutor que a rocha ao redor." },
-    mag: { amp: 1, shape: "dipole", text: "A magnetita do minério altera o campo; perto do equador magnético aparece como um baixo com dois altos." },
-    gam: { amp: -0.28, shape: "peak", text: "Formações ferríferas têm pouca radioatividade; a resposta é um leve baixo." },
-    gpr: { amp: 0.12, shape: "peak", text: "Não é o método para este alvo: rocha mineralizada e condutora absorve o sinal do radar." },
+    res: { amp: -0.5, shape: "peak", text: "A resposta elétrica depende da composição e da estrutura do minério e das rochas; não identifica por si só o teor de ferro." },
+    mag: { amp: 1, shape: "dipole", text: "Minerais magnéticos, como magnetita, podem produzir anomalias. Forma e intensidade dependem da fonte e de sua magnetização." },
+    gam: { amp: -0.28, shape: "peak", text: "Variações de potássio, tório e urânio equivalentes podem apoiar o mapeamento superficial; não são medida direta de minério de ferro." },
+    gpr: { amp: 0.12, shape: "peak", text: "Materiais condutivos podem limitar a penetração. A adequação do radar depende das condições e da profundidade do alvo." },
   },
   falha: {
     label: "Falha ou contato",
-    res: { amp: -0.6, shape: "step", text: "A falha separa materiais diferentes e muitas vezes conduz água: a resistividade muda de um lado para o outro." },
-    mag: { amp: 0.62, shape: "step", text: "Rochas com magnetização diferente dos dois lados criam um degrau no campo." },
-    gam: { amp: 0.45, shape: "step", text: "Se o contato separa rochas diferentes na superfície, a radiometria também muda." },
-    gpr: { amp: 0.5, shape: "step", text: "Perto da superfície, o radar mostra as camadas cortadas e deslocadas pela falha, com detalhe de centímetros." },
+    res: { amp: -0.6, shape: "step", text: "Uma falha ou um contato pode coincidir com contraste elétrico. A interpretação depende dos materiais, fluidos e dados geológicos." },
+    mag: { amp: 0.62, shape: "step", text: "Contatos entre materiais com propriedades magnéticas diferentes podem gerar variações do campo. Nem toda falha produz resposta identificável." },
+    gam: { amp: 0.45, shape: "step", text: "Pode apoiar a identificação de diferenças entre materiais próximos à superfície, quando houver contraste radiométrico." },
+    gpr: { amp: 0.5, shape: "step", text: "Descontinuidades rasas podem gerar reflexões interpretáveis, conforme contraste, geometria e penetração do sinal." },
   },
   argila: {
     label: "Argila e contaminação",
-    res: { amp: -0.92, shape: "peak", text: "Argila e plumas com sais são muito condutoras: o método mais direto para este alvo." },
-    mag: { amp: 0.05, shape: "peak", text: "Sem minerais magnéticos, o campo praticamente não muda." },
-    gam: { amp: 0.42, shape: "peak", text: "Argilas retêm potássio e tório; a radiometria sobe onde elas afloram." },
-    gpr: { amp: -0.25, shape: "peak", text: "A argila absorve o sinal: a perda de penetração delimita a área argilosa ou contaminada, mas não mostra o que há abaixo." },
+    res: { amp: -0.92, shape: "peak", text: "Argilas e fluidos com sais podem reduzir a resistividade. Distingui-los requer contexto e dados complementares." },
+    mag: { amp: 0.05, shape: "peak", text: "A resposta depende dos minerais magnéticos presentes; não demonstra contaminação por si só." },
+    gam: { amp: 0.42, shape: "peak", text: "A composição radiométrica pode variar entre solos e rochas; não identifica diretamente a presença de contaminação." },
+    gpr: { amp: -0.25, shape: "peak", text: "A atenuação pode limitar a investigação. Perda de sinal não confirma nem delimita, sozinha, uma área contaminada." },
   },
   estruturas: {
     label: "Tubulações e estruturas enterradas",
-    res: { amp: -0.25, shape: "spike", text: "Pode indicar tubos metálicos ou galerias, mas sem a resolução de que este alvo precisa." },
-    mag: { amp: 0.75, shape: "dipole", text: "Tubos e tanques metálicos alteram o campo; tubulações plásticas e de concreto passam despercebidas." },
-    gam: { amp: 0.04, shape: "peak", text: "Não responde: estruturas enterradas não mudam a radiação do solo." },
-    gpr: { amp: 1, shape: "spike", text: "O método mais direto: cada tubo, cabo ou laje aparece como um reflexo nítido, com posição e profundidade, inclusive plásticos e concreto." },
+    res: { amp: -0.25, shape: "spike", text: "Contrastes elétricos podem apoiar a investigação de estruturas, dependendo da escala e do desenho do levantamento." },
+    mag: { amp: 0.75, shape: "dipole", text: "Objetos com materiais ferromagnéticos podem gerar anomalias. A resposta não permite mapear qualquer tipo de tubulação." },
+    gam: { amp: 0.04, shape: "peak", text: "Não é uma técnica voltada à localização de redes enterradas; sua aplicação principal é investigar a composição superficial." },
+    gpr: { amp: 1, shape: "spike", text: "Pode ajudar a localizar estruturas rasas quando há contraste e condições favoráveis. O levantamento não garante a detecção de todos os objetos." },
   },
   alteracao: {
     label: "Alteração hidrotermal",
-    res: { amp: -0.42, shape: "peak", text: "Zonas alteradas e fraturadas tendem a ser um pouco mais condutoras." },
-    mag: { amp: -0.55, shape: "peak", text: "A alteração destrói a magnetita: aparece um baixo magnético sobre a zona." },
-    gam: { amp: 0.92, shape: "peak", text: "A alteração potássica enriquece o solo em potássio: o sinal mais claro deste alvo." },
-    gpr: { amp: 0.08, shape: "peak", text: "A alteração costuma estar fundo demais para o radar, que vê só os primeiros metros." },
+    res: { amp: -0.42, shape: "peak", text: "A alteração pode modificar a resposta elétrica conforme minerais, porosidade e fluidos. A interpretação exige contexto geológico." },
+    mag: { amp: -0.55, shape: "peak", text: "A alteração pode modificar os minerais magnéticos e sua resposta. Uma redução do sinal não é diagnóstico universal de alteração." },
+    gam: { amp: 0.92, shape: "peak", text: "Mudanças em potássio, tório e urânio equivalentes podem apoiar estudos de alteração superficial, em conjunto com a geologia." },
+    gpr: { amp: 0.08, shape: "peak", text: "A utilidade depende da profundidade e do contraste; o radar não identifica diretamente o processo de alteração hidrotermal." },
   },
 };
 
 // Versão em inglês (página en/geo): mesmos valores, outros textos.
 const EN = (document.documentElement.lang || "").startsWith("en");
 if (EN) {
-  const T = {
-    agua: ["Groundwater", "Water makes the ground more conductive: resistivity drops where it is.", "Water is not magnetic; the field does not change.", "It reads only the surface; it notices water only if it changes the topsoil."],
-    ferro: ["Iron ore", "Massive ore tends to be more conductive than the host rock.", "Magnetite in the ore distorts the field; near the magnetic equator it shows as a low flanked by two highs.", "Iron formations carry little radioactivity; the response is a slight low."],
-    falha: ["Fault or contact", "A fault separates different materials and often carries water: resistivity changes from one side to the other.", "Rocks with different magnetisation on each side create a step in the field.", "If the contact separates different rocks at surface, radiometrics changes too."],
-    argila: ["Clay and contamination", "Clay and saline plumes are highly conductive: the most direct method for this target.", "Without magnetic minerals, the field barely changes.", "Clays hold potassium and thorium; radiometrics rises where they crop out."],
-    estruturas: ["Buried utilities and structures", "It may hint at metal pipes or culverts, but without the resolution this target needs.", "Metal pipes and tanks distort the field; plastic and concrete pipes go unnoticed.", "No response: buried structures do not change ground radiation.", "The most direct method: every pipe, cable or slab shows up as a sharp reflection, with position and depth, plastics and concrete included."],
-    alteracao: ["Hydrothermal alteration", "Altered, fractured zones tend to be somewhat more conductive.", "Alteration destroys magnetite: a magnetic low appears over the zone.", "Potassic alteration enriches the soil in potassium: the clearest signal for this target."],
-  };
-  const GPR_EN = {
-    agua: "In sandy soil the water table is a strong reflector that shows as a continuous layer; in clay the signal dies before reaching it.",
-    ferro: "Not the method for this target: conductive, mineralised rock absorbs the radar signal.",
-    falha: "Near the surface, radar shows layers cut and offset by the fault, at centimetre detail.",
-    argila: "Clay absorbs the signal: the loss of penetration outlines the clayey or contaminated area, but shows nothing beneath it.",
-    alteracao: "Alteration usually lies too deep for radar, which sees only the first few metres.",
-  };
-  Object.entries(T).forEach(([k, [label, res, mag, gam, gpr]]) => {
-    TARGETS[k].label = label;
-    TARGETS[k].res.text = res;
-    TARGETS[k].mag.text = mag;
-    TARGETS[k].gam.text = gam;
-    TARGETS[k].gpr.text = gpr || GPR_EN[k];
+  const descriptions = {
+  "agua": [
+    "Electrical response varies with pore water, dissolved salts and ground composition. A conductive zone alone does not confirm a productive aquifer.",
+    "Magnetics investigates magnetic contrasts in rocks and other materials; it does not directly measure groundwater.",
+    "Radiometrics provides information about near-surface materials, not a direct identification of water at depth.",
+    "The water table may produce a reflection under favourable conditions. Conductivity, material and survey configuration constrain the investigation."
+  ],
+  "ferro": [
+    "Electrical response depends on ore and host-rock composition and structure; it does not directly determine iron grade.",
+    "Magnetic minerals such as magnetite may produce anomalies. Shape and strength depend on the source and its magnetisation.",
+    "Potassium, equivalent thorium and equivalent uranium variations may support surface mapping; they are not a direct measure of iron ore.",
+    "Conductive materials may limit penetration. Radar suitability depends on site conditions and target depth."
+  ],
+  "falha": [
+    "A fault or contact may coincide with an electrical contrast. Interpretation depends on materials, fluids and geological information.",
+    "Contacts between magnetically contrasting materials may produce field variations. Not every fault yields a recognisable response.",
+    "Radiometrics may help distinguish near-surface materials where radiometric contrasts exist.",
+    "Shallow discontinuities may produce interpretable reflections, depending on contrast, geometry and signal penetration."
+  ],
+  "argila": [
+    "Clays and saline fluids may lower resistivity. Distinguishing them requires context and additional evidence.",
+    "Response depends on magnetic minerals; it does not establish contamination by itself.",
+    "Radiometric composition may vary between soils and rocks; it does not directly establish contamination.",
+    "Attenuation may limit investigation. Signal loss alone neither confirms nor delineates a contaminated area."
+  ],
+  "estruturas": [
+    "Electrical contrasts may support investigation of structures, depending on scale and survey design.",
+    "Objects containing ferromagnetic materials may generate anomalies. Response does not provide a map of every utility type.",
+    "Radiometrics is not intended for locating buried utility networks; it primarily investigates near-surface composition.",
+    "GPR may help locate shallow structures where contrast and site conditions are favourable. It does not guarantee detection of every object."
+  ],
+  "alteracao": [
+    "Alteration may change electrical response depending on minerals, porosity and fluids. Interpretation requires geological context.",
+    "Alteration may change magnetic minerals and their response. A magnetic low is not a universal indication of alteration.",
+    "Potassium, equivalent thorium and equivalent uranium variations may support studies of surface alteration alongside geology.",
+    "Usefulness depends on depth and contrast; radar does not directly identify hydrothermal alteration processes."
+  ]
+};
+  const labels = {"agua": "Groundwater", "ferro": "Iron ore", "falha": "Fault or contact", "argila": "Clay and contamination", "estruturas": "Buried utilities and structures", "alteracao": "Hydrothermal alteration"};
+  Object.entries(descriptions).forEach(([key, texts]) => {
+    TARGETS[key].label = labels[key];
+    ["res", "mag", "gam", "gpr"].forEach((method, index) => { TARGETS[key][method].text = texts[index]; });
   });
 }
 
-const level = (amp) => { const a = Math.abs(amp); return a > 0.7 ? 3 : a > 0.3 ? 2 : a > 0.12 ? 1 : 0; };
-const VERDICT = EN ? ["No response", "Weak response", "Responds", "Strong response"] : ["Não responde", "Responde pouco", "Responde", "Responde forte"];
+const VERDICT = EN ? "Illustrative example" : "Exemplo ilustrativo";
 
 // Perfil em 600 × 120; o eixo fica em y = 60 e a amplitude máxima ocupa 48 px.
 const profile = ({ amp, shape }) => {
@@ -111,9 +131,8 @@ const toPath = (pts) => pts.map((y, i) => `${i ? "L" : "M"}${i * 6} ${y.toFixed(
       // Sem dados para este método (por exemplo, script e página de versões diferentes): esconde o cartão em vez de travar.
       row.hidden = !m;
       if (!m) return;
-      const lv = level(m.amp);
-      row.dataset.level = String(lv);
-      row.querySelector("[data-verdict]").textContent = VERDICT[lv];
+      row.dataset.level = "0";
+      row.querySelector("[data-verdict]").textContent = VERDICT;
       row.querySelector("[data-text]").textContent = m.text;
       const path = row.querySelector("[data-curve]");
       const from = current.get(row);

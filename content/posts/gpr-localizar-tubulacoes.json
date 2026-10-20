@@ -9,7 +9,7 @@
   "featured": false,
   "image": "/assets/dados/gpr-radargrama.jpg",
   "image_alt": "Radargrama ilustrativo com resposta de difração destacada",
-  "caption": "Radargrama ilustrativo do acervo do site; não é resultado de uma investigação contratada nem indicação de local liberado para escavação.",
+  "caption": "Radargrama usado no exemplo técnico da página de Geofísica. As condições desse exemplo não determinam o desempenho de outro levantamento.",
   "summary": "O GPR registra reflexões de ondas eletromagnéticas e pode ajudar a investigar tubulações e outras estruturas rasas. O resultado depende do contraste, do terreno, da configuração e da interpretação; ausência de sinal não comprova ausência de rede.",
   "sections": [
     {
@@ -38,31 +38,16 @@
       "text": "A pesquisa comercial costuma se concentrar no material da rede. Para definir o levantamento, porém, também é importante descrever o tamanho esperado, a posição provável e as características conhecidas do local. A pergunta é se existe uma resposta que possa ser reconhecida nas condições daquela investigação.\n\nInforme o que você sabe e o que está apenas supondo. Uma planta antiga pode ser uma pista, mas não deve ser tratada como posição confirmada. Caso o material ou o traçado sejam desconhecidos, essa incerteza precisa entrar no escopo e no modo de apresentar o resultado, em vez de desaparecer na entrega."
     },
     {
-      "heading": "O que um estudo de laboratório permite concluir",
-      "text": "Lai e colaboradores estudaram respostas de GPR associadas a vazamentos em tubos metálicos e de PVC, enterrados em uma caixa de areia, com condições controladas de injeção de água. O trabalho é uma referência de pesquisa sobre a resposta do método nesse ambiente experimental.\n\nO cuidado na leitura é essencial: um experimento controlado não fornece uma taxa universal de detecção nem garante o mesmo desempenho em solos de obra. Aqui ele serve para mostrar a importância do contexto e da validação, sem anunciar que a Axys realizou o estudo ou que oferece uma garantia de localização de vazamentos.",
-      "references": [
-        3
-      ]
-    },
-    {
-      "heading": "Por que a malha de aquisição faz diferença",
-      "text": "Um projeto de mapeamento deve explicar como as linhas serão distribuídas em relação à área e aos alvos esperados. Ao comparar propostas, pergunte sobre orientação, espaçamento e cobertura. O objetivo é compreender se o desenho permite tratar a pergunta da obra, e não apenas saber quantos metros serão percorridos.\n\nPeça que o produto final diferencie estruturas interpretadas, trechos incertos, locais sem acesso e áreas com limitações de investigação. Essa distinção torna o desenho utilizável por quem precisa planejar a intervenção. Um mapa com uma única categoria de linha pode esconder diferenças relevantes de confiança."
-    },
-    {
-      "heading": "O que pedir na entrega do levantamento",
-      "text": "Como roteiro para o orçamento, discuta planta de localização, referência de posicionamento, traçados interpretados, perfis representativos e uma explicação das limitações. Se houver estimativas de profundidade, peça como foram obtidas e como sua confiabilidade será comunicada.\n\nDefina quem usará o material e em qual etapa. Um arquivo para planejamento preliminar pode precisar de apresentação diferente de um conjunto destinado a apoiar verificações em campo. Os formatos, a legenda e a compatibilidade com a base da obra devem ser combinados antes, evitando descobrir na entrega que o produto não atende ao fluxo da equipe."
+      "heading": "Cobertura e produtos do levantamento",
+      "text": "A distribuição das linhas precisa considerar a área de interesse e os traçados possíveis. Orientação, espaçamento e locais sem acesso influenciam a cobertura. A proposta deve mostrar como o levantamento foi planejado para a pergunta da obra.\n\nNa entrega, é útil distinguir traçados interpretados, trechos incertos e regiões em que o sinal não permitiu análise suficiente. A planta deve indicar o posicionamento, e o relatório deve explicar as hipóteses usadas em estimativas de profundidade. Formatos de arquivo e legendas precisam ser combinados com a equipe que utilizará os dados."
     },
     {
       "heading": "GPR não é uma autorização automática para escavar",
       "text": "Uma investigação geofísica deve entrar no planejamento da intervenção com seus limites explícitos. Uma área sem resposta interpretável não deve ser transformada em uma declaração de que não há interferências. O levantamento também não substitui a coordenação com os responsáveis pelas redes e pelos procedimentos de segurança da obra.\n\nA sequência de confirmação e execução precisa ser definida pela equipe responsável pela intervenção. O relatório pode apoiar essa sequência, mas não deve ser usado para dispensá-la. Para contratar com cuidado, peça que a proposta explique como os resultados e as incertezas serão repassados a quem tomará a decisão em campo."
     },
     {
-      "heading": "Quanto custa e quais informações enviar para orçamento",
-      "text": "O valor deve ser comparado em função da área, da cobertura prevista, do acesso e dos produtos. Informe o que será feito na obra, se existem desenhos de redes, qual a profundidade de interesse e quais partes da área podem ser percorridas. Fotos e uma planta simples ajudam a contextualizar a conversa.\n\nPeça que a proposta separe investigação, interpretação e entrega. Se forem sugeridas técnicas complementares ou verificações posteriores, confira se estão incluídas ou se serão contratadas à parte. O melhor orçamento para a decisão é o que esclarece o trabalho e suas fronteiras."
-    },
-    {
-      "heading": "Quando procurar uma avaliação antes da intervenção",
-      "text": "Se a obra prevê escavação ou outra atividade que pode encontrar estruturas enterradas, vale discutir a investigação ainda na fase de planejamento. A conversa deve começar pelo que está em risco e pelo que precisa ser conhecido, para então avaliar se o GPR pode contribuir.\n\nUm próximo passo é reunir a planta da área e indicar onde a intervenção está prevista. A equipe poderá avaliar o objetivo e discutir a configuração de levantamento, sem prometer um alcance universal ou a detecção de todos os objetos."
+      "heading": "Quando discutir o uso de GPR",
+      "text": "Se uma intervenção pode encontrar estruturas enterradas, a investigação deve ser discutida durante o planejamento. Informe a área, a profundidade de interesse, as condições de acesso e os desenhos de redes disponíveis. São informações para avaliar a aplicação do método, sem assumir que a base antiga esteja correta.\n\nO orçamento deve identificar aquisição, interpretação e produtos. Quando forem propostas técnicas complementares ou verificações posteriores, é importante esclarecer se estão incluídas. O objetivo é definir uma investigação compatível com a obra e comunicar as incertezas a quem decidirá a intervenção."
     }
   ],
   "references": [
@@ -77,12 +62,6 @@
       "institution": "U.S. Geological Survey (USGS)",
       "url": "https://pubs.usgs.gov/ds/1078/ds1078_data-processing.html",
       "year": "2018"
-    },
-    {
-      "title": "Perturbation mapping of water leak in buried water pipes via laboratory validation experiments with high-frequency ground penetrating radar (GPR). Tunnelling and Underground Space Technology, 52, 157–167. DOI: 10.1016/j.tust.2015.10.017",
-      "institution": "Lai, W. L.; Chang, R. K. W.; Sham, J. F. C.; Pang, K.",
-      "url": "https://research.polyu.edu.hk/en/publications/perturbation-mapping-of-water-leak-in-buried-water-pipes-via-labo/",
-      "year": "2016"
     }
   ],
   "sources_checked": "20/10/2026",

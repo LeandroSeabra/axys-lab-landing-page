@@ -24,13 +24,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@800&family=Onest:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/css/base.css?v=202610201248">
-    <link rel="stylesheet" href="../assets/css/widgets.css?v=202610201248">
-    <link rel="stylesheet" href="geo.css?v=202610201248">
+    <link rel="stylesheet" href="../assets/css/base.css?v=202610201307">
+    <link rel="stylesheet" href="../assets/css/widgets.css?v=202610201307">
+    <link rel="stylesheet" href="geo.css?v=202610201307">
     <script>document.documentElement.classList.add('js')</script>
-    <script src="../assets/js/config.js?v=202610201248" defer></script>
-    <script src="../assets/js/site.js?v=202610201248" defer></script>
-    <script src="geo.js?v=202610201248" defer></script>
+    <script src="../assets/js/config.js?v=202610201307" defer></script>
+    <script src="../assets/js/site.js?v=202610201307" defer></script>
+    <script src="geo.js?v=202610201307" defer></script>
   </head>
   <body class="geo" data-wa="Olá! Vim pela página da Axys Geofísica e gostaria de falar sobre um levantamento.">
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -71,7 +71,7 @@
       <section class="g-target" id="alvo" aria-labelledby="alvo-title">
         <div class="g-target-intro">
           <h2 id="alvo-title" class="section-title">Seu alvo</h2>
-          <p>Cada método enxerga uma propriedade diferente do subsolo. Escolha o que você procura e veja quem responde.</p>
+          <p>Cada método investiga propriedades físicas diferentes do terreno. Escolha um alvo para explorar possibilidades e limitações em exemplos simplificados.</p>
           <div class="g-targets" role="group" aria-label="Escolha o alvo">
             <button type="button" data-target="agua" aria-pressed="true">Água subterrânea</button>
             <button type="button" data-target="ferro" aria-pressed="false">Minério de ferro</button>
@@ -84,26 +84,26 @@
 
         <div class="g-responses" aria-live="polite">
           <article class="g-response" data-method="res">
-            <header><h3>Eletrorresistividade</h3><p class="g-verdict" data-verdict>Responde forte</p></header>
+            <header><h3>Eletrorresistividade</h3><p class="g-verdict" data-verdict>Exemplo ilustrativo</p></header>
             <svg viewBox="0 0 600 120" aria-hidden="true"><path class="g-axis" d="M0 60H600"/><path class="g-curve" data-curve d="M0 60H600"/></svg>
-            <p data-text>A água deixa o terreno mais condutor: a resistividade cai onde ela está.</p>
+            <p data-text>A resposta elétrica varia com a água nos poros, os sais e a composição do terreno. Uma zona condutiva, sozinha, não confirma um aquífero produtivo.</p>
           </article>
           <article class="g-response" data-method="mag">
-            <header><h3>Magnetometria</h3><p class="g-verdict" data-verdict>Não responde</p></header>
+            <header><h3>Magnetometria</h3><p class="g-verdict" data-verdict>Exemplo ilustrativo</p></header>
             <svg viewBox="0 0 600 120" aria-hidden="true"><path class="g-axis" d="M0 60H600"/><path class="g-curve" data-curve d="M0 60H600"/></svg>
-            <p data-text>Água não é magnética; o campo não muda.</p>
+            <p data-text>A magnetometria investiga contrastes magnéticos das rochas e de outros materiais; não é uma medida direta de água subterrânea.</p>
           </article>
           <article class="g-response" data-method="gam">
-            <header><h3>Gamaespectrometria</h3><p class="g-verdict" data-verdict>Responde pouco</p></header>
+            <header><h3>Gamaespectrometria</h3><p class="g-verdict" data-verdict>Exemplo ilustrativo</p></header>
             <svg viewBox="0 0 600 120" aria-hidden="true"><path class="g-axis" d="M0 60H600"/><path class="g-curve" data-curve d="M0 60H600"/></svg>
-            <p data-text>Só lê a superfície; percebe a água apenas se ela mudar o solo de cima.</p>
+            <p data-text>A radiometria informa sobre materiais próximos à superfície, sem identificar diretamente a água em profundidade.</p>
           </article>
           <article class="g-response" data-method="gpr">
-            <header><h3>GPR</h3><p class="g-verdict" data-verdict>Responde</p></header>
+            <header><h3>GPR</h3><p class="g-verdict" data-verdict>Exemplo ilustrativo</p></header>
             <svg viewBox="0 0 600 120" aria-hidden="true"><path class="g-axis" d="M0 60H600"/><path class="g-curve" data-curve d="M0 60H600"/></svg>
-            <p data-text>Em solo arenoso, o topo da água é um refletor forte e aparece como uma camada contínua; em solo argiloso, o sinal se perde antes de chegar lá.</p>
+            <p data-text>O nível d’água pode produzir uma reflexão em condições favoráveis. Condutividade, material e configuração limitam a investigação.</p>
           </article>
-          <p class="g-note">Respostas típicas e simplificadas. O método certo depende da profundidade, do contraste e do terreno, e é isso que definimos no planejamento.</p>
+          <p class="g-note">Exemplos conceituais, sem previsão de detecção ou desempenho. A escolha depende do alvo, da profundidade, das condições do terreno e do contraste — a diferença de propriedades entre os materiais.</p>
         </div>
       </section>
 
@@ -113,13 +113,13 @@
         <div class="g-table-wrap">
           <table>
             <thead>
-              <tr><th scope="col">Método</th><th scope="col">O que mede</th><th scope="col">Até onde vê</th><th scope="col">Plataforma</th><th scope="col">Bom para</th></tr>
+              <tr><th scope="col">Método</th><th scope="col">O que mede</th><th scope="col">Profundidade de investigação</th><th scope="col">Plataforma</th><th scope="col">Bom para</th></tr>
             </thead>
             <tbody>
-              <tr><th scope="row">Eletrorresistividade</th><td data-label="O que mede">Resistividade elétrica do subsolo</td><td data-label="Até onde vê">Dezenas de metros, conforme o arranjo</td><td data-label="Plataforma">Terrestre</td><td data-label="Bom para">Água subterrânea, contaminação, fundações, geologia rasa</td></tr>
-              <tr><th scope="row">Magnetometria</th><td data-label="O que mede">Intensidade do campo magnético</td><td data-label="Até onde vê">Do raso ao profundo, conforme a fonte</td><td data-label="Plataforma">Terrestre ou drone</td><td data-label="Bom para">Minério de ferro, diques, falhas, estruturas</td></tr>
-              <tr><th scope="row">Gamaespectrometria</th><td data-label="O que mede">Radiação natural de K, eTh e eU</td><td data-label="Até onde vê">Superfície, cerca de 30 cm</td><td data-label="Plataforma">Drone</td><td data-label="Bom para">Mapeamento de rochas e solos, alteração hidrotermal</td></tr>
-              <tr><th scope="row">GPR (radar de penetração no solo)</th><td data-label="O que mede">Reflexões de ondas de radar nos contrastes do subsolo</td><td data-label="Até onde vê">Poucos metros, menos em solo argiloso</td><td data-label="Plataforma">Terrestre</td><td data-label="Bom para">Tubulações e estruturas enterradas, fundações, camadas rasas, nível d’água em solo arenoso</td></tr>
+              <tr><th scope="row">Eletrorresistividade</th><td data-label="O que mede">Resistividade elétrica do subsolo</td><td data-label="Profundidade de investigação">Depende do arranjo, do terreno e da qualidade das medidas</td><td data-label="Plataforma">Terrestre</td><td data-label="Bom para">Água subterrânea, contaminação, fundações, geologia rasa</td></tr>
+              <tr><th scope="row">Magnetometria</th><td data-label="O que mede">Intensidade do campo magnético</td><td data-label="Profundidade de investigação">Depende da geometria, profundidade e magnetização da fonte</td><td data-label="Plataforma">Terrestre ou drone</td><td data-label="Bom para">Minério de ferro, diques, falhas, estruturas</td></tr>
+              <tr><th scope="row">Gamaespectrometria</th><td data-label="O que mede">Radiação natural de K, eTh e eU</td><td data-label="Profundidade de investigação">Superfície, cerca de 30 cm</td><td data-label="Plataforma">Drone</td><td data-label="Bom para">Mapeamento de rochas e solos, alteração hidrotermal</td></tr>
+              <tr><th scope="row">GPR (radar de penetração no solo)</th><td data-label="O que mede">Reflexões de ondas de radar nos contrastes do subsolo</td><td data-label="Profundidade de investigação">Variável; terrenos condutivos podem limitar a penetração</td><td data-label="Plataforma">Terrestre</td><td data-label="Bom para">Tubulações e estruturas enterradas, fundações, camadas rasas, nível d’água em solo arenoso</td></tr>
             </tbody>
           </table>
         </div>
@@ -135,15 +135,15 @@
           </li>
           <li>
             <img src="../lab/assets/sm/carajas-satelite.jpg" srcset="../lab/assets/sm/carajas-satelite.jpg 800w, ../lab/assets/carajas-satelite.jpg 1600w" sizes="(max-width: 900px) 100vw, 22vw" width="1600" height="1172" loading="lazy" alt="Imagem de satélite de uma área de mineração no Pará">
-            <p><strong>Aquisição.</strong> Equipe própria em terra ou com drone, com controle de qualidade dos dados ainda no campo.</p>
+            <p><strong>Aquisição.</strong> Aquisição em terra ou com drone conforme o projeto, com verificação de qualidade durante o trabalho de campo.</p>
           </li>
           <li>
             <img src="../lab/assets/sm/perfis.jpg" srcset="../lab/assets/sm/perfis.jpg 800w, ../lab/assets/dados/perfis.jpg 1200w" sizes="(max-width: 900px) 100vw, 22vw" width="1200" height="900" loading="lazy" alt="Perfis magnéticos empilhados, simulados">
-            <p><strong>Processamento.</strong> Correções, filtros e inversão até chegar a mapas e seções confiáveis.</p>
+            <p><strong>Processamento.</strong> Correções, filtros e inversão: cálculo de modelos compatíveis com as medidas, com avaliação da qualidade e das limitações.</p>
           </li>
           <li>
             <img src="../lab/assets/sm/pseudossecao.jpg" srcset="../lab/assets/sm/pseudossecao.jpg 640w, ../lab/assets/dados/pseudossecao.jpg 960w" sizes="(max-width: 900px) 100vw, 28vw" width="960" height="640" loading="lazy" alt="Pseudosseção de resistividade, simulada">
-            <p><strong>Interpretação.</strong> Geologia lida nos dados e recomendações claras para quem vai decidir.</p>
+            <p><strong>Interpretação.</strong> Interpretação dos resultados em conjunto com a geologia e os dados disponíveis, indicando hipóteses e limitações.</p>
           </li>
         </ol>
       </section>
@@ -160,7 +160,7 @@
             <div><dt>Mapas</dt><dd>Campo magnético, radiometria e produtos derivados, georreferenciados.</dd></div>
             <div><dt>Seções</dt><dd>Modelos de resistividade em profundidade e radargramas de GPR ao longo de cada linha.</dd></div>
             <div><dt>Relatório</dt><dd>Método, qualidade dos dados, interpretação e recomendações.</dd></div>
-            <div><dt>Arquivos</dt><dd>Dados brutos e processados em formatos abertos, prontos para o seu SIG.</dd></div>
+            <div><dt>Arquivos</dt><dd>Dados brutos e processados nos formatos definidos no contrato, para uso em sistemas de informação geográfica (SIG) e outras ferramentas.</dd></div>
           </dl>
         </div>
       </section>
@@ -170,10 +170,10 @@
       <section class="section" id="experiencia" aria-labelledby="exp-title">
         <div class="section-head">
           <h2 id="exp-title" class="section-title">Experiência</h2>
-          <p>A Axys é nova; a experiência de quem executa, não. Os levantamentos são feitos e assinados pelos sócios.</p>
+          <p>A Axys é nova; a experiência de quem executa, não. A formação e a experiência dos sócios são apresentadas abaixo; a equipe e a responsabilidade técnica são definidas em cada contratação.</p>
         </div>
         <div class="xp">
-          <p class="xp-statement" data-reveal>Empresa nova, equipe experiente.</p>
+
           <dl class="xp-list" data-reveal-children>
             <div><dt>Campo e interpretação</dt><dd>Magnetometria para prospecção mineral, GPR para mapeamento de dutos subterrâneos e perfilagem de poços, em empresas de geofísica, por Sebastião Moura (desde 2020).</dd></div>
             <div><dt>Modelagem e software</dt><dd>Modelagem eletromagnética 3D por elementos finitos e desenvolvimento de ferramentas de modelagem e inversão de dados geofísicos, por Leandro Seabra.</dd></div>
@@ -213,18 +213,18 @@
       <section class="section" id="perguntas" aria-labelledby="faq-title">
         <h2 id="faq-title" class="section-title" style="margin-bottom: clamp(40px, 5vw, 72px)">Perguntas</h2>
         <div class="faq" data-reveal-children>
-          <details><summary>Quanto custa um levantamento?</summary><div><p>Depende do método, da extensão das linhas, do acesso e da logística. Depois de entender a área e a pergunta do projeto, enviamos uma proposta com escopo, prazo e valor fechados.</p></div></details>
-          <details><summary>Quanto tempo leva?</summary><div><p>O campo costuma levar de alguns dias a poucas semanas, conforme a área. O cronograma completo, incluindo processamento e relatório, vem na proposta.</p></div></details>
-          <details><summary>Até que profundidade vocês enxergam?</summary><div><p>Depende do método e do arranjo: a eletrorresistividade chega a dezenas de metros; o GPR vê os primeiros metros com detalhe de centímetros, menos em solo argiloso; a magnetometria responde do raso ao profundo, conforme a fonte; a gamaespectrometria lê a superfície. Definimos isso no planejamento.</p></div></details>
-          <details><summary>Vocês trabalham em áreas remotas?</summary><div><p>Sim. Planejamos a logística para floresta, rio e chuva, e usamos drone onde caminhar é difícil.</p></div></details>
+          <details><summary>Quanto custa um levantamento?</summary><div><p>Depende do método, da extensão das linhas, do acesso e da logística. Depois de entender a área e a pergunta do projeto, preparamos uma proposta com escopo, estimativa de prazo e condições comerciais.</p></div></details>
+          <details><summary>Quanto tempo leva?</summary><div><p>O prazo é estimado após avaliar a extensão, os acessos e o método. A proposta distingue trabalho de campo, processamento e relatório.</p></div></details>
+          <details><summary>Até que profundidade vocês enxergam?</summary><div><p>A profundidade e a resolução dependem do método, do terreno e do desenho do levantamento. São avaliadas no planejamento e precisam ser discutidas junto às limitações dos dados.</p></div></details>
+          <details><summary>Vocês trabalham em áreas remotas?</summary><div><p>A viabilidade de mobilização é avaliada conforme localização, acesso e condições de campo. O uso de drone depende do método e das condições operacionais.</p></div></details>
           <details><summary>O que eu recebo no final?</summary><div><p>Relatório técnico com método, qualidade dos dados, mapas, seções, interpretação e recomendações, além dos dados brutos e processados em formatos abertos.</p></div></details>
-          <details><summary>E as autorizações de voo com drone?</summary><div><p>As operações seguem as regras da ANAC e do DECEA, e cuidamos das autorizações necessárias para cada voo.</p></div></details>
+          <details><summary>E as autorizações de voo com drone?</summary><div><p>O planejamento de operações com drone considera os requisitos aplicáveis da ANAC e do DECEA e as condições de acesso. As responsabilidades por autorizações são definidas antes da mobilização.</p></div></details>
         </div>
       </section>
 
       <section class="contact-block" id="contato" aria-label="Contato">
         <div class="contact-side">
-          <p class="contact-lead">Conte o que precisa investigar e onde. Respondemos com o método e a proposta.</p>
+          <p class="contact-lead">Conte o que precisa investigar e onde. Avaliamos a demanda para discutir a investigação e seu escopo.</p>
           <div class="contact-channels">
             <a class="contact-email" data-mail="geofisica" data-mail-text data-subject="Levantamento geofísico — Axys Geofísica" href="mailto:lab@axysgeosolucoes.com">lab@axysgeosolucoes.com</a>
             <span data-wa-block><a class="text-link" data-wa-link href="#">Conversar pelo WhatsApp</a></span>
@@ -256,7 +256,7 @@
             <button class="button" type="submit">Enviar mensagem</button>
             <p class="form-status" data-form-status role="status"></p>
           </div>
-          <p class="form-legal">Usamos seus dados só para responder a este contato. <a href="../privacidade/">Política de privacidade</a>.</p>
+          <p class="form-legal">Usamos os dados para atender à sua solicitação e discutir o projeto. <a href="../privacidade/">Política de privacidade</a>.</p>
         </form>
       </section>
     </main>
@@ -268,7 +268,7 @@
         <p>© <span data-year>2026</span> Axys Geo Soluções. Belém, Pará, Brasil.</p>
         <details>
           <summary>Créditos das imagens</summary>
-          <p class="credits"><a href="https://www.rawpixel.com/image/4057860/photo-image-public-domain-nature">“Unmanned Aircraft System (UAS)”</a> por U.S. Forest Service, <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>; <a href="https://commons.wikimedia.org/w/index.php?curid=97551129">“Carajas Mine”</a> por Pierre Markuse, <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a>. Seções, perfis e mapas são simulações ilustrativas; as fotos mostram a região e não são da Axys.</p>
+          <p class="credits"><a href="https://www.rawpixel.com/image/4057860/photo-image-public-domain-nature">“Unmanned Aircraft System (UAS)”</a> por U.S. Forest Service, <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>; <a href="https://commons.wikimedia.org/w/index.php?curid=97551129">“Carajas Mine”</a> por Pierre Markuse, <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a>. As seções e os mapas identificados como simulações são ilustrativos. O exemplo de GPR tem descrição própria; fotos de paisagem não representam projetos da Axys.</p>
         </details>
       </div>
       <div class="footer-meta">

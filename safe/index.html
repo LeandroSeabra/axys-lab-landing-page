@@ -22,13 +22,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@800&family=Onest:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/css/base.css?v=202610201248">
-    <link rel="stylesheet" href="../assets/css/widgets.css?v=202610201248">
-    <link rel="stylesheet" href="safe.css?v=202610201248">
+    <link rel="stylesheet" href="../assets/css/base.css?v=202610201307">
+    <link rel="stylesheet" href="../assets/css/widgets.css?v=202610201307">
+    <link rel="stylesheet" href="safe.css?v=202610201307">
     <script>document.documentElement.classList.add('js')</script>
-    <script src="../assets/js/config.js?v=202610201248" defer></script>
-    <script src="../assets/js/site.js?v=202610201248" defer></script>
-    <script src="safe.js?v=202610201248" defer></script>
+    <script src="../assets/js/config.js?v=202610201307" defer></script>
+    <script src="../assets/js/site.js?v=202610201307" defer></script>
+    <script src="safe.js?v=202610201307" defer></script>
   </head>
   <body class="safe" data-wa="Olá! Vim pela página da Axys Safe e gostaria de falar sobre monitoramento.">
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -38,7 +38,7 @@
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
       <nav class="site-nav" id="site-nav" aria-label="Seções desta página">
         <a href="#estruturas">O que acompanhamos</a>
-        <a href="#niveis">Níveis</a>
+        <a href="#niveis">Comparação</a>
         <a href="#normas">Normas</a>
         <a href="#perguntas">Perguntas</a>
         <a href="../sobre/?de=safe">Quem somos</a>
@@ -52,7 +52,7 @@
       <section class="s-hero" aria-labelledby="hero-title">
         <div class="s-monitor" data-monitor data-ui>
           <div class="s-frames">
-            <img data-frame="0" src="../assets/dados/safe/campanha-1-sm.jpg" srcset="../assets/dados/safe/campanha-1-sm.jpg 800w, ../assets/dados/safe/campanha-1.jpg 1200w" sizes="(max-width: 900px) 100vw, 60vw" width="1200" height="800" alt="Seção de resistividade da barragem na primeira campanha: faixa de infiltração fraca">
+            <img data-frame="0" src="../assets/dados/safe/campanha-1-sm.jpg" srcset="../assets/dados/safe/campanha-1-sm.jpg 800w, ../assets/dados/safe/campanha-1.jpg 1200w" sizes="(max-width: 900px) 100vw, 60vw" width="1200" height="800" alt="Seção de resistividade da barragem na primeira campanha: cenário ilustrativo de contraste elétrico">
             <img data-frame="1" src="../assets/dados/safe/campanha-2-sm.jpg" srcset="../assets/dados/safe/campanha-2-sm.jpg 800w, ../assets/dados/safe/campanha-2.jpg 1200w" sizes="(max-width: 900px) 100vw, 60vw" width="1200" height="800" alt="">
             <img data-frame="2" src="../assets/dados/safe/campanha-3-sm.jpg" srcset="../assets/dados/safe/campanha-3-sm.jpg 800w, ../assets/dados/safe/campanha-3.jpg 1200w" sizes="(max-width: 900px) 100vw, 60vw" width="1200" height="800" alt="">
             <img data-frame="3" src="../assets/dados/safe/campanha-4-sm.jpg" srcset="../assets/dados/safe/campanha-4-sm.jpg 800w, ../assets/dados/safe/campanha-4.jpg 1200w" sizes="(max-width: 900px) 100vw, 60vw" width="1200" height="800" alt="">
@@ -62,25 +62,25 @@
           <div class="s-panel">
             <dl class="s-readout">
               <div><dt>Campanha</dt><dd data-date>março de 2025</dd></div>
-              <div><dt>Variação na zona monitorada</dt><dd data-delta>−6%</dd></div>
-              <div><dt>Nível</dt><dd><span class="s-level" data-level="0">Normal</span></dd></div>
+              <div><dt>Variação elétrica simulada</dt><dd data-delta>0%</dd></div>
+              <div><dt>Exemplo didático</dt><dd><span class="s-level" data-level="0">Referência</span></dd></div>
             </dl>
             <label class="s-scrub-label" for="campanha">Arraste para ver as campanhas</label>
             <input id="campanha" type="range" min="0" max="5" step="1" value="0" list="campanhas">
             <datalist id="campanhas"><option value="0"></option><option value="1"></option><option value="2"></option><option value="3"></option><option value="4"></option><option value="5"></option></datalist>
             <ol class="s-ticks" aria-hidden="true"><li>mar 25</li><li>jun 25</li><li>set 25</li><li>dez 25</li><li>mar 26</li><li>jun 26</li></ol>
-            <p class="s-panel-note" data-note>A primeira campanha é a linha de base: tudo o que vier depois é comparado com ela.</p>
+            <p class="s-panel-note" data-note>A primeira campanha é a referência desta simulação, com variação inicial definida como zero.</p>
           </div>
         </div>
         <div class="s-hero-copy">
           <h1 id="hero-title">Axys Safe</h1>
           <div>
             <p class="s-kind">Monitoramento de barragens e segurança geológica</p>
-            <p>Por fora, o talude parece igual a cada visita. Medindo as mesmas linhas de tempos em tempos, vemos a água avançar por dentro do maciço antes que ela vire risco.</p>
+            <p>Comparamos levantamentos geofísicos para investigar mudanças no interior da barragem, do aterro ou da encosta. A interpretação considera o histórico e os demais dados da estrutura.</p>
             <a class="button" href="#contato">Falar com a equipe</a>
           </div>
         </div>
-        <p class="s-sim">Barragem e campanhas simuladas, para ilustrar o método.</p>
+        <p class="s-sim">Barragem e campanhas simuladas. As porcentagens não são limites de alerta nem uma avaliação de segurança.</p>
       </section>
 
       <!-- O que acompanhamos: linhas largas, nome à esquerda, risco e resposta à direita. -->
@@ -89,35 +89,35 @@
         <div class="s-rows">
           <article class="s-row">
             <h3>Barragens de terra e de rejeito</h3>
-            <p><span>O risco</span>Percolação pelo maciço e pela fundação, erosão interna, zonas saturadas.</p>
-            <p><span>O que medimos</span>Seções de resistividade ao longo da crista e dos taludes, repetidas em campanhas.</p>
+            <p><span>Questão de interesse</span>Condições do maciço e da fundação que motivem investigação, incluindo hipóteses de percolação ou diferenças de materiais.</p>
+            <p><span>O que investigamos</span>Seções de resistividade ao longo da crista e dos taludes, repetidas em campanhas.</p>
           </article>
           <article class="s-row">
             <h3>Diques e aterros</h3>
-            <p><span>O risco</span>Caminhos preferenciais de água, materiais diferentes do projeto, recalques.</p>
-            <p><span>O que medimos</span>Linhas longitudinais e transversais para mapear umidade e heterogeneidades.</p>
+            <p><span>Questão de interesse</span>Caminhos preferenciais de água, materiais diferentes do projeto, recalques.</p>
+            <p><span>O que investigamos</span>Linhas longitudinais e transversais para investigar variações da resposta elétrica e possíveis diferenças entre materiais.</p>
           </article>
           <article class="s-row">
             <h3>Taludes de mina e encostas</h3>
-            <p><span>O risco</span>Superfícies de ruptura, água acumulada, solo espesso sobre a rocha.</p>
-            <p><span>O que medimos</span>Espessura do solo, profundidade da rocha e da água, zonas fraturadas.</p>
+            <p><span>Questão de interesse</span>Superfícies de ruptura, água acumulada, solo espesso sobre a rocha.</p>
+            <p><span>O que investigamos</span>Contrastes associados a solo, rocha e zonas fraturadas, interpretados com dados geológicos e geotécnicos.</p>
           </article>
           <article class="s-row">
             <h3>Pilhas de estéril</h3>
-            <p><span>O risco</span>Saturação interna e drenagem deficiente.</p>
-            <p><span>O que medimos</span>Distribuição da umidade dentro da pilha e na fundação.</p>
+            <p><span>Questão de interesse</span>Saturação interna e drenagem deficiente.</p>
+            <p><span>O que investigamos</span>Contrastes elétricos na pilha e na fundação que podem estar associados a variações dos materiais e dos fluidos.</p>
           </article>
         </div>
       </section>
 
-      <!-- Níveis de resposta: uma régua, não três cartões. -->
+      <!-- Como comparar campanhas: uma régua, não três cartões. -->
       <section class="s-levels" id="niveis" aria-labelledby="niv-title">
-        <h2 id="niv-title" class="section-title">Níveis de resposta</h2>
-        <p class="s-levels-intro">Cada campanha é comparada à linha de base. A variação define o que acontece a seguir; os limites de cada nível são combinados com o responsável pela estrutura.</p>
+        <h2 id="niv-title" class="section-title">Como comparar campanhas</h2>
+        <p class="s-levels-intro">A linha de base é o levantamento de referência. Diferenças entre campanhas precisam ser interpretadas com os registros da estrutura e a qualidade dos dados; não determinam, sozinhas, uma condição de segurança.</p>
         <div class="s-scale">
-          <div class="s-band s-band-0"><p class="s-band-name">Normal</p><p>Variações pequenas, dentro do esperado para a época do ano. Segue o calendário de campanhas.</p></div>
-          <div class="s-band s-band-1"><p class="s-band-name">Atenção</p><p>Mudança consistente numa zona. Antecipamos a próxima campanha e cruzamos com a instrumentação existente.</p></div>
-          <div class="s-band s-band-2"><p class="s-band-name">Alerta</p><p>Mudança forte e crescente. Relatório imediato ao responsável, com a localização da zona e a recomendação de inspeção.</p></div>
+          <div class="s-band s-band-0"><p class="s-band-name">Referência</p><p>O primeiro levantamento documenta as condições de aquisição e a resposta elétrica inicial.</p></div>
+          <div class="s-band s-band-1"><p class="s-band-name">Comparação</p><p>As campanhas seguintes permitem examinar diferenças, considerando acesso, posição das linhas e condições ambientais.</p></div>
+          <div class="s-band s-band-2"><p class="s-band-name">Interpretação</p><p>Os achados são discutidos junto a inspeções, instrumentação e dados de operação. As próximas etapas dependem da avaliação responsável.</p></div>
         </div>
       </section>
 
@@ -130,12 +130,12 @@
 
       <!-- Como funciona -->
       <section class="s-cycle" id="ciclo" aria-labelledby="ciclo-title">
-        <h2 id="ciclo-title" class="section-title">Um ciclo, não uma visita</h2>
+        <h2 id="ciclo-title" class="section-title">Etapas do acompanhamento</h2>
         <div class="s-cycle-text">
-          <p><strong>Diagnóstico.</strong> Reunimos projeto, histórico e instrumentação existente, e definimos onde a geofísica responde melhor.</p>
-          <p><strong>Linha de base.</strong> A primeira campanha registra o estado do maciço e da fundação. É a referência para tudo o que vem depois.</p>
-          <p><strong>Campanhas periódicas.</strong> As mesmas linhas, com os mesmos eletrodos nos mesmos pontos, medidas no intervalo combinado.</p>
-          <p><strong>Relatório.</strong> O que mudou, onde mudou e o que fazer, com prioridade para o que exige ação.</p>
+          <p><strong>Contexto do projeto.</strong> Reunimos projeto, histórico e instrumentação existente, e definimos onde a geofísica responde melhor.</p>
+          <p><strong>Linha de base.</strong> O primeiro levantamento registra a resposta geofísica nas condições observadas e documenta sua qualidade.</p>
+          <p><strong>Campanhas periódicas.</strong> Medições planejadas para comparação, com registro da posição das linhas e das condições de aquisição.</p>
+          <p><strong>Relatório.</strong> Resultados, diferenças observadas, limitações e pontos a avaliar com a equipe responsável.</p>
         </div>
       </section>
 
@@ -147,12 +147,12 @@
           <p>A Axys Safe é uma área nova, apoiada na formação e na experiência dos sócios em geofísica e geotecnia.</p>
         </div>
         <div class="xp">
-          <p class="xp-statement" data-reveal>Empresa nova, equipe experiente.</p>
+
           <dl class="xp-list" data-reveal-children>
             <div><dt>Geotecnia</dt><dd>Especialização em Engenharia Geotécnica com foco em segurança de taludes e infraestrutura de barragens, por Sebastião Moura.</dd></div>
             <div><dt>Modelagem e software</dt><dd>Modelagem numérica 3D e software para processar, visualizar e interpretar dados geofísicos, por Leandro Seabra.</dd></div>
             <div><dt>Aquisição e processamento</dt><dd>Geoelétrica, GPR e perfilagem de poços em trabalhos de campo, e modelagem 3D para interpretar as respostas.</dd></div>
-            <div data-ph-block><dt>Responsável técnico da área</dt><dd class="is-placeholder">Confirmar nome e registro no CREA</dd></div>
+
           </dl>
         </div>
         <p class="xp-foot" data-reveal><a class="text-link" href="../sobre/#socios">Conhecer os sócios</a><span>Experiência dos profissionais antes da fundação da Axys, apresentada como experiência individual.</span></p>
@@ -165,7 +165,7 @@
         </div>
         <div class="norms" data-reveal-children>
           <div class="norm"><p class="norm-code">Lei 12.334/2010</p><p>Política Nacional de Segurança de Barragens (PNSB), alterada pela Lei 14.066/2020.</p></div>
-          <div class="norm"><p class="norm-code">Resolução ANM 95/2022</p><p>Regras de segurança para barragens de mineração: plano de segurança, inspeções e revisões periódicas.</p></div>
+          <div class="norm"><p class="norm-code">Resolução ANM 95/2022 e alterações</p><p>Referência de segurança para barragens de mineração, atualizada pela Resolução ANM 220/2025. A aplicabilidade e as alterações vigentes devem ser verificadas para cada estrutura.</p></div>
           <div class="norm"><p class="norm-code">Plano de Segurança da Barragem</p><p>Os dados geofísicos entram como apoio às inspeções e à revisão periódica de segurança.</p></div>
           <div class="norm"><p class="norm-code">ASTM D6431</p><p>Guia para o método de eletrorresistividade, usado nas seções de cada campanha.</p></div>
         </div>
@@ -175,17 +175,17 @@
       <section class="section" id="perguntas" aria-labelledby="faq-title">
         <h2 id="faq-title" class="section-title" style="margin-bottom: clamp(40px, 5vw, 72px)">Perguntas</h2>
         <div class="faq" data-reveal-children>
-          <details><summary>A geofísica substitui a instrumentação da barragem?</summary><div><p>Não. Ela complementa piezômetros, marcos e inspeções visuais: mostra o que acontece entre os instrumentos, ao longo de toda a seção.</p></div></details>
+          <details><summary>A geofísica substitui a instrumentação da barragem?</summary><div><p>A geofísica complementa inspeções e instrumentos, como piezômetros e marcos de deslocamento. Acrescenta informações sobre áreas investigadas, com limitações de resolução e interpretação.</p></div></details>
           <details><summary>Com que frequência devem ser feitas as campanhas?</summary><div><p>Depende da estrutura, do histórico e do nível de risco. Em geral, começamos com uma linha de base e definimos o intervalo junto com o responsável pela barragem.</p></div></details>
-          <details><summary>É preciso interromper a operação?</summary><div><p>Não. Os eletrodos são instalados na crista e nos taludes, sem interferir na operação.</p></div></details>
-          <details><summary>Vocês atendem barragens de mineração?</summary><div><p>Sim, e os relatórios são feitos para apoiar o cumprimento das exigências de segurança da ANM.</p></div></details>
-          <details><summary>O que acontece se aparecer uma mudança forte?</summary><div><p>O responsável recebe um relatório imediato com a localização da zona e a recomendação de inspeção, sem esperar o relatório periódico.</p></div></details>
+          <details><summary>É preciso interromper a operação?</summary><div><p>A necessidade de restrições de acesso ou ajustes na operação é avaliada com a equipe responsável durante o planejamento.</p></div></details>
+          <details><summary>Vocês atendem barragens de mineração?</summary><div><p>A demanda é avaliada conforme a estrutura e os dados existentes. O levantamento geofísico pode subsidiar a análise da equipe responsável, sem substituir as demais atividades de segurança.</p></div></details>
+          <details><summary>O que acontece se aparecer uma mudança forte?</summary><div><p>Achados relevantes são discutidos com o responsável pela estrutura. A forma de comunicação e os prazos são combinados no planejamento; decisões de inspeção e intervenção dependem da avaliação integrada.</p></div></details>
         </div>
       </section>
 
       <section class="contact-block" id="contato" aria-label="Contato">
         <div class="contact-side">
-          <p class="contact-lead">Conte qual estrutura acompanhar e onde. Respondemos com um plano de monitoramento.</p>
+          <p class="contact-lead">Conte qual estrutura acompanhar e onde. Avaliamos a demanda para discutir o escopo de investigação ou acompanhamento.</p>
           <div class="contact-channels">
             <a class="contact-email" data-mail="safe" data-mail-text data-subject="Monitoramento — Axys Safe" href="mailto:lab@axysgeosolucoes.com">lab@axysgeosolucoes.com</a>
             <span data-wa-block><a class="text-link" data-wa-link href="#">Conversar pelo WhatsApp</a></span>
@@ -216,7 +216,7 @@
             <button class="button" type="submit">Enviar mensagem</button>
             <p class="form-status" data-form-status role="status"></p>
           </div>
-          <p class="form-legal">Usamos seus dados só para responder a este contato. <a href="../privacidade/">Política de privacidade</a>.</p>
+          <p class="form-legal">Usamos os dados para atender à sua solicitação e discutir o projeto. <a href="../privacidade/">Política de privacidade</a>.</p>
         </form>
       </section>
     </main>

@@ -24,13 +24,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@800&family=Onest:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../assets/css/base.css?v=202610201248">
-    <link rel="stylesheet" href="../../assets/css/widgets.css?v=202610201248">
-    <link rel="stylesheet" href="../../geo/geo.css?v=202610201248">
+    <link rel="stylesheet" href="../../assets/css/base.css?v=202610201307">
+    <link rel="stylesheet" href="../../assets/css/widgets.css?v=202610201307">
+    <link rel="stylesheet" href="../../geo/geo.css?v=202610201307">
     <script>document.documentElement.classList.add('js')</script>
-    <script src="../../assets/js/config.js?v=202610201248" defer></script>
-    <script src="../../assets/js/site.js?v=202610201248" defer></script>
-    <script src="../../geo/geo.js?v=202610201248" defer></script>
+    <script src="../../assets/js/config.js?v=202610201307" defer></script>
+    <script src="../../assets/js/site.js?v=202610201307" defer></script>
+    <script src="../../geo/geo.js?v=202610201307" defer></script>
   </head>
   <body class="geo" data-wa="Hello! I found the Axys Geofísica page and would like to discuss a survey.">
     <a class="skip-link" href="#conteudo">Skip to content</a>
@@ -70,7 +70,7 @@
       <section class="g-target" id="alvo" aria-labelledby="alvo-title">
         <div class="g-target-intro">
           <h2 id="alvo-title" class="section-title">Your target</h2>
-          <p>Each method sees a different property of the subsurface. Pick what you are looking for and see which one responds.</p>
+          <p>Different methods investigate different physical properties. Explore simplified examples of possible applications and limitations.</p>
           <div class="g-targets" role="group" aria-label="Choose the target">
             <button type="button" data-target="agua" aria-pressed="true">Groundwater</button>
             <button type="button" data-target="ferro" aria-pressed="false">Iron ore</button>
@@ -83,26 +83,26 @@
 
         <div class="g-responses" aria-live="polite">
           <article class="g-response" data-method="res">
-            <header><h3>Electrical resistivity</h3><p class="g-verdict" data-verdict>Strong response</p></header>
+            <header><h3>Electrical resistivity</h3><p class="g-verdict" data-verdict>Illustrative example</p></header>
             <svg viewBox="0 0 600 120" aria-hidden="true"><path class="g-axis" d="M0 60H600"/><path class="g-curve" data-curve d="M0 60H600"/></svg>
-            <p data-text>Water makes the ground more conductive: resistivity drops where it is.</p>
+            <p data-text>Electrical response varies with pore water, dissolved salts and ground composition. A conductive zone alone does not confirm a productive aquifer.</p>
           </article>
           <article class="g-response" data-method="mag">
-            <header><h3>Magnetics</h3><p class="g-verdict" data-verdict>No response</p></header>
+            <header><h3>Magnetics</h3><p class="g-verdict" data-verdict>Illustrative example</p></header>
             <svg viewBox="0 0 600 120" aria-hidden="true"><path class="g-axis" d="M0 60H600"/><path class="g-curve" data-curve d="M0 60H600"/></svg>
-            <p data-text>Water is not magnetic; the field does not change.</p>
+            <p data-text>Magnetics investigates magnetic contrasts in rocks and other materials; it does not directly measure groundwater.</p>
           </article>
           <article class="g-response" data-method="gam">
-            <header><h3>Gamma-ray spectrometry</h3><p class="g-verdict" data-verdict>Weak response</p></header>
+            <header><h3>Gamma-ray spectrometry</h3><p class="g-verdict" data-verdict>Illustrative example</p></header>
             <svg viewBox="0 0 600 120" aria-hidden="true"><path class="g-axis" d="M0 60H600"/><path class="g-curve" data-curve d="M0 60H600"/></svg>
-            <p data-text>It reads only the surface; it notices water only if it changes the topsoil.</p>
+            <p data-text>Radiometrics provides information about near-surface materials, not a direct identification of water at depth.</p>
           </article>
           <article class="g-response" data-method="gpr">
-            <header><h3>GPR</h3><p class="g-verdict" data-verdict>Responds</p></header>
+            <header><h3>GPR</h3><p class="g-verdict" data-verdict>Illustrative example</p></header>
             <svg viewBox="0 0 600 120" aria-hidden="true"><path class="g-axis" d="M0 60H600"/><path class="g-curve" data-curve d="M0 60H600"/></svg>
-            <p data-text>In sandy soil the water table is a strong reflector that shows as a continuous layer; in clay the signal dies before reaching it.</p>
+            <p data-text>The water table may produce a reflection under favourable conditions. Conductivity, material and survey configuration constrain the investigation.</p>
           </article>
-          <p class="g-note">Typical, simplified responses. The right method depends on depth, contrast and terrain, which is what we define during planning.</p>
+          <p class="g-note">Conceptual examples, not predictions of detection or performance. Method selection depends on the target, depth, ground conditions and contrasts between materials.</p>
         </div>
       </section>
 
@@ -115,10 +115,10 @@
               <tr><th scope="col">Method</th><th scope="col">Measures</th><th scope="col">Depth of investigation</th><th scope="col">Platform</th><th scope="col">Good for</th></tr>
             </thead>
             <tbody>
-              <tr><th scope="row">Electrical resistivity</th><td data-label="O que mede">Electrical resistivity of the subsurface</td><td data-label="Até onde vê">Tens of metres, depending on the array</td><td data-label="Plataforma">Ground</td><td data-label="Bom para">Groundwater, contamination, foundations, shallow geology</td></tr>
-              <tr><th scope="row">Magnetics</th><td data-label="O que mede">Magnetic field intensity</td><td data-label="Até onde vê">Shallow to deep, depending on the source</td><td data-label="Plataforma">Ground or drone</td><td data-label="Bom para">Iron ore, dykes, faults, structures</td></tr>
-              <tr><th scope="row">Gamma-ray spectrometry</th><td data-label="O que mede">Natural K, eTh and eU radiation</td><td data-label="Até onde vê">Surface, about 30 cm</td><td data-label="Plataforma">Drone</td><td data-label="Bom para">Rock and soil mapping, hydrothermal alteration</td></tr>
-              <tr><th scope="row">GPR (ground-penetrating radar)</th><td data-label="O que mede">Radar wave reflections at subsurface contrasts</td><td data-label="Até onde vê">A few metres, less in clay soils</td><td data-label="Plataforma">Ground</td><td data-label="Bom para">Buried utilities and structures, foundations, shallow layers, water table in sandy soils</td></tr>
+              <tr><th scope="row">Electrical resistivity</th><td data-label="O que mede">Electrical resistivity of the subsurface</td><td data-label="Profundidade de investigação">Depends on array geometry, ground conditions and data quality</td><td data-label="Plataforma">Ground</td><td data-label="Bom para">Groundwater, contamination, foundations, shallow geology</td></tr>
+              <tr><th scope="row">Magnetics</th><td data-label="O que mede">Magnetic field intensity</td><td data-label="Profundidade de investigação">Depends on source geometry, depth and magnetisation</td><td data-label="Plataforma">Ground or drone</td><td data-label="Bom para">Iron ore, dykes, faults, structures</td></tr>
+              <tr><th scope="row">Gamma-ray spectrometry</th><td data-label="O que mede">Natural K, eTh and eU radiation</td><td data-label="Profundidade de investigação">Surface, about 30 cm</td><td data-label="Plataforma">Drone</td><td data-label="Bom para">Rock and soil mapping, hydrothermal alteration</td></tr>
+              <tr><th scope="row">GPR (ground-penetrating radar)</th><td data-label="O que mede">Radar wave reflections at subsurface contrasts</td><td data-label="Profundidade de investigação">Variable; conductive ground may limit penetration</td><td data-label="Plataforma">Ground</td><td data-label="Bom para">Buried utilities and structures, foundations, shallow layers, water table in sandy soils</td></tr>
             </tbody>
           </table>
         </div>
@@ -134,15 +134,15 @@
           </li>
           <li>
             <img src="../../lab/assets/sm/carajas-satelite.jpg" srcset="../../lab/assets/sm/carajas-satelite.jpg 800w, ../../lab/assets/carajas-satelite.jpg 1600w" sizes="(max-width: 900px) 100vw, 22vw" width="1600" height="1172" loading="lazy" alt="Satellite image of a mining area in Pará">
-            <p><strong>Acquisition.</strong> In-house crews on the ground or by drone, with data quality control while still in the field.</p>
+            <p><strong>Acquisition.</strong> Ground or drone acquisition planned for the project, with field data quality checks.</p>
           </li>
           <li>
             <img src="../../lab/assets/sm/perfis.jpg" srcset="../../lab/assets/sm/perfis.jpg 800w, ../../lab/assets/dados/perfis.jpg 1200w" sizes="(max-width: 900px) 100vw, 22vw" width="1200" height="900" loading="lazy" alt="Stacked magnetic profiles, simulated">
-            <p><strong>Processing.</strong> Corrections, filtering and inversion to reliable maps and sections.</p>
+            <p><strong>Processing.</strong> Corrections, filtering and inversion to estimate models consistent with the measurements, with quality and limitation assessment.</p>
           </li>
           <li>
             <img src="../../lab/assets/sm/pseudossecao.jpg" srcset="../../lab/assets/sm/pseudossecao.jpg 640w, ../../lab/assets/dados/pseudossecao.jpg 960w" sizes="(max-width: 900px) 100vw, 28vw" width="960" height="640" loading="lazy" alt="Resistivity pseudosection, simulated">
-            <p><strong>Interpretation.</strong> Geology read from the data, with clear recommendations for decision makers.</p>
+            <p><strong>Interpretation.</strong> Interpretation alongside geology and available information, with hypotheses and limitations.</p>
           </li>
         </ol>
       </section>
@@ -159,7 +159,7 @@
             <div><dt>Maps</dt><dd>Magnetic field, radiometrics and derived products, georeferenced.</dd></div>
             <div><dt>Sections</dt><dd>Resistivity-depth models and GPR radargrams along every line.</dd></div>
             <div><dt>Report</dt><dd>Method, data quality, interpretation and recommendations.</dd></div>
-            <div><dt>Files</dt><dd>Raw and processed data in open formats, ready for your GIS.</dd></div>
+            <div><dt>Files</dt><dd>Raw and processed data in formats defined in the agreement, for use in geographic information systems (GIS) and other tools.</dd></div>
           </dl>
         </div>
       </section>
@@ -169,10 +169,10 @@
       <section class="section" id="experiencia" aria-labelledby="exp-title">
         <div class="section-head">
           <h2 id="exp-title" class="section-title">Experience</h2>
-          <p>Axys is a new company; the people who run the surveys are not new to them. Surveys are carried out and signed off by the founding partners.</p>
+          <p>Axys is a new company; the people who run the surveys are not new to them. Team roles and technical responsibility are defined for each engagement.</p>
         </div>
         <div class="xp">
-          <p class="xp-statement" data-reveal>A new company, an experienced team.</p>
+
           <dl class="xp-list" data-reveal-children>
             <div><dt>Fieldwork and interpretation</dt><dd>Magnetics for mineral exploration, GPR for mapping buried pipelines and well logging, at geophysical companies, by Sebastião Moura (since 2020).</dd></div>
             <div><dt>Modelling and software</dt><dd>3D finite-element electromagnetic modelling and development of tools for geophysical data modelling and inversion, by Leandro Seabra.</dd></div>
@@ -212,18 +212,18 @@
       <section class="section" id="perguntas" aria-labelledby="faq-title">
         <h2 id="faq-title" class="section-title" style="margin-bottom: clamp(40px, 5vw, 72px)">Questions</h2>
         <div class="faq" data-reveal-children>
-          <details><summary>How much does a survey cost?</summary><div><p>It depends on the method, line length, access and logistics. Once we understand the area and the project question, we send a fixed-scope proposal with schedule and price.</p></div></details>
-          <details><summary>How long does it take?</summary><div><p>Fieldwork usually takes from a few days to a few weeks, depending on the area. The full schedule, including processing and reporting, is in the proposal.</p></div></details>
-          <details><summary>How deep can you see?</summary><div><p>It depends on the method and array: resistivity reaches tens of metres; GPR sees the first few metres at centimetre detail, less in clay; magnetics responds from shallow to deep depending on the source; gamma-ray spectrometry reads the surface. We define this during planning.</p></div></details>
-          <details><summary>Do you work in remote areas?</summary><div><p>Yes. We plan logistics for forest, rivers and rain, and fly drones where walking is hard.</p></div></details>
+          <details><summary>How much does a survey cost?</summary><div><p>It depends on the method, line length, access and logistics. Once we understand the area and the project question, we prepare a proposal with scope, estimated schedule and commercial terms.</p></div></details>
+          <details><summary>How long does it take?</summary><div><p>Timing is estimated after evaluating survey extent, access and method. The proposal distinguishes fieldwork, processing and reporting.</p></div></details>
+          <details><summary>How deep can you see?</summary><div><p>Investigation depth and resolution depend on method, ground conditions and survey design. They are assessed during planning and discussed alongside data limitations.</p></div></details>
+          <details><summary>Do you work in remote areas?</summary><div><p>Mobilisation feasibility is assessed against location, access and field conditions. Drone use depends on method and operating conditions.</p></div></details>
           <details><summary>What do I receive at the end?</summary><div><p>A technical report with method, data quality, maps, sections, interpretation and recommendations, plus raw and processed data in open formats.</p></div></details>
-          <details><summary>What about drone flight permits?</summary><div><p>Operations follow Brazilian aviation rules (ANAC and DECEA), and we handle the permits required for each flight.</p></div></details>
+          <details><summary>What about drone flight permits?</summary><div><p>Drone planning considers applicable ANAC and DECEA requirements and access conditions. Responsibilities for authorisations are defined before mobilisation.</p></div></details>
         </div>
       </section>
 
       <section class="contact-block" id="contato" aria-label="Contact">
         <div class="contact-side">
-          <p class="contact-lead">Tell us what you need to investigate and where. We reply with the method and a proposal.</p>
+          <p class="contact-lead">Tell us what you need to investigate and where. We assess the enquiry to discuss investigation scope.</p>
           <div class="contact-channels">
             <a class="contact-email" data-mail="geofisica" data-mail-text data-subject="Geophysical survey enquiry (EN) — Axys Geofísica" href="mailto:lab@axysgeosolucoes.com">lab@axysgeosolucoes.com</a>
             <span data-wa-block><a class="text-link" data-wa-link href="#">Chat on WhatsApp</a></span>
@@ -254,7 +254,7 @@
             <button class="button" type="submit">Send message</button>
             <p class="form-status" data-form-status role="status"></p>
           </div>
-          <p class="form-legal">We use your details only to reply to this message. <a href="../../privacidade/">Privacy policy (in Portuguese)</a>.</p>
+          <p class="form-legal">We use your details to handle your enquiry and discuss the project. <a href="../../privacidade/">Privacy policy (in Portuguese)</a>.</p>
         </form>
       </section>
     </main>
@@ -266,7 +266,7 @@
         <p>© <span data-year>2026</span> Axys Geo Soluções. Belém, Pará, Brazil.</p>
         <details>
           <summary>Image credits</summary>
-          <p class="credits"><a href="https://www.rawpixel.com/image/4057860/photo-image-public-domain-nature">“Unmanned Aircraft System (UAS)”</a> by U.S. Forest Service, <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>; <a href="https://commons.wikimedia.org/w/index.php?curid=97551129">“Carajas Mine”</a> by Pierre Markuse, <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a>. Sections, profiles and maps are illustrative simulations; photos show the region and are not of Axys.</p>
+          <p class="credits"><a href="https://www.rawpixel.com/image/4057860/photo-image-public-domain-nature">“Unmanned Aircraft System (UAS)”</a> by U.S. Forest Service, <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>; <a href="https://commons.wikimedia.org/w/index.php?curid=97551129">“Carajas Mine”</a> by Pierre Markuse, <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a>. Sections and maps labelled as simulations are illustrative. The GPR example is described separately; landscape photographs do not represent Axys projects.</p>
         </details>
       </div>
       <div class="footer-meta">

@@ -24,12 +24,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@800&family=Onest:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=202610201248">
-    <link rel="stylesheet" href="../assets/css/widgets.css?v=202610201248">
+    <link rel="stylesheet" href="styles.css?v=202610201307">
+    <link rel="stylesheet" href="../assets/css/widgets.css?v=202610201307">
     <script>document.documentElement.classList.add('js')</script>
-    <script src="../assets/js/config.js?v=202610201248" defer></script>
-    <script src="../assets/js/site.js?v=202610201248" defer></script>
-    <script src="script.js?v=202610201248" defer></script>
+    <script src="../assets/js/config.js?v=202610201307" defer></script>
+    <script src="../assets/js/site.js?v=202610201307" defer></script>
+    <script src="script.js?v=202610201307" defer></script>
   </head>
   <body data-wa="Olá! Vim pela página do Axys Lab e quero saber mais sobre os equipamentos.">
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -71,7 +71,7 @@
         <div class="hero-foot">
           <div class="hero-copy">
             <h1 id="hero-title">Instrumentos geofísicos</h1>
-            <p>Resistivímetro e sensores para drone, em desenvolvimento em Belém do Pará, para medir o subsolo onde a floresta não deixa caminhar.</p>
+            <p>Resistivímetro terrestre e sensores magnéticos e radiométricos para drone, em desenvolvimento em Belém do Pará.</p>
           </div>
           <div class="hero-actions">
             <a class="button" href="#equipamentos">Ver os equipamentos</a>
@@ -84,7 +84,7 @@
       <section class="intro" aria-label="Sobre a Axys Lab">
         <div class="intro-pin">
           <p class="statement" data-reveal>Projetamos instrumentos de campo com a experiência de quem faz levantamentos.</p>
-          <p class="intro-body" data-reveal style="--d: 1">A Axys Geo Soluções reúne profissionais com anos de experiência em levantamentos e processamento de dados geofísicos. O Lab nasceu dessa experiência: desenvolvemos equipamentos pensados para o calor, a umidade, a floresta e a logística da região, que serão testados em campo antes do lançamento.</p>
+          <p class="intro-body" data-reveal style="--d: 1">A Axys Geo Soluções reúne profissionais com anos de experiência em levantamentos e processamento de dados geofísicos. O Lab nasceu dessa experiência: desenvolvemos equipamentos pensados para o calor, a umidade, a floresta e a logística da região, com ensaios de bancada e avaliações de campo previstos no planejamento de desenvolvimento.</p>
         </div>
         <div class="intro-pictures">
           <figure class="intro-pic pic-portrait" data-reveal>
@@ -180,7 +180,7 @@
           </figure>
           <div class="instrument-body">
             <h3 id="spec-mag" data-reveal>Magnetômetro para drone</h3>
-            <p data-reveal style="--d: 1">Sensor suspenso abaixo do drone, longe da interferência dos motores, que registra variações do campo magnético da Terra ao longo das linhas de voo.</p>
+            <p data-reveal style="--d: 1">Sensor suspenso abaixo do drone para reduzir a influência dos motores, que registra variações do campo magnético da Terra ao longo das linhas de voo.</p>
             <dl data-reveal style="--d: 2">
               <div><dt>Método</dt><dd>Magnetometria</dd></div>
               <div><dt>Mede</dt><dd>Intensidade do campo magnético total</dd></div>
@@ -227,7 +227,7 @@
             <p data-reveal style="--d: 1">Detector que conta os raios gama emitidos naturalmente pelas rochas e solos e separa a contribuição de potássio, tório e urânio.</p>
             <dl data-reveal style="--d: 2">
               <div><dt>Método</dt><dd>Gamaespectrometria</dd></div>
-              <div><dt>Mede</dt><dd>Radioatividade natural: K, eTh e eU</dd></div>
+              <div><dt>Mede</dt><dd>Potássio (K), tório equivalente (eTh) e urânio equivalente (eU)</dd></div>
               <div><dt>Plataforma</dt><dd>Drone multirrotor</dd></div>
               <div><dt>Uso típico</dt><dd>Mapeamento geológico, alteração hidrotermal, solos</dd></div>
             </dl>
@@ -243,8 +243,8 @@
       <section class="altitude" id="altura" aria-labelledby="alt-title">
         <h2 id="alt-title" class="section-title" data-reveal>Mais alto, mais fraco</h2>
         <div class="altitude-copy">
-          <p data-reveal style="--d: 1">O sinal de um corpo magnético enfraquece rápido com a distância. Por isso o drone voa baixo, logo acima da copa, onde um avião não consegue chegar. Arraste e veja o que acontece com a leitura.</p>
-          <p class="altitude-note" data-reveal style="--d: 2">No norte do Brasil o campo magnético da Terra é quase horizontal, e a anomalia de um corpo aparece como um baixo com dois altos dos lados, e não como um pico. Simulação de uma esfera a 40 m de profundidade, com inclinação de −5°. Valores ilustrativos.</p>
+          <p data-reveal style="--d: 1">A distância entre o sensor e a fonte influencia a intensidade do sinal magnético. Explore essa relação na simulação. A altura de voo de um levantamento real depende das condições de segurança e de operação.</p>
+          <p class="altitude-note" data-reveal style="--d: 2">Esta curva representa apenas o modelo usado na simulação: uma esfera a 40 m de profundidade e inclinação de −5°. A forma da resposta depende das propriedades, da geometria e da magnetização da fonte. Valores ilustrativos.</p>
         </div>
 
         <div class="altitude-lab" data-altitude data-reveal style="--d: 1">
@@ -290,15 +290,15 @@
         <h2 id="proc-title" class="section-title" data-reveal>Do campo à bancada</h2>
         <div class="stage stage-1">
           <figure data-reveal><img src="assets/carajas-poeira.jpg" width="1024" height="681" loading="lazy" alt="Cava de mina com poeira ao entardecer, em Carajás"></figure>
-          <p data-reveal style="--d: 1"><strong>Primeiro, no campo.</strong> Cada projeto começa pelas condições reais de trabalho: o que precisa ser medido, a que profundidade, em que terreno, com que calor e com que acesso. Isso vira a lista de requisitos do equipamento.</p>
+          <p data-reveal style="--d: 1"><strong>Primeiro, no campo.</strong> O planejamento considera as condições de trabalho: o que precisa ser medido, a que profundidade, em que terreno, com que calor e com que acesso. Isso vira a lista de requisitos do equipamento.</p>
         </div>
         <div class="stage stage-2">
           <figure data-reveal><img src="assets/sm/perfis.jpg" srcset="assets/sm/perfis.jpg 800w, assets/dados/perfis.jpg 1200w" sizes="(max-width: 760px) 62vw, 24vw" width="1200" height="900" loading="lazy" alt="Perfis magnéticos simulados empilhados, com a anomalia de um corpo no centro"></figure>
-          <p data-reveal style="--d: 1"><strong>Depois, na bancada em Belém.</strong> Eletrônica, firmware, carcaça e calibração são desenvolvidos pelo Lab. Cada versão é testada contra respostas conhecidas, como estes perfis magnéticos simulados, antes de sair da bancada.</p>
+          <p data-reveal style="--d: 1"><strong>Depois, na bancada em Belém.</strong> O desenvolvimento envolve eletrônica, software embarcado e integração dos componentes. Simulações ajudam a estudar o processamento; calibração e avaliação do instrumento físico exigem ensaios próprios.</p>
         </div>
         <div class="stage stage-3">
           <figure data-reveal><img src="assets/sm/amazonia-copa-nuvens.jpg" srcset="assets/sm/amazonia-copa-nuvens.jpg 800w, assets/amazonia-copa-nuvens.jpg 1600w" sizes="(max-width: 760px) 78vw, 40vw" width="1600" height="1062" loading="lazy" alt="Copa da floresta amazônica com sombras de nuvens"></figure>
-          <p data-reveal style="--d: 1"><strong>Por fim, de volta ao campo.</strong> Cada protótipo será testado em levantamentos reais, ao lado de equipamentos consolidados. Só depois disso ele chega aos clientes.</p>
+          <p data-reveal style="--d: 1"><strong>Por fim, de volta ao campo.</strong> Ensaios de bancada e avaliações de campo fazem parte do planejamento de desenvolvimento. Datas, procedimentos e especificações de cada instrumento serão informados quando definidos.</p>
         </div>
       </section>
 
@@ -318,15 +318,15 @@
             <ul>
               <li class="use is-active" data-use="0">
                 <button type="button" aria-expanded="true"><span class="use-name">Pesquisa mineral</span><span class="use-method">Magnetometria, gama</span></button>
-                <p>Delimitar alvos de ferro, cobre, ouro e outros metais em províncias como Carajás, com voos baixos e linhas próximas.</p>
+                <p>Investigar contrastes físicos e estruturas de interesse para pesquisa mineral. A resposta depende dos minerais presentes, da geologia e do método.</p>
               </li>
               <li class="use" data-use="1">
                 <button type="button" aria-expanded="false"><span class="use-name">Mapeamento geológico</span><span class="use-method">Gama, magnetometria</span></button>
-                <p>Separar litologias, seguir falhas e contatos e mapear alteração hidrotermal sob solo e vegetação.</p>
+                <p>Investigar contrastes associados a rochas, solos e estruturas geológicas, conforme o método e a profundidade de interesse.</p>
               </li>
               <li class="use" data-use="2">
                 <button type="button" aria-expanded="false"><span class="use-name">Água subterrânea</span><span class="use-method">Resistividade</span></button>
-                <p>Localizar aquíferos, estimar a espessura de sedimentos e escolher onde perfurar poços.</p>
+                <p>Investigar contrastes do subsolo que, junto à interpretação hidrogeológica, podem apoiar a seleção de alvos para pesquisa de água.</p>
               </li>
               <li class="use" data-use="3">
                 <button type="button" aria-expanded="false"><span class="use-name">Barragens e geotecnia</span><span class="use-method">Resistividade</span></button>
@@ -334,7 +334,7 @@
               </li>
               <li class="use" data-use="4">
                 <button type="button" aria-expanded="false"><span class="use-name">Meio ambiente</span><span class="use-method">Resistividade, gama</span></button>
-                <p>Mapear plumas de contaminação, áreas de disposição de resíduos e solos alterados.</p>
+                <p>Investigar contrastes físicos em áreas de interesse ambiental, em conjunto com amostragem e outros dados do local.</p>
               </li>
               <li class="use" data-use="5">
                 <button type="button" aria-expanded="false"><span class="use-name">Pesquisa e ensino</span><span class="use-method">Todos os métodos</span></button>
@@ -345,48 +345,19 @@
         </div>
       </section>
 
-      <!-- Programa piloto: proposta para converter empresas enquanto os equipamentos são testados. -->
-      <section class="pilot" id="piloto" data-ph-block aria-labelledby="pilot-title">
-        <div class="pilot-head">
-          <h2 id="pilot-title" class="section-title" data-reveal>Programa piloto</h2>
-          <p data-reveal style="--d: 1"><span class="ph-tag">Proposta: confirmar condições</span></p>
-        </div>
-        <div class="pilot-body">
-          <p class="statement" data-reveal>Estamos selecionando empresas e instituições para testar os protótipos em levantamentos reais.</p>
-          <dl class="pilot-terms" data-reveal style="--d: 1">
-            <div><dt>Você recebe</dt><dd>O levantamento feito com o protótipo e com equipamento consolidado, lado a lado, os dados completos e prioridade quando os equipamentos estiverem à venda.</dd></div>
-            <div><dt>Nós recebemos</dt><dd>O retorno técnico de quem trabalha em campo, para ajustar o equipamento antes do lançamento.</dd></div>
-            <div><dt>Para quem</dt><dd>Mineradoras, empresas de geotecnia e meio ambiente, universidades e institutos de pesquisa.</dd></div>
-          </dl>
-          <a class="button" href="#contato" data-equip="Programa piloto" data-reveal style="--d: 2">Quero participar do piloto</a>
-        </div>
-      </section>
+      <!-- Contato para discutir aplicações; sem oferta de piloto ou condições comerciais pendentes. -->
+      <section class="pilot" id="piloto" aria-labelledby="pilot-title"><div class="pilot-head"><h2 id="pilot-title" class="section-title" data-reveal>Converse sobre uma aplicação</h2></div><div class="pilot-body"><p class="statement" data-reveal>Os instrumentos estão em desenvolvimento. Empresas e instituições de pesquisa podem apresentar ao Lab suas necessidades de medição.</p><p>Especificações, datas de lançamento e condições de participação em testes ainda não estão publicadas. O contato permite discutir a aplicação de interesse.</p><a class="button" href="#contato" data-equip="Ainda não sei">Apresentar uma aplicação</a></div></section>
 
       <!-- Ficha técnica: entra quando os protótipos tiverem números medidos. -->
-      <section class="spec-sheet" data-ph-block aria-labelledby="ficha-title">
-        <h2 id="ficha-title" class="section-title" data-reveal>Ficha técnica</h2>
-        <p class="spec-sheet-note" data-reveal style="--d: 1"><span class="ph-tag">A preencher</span> Valores medidos nos protótipos.</p>
-        <div class="spec-table" data-reveal style="--d: 2">
-          <table>
-            <thead><tr><th scope="col">Característica</th><th scope="col">Resistivímetro</th><th scope="col">Magnetômetro</th><th scope="col">Gamaespectrômetro</th></tr></thead>
-            <tbody>
-              <tr><th scope="row">Sensibilidade</th><td class="is-placeholder">a definir</td><td class="is-placeholder">a definir</td><td class="is-placeholder">a definir</td></tr>
-              <tr><th scope="row">Taxa de amostragem</th><td class="is-placeholder">a definir</td><td class="is-placeholder">a definir</td><td class="is-placeholder">a definir</td></tr>
-              <tr><th scope="row">Peso</th><td class="is-placeholder">a definir</td><td class="is-placeholder">a definir</td><td class="is-placeholder">a definir</td></tr>
-              <tr><th scope="row">Autonomia</th><td class="is-placeholder">a definir</td><td class="is-placeholder">a definir</td><td class="is-placeholder">a definir</td></tr>
-              <tr><th scope="row">Saída de dados</th><td class="is-placeholder">a definir</td><td class="is-placeholder">a definir</td><td class="is-placeholder">a definir</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
+
 
       <section class="lab-faq" id="perguntas" aria-labelledby="faq-title">
         <h2 id="faq-title" class="section-title" data-reveal>Perguntas</h2>
         <div class="faq" data-reveal style="--d: 1">
-          <details><summary>Quando os equipamentos ficam prontos?</summary><div><p>Os três estão em desenvolvimento e passarão por testes de campo antes do lançamento. Quem se cadastra recebe o cronograma em primeira mão.</p></div></details>
-          <details><summary>Vocês vão vender ou alugar?</summary><div><p>As condições comerciais serão apresentadas primeiro a quem se cadastrar e aos participantes do programa piloto.</p></div></details>
+          <details><summary>Quando os equipamentos ficam prontos?</summary><div><p>Os três estão em desenvolvimento. Não há cronograma de lançamento publicado; a equipe pode conversar sobre o estágio e a aplicação de interesse.</p></div></details>
+          <details><summary>Vocês vão vender ou alugar?</summary><div><p>As modalidades e condições comerciais ainda não estão publicadas. O contato permite apresentar sua aplicação de interesse.</p></div></details>
           <details><summary>Os sensores funcionam com qualquer drone?</summary><div><p>Estão sendo projetados para multirrotores de carga usados em levantamentos. A compatibilidade de cada modelo virá detalhada na ficha técnica.</p></div></details>
-          <details><summary>Haverá manutenção e calibração?</summary><div><p>Sim. Manutenção, calibração e suporte técnico estão previstos em Belém, perto de quem trabalha na Amazônia.</p></div></details>
+          <details><summary>Haverá manutenção e calibração?</summary><div><p>A estrutura de manutenção, calibração e suporte será informada junto às condições de cada instrumento. Esses serviços ainda não têm condições publicadas.</p></div></details>
           <details><summary>Posso encomendar um equipamento sob medida?</summary><div><p>Fale com a gente: o Lab nasceu para resolver problemas de campo, e projetos específicos são avaliados caso a caso.</p></div></details>
         </div>
       </section>
@@ -415,7 +386,7 @@
               <option>Resistivímetro</option>
               <option>Magnetômetro para drone</option>
               <option>Gamaespectrômetro para drone</option>
-              <option>Programa piloto</option>
+              <option>Aplicações em discussão</option>
             </select>
           </label>
           <label>Aplicação
@@ -435,7 +406,7 @@
             <button class="button" type="submit">Enviar mensagem</button>
             <p class="form-note form-status" data-form-status role="status"></p>
           </div>
-          <p class="form-note form-legal">Usamos seus dados só para responder a este contato. <a href="../privacidade/">Política de privacidade</a>.</p>
+          <p class="form-note form-legal">Usamos os dados para atender à sua solicitação e discutir o projeto. <a href="../privacidade/">Política de privacidade</a>.</p>
         </form>
 
       </section>
@@ -455,7 +426,7 @@
           <a href="#altura">Simulação</a>
           <a href="#desenvolvimento">Desenvolvimento</a>
           <a href="#aplicacoes">Aplicações</a>
-          <a href="#piloto">Programa piloto</a>
+          <a href="#piloto">Aplicações em discussão</a>
           <a href="#contato">Contato</a>
         </nav>
         <div>

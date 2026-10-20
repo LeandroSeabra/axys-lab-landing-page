@@ -62,7 +62,7 @@ Para que as mensagens cheguem direto na caixa de entrada:
 
 ### 3. Espaços reservados (equipe, números, casos)
 
-Enquanto `mostrarEspacosReservados` estiver `true` no `config.js`, os blocos sem dados aparecem
+A configuração pública usa `mostrarEspacosReservados: false`. Enquanto essa opção estiver `true` no `config.js`, os blocos sem dados aparecem
 marcados com etiquetas "A preencher". Mude para `false` para escondê-los até que os dados reais existam.
 
 | O quê | Onde editar |
@@ -155,3 +155,5 @@ os arquivos novos junto com a página nova, em vez de usar uma cópia antiga gua
 Consulte [PUBLICACAO.md](PUBLICACAO.md) para ativar o login do Decap, configurar o GitHub Pages e usar o painel. Para gerar as páginas localmente: `python3 tools/gerar_conteudos.py`. O conteúdo fica em `content/posts/`; não edite os HTML gerados diretamente.
 
 A pauta inicial e as chamadas de cada artigo estão em [ESTRATEGIA_CONTEUDOS.md](ESTRATEGIA_CONTEUDOS.md). Para conferir o comportamento em navegador, sirva o site e abra `/tools/verificar_editorial.html` (ferramenta local, excluída do pacote de publicação).
+
+A revisão editorial e os itens que dependem de confirmação documental estão em [AUDITORIA_TEXTOS.md](AUDITORIA_TEXTOS.md). Evite promessas de detecção, produtividade, antecipação de risco ou resultado registral; descreva o objetivo, as condições e as entregas de cada serviço.

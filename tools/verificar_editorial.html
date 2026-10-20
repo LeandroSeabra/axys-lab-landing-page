@@ -72,6 +72,20 @@
     assert(!frame.contentDocument.querySelector('[name="artigo_origem"]'), 'Origem desconhecida ignorada');
     await new Promise(resolve => { frame.onload = resolve; frame.src = '/topo/?artigo=gpr-localizar-tubulacoes#contato'; });
     assert(!frame.contentDocument.querySelector('[name="artigo_origem"]'), 'Origem de outra área ignorada');
+    await new Promise(resolve => { frame.onload = resolve; frame.src = '/safe/'; });
+    const safe = frame.contentDocument;
+    assert(parseFloat(safe.querySelector('[data-delta]').textContent) === 0, 'Referência inicial sem variação');
+    const range = safe.querySelector('#campanha'); range.value = range.max;
+    range.dispatchEvent(new frame.contentWindow.Event('input'));
+    assert(safe.querySelector('.s-level').textContent === 'Comparação', 'Simulação sem classificação de segurança');
+    assert(safe.querySelector('.s-level').dataset.level === '0', 'Sem semáforo de alerta');
+    assert(safe.querySelector('.wa-float').textContent.trim() === 'Contato', 'Nome do canal sem WhatsApp configurado');
+    await new Promise(resolve => { frame.onload = resolve; frame.src = '/en/geo/'; });
+    const geo = frame.contentDocument;
+    geo.querySelector('[data-target="estruturas"]').click();
+    assert(geo.querySelector('[data-method="gpr"] [data-text]').textContent.includes('does not guarantee'), 'Limitação do GPR em inglês');
+    assert([...geo.querySelectorAll('[data-verdict]')].every(el => el.textContent === 'Illustrative example'), 'Curvas sem promessa de desempenho');
+    messages.push('PASS revisão editorial, simulação Safe e inglês');
     document.body.dataset.test = 'PASS'; result.textContent = messages.join('\n');
   } catch (error) { document.body.dataset.test = 'FAIL'; result.textContent = messages.join('\n') + '\nFAIL: ' + error.message; }
 })();

@@ -137,7 +137,7 @@ def build(root):
         if references:
             values['toc'] += '<a href="#referencias">Referências e fontes</a>'
             items = ''.join(f'<li id="referencia-{i}"><span>{e(ref["institution"])} · {e(ref["year"])}</span><a href="{e(ref["url"])}">{e(ref["title"])}</a></li>' for i, ref in enumerate(references, 1))
-            values['references'] = '<section class="article-references" id="referencias"><h2>Referências e fontes</h2><ol>'+items+'</ol><p class="reference-note">Síntese editorial de fontes técnicas e institucionais. Não apresenta pesquisa inédita nem revisão por pares. Fontes consultadas em '+e(post.get('sources_checked', post['display_date']))+'.</p></section>'
+            values['references'] = '<section class="article-references" id="referencias"><h2>Referências e fontes</h2><ol>'+items+'</ol><p class="reference-note">Artigo de divulgação técnica com referências institucionais e científicas. Fontes consultadas em '+e(post.get('sources_checked', post['display_date']))+'.</p></section>'
         cta = post.get('cta')
         destination = urlsplit(cta['url']) if cta else None
         contact_url = '' if not cta else destination.path+'?artigo='+post['slug']+('#'+destination.fragment if destination.fragment else '')

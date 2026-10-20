@@ -16,11 +16,11 @@
   // Textos da interface em português e inglês (as páginas em inglês têm <html lang="en">).
   const EN = (document.documentElement.lang || "").startsWith("en");
   const T = EN ? {
-    sending: "Sending…", sent: "Message sent. We reply within 2 business days.", fail: (to) => `Could not send right now. Write to ${to} or try again.`,
+    sending: "Sending…", sent: "Message sent.", fail: (to) => `Could not send right now. Write to ${to} or try again.`,
     opening: "Opening your e-mail app with the message ready…", wa: "WhatsApp", waLabel: "Chat on WhatsApp", copied: "Copied", copyFail: "Select and copy",
     menu: "Menu", close: "Close", ph: "To be added", waDefault: "Hello! I found Axys Geo Soluções online.",
   } : {
-    sending: "Enviando…", sent: "Mensagem enviada. Respondemos em até 2 dias úteis.", fail: (to) => `Não foi possível enviar agora. Escreva para ${to} ou tente de novo.`,
+    sending: "Enviando…", sent: "Mensagem enviada.", fail: (to) => `Não foi possível enviar agora. Escreva para ${to} ou tente de novo.`,
     opening: "Abrindo o seu programa de e-mail com a mensagem pronta…", wa: "WhatsApp", waLabel: "Conversar pelo WhatsApp", copied: "Copiado", copyFail: "Selecione e copie",
     menu: "Menu", close: "Fechar", ph: "A preencher", waDefault: "Olá! Vim pelo site da Axys Geo Soluções.",
   };
@@ -152,6 +152,10 @@
     }
     btn.setAttribute("aria-label", T.waLabel);
     btn.innerHTML = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3a.4.4 0 0 0 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3Z"/></svg><span>${T.wa}</span>`;
+    if (!waNumber) {
+      btn.setAttribute("aria-label", EN ? "Contact Axys" : "Falar com a Axys");
+      btn.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h16a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H9l-7 4V5a2 2 0 0 1 2-2Zm0 2v13.5L8.5 16H20V5Z"/></svg><span>' + (EN ? "Contact" : "Contato") + '</span>';
+    }
     document.body.appendChild(btn);
 
     // Pulso: 2 vezes logo depois que o botão entra; depois, 2 vezes de novo quando a pessoa fica

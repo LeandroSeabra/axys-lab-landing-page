@@ -9,7 +9,7 @@ window.AXYS = {
   // Enquanto true, os espaços reservados (equipe, CNPJ, números, estudos de caso)
   // aparecem marcados para preenchimento. Antes de publicar sem esses dados, mude para false:
   // os blocos sem dados somem da página.
-  mostrarEspacosReservados: true,
+  mostrarEspacosReservados: false,
 
   empresa: {
     nome: "Axys Geo Soluções",

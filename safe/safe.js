@@ -1,15 +1,37 @@
 
 // Campanhas: data, variação de resistividade na zona monitorada e nível. Valores ilustrativos.
 const CAMPANHAS = [
-  { date: "março de 2025", delta: -6, note: "A primeira campanha é a linha de base: tudo o que vier depois é comparado com ela." },
-  { date: "junho de 2025", delta: -9, note: "Pequena queda, compatível com o período chuvoso. Segue o calendário." },
-  { date: "setembro de 2025", delta: -15, note: "A faixa condutora ficou mais nítida mesmo na seca. A próxima campanha é antecipada." },
-  { date: "dezembro de 2025", delta: -24, note: "A mudança se concentra na mesma zona e cresce. Cruzamos com os piezômetros." },
-  { date: "março de 2026", delta: -33, note: "A infiltração atravessa o maciço até a fundação. Relatório imediato ao responsável." },
-  { date: "junho de 2026", delta: -42, note: "A zona continua crescendo. Recomendação de inspeção e intervenção no trecho." },
+  {
+    "date": "março de 2025",
+    "delta": 0,
+    "note": "Campanha inicial usada como referência nesta simulação. A variação foi definida como zero."
+  },
+  {
+    "date": "junho de 2025",
+    "delta": -9,
+    "note": "Neste exemplo, a resposta elétrica difere da referência. A interpretação exige contexto de aquisição e operação."
+  },
+  {
+    "date": "setembro de 2025",
+    "delta": -15,
+    "note": "A diferença permanece no cenário ilustrativo. Porcentagens, sozinhas, não definem condição de segurança."
+  },
+  {
+    "date": "dezembro de 2025",
+    "delta": -24,
+    "note": "A comparação deve considerar qualidade dos dados, geometria, condições ambientais e registros da estrutura."
+  },
+  {
+    "date": "março de 2026",
+    "delta": -33,
+    "note": "O cenário representa uma mudança elétrica, sem confirmar infiltração, causa ou estabilidade."
+  },
+  {
+    "date": "junho de 2026",
+    "delta": -42,
+    "note": "A análise integrada pode indicar a necessidade de investigação complementar, conforme avaliação da equipe responsável."
+  }
 ];
-const level = (d) => (Math.abs(d) >= 30 ? 2 : Math.abs(d) >= 12 ? 1 : 0);
-const LEVEL_NAME = ["Normal", "Atenção", "Alerta"];
 
 (() => {
   const root = document.querySelector("[data-monitor]");
@@ -25,11 +47,10 @@ const LEVEL_NAME = ["Normal", "Atenção", "Alerta"];
     frames.forEach((f, k) => f.classList.toggle("is-active", k === i));
     date.textContent = c.date;
     delta.textContent = `${c.delta < 0 ? "−" : "+"}${Math.abs(c.delta)}%`;
-    const l = level(c.delta);
-    lvl.dataset.level = String(l);
-    lvl.textContent = LEVEL_NAME[l];
+    lvl.dataset.level = "0";
+    lvl.textContent = i === 0 ? "Referência" : "Comparação";
     note.textContent = c.note;
-    range.setAttribute("aria-valuetext", `${c.date}, variação de ${c.delta}%, nível ${LEVEL_NAME[l]}`);
+    range.setAttribute("aria-valuetext", `${c.date}, variação de ${c.delta}%, exemplo ilustrativo`);
   };
   range.addEventListener("input", () => show(Number(range.value)));
   show(Number(range.value));

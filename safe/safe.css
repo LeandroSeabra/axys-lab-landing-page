@@ -16,8 +16,6 @@ html:not(.js) .s-frames img[data-frame="0"] { opacity: 1; }
 .s-readout dt { color: var(--muted); font-size: var(--step-small); }
 .s-readout dd { margin: 4px 0 0; font-size: var(--step-lead); line-height: 1.15; font-weight: 500; font-variant-numeric: tabular-nums; }
 .s-level { display: inline-flex; align-items: center; padding: 6px 14px; font-size: var(--step-body); background: var(--surface-2); color: var(--ink); transition: background-color 220ms ease, color 220ms ease; }
-.s-level[data-level="1"] { background: var(--amber-soft); color: var(--accent); }
-.s-level[data-level="2"] { background: var(--accent); color: var(--accent-ink); }
 .s-scrub-label { font-size: var(--step-small); font-weight: 500; }
 .s-panel input { width: 100%; height: 44px; margin: -12px 0 -8px; accent-color: var(--accent); cursor: pointer; }
 .s-ticks { margin: 0; padding: 0; list-style: none; display: flex; justify-content: space-between; font-size: var(--step-small); color: var(--muted); font-variant-numeric: tabular-nums; }
@@ -61,8 +59,8 @@ html:not(.js) .s-frames img[data-frame="0"] { opacity: 1; }
 .s-scale { display: grid; grid-template-columns: 1.2fr 1fr 0.8fr; }
 .s-band { display: grid; align-content: start; gap: 14px; padding: clamp(24px, 3vw, 40px); min-height: 260px; }
 .s-band-0 { background: var(--surface); }
-.s-band-1 { background: var(--amber-soft); }
-.s-band-2 { background: var(--accent); color: var(--accent-ink); }
+.s-band-1 { background: var(--surface-2); }
+.s-band-2 { background: var(--surface); color: var(--ink); }
 .s-band-name { font-family: var(--font-display); font-weight: 800; font-size: var(--step-lead); letter-spacing: -0.02em; text-transform: uppercase; }
 .s-band-1 .s-band-name { color: var(--accent); }
 
