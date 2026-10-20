@@ -38,6 +38,21 @@
       }
       messages.push(`PASS ${width}px ${path}`);
     }
+    for (const route of ['/geo/', '/topo/', '/en/geo/']) {
+      frame.style.width = '320px';
+      await new Promise(resolve => { frame.onload = resolve; frame.src = route; });
+      const doc = frame.contentDocument;
+      assert(doc.documentElement.scrollWidth <= frame.clientWidth, `Serviço no celular: ${route}`);
+      const explanation = doc.querySelector('.service-explainer');
+      const demonstration = doc.querySelector('.g-target, .t-memorial');
+      assert(explanation.compareDocumentPosition(demonstration) & 4, `Explicação antes da demonstração: ${route}`);
+      const details = doc.querySelector('.faq details');
+      details.querySelector('summary').click();
+      assert(details.open && details.querySelector('p').textContent.trim(), `Resposta expansível: ${route}`);
+      const guide = await fetch(explanation.querySelector('a').href);
+      assert(guide.ok, `Guia acessível: ${route}`);
+      messages.push(`PASS explicação e dúvidas 320px ${route}`);
+    }
     const contacts = [
       ['/geo/', 'gpr-localizar-tubulacoes', 'alvo', 'Tubulações e estruturas enterradas'],
       ['/geo/', 'geofisica-agua-subterranea-poco', 'alvo', 'Água subterrânea'],

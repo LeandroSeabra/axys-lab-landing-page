@@ -21,6 +21,21 @@
       ]
     },
     {
+      "heading": "Por que fazer o georreferenciamento?",
+      "text": "O levantamento permite descrever os limites do imóvel em uma referência comum de coordenadas. Essa descrição pode apoiar a documentação para uma transferência ou divisão de área e a comparação com os documentos existentes. A utilidade está em identificar e documentar o imóvel, e não em prometer valorização ou ausência de disputas.\n\nAntes de contratar, explique o que pretende fazer com o imóvel. A finalidade define quais peças e acompanhamentos precisam fazer parte do serviço. Se houver divergência documental ou de limites, ela deve ser avaliada, em vez de tratada como algo que a medição resolverá automaticamente.",
+      "references": [
+        1,
+        2
+      ]
+    },
+    {
+      "heading": "Qual é o prazo e o que acontece sem o levantamento?",
+      "text": "O Decreto nº 12.689/2025 atualizou a regra: a identificação georreferenciada será exigida a partir de 21 de outubro de 2029 para desmembramento, parcelamento, remembramento e transferência de imóvel rural. O decreto revogou o calendário anterior por tamanho de área. Não use uma tabela antiga de hectares ou módulos fiscais para decidir o prazo.\n\nDepois desse prazo, os atos registrais abrangidos ficam impedidos até que a identificação seja apresentada na forma exigida. Isso não significa perda automática da propriedade. Confirme com o cartório e o profissional responsável os requisitos do procedimento que pretende realizar; outras exigências da operação também precisam ser consideradas. A regra foi conferida em 20/10/2026.",
+      "references": [
+        4
+      ]
+    },
+    {
       "heading": "Topografia, certificação e registro: etapas diferentes",
       "text": "Uma dúvida frequente é se contratar topografia já resolve a certificação. A resposta depende do escopo: medir o terreno, preparar as peças, submeter os dados e acompanhar questões registrais são atividades relacionadas, mas precisam ser distinguidas.\n\nUse a tabela como um mapa de responsabilidades para conversar com o prestador do serviço. Ela resume funções; não determina, sozinha, quais atos são exigidos no seu caso.",
       "references": [
@@ -111,6 +126,12 @@
       "institution": "Incra",
       "url": "https://www.gov.br/incra/pt-br/centrais-de-conteudos/legislacao/indice_legislacao_agraria.pdf",
       "year": "s.d."
+    },
+    {
+      "title": "Decreto nº 12.689, de 21 de outubro de 2025",
+      "institution": "Presidência da República",
+      "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/decreto/d12689.htm",
+      "year": "2025"
     }
   ],
   "sources_checked": "20/10/2026",

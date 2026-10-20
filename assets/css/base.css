@@ -321,3 +321,11 @@ button, input, select, textarea { font: inherit; color: inherit; }
   .stats { grid-template-columns: 1fr; }
   .form { grid-template-columns: 1fr; }
 }
+
+/* Respostas iniciais antes das demonstrações dos serviços. */
+.service-explainer { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--gap); }
+.service-explainer .section-title { font-size: clamp(1.125rem, 3vw, 2.5rem); overflow-wrap: anywhere; hyphens: auto; }
+.service-explainer-copy { max-width: 65ch; line-height: 1.7; }
+.service-explainer-copy p + p { margin-top: 1em; }
+.service-explainer-copy .text-link { margin-top: 24px; }
+@media (max-width: 760px) { .service-explainer { grid-template-columns: 1fr; gap: 24px; } }
