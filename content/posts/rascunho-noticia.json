@@ -1,0 +1,19 @@
+{
+  "title": "Nova notícia da Axys",
+  "description": "Substitua pelo resumo de uma novidade real antes de publicar.",
+  "type": "Notícias",
+  "area": "Axys Lab",
+  "author": "Equipe Axys",
+  "date": "2026-10-20",
+  "published": false,
+  "image": "/lab/assets/amazonia-horizonte.jpg",
+  "image_alt": "Vista aérea da floresta amazônica até o horizonte",
+  "caption": "Imagem ilustrativa da Amazônia. “Amazon14”, CIAT, CC BY-SA 2.0, via Wikimedia Commons: https://commons.wikimedia.org/w/index.php?curid=30331016",
+  "summary": "Objetivo, localização e informações existentes são um bom ponto de partida. Você pode entrar em contato mesmo que ainda não saiba qual método ou serviço precisa.",
+  "sections": [
+    {
+      "heading": "O que aconteceu",
+      "text": "Descreva uma novidade verificada, sua data, contexto e fontes. Não publique este rascunho como notícia real."
+    }
+  ]
+}

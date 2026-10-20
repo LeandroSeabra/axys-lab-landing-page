@@ -1,0 +1,44 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>Verificação local da área editorial</title></head><body><h1>Verificação local</h1><pre id="result" role="status">Executando…</pre><iframe title="Página em teste" style="border:0;height:1000px"></iframe><script>
+(async () => {
+  const result = document.querySelector('#result');
+  const frame = document.querySelector('iframe');
+  const paths = ['o-que-e-geofisica', 'geofisica-agua-subterranea-poco', 'gpr-localizar-tubulacoes', 'georreferenciamento-imovel-rural-sigef', 'monitoramento-geofisico-barragens'];
+  const checks = [[320, '/conteudos/'], [768, '/conteudos/'], [1024, '/conteudos/'], [1440, '/conteudos/'], ...paths.map(path => [320, `/conteudos/${path}/`])];
+  const assert = (value, message) => { if (!value) throw Error(message); };
+  const messages = [];
+  try {
+    for (const [width, path] of checks) {
+      frame.style.width = `${width}px`;
+      await new Promise(resolve => { frame.onload = resolve; frame.src = path; });
+      const doc = frame.contentDocument;
+      assert(doc.documentElement.scrollWidth <= frame.clientWidth, `Transbordamento em ${width}px: ${path}`);
+      assert(doc.querySelectorAll('h1').length === 1, `Título principal: ${path}`);
+      for (const anchor of doc.querySelectorAll('a[href^="#"]')) assert(doc.getElementById(anchor.hash.slice(1)), `Âncora inexistente: ${anchor.hash}`);
+      if (path === '/conteudos/') {
+        const input = doc.querySelector('#search');
+        const visible = () => [...doc.querySelectorAll('[data-category]')].filter(card => !card.hidden).length;
+        assert(visible() === 5, 'Listagem inicial');
+        doc.querySelector('[data-filter="Notícias"]').click();
+        assert(visible() === 0 && !doc.querySelector('#empty').hidden, 'Filtro sem resultados');
+        doc.querySelector('[data-filter="Todos"]').click();
+        input.value = 'geofisica'; input.dispatchEvent(new frame.contentWindow.Event('input'));
+        assert(visible() >= 1, 'Busca sem acento');
+        input.value = 'xyz-inexistente'; input.dispatchEvent(new frame.contentWindow.Event('input'));
+        assert(visible() === 0, 'Busca sem resultado');
+        doc.querySelector('#reset').click(); assert(visible() === 5 && doc.activeElement === input, 'Limpar e devolver foco');
+      } else {
+        assert(doc.querySelectorAll('.article-conversion').length === 1, `Uma chamada contextual: ${path}`);
+        assert(doc.querySelector('.article-references li'), `Referências presentes: ${path}`);
+        const schema = JSON.parse(doc.querySelector('script[type="application/ld+json"]').textContent);
+        assert(schema.citation.length === doc.querySelectorAll('.article-references li').length, `Citações no schema: ${path}`);
+      }
+      if (width === 320) {
+        const button = doc.querySelector('.menu-toggle'); button.click();
+        assert(button.getAttribute('aria-expanded') === 'true', 'Menu móvel'); button.click();
+      }
+      messages.push(`PASS ${width}px ${path}`);
+    }
+    document.body.dataset.test = 'PASS'; result.textContent = messages.join('\n');
+  } catch (error) { document.body.dataset.test = 'FAIL'; result.textContent = messages.join('\n') + '\nFAIL: ' + error.message; }
+})();
+</script></body></html>

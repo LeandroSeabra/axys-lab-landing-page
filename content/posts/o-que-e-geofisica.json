@@ -1,0 +1,150 @@
+{
+  "title": "O que é geofísica? Métodos, aplicações e limites",
+  "description": "Entenda como a geofísica investiga o subsolo, quais métodos existem e quando contratar um levantamento para água, obras ou estruturas enterradas.",
+  "type": "Artigos e guias",
+  "area": "Geofísica",
+  "author": "Equipe editorial Axys",
+  "date": "2026-10-20",
+  "published": true,
+  "featured": true,
+  "image": "/assets/dados/secao-panoramica.jpg",
+  "image_alt": "Seção geofísica ilustrativa com contrastes no subsolo",
+  "caption": "Seção de resistividade simulada do acervo do site. Ilustração conceitual, sem dados de um projeto real.",
+  "summary": "Geofísica é o estudo da Terra por medidas de propriedades físicas. Em projetos, ajuda a investigar o subsolo e orientar decisões, desde que os resultados sejam interpretados com contexto e limites explícitos.",
+  "sections": [
+    {
+      "heading": "O que a geofísica mede — e o que ela interpreta",
+      "text": "A geofísica investiga a Terra a partir de propriedades físicas, como resistividade elétrica, magnetismo e comportamento de ondas. Na geofísica aplicada, essas medidas ajudam a construir uma interpretação do subsolo para responder a uma necessidade concreta do projeto. O instrumento registra sinais; a identificação de uma camada ou estrutura exige análise.\n\nUma maneira de compreender a diferença é separar três etapas: medir, modelar e interpretar. Medir produz dados. Modelar procura uma representação física compatível com esses dados. Interpretar relaciona essa representação à geologia e às informações disponíveis. Uma imagem colorida não é, por si só, uma fotografia do terreno.",
+      "references": [
+        1,
+        2
+      ]
+    },
+    {
+      "heading": "Para que serve um levantamento geofísico",
+      "text": "Um levantamento faz sentido quando existe uma pergunta sobre o subsolo que pode ser investigada por contrastes físicos. Em vez de contratar “uma geofísica” de forma genérica, vale descrever a decisão: escolher áreas para investigar água, reconhecer variações de materiais, procurar estruturas enterradas ou acompanhar alterações em um maciço.\n\nEsse enquadramento muda a conversa comercial. Uma obra interessada em interferências rasas não tem o mesmo objetivo de uma investigação hidrogeológica. O contratante deve conseguir reconhecer, na proposta, qual pergunta será tratada e quais resultados poderão apoiar a próxima etapa. A família de métodos precisa ser compatível com o alvo, e não apenas com o equipamento disponível.",
+      "references": [
+        1
+      ]
+    },
+    {
+      "heading": "Quais são os principais métodos geofísicos",
+      "text": "Os métodos se diferenciam pela propriedade observada. A tabela resume famílias comuns e o tipo de resposta que se procura; não é uma regra automática de seleção nem uma declaração de que todos os métodos são necessários em um mesmo projeto.",
+      "references": [
+        1
+      ],
+      "table": {
+        "headers": [
+          "Método ou família",
+          "O que observa",
+          "Exemplo de pergunta"
+        ],
+        "rows": [
+          {
+            "cells": [
+              "Eletrorresistividade",
+              "Resposta elétrica dos materiais",
+              "Onde existem contrastes elétricos a investigar?"
+            ]
+          },
+          {
+            "cells": [
+              "GPR, ou radar de penetração no solo",
+              "Reflexões de ondas eletromagnéticas",
+              "Há refletores compatíveis com estruturas rasas?"
+            ]
+          },
+          {
+            "cells": [
+              "Métodos sísmicos",
+              "Propagação de ondas elásticas",
+              "Como variam as propriedades elásticas em profundidade?"
+            ]
+          },
+          {
+            "cells": [
+              "Magnetometria",
+              "Variações do campo magnético",
+              "Há fontes ou estruturas com contraste magnético?"
+            ]
+          },
+          {
+            "cells": [
+              "Gravimetria",
+              "Variações do campo gravitacional",
+              "Há contrastes de densidade relevantes para a investigação?"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "heading": "Um exemplo físico: ondas e interfaces no terreno",
+      "text": "Em um levantamento sísmico de refração, uma fonte gera energia e receptores registram os tempos de chegada das ondas. A análise relaciona esses tempos às distâncias e às velocidades de propagação para investigar a estrutura do terreno. Essas velocidades dependem das propriedades dos materiais e do tipo de onda.\n\nO exemplo ajuda a entender por que o desenho do levantamento importa. Na interpretação clássica de interfaces por refração, certas condições, como camadas ocultas ou inversões de velocidade, podem dificultar a identificação das camadas. A escolha de outra abordagem de aquisição ou interpretação precisa ser justificada. Não basta trocar o nome de uma técnica: a estratégia deve tratar a limitação relevante ao objetivo.",
+      "references": [
+        4
+      ]
+    },
+    {
+      "heading": "Geofísica, geologia, topografia e sondagem são a mesma coisa?",
+      "text": "Não. Para organizar o escopo, pense no tipo de informação procurada. Um levantamento topográfico descreve posições, formas e altitudes do terreno. O trabalho geológico contextualiza os materiais e sua história. A sondagem permite investigar diretamente locais perfurados. A geofísica acrescenta medidas indiretas distribuídas ao longo de linhas, estações ou áreas.\n\nEssas atividades podem integrar uma mesma investigação. O ponto importante para quem contrata é evitar entregas que não respondem à pergunta: uma planta topográfica não substitui um estudo do subsolo, e uma seção geofísica não substitui automaticamente a informação direta necessária ao projeto. A combinação deve ser justificada para o caso, sem transformar uma técnica em promessa universal."
+    },
+    {
+      "heading": "Por que uma anomalia não é uma confirmação",
+      "text": "Anomalia é uma resposta diferente daquela tomada como referência. Ela indica algo a explicar, não necessariamente a presença do objeto desejado. Uma mesma resposta pode ser compatível com mais de um modelo do terreno. A inversão procura modelos coerentes com as medidas e com escolhas matemáticas que também influenciam o resultado.\n\nPor isso, a conclusão deve distinguir observação, hipótese e confirmação. Na eletrorresistividade, por exemplo, água, composição do fluido e materiais argilosos podem influenciar a resposta elétrica. É inadequado tratar uma única cor no modelo como prova de um aquífero. Relatórios úteis discutem alternativas e indicam quando faltam dados para diferenciá-las.",
+      "references": [
+        2,
+        3
+      ]
+    },
+    {
+      "heading": "Profundidade e precisão: o que perguntar antes de contratar",
+      "text": "Peça que a proposta separe profundidade de interesse, resolução pretendida e condições de investigação. Esses termos não são intercambiáveis. Também pergunte como a equipe pretende verificar, durante a aquisição e a interpretação, se o resultado é suficiente para a decisão do projeto.\n\nEvite comparar propostas somente pelo número de metros anunciados ou pela aparência de uma imagem 3D. Solicite a justificativa do método, a distribuição das medições e o tratamento das áreas em que a informação for insuficiente. Uma proposta transparente explica o que será tentado, o que será entregue e o que dependerá das condições reais do local."
+    },
+    {
+      "heading": "O que deve constar no relatório e na proposta",
+      "text": "Como roteiro de contratação, confira se estão previstos: objetivo da investigação; localização e extensão da área; método e desenho do levantamento; controle de qualidade; produtos cartográficos e perfis; interpretação; limitações; e recomendações para as etapas seguintes. A responsabilidade técnica e o formato de entrega também precisam ficar claros.\n\nPergunte se os dados permitirão relacionar a interpretação à posição real das linhas e dos alvos. O relatório deve explicar o significado das escalas e unidades, em vez de depender apenas de cores. Esse roteiro é uma recomendação editorial para comparar escopos, não uma lista universal de exigências normativas."
+    },
+    {
+      "heading": "Como decidir se o estudo faz sentido para o seu terreno",
+      "text": "Comece com uma pergunta delimitada e um mapa da área. Depois, discuta quais decisões dependem da resposta e qual informação já existe. Peça que o fornecedor explique por que o método proposto pode contribuir e como serão comunicadas as incertezas.\n\nSe a dúvida é água subterrânea, a próxima leitura é o guia sobre investigação antes da perfuração. Se o problema é escavar perto de redes, consulte o artigo sobre GPR. Esses caminhos aprofundam aplicações diferentes sem assumir que um único método resolve todos os problemas."
+    }
+  ],
+  "references": [
+    {
+      "title": "Surface Geophysical Methods",
+      "institution": "U.S. Environmental Protection Agency (EPA)",
+      "url": "https://www.epa.gov/environmental-geophysics/surface-geophysical-methods",
+      "year": "s.d."
+    },
+    {
+      "title": "Inversion",
+      "institution": "U.S. Environmental Protection Agency (EPA)",
+      "url": "https://www.epa.gov/environmental-geophysics/inversion",
+      "year": "s.d."
+    },
+    {
+      "title": "Electrical Resistivity",
+      "institution": "U.S. Environmental Protection Agency (EPA)",
+      "url": "https://www.epa.gov/environmental-geophysics/electrical-resistivity",
+      "year": "s.d."
+    },
+    {
+      "title": "Seismic Refraction",
+      "institution": "U.S. Environmental Protection Agency (EPA)",
+      "url": "https://www.epa.gov/environmental-geophysics/seismic-refraction",
+      "year": "s.d."
+    }
+  ],
+  "sources_checked": "20/10/2026",
+  "cta": {
+    "heading": "Qual pergunta você precisa responder sobre o subsolo?",
+    "text": "Conheça as aplicações da Axys Geofísica e converse sobre o método adequado à sua área, ao alvo e à decisão do projeto.",
+    "label": "Conhecer a Axys Geofísica",
+    "url": "/geo/"
+  },
+  "related": [
+    "geofisica-agua-subterranea-poco",
+    "gpr-localizar-tubulacoes"
+  ]
+}

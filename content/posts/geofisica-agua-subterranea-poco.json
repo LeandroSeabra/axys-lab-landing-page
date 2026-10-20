@@ -1,0 +1,91 @@
+{
+  "title": "Geofísica para poço: é possível encontrar água antes de perfurar?",
+  "description": "Saiba como a investigação geofísica apoia a locação de poços, o que ela não garante e quais critérios avaliar antes de contratar o estudo.",
+  "type": "Artigos e guias",
+  "area": "Geofísica",
+  "author": "Equipe editorial Axys",
+  "date": "2026-10-20",
+  "published": true,
+  "featured": false,
+  "image": "/lab/assets/dados/pseudossecao.jpg",
+  "image_alt": "Pseudosseção de resistividade simulada",
+  "caption": "Pseudosseção simulada do acervo do site. As cores representam resposta elétrica e não comprovam presença ou produtividade de água.",
+  "summary": "A geofísica pode ajudar a selecionar alvos para investigação de água subterrânea. Ela não garante vazão, potabilidade nem sucesso da perfuração: essas respostas exigem etapas e verificações próprias.",
+  "sections": [
+    {
+      "heading": "A resposta curta: localizar alvos, não prometer água",
+      "text": "Quem pesquisa como encontrar água antes de perfurar costuma querer reduzir a incerteza de uma decisão importante. A contribuição da geofísica é investigar características físicas do subsolo que, quando interpretadas com a geologia, ajudam a formular hipóteses sobre a ocorrência de água.\n\nA hidrogeofísica reúne técnicas para estudar a estrutura e os processos do subsolo, incluindo o comportamento de fluidos. O resultado deve ser lido como evidência que apoia uma interpretação, não como um certificado de que haverá água suficiente no ponto indicado. É essa diferença que deve orientar a conversa com o prestador do serviço.",
+      "references": [
+        1
+      ]
+    },
+    {
+      "heading": "Como a eletrorresistividade entra na investigação",
+      "text": "Na eletrorresistividade, eletrodos permitem injetar corrente no terreno e medir diferenças de potencial. A análise dessas medidas busca representar variações da resposta elétrica em profundidade e ao longo da área investigada.\n\nA resposta é influenciada pelos materiais, pelos fluidos nos poros ou fraturas e por sua composição. Argila e água com mais sais dissolvidos também podem produzir respostas condutivas. Portanto, uma zona de baixa resistividade não pode ser traduzida automaticamente como “água boa” ou “poço produtivo”.",
+      "references": [
+        2
+      ]
+    },
+    {
+      "heading": "Por que não existe uma cor universal para aquíferos",
+      "text": "Um aquífero precisa ser entendido no contexto hidrogeológico. O que interessa ao projeto não é apenas um contraste no modelo, mas a relação entre o alvo interpretado e a capacidade do terreno de armazenar e transmitir água. A leitura deve considerar informações complementares e a escala do problema.\n\nPara quem contrata, isso se transforma em uma pergunta simples: quais informações, além da imagem geofísica, sustentam a indicação? Um estudo mais útil explicita a hipótese e suas alternativas. Um alvo ainda incerto deve continuar identificado como incerto, mesmo quando a figura parece muito convincente.",
+      "references": [
+        1
+      ]
+    },
+    {
+      "heading": "Vazão e qualidade da água precisam de outras verificações",
+      "text": "Interpretar um alvo geofísico e avaliar o desempenho hidráulico de um poço são etapas diferentes. Ensaios de bombeamento usam dados de descarga e rebaixamento para investigar características hidráulicas; não são substituídos por uma seção de resistividade.\n\nA imagem geofísica também não é laudo de potabilidade. A pergunta sobre a qualidade para o uso pretendido deve ter sua própria verificação e amostragem. Ao discutir o projeto, mantenha separados o estudo de localização, a perfuração, os ensaios do poço e a avaliação da água. Assim, o contrato não reúne promessas que dependem de atividades distintas.",
+      "references": [
+        3
+      ]
+    },
+    {
+      "heading": "Um fluxo de decisão antes e depois do levantamento",
+      "text": "Como roteiro de planejamento, organize quatro momentos. Primeiro, descreva a necessidade de água e reúna a localização e os registros existentes. Segundo, avalie com a equipe o objetivo e a viabilidade do levantamento. Terceiro, receba uma interpretação que delimite os alvos e discuta as limitações. Quarto, decida quais verificações posteriores serão necessárias.\n\nEsse roteiro não é uma receita de perfuração. Ele ajuda a saber quando uma decisão é preliminar e quando depende de confirmação. Dados de poços já existentes podem entrar na análise, mas não devem virar promessa automática para outro ponto da propriedade."
+    },
+    {
+      "heading": "Quanto custa o estudo e por que os orçamentos variam",
+      "text": "Uma faixa genérica de preço, sem conhecer a área e o escopo, pode levar a comparações ruins. Para pedir orçamento, descreva a localização, a extensão de interesse, as condições de acesso e os dados já disponíveis. Peça que cada proposta identifique aquisição, processamento, interpretação e entrega.\n\nCompare o que será investigado, não apenas o total financeiro. Uma proposta para uma visita exploratória não equivale necessariamente a outra que inclui uma malha de investigação e relatório interpretativo. Este artigo não apresenta tabela de preços nem taxa de sucesso, porque esses números precisariam de dados próprios verificáveis e de escopo comparável."
+    },
+    {
+      "heading": "Como reconhecer uma proposta tecnicamente cuidadosa",
+      "text": "Procure uma explicação compreensível do método e da pergunta que ele pretende responder. Solicite a identificação da área coberta, das condições que podem restringir o trabalho e dos produtos finais. Pergunte como a equipe vai comunicar alvos alternativos ou resultados inconclusivos.\n\nDesconfie de garantias incondicionais de vazão ou da afirmação de que um equipamento detecta diretamente a água em qualquer terreno. A decisão de contratar fica mais bem fundamentada quando o estudo é apresentado como uma etapa de investigação, com responsabilidade técnica e limites claros."
+    },
+    {
+      "heading": "O que conversar com a equipe antes de escolher o ponto",
+      "text": "Leve um mapa, a finalidade do abastecimento e as informações conhecidas sobre poços e investigações anteriores. Pergunte quais decisões o levantamento pode apoiar e quais etapas continuarão necessárias mesmo que seja encontrado um alvo favorável.\n\nA pergunta comercial mais útil não é “vocês garantem água?”, mas “como vocês pretendem investigar esta área e fundamentar a seleção dos alvos?”. Essa mudança ajuda a contratar uma avaliação técnica em vez de uma certeza que os dados ainda não permitem oferecer."
+    }
+  ],
+  "references": [
+    {
+      "title": "The emergence of hydrogeophysics for improved understanding of subsurface processes over multiple scales. Water Resources Research, 51, 3837–3866. DOI: 10.1002/2015WR017016",
+      "institution": "Binley, A.; Hubbard, S. S.; Huisman, J. A.; Revil, A.; Robinson, D. A.; Singha, K.; Slater, L. D.",
+      "url": "https://nora.nerc.ac.uk/id/eprint/511060/",
+      "year": "2015"
+    },
+    {
+      "title": "Electrical Resistivity",
+      "institution": "U.S. Environmental Protection Agency (EPA)",
+      "url": "https://www.epa.gov/environmental-geophysics/electrical-resistivity",
+      "year": "s.d."
+    },
+    {
+      "title": "Pumping test methods for determining aquifer characteristics. ASTM Special Technical Publication, p. 35–55. DOI: 10.1520/STP47258S",
+      "institution": "Lang, S. M.; registro bibliográfico do U.S. Geological Survey",
+      "url": "https://pubs.usgs.gov/publication/70221308",
+      "year": "1966"
+    }
+  ],
+  "sources_checked": "20/10/2026",
+  "cta": {
+    "heading": "Está avaliando uma área para investigar água subterrânea?",
+    "text": "Conte à Axys a localização, o objetivo e os dados existentes. Podemos discutir a viabilidade e o escopo de uma investigação geofísica antes da decisão sobre a perfuração.",
+    "label": "Conversar sobre investigação para água",
+    "url": "/geo/#contato"
+  },
+  "related": [
+    "o-que-e-geofisica",
+    "gpr-localizar-tubulacoes"
+  ]
+}

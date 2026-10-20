@@ -1,0 +1,89 @@
+{
+  "title": "Monitoramento de barragens: onde a geofísica pode ajudar",
+  "description": "Entenda o papel complementar da geofísica no monitoramento de barragens e como avaliar campanhas, instrumentação e entregas de um plano de investigação.",
+  "type": "Artigos e guias",
+  "area": "Monitoramento",
+  "author": "Equipe editorial Axys",
+  "date": "2026-10-20",
+  "published": true,
+  "featured": false,
+  "image": "/assets/dados/safe/campanha-1.jpg",
+  "image_alt": "Seção de resistividade ilustrativa de uma campanha de investigação",
+  "caption": "Simulação de seção geofísica do acervo do site. Não representa uma barragem real nem uma avaliação de segurança.",
+  "summary": "A geofísica pode acrescentar informação espacial sobre o maciço e sua evolução. Ela deve ser integrada à inspeção, à instrumentação e à análise de engenharia; uma anomalia geofísica isolada não determina a segurança de uma barragem.",
+  "sections": [
+    {
+      "heading": "Monitorar exige relacionar observações ao comportamento da estrutura",
+      "text": "Uma leitura isolada tem menos utilidade quando não se sabe em que condição foi obtida e qual pergunta pretende responder. No planejamento de monitoramento, é importante ligar a informação medida ao histórico da estrutura e às decisões que a equipe responsável precisa tomar.\n\nOs manuais da ANA distinguem atividades de inspeção, operação, manutenção e instrumentação. Essa organização ajuda a não tratar uma campanha de investigação como substituta de todo o sistema de acompanhamento. O serviço geofísico deve ter uma função definida dentro desse conjunto e dialogar com quem responde pela avaliação da estrutura.",
+      "references": [
+        1,
+        2
+      ]
+    },
+    {
+      "heading": "Instrumentação e geofísica observam aspectos diferentes",
+      "text": "A instrumentação pode acompanhar grandezas associadas ao comportamento da barragem. O Volume VII do Manual do Empreendedor da ANA descreve, entre outros dispositivos, piezômetros e medidores de vazão. Eles fazem parte de uma estratégia de observação projetada para a estrutura.\n\nA investigação geofísica acrescenta outra perspectiva ao conjunto. Para contratar, peça que a proposta explique qual dúvida espacial pretende investigar e como os resultados serão relacionados às outras observações disponíveis. A escolha deve começar pela informação necessária à análise, sem presumir que uma técnica dispense a outra.",
+      "references": [
+        2
+      ]
+    },
+    {
+      "heading": "O que estudos geofísicos podem investigar",
+      "text": "Um exemplo documentado pelo USGS é a investigação da Hidden Dam, na Califórnia, que utilizou resistividade e potencial espontâneo, junto com modelagem, para estudar padrões de percolação. O caso mostra uma aplicação integrada; não é evidência de que o mesmo desenho produzirá a mesma resposta em qualquer barragem.\n\nAo planejar um trabalho, o que pode ser transferido é a necessidade de uma pergunta específica e de integração com informações da estrutura. O estudo de um local não autoriza extrapolar profundidade, desempenho ou limiares para outro. Também não deve ser apresentado como experiência da Axys: trata-se de uma referência externa identificada.",
+      "references": [
+        3
+      ]
+    },
+    {
+      "heading": "Por que comparar campanhas exige controle de contexto",
+      "text": "Se o objetivo é observar mudanças, peça que o plano explique como serão registradas a posição das linhas, as condições de aquisição e as diferenças entre as visitas. A comparação precisa ser planejada, em vez de feita apenas pela aparência de duas imagens.\n\nComo roteiro de escopo, discuta quais registros de operação, precipitação e nível do reservatório estarão disponíveis para a equipe interpretar cada campanha. Pergunte como serão comunicadas diferenças que não possam ser atribuídas com confiança a uma mudança do maciço. Isso ajuda a evitar conclusões automáticas a partir de um contraste visual."
+    },
+    {
+      "heading": "Uma anomalia não equivale a diagnóstico de instabilidade",
+      "text": "O termo anomalia deve ser acompanhado de explicação: qual observação é diferente, em relação a qual referência e com quais alternativas de interpretação? O contratante deve pedir essa distinção no relatório, sem aceitar a troca de uma hipótese por uma conclusão de segurança.\n\nO serviço precisa indicar como os resultados serão encaminhados à equipe responsável para avaliação conjunta. Um artigo ou uma imagem não estabelece a condição de estabilidade da estrutura. Se o objetivo do contrato envolve uma avaliação de segurança, deixe explícito quem realizará essa análise, com quais informações e sob qual responsabilidade."
+    },
+    {
+      "heading": "O que incluir em um plano de investigação ou acompanhamento",
+      "text": "Como recomendação de contratação, descreva a pergunta de investigação, a área de interesse, os dados existentes, o desenho das campanhas, o controle de qualidade e os produtos de interpretação. Combine ainda o modo de integrar os resultados às outras informações e quem participará das discussões técnicas.\n\nPara um acompanhamento periódico, a proposta deve esclarecer a lógica de repetição e o tratamento de mudanças no escopo. Para uma campanha pontual, deve explicar quais conclusões poderão ser apoiadas por aquela visita e quais dependerão de uma sequência de observações. Periodicidade não deve ser escolhida por um texto genérico: precisa fazer sentido para a estrutura e para suas exigências aplicáveis."
+    },
+    {
+      "heading": "Quais entregas ajudam a equipe a usar os resultados",
+      "text": "Peça posição das linhas, descrição da aquisição, critérios de qualidade, modelos interpretados, limitações e uma síntese que diferencie achados e hipóteses. Discuta também a forma de reunião dos dados e dos relatórios de campanhas anteriores.\n\nA entrega deve permitir rastrear de onde veio uma interpretação e por que determinada região foi destacada. Um gráfico sem localização ou um mapa sem legenda podem dificultar a análise conjunta, mesmo quando a aquisição foi adequada. O formato deve ser combinado com quem utilizará a informação, e não apenas com quem solicita o orçamento."
+    },
+    {
+      "heading": "Como contratar sem confundir o papel de cada atividade",
+      "text": "Na conversa com o fornecedor, explique se a demanda é reconhecer condições do maciço, investigar uma região específica ou discutir um acompanhamento comparativo. Liste os documentos e séries existentes e identifique a equipe que integrará os resultados.\n\nO escopo geofísico deve complementar o planejamento responsável pela estrutura. Ele não deve prometer antecipar qualquer ocorrência, substituir inspeções ou atestar sozinho a segurança. A relação comercial fica mais clara quando a contribuição, as fronteiras e as entregas estão estabelecidas antes do trabalho."
+    }
+  ],
+  "references": [
+    {
+      "title": "Coleção de documentos relacionados à inspeção de segurança",
+      "institution": "Agência Nacional de Águas e Saneamento Básico (ANA)",
+      "url": "https://www.gov.br/ana/pt-br/regulacao/outorga-e-fiscalizacao/barragens/inspecao-de-barragens-1/colecao-de-documentos-relacionados-inspecao-de-seguranca",
+      "year": "s.d."
+    },
+    {
+      "title": "Diretrizes para a elaboração do plano de operação, manutenção e instrumentação de barragens. Manual do Empreendedor, Volume VII. 136 p. ISBN 9788582100431",
+      "institution": "Agência Nacional de Águas (ANA)",
+      "url": "https://biblioteca.ana.gov.br/sophia_web/acervo/detalhe/68802?i=1",
+      "year": "2016"
+    },
+    {
+      "title": "Hydrogeophysical investigations at Hidden Dam, Raymond, California",
+      "institution": "U.S. Geological Survey (USGS)",
+      "url": "https://www.usgs.gov/publications/hydrogeophysical-investigations-hidden-dam-raymond-california",
+      "year": "2011"
+    }
+  ],
+  "sources_checked": "20/10/2026",
+  "cta": {
+    "heading": "Quer avaliar a contribuição da geofísica ao acompanhamento?",
+    "text": "Converse com a Axys Safe sobre a estrutura, os dados já existentes e a pergunta de investigação. O escopo deve ser integrado às necessidades da equipe responsável.",
+    "label": "Discutir investigação com a Axys Safe",
+    "url": "/safe/#contato"
+  },
+  "related": [
+    "o-que-e-geofisica",
+    "geofisica-agua-subterranea-poco"
+  ]
+}

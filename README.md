@@ -1,6 +1,6 @@
 # Site da Axys Geo Soluções
 
-Site estático (HTML, CSS e JavaScript, sem build) publicado pelo GitHub Pages em
+Site estático (HTML, CSS e JavaScript), com geração editorial em Python, publicado pelo GitHub Pages em
 **https://axysgeosolucoes.com**. Tudo o que estiver na branch `main` vai ao ar em cerca de um minuto.
 
 ## Páginas
@@ -12,6 +12,8 @@ Site estático (HTML, CSS e JavaScript, sem build) publicado pelo GitHub Pages e
 | `/safe/` | `safe/` | Axys Safe: monitoramento de barragens e segurança geológica |
 | `/topo/` | `topo/` | Axys Topo: topografia e regularização de imóveis |
 | `/lab/` | `lab/` | Axys Lab: instrumentos geofísicos |
+| `/conteudos/` | `conteudos/` | Artigos e notícias, gerados a partir dos arquivos editoriais |
+| `/admin/` | `admin/` | Acesso ao Decap CMS (ativação OAuth pendente) |
 | `/sobre/` | `sobre/` | Quem somos: história, equipe, dados da empresa |
 | `/privacidade/` | `privacidade/` | Política de privacidade (LGPD) |
 | `/en/geo/`, `/en/lab/` | `en/` | Versões em inglês da Geofísica e do Lab |
@@ -140,8 +142,16 @@ Antes de publicar uma alteração em CSS ou JavaScript, rode:
 python3 tools/versionar.py
 ```
 
+As páginas editoriais em `conteudos/` usam versões calculadas pelo gerador e ficam fora deste comando.
+
 Isso põe um número de versão nos arquivos (`geo.js?v=...`), para o navegador dos visitantes baixar
 os arquivos novos junto com a página nova, em vez de usar uma cópia antiga guardada em cache.
 
 - O GitHub Pages publica a branch `main` deste repositório no domínio do arquivo `CNAME`.
 - Nas configurações do repositório (Settings → Pages), mantenha **Enforce HTTPS** ligado.
+
+## Publicar artigos e notícias
+
+Consulte [PUBLICACAO.md](PUBLICACAO.md) para ativar o login do Decap, configurar o GitHub Pages e usar o painel. Para gerar as páginas localmente: `python3 tools/gerar_conteudos.py`. O conteúdo fica em `content/posts/`; não edite os HTML gerados diretamente.
+
+A pauta inicial e as chamadas de cada artigo estão em [ESTRATEGIA_CONTEUDOS.md](ESTRATEGIA_CONTEUDOS.md). Para conferir o comportamento em navegador, sirva o site e abra `/tools/verificar_editorial.html` (ferramenta local, excluída do pacote de publicação).

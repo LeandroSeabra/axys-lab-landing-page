@@ -1,0 +1,47 @@
+name: Validar e publicar site
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: '15 6 * * *'
+permissions:
+  contents: read
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Testar gerador
+        run: python3 -m unittest discover -s tools
+      - name: Gerar conteúdos
+        run: python3 tools/gerar_conteudos.py
+      - name: Preparar arquivos públicos
+        run: |
+          mkdir -p /tmp/axys-public
+          rsync -a --exclude='.*' --exclude='tools/' --exclude='content/' --exclude='mockup-conteudos/' --exclude='*.md' ./ /tmp/axys-public/
+      - uses: actions/upload-pages-artifact@v4
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        with:
+          path: /tmp/axys-public
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publicar no GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

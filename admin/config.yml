@@ -1,0 +1,89 @@
+backend:
+  name: github
+  repo: LeandroSeabra/axys-lab-landing-page
+  branch: main
+# Configure o provedor OAuth antes de usar em produção; veja PUBLICACAO.md.
+# Para servidor próprio, acrescente backend.base_url e backend.auth_endpoint.
+publish_mode: editorial_workflow
+site_url: https://axysgeosolucoes.com
+locale: pt
+media_folder: assets/uploads
+public_folder: /assets/uploads
+slug:
+  encoding: ascii
+  clean_accents: true
+collections:
+  - name: posts
+    label: Conteúdos
+    label_singular: Conteúdo
+    folder: content/posts
+    create: true
+    format: json
+    extension: json
+    slug: '{{slug}}'
+    identifier_field: title
+    summary: '{{title}} · {{type}} · {{date}}'
+    preview_path: 'conteudos/{{slug}}/'
+    fields:
+      - {label: Título, name: title, widget: string}
+      - {label: Destaque na central, name: featured, widget: boolean, default: false, required: false, hint: Mantenha apenas um conteúdo em destaque.}
+      - {label: Data da consulta das fontes, name: sources_checked, widget: string, required: false, hint: "Formato DD/MM/AAAA"}
+      - {label: Resumo e descrição para busca, name: description, widget: text}
+      - {label: Tipo, name: type, widget: select, options: [Artigos e guias, Notícias], default: Artigos e guias}
+      - {label: Área, name: area, widget: select, options: [Geofísica, Monitoramento, Topografia, Axys Lab, Institucional]}
+      - {label: Autor ou equipe responsável, name: author, widget: string, default: Equipe Axys}
+      - {label: Data de publicação, name: date, widget: datetime, format: 'YYYY-MM-DD', date_format: DD/MM/YYYY, time_format: false}
+      - {label: Visível no site, name: published, widget: boolean, default: false, hint: Ative após revisar. Datas futuras só aparecem na próxima geração após a data escolhida.}
+      - {label: Imagem de capa, name: image, widget: image, allow_multiple: false, choose_url: false}
+      - {label: Descrição da imagem para acessibilidade, name: image_alt, widget: string}
+      - {label: Legenda e créditos da imagem, name: caption, widget: text, required: false}
+      - {label: Ideia central, name: summary, widget: text}
+      - label: Seções do artigo
+        name: sections
+        widget: list
+        min: 1
+        summary: '{{fields.heading}}'
+        hint: Cole o texto revisado de IA nas seções. Separe parágrafos com uma linha em branco. HTML e Markdown são exibidos como texto.
+        fields:
+          - {label: Subtítulo, name: heading, widget: string}
+          - {label: Texto, name: text, widget: text}
+
+          - label: Referências desta seção
+            name: references
+            widget: list
+            required: false
+            hint: Números correspondentes à ordem das referências do artigo.
+            field: {label: Número, name: number, widget: number, value_type: int, min: 1}
+          - label: Tabela comparativa
+            name: table
+            widget: object
+            required: false
+            collapsed: true
+            fields:
+              - {label: Títulos das colunas, name: headers, widget: list}
+              - label: Linhas
+                name: rows
+                widget: list
+                fields:
+                  - {label: Células da linha, name: cells, widget: list, hint: Uma célula por coluna, na mesma ordem dos títulos.}
+      - label: Referências e fontes
+        name: references
+        widget: list
+        required: false
+        summary: '{{fields.institution}} — {{fields.title}}'
+        fields:
+          - {label: Título da publicação, name: title, widget: string}
+          - {label: Autores ou instituição, name: institution, widget: string}
+          - {label: Ano ou s.d., name: year, widget: string}
+          - {label: Link HTTPS da fonte, name: url, widget: string, pattern: ['^https://[^ ]+$', 'Informe uma URL HTTPS válida.']}
+      - label: Próximo passo para o leitor
+        name: cta
+        widget: object
+        required: false
+        collapsed: true
+        fields:
+          - {label: Título, name: heading, widget: string}
+          - {label: Explicação, name: text, widget: text}
+          - {label: Texto do botão, name: label, widget: string}
+          - {label: Destino, name: url, widget: select, options: ['/geo/', '/geo/#contato', '/topo/#contato', '/safe/#contato', '/lab/#contato', '/#contato']}
+      - {label: Leituras relacionadas, name: related, widget: list, required: false, hint: Nomes dos arquivos sem .json para priorizar as sugestões.}

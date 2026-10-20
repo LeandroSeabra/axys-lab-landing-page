@@ -7,7 +7,7 @@ em vez de misturar página nova com script antigo guardado em cache.
 import re, glob, time, sys
 
 versao = sys.argv[1] if len(sys.argv) > 1 else time.strftime("%Y%m%d%H%M")
-paginas = [p for p in glob.glob("**/*.html", recursive=True) if not p.startswith((".", "assets/pdf/src"))]
+paginas = [p for p in glob.glob("**/*.html", recursive=True) if not p.startswith((".", "assets/pdf/src", "tools/", "conteudos/", "mockup-conteudos/"))]
 padrao = re.compile(r'((?:href|src)="(?!https?:|//)[^"?#]+\.(?:css|js))(?:\?v=[^"]*)?"')
 for p in paginas:
     s = open(p, encoding="utf-8").read()
