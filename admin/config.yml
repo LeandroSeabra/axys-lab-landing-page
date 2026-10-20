@@ -14,7 +14,7 @@ slug:
   clean_accents: true
 collections:
   - name: posts
-    label: Conteúdos
+    label: Axys Conhecimento
     label_singular: Conteúdo
     folder: content/posts
     create: true
@@ -29,8 +29,24 @@ collections:
       - {label: Destaque na central, name: featured, widget: boolean, default: false, required: false, hint: Mantenha apenas um conteúdo em destaque.}
       - {label: Data da consulta das fontes, name: sources_checked, widget: string, required: false, hint: "Formato DD/MM/AAAA"}
       - {label: Resumo e descrição para busca, name: description, widget: text}
-      - {label: Tipo, name: type, widget: select, options: [Artigos e guias, Notícias], default: Artigos e guias}
+      - {label: Tipo, name: type, widget: select, options: [Artigos e guias, Notícias, Na prática], default: Artigos e guias}
       - {label: Área, name: area, widget: select, options: [Geofísica, Monitoramento, Topografia, Axys Lab, Institucional]}
+      - label: Assuntos da publicação
+        name: topics
+        widget: select
+        multiple: true
+        min: 1
+        options:
+          - {label: Geologia, value: geologia}
+          - {label: Geofísica, value: geofisica}
+          - {label: Água subterrânea, value: agua-subterranea}
+          - {label: Mineração, value: mineracao}
+          - {label: Topografia e território, value: topografia}
+          - {label: Monitoramento, value: monitoramento}
+          - {label: Instrumentação, value: instrumentacao}
+      - {label: Data de atualização relevante, name: updated, widget: datetime, format: 'YYYY-MM-DD', date_format: DD/MM/YYYY, time_format: false, required: false}
+      - {label: Revisão técnica por, name: reviewer, widget: string, required: false, hint: Informe apenas quem efetivamente revisou a publicação.}
+      - {label: Nota de correção, name: correction_note, widget: text, required: false}
       - {label: Autor ou equipe responsável, name: author, widget: string, default: Equipe Axys}
       - {label: Data de publicação, name: date, widget: datetime, format: 'YYYY-MM-DD', date_format: DD/MM/YYYY, time_format: false}
       - {label: Visível no site, name: published, widget: boolean, default: false, hint: Ative após revisar. Datas futuras só aparecem na próxima geração após a data escolhida.}

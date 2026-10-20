@@ -145,5 +145,10 @@
     "source": "https://www.usgs.gov/media/images/near-surface-geophysics-two-dimensional-resistivity",
     "license": "Domínio público",
     "license_url": "https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits"
-  }
+  },
+  "topics": [
+    "geofisica",
+    "geologia",
+    "mineracao"
+  ]
 }

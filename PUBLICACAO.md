@@ -53,3 +53,14 @@ Os destinos das chamadas recebem o identificador do artigo. O mapa de assuntos e
 
 
 Imagens: informe também os campos de autoria, fonte e licença. Use apenas material autorizado para o contexto de uso. Confira DIREITOS_DAS_IMAGENS.md e a página /creditos/. O preenchimento dos campos não substitui a verificação da licença.
+
+
+## Axys Conhecimento
+
+O portal permanece em `/conteudos/`, preservando os endereços dos artigos. Temas publicados ganham coleções em `/conteudos/temas/<tema>/`; `/conteudos/noticias/` reúne somente notícias publicadas, sem exemplos fictícios. A política editorial está em `/conteudos/politica-editorial/`.
+
+No painel, escolha o formato (Artigos e guias, Notícias ou Na prática) e os assuntos. Na prática é reservado a aplicações e experiências documentadas; não foram criados casos fictícios. A área indica a linha de atuação; os assuntos organizam a leitura e podem ser múltiplos. As páginas de tema aparecem quando há conteúdo publicado. Não use os endereços reservados `noticias`, `temas`, `politica-editorial` e `index` como slug.
+
+Preencha `reviewer` apenas quando a pessoa tiver efetivamente revisado o texto. `updated` indica uma alteração relevante e precisa estar entre a publicação e a data atual. Use `correction_note` para explicar uma correção que altere o entendimento. O gerador inclui a atualização nos dados estruturados; notícias usam NewsArticle e guias usam BlogPosting. Não foi atribuída revisão técnica aos artigos existentes sem confirmação.
+
+A busca combina texto, formato e assunto. Os filtros ficam no endereço (`q`, `tema`, `formato`) para compartilhar uma seleção. As coleções têm páginas próprias no sitemap. O login OAuth do Decap continua dependendo da configuração externa descrita acima; os arquivos JSON e a geração pelo GitHub continuam disponíveis.

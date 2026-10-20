@@ -41,3 +41,82 @@
 
 img[src$="/gpr-campo.jpg"] { object-position: 50% 68%; }
 .article-cover figcaption a { text-decoration: underline; text-underline-offset: 3px; }
+
+/* Portal editorial: a identidade da Axys com navegação por assunto. */
+.portal-masthead { padding-top: 34px; padding-bottom: 32px; }
+.portal-kicker { display: flex; justify-content: space-between; align-items: center; gap: 20px; font-size: 12px; }
+.portal-kicker > a { text-decoration: underline; text-underline-offset: 4px; }
+.portal-title { display: grid; grid-template-columns: 1.5fr 1fr; gap: 48px; align-items: end; padding-block: 40px 38px; }
+.portal-title h1 { font-size: clamp(26px, 5.2vw, 70px); line-height: 1.14; overflow-wrap: anywhere; }
+.portal-title h1 em { font-style: normal; color: var(--accent); }
+.portal-title > p { color: var(--muted); max-width: 39ch; font-size: 17px; }
+.topic-nav { display: flex; flex-wrap: wrap; gap: 8px 24px; padding-block: 18px; border-block: 1px solid var(--line); }
+.topic-nav a { display: inline-flex; align-items: center; min-height: 32px; font-size: 13px; }
+.portal-cover { max-width: 1440px; margin: 0 auto 84px; padding-inline: var(--margin); display: grid; grid-template-columns: minmax(0, 3fr) minmax(220px, 1fr); gap: 32px; }
+.portal-cover > .feature { padding: 0; margin: 0; min-width: 0; }
+.portal-cover .feature-photo { min-height: 460px; min-width: 0; width: 100%; aspect-ratio: auto; }
+.portal-cover .feature-copy { padding: 28px; }
+.portal-cover .feature h2 { font-size: clamp(23px, 2.15vw, 32px); }
+.portal-read-next { min-width: 0; border-top: 2px solid var(--accent); padding-top: 20px; }
+.portal-read-next > h2 { font-size: 23px; line-height: 1.3; font-weight: 500; margin: 16px 0 24px; }
+.portal-brief { display: block; padding-block: 18px; border-top: 1px solid var(--line); }
+.portal-brief > span { color: var(--muted); font-size: 11px; }
+.portal-brief h3 { font-size: 16px; line-height: 1.4; font-weight: 500; margin: 8px 0; }
+.portal-brief > span:last-child { color: var(--accent); font-size: 16px; }
+.portal-section-head { display: flex; align-items: end; justify-content: space-between; gap: 28px; margin-bottom: 30px; }
+.portal-section-head h2 { font-size: clamp(26px, 3vw, 38px); font-weight: 500; line-height: 1.25; margin-top: 10px; }
+.portal-section-head > p { color: var(--muted); max-width: 35ch; font-size: 14px; }
+.portal-topics, .portal-news { margin-bottom: 80px; scroll-margin-top: 110px; }
+.topic-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.topic-card { padding: 28px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); display: flex; flex-direction: column; }
+.topic-card > span { font-size: 20px; line-height: 1.3; }
+.topic-card p { color: var(--muted); margin: 14px 0 20px; font-size: 14px; }
+.topic-card small { color: var(--accent); margin-top: auto; font-size: 11px; }
+.topic-card:hover { background: var(--surface); }
+.portal-news-empty { border-left: 2px solid var(--accent); background: var(--surface); padding: 26px 30px; }
+.portal-news-empty h2 { font-size: 22px; line-height: 1.4; }
+.portal-news-empty p + p { color: var(--muted); margin-top: 8px; }
+.portal-news-empty .text-link { margin-top: 12px; }
+.library-controls { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 28px; margin: 24px 0; }
+.library-controls .filters { margin: 0; flex-wrap: wrap; }
+.topic-select { display: flex; align-items: center; gap: 12px; color: var(--muted); font-size: 12px; }
+.topic-select select { max-width: 100%; min-height: 44px; background: var(--surface); color: var(--ink); border: 1px solid var(--line); padding: 10px 14px; font: inherit; font-size: 14px; }
+.portal-about { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; padding-top: 48px; padding-bottom: 72px; border-top: 1px solid var(--line); }
+.portal-about h2 { font-size: clamp(24px, 3vw, 36px); line-height: 1.3; font-weight: 500; margin-top: 16px; }
+.portal-about p { color: var(--muted); margin-bottom: 20px; }
+.portal-company-link { display: block; font-size: 13px; margin-top: 24px; }
+.article-topics { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.article-topics a { padding: 6px 12px; border: 1px solid var(--line); font-size: 12px; }
+.editorial-meta { font-size: 13px; color: var(--muted); margin-top: 16px; }
+.correction-note { border-left: 2px solid var(--accent); padding: 12px 16px; margin-top: 20px; font-size: 14px; }
+.portal-policy { max-width: 90ch; padding-bottom: 80px; }
+.portal-policy section + section { margin-top: 40px; }
+.portal-policy p + p { margin-top: 18px; }
+.portal-policy a { text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 1100px) {
+ .portal-cover { grid-template-columns: 1fr; }
+ .portal-read-next { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 24px; }
+ .portal-read-next > .eyebrow, .portal-read-next > h2 { grid-column: 1 / -1; }
+}
+@media (max-width: 760px) {
+ .portal-kicker { align-items: start; }
+ .portal-kicker .eyebrow { max-width: 24ch; font-size: 9px; }
+ .portal-kicker > a { flex: none; font-size: 11px; }
+ .portal-title { grid-template-columns: 1fr; gap: 24px; padding-block: 28px; }
+ .portal-title > p { font-size: 15px; }
+ .topic-nav { gap: 4px 18px; }
+ .portal-cover { gap: 32px; margin-bottom: 56px; }
+ .portal-cover > .feature { grid-template-columns: 1fr; }
+ .portal-cover .feature-photo { min-height: 260px; height: 280px; }
+ .portal-cover .feature-copy { padding: 24px; }
+ .portal-read-next { display: block; }
+ .portal-section-head { align-items: start; flex-direction: column; gap: 18px; }
+ .topic-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+ .topic-card { padding: 20px; }
+ .topic-card > span { font-size: 17px; }
+ .library-controls { align-items: stretch; }
+ .portal-about { grid-template-columns: 1fr; gap: 28px; }
+ .portal-topics, .portal-news { margin-bottom: 56px; }
+}
+@media (max-width: 400px) { .topic-grid { grid-template-columns: 1fr; } .topic-select { flex-wrap: wrap; } }
+@media (prefers-reduced-motion: reduce) { .feature-photo img { transition: none; } }

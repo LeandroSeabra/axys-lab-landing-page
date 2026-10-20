@@ -80,5 +80,8 @@
     "source": "https://www.usgs.gov/media/images/ground-penetrating-radar-equipment-being-towed-along-ground",
     "license": "Domínio público",
     "license_url": "https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits"
-  }
+  },
+  "topics": [
+    "geofisica"
+  ]
 }

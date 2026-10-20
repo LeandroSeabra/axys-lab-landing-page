@@ -148,5 +148,8 @@
     "source": "https://www.usgs.gov/media/images/gps-tripod-used-geodedic-surveys-eastern-virginia",
     "license": "Domínio público",
     "license_url": "https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits"
-  }
+  },
+  "topics": [
+    "topografia"
+  ]
 }

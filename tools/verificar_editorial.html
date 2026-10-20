@@ -26,6 +26,18 @@
         input.value = 'xyz-inexistente'; input.dispatchEvent(new frame.contentWindow.Event('input'));
         assert(visible() === 0, 'Busca sem resultado');
         doc.querySelector('#reset').click(); assert(visible() === 5 && doc.activeElement === input, 'Limpar e devolver foco');
+        const topic = doc.querySelector('#topic-filter'); topic.value = 'topografia';
+        topic.dispatchEvent(new frame.contentWindow.Event('change'));
+        assert(visible() === 1, 'Filtro por assunto');
+        assert(new URL(frame.contentWindow.location.href).searchParams.get('tema') === 'topografia', 'Filtro compartilhável');
+        doc.querySelector('[data-filter="Notícias"]').click();
+        assert(visible() === 0, 'Combinação de assunto e formato');
+        doc.querySelector('#reset').click();
+        assert(topic.value === 'Todos' && visible() === 5, 'Limpar assunto e formato');
+        doc.querySelector('[data-filter="Na prática"]').click();
+        assert(visible() === 0 && new URL(frame.contentWindow.location.href).searchParams.get('formato') === 'pratica', 'Formato Na prática sem casos fictícios');
+        doc.querySelector('#reset').click();
+
       } else {
         assert(doc.querySelectorAll('.article-conversion').length === 1, `Uma chamada contextual: ${path}`);
         assert(doc.querySelector('.article-references li'), `Referências presentes: ${path}`);
@@ -56,6 +68,19 @@
       assert(guide.ok, `Guia acessível: ${route}`);
       messages.push(`PASS explicação e dúvidas 320px ${route}`);
     }
+    for (const path of ['/conteudos/temas/geofisica/', '/conteudos/temas/topografia/', '/conteudos/noticias/', '/conteudos/politica-editorial/']) {
+      for (const width of [320, 1440]) {
+        frame.style.width = `${width}px`;
+        await new Promise(resolve => { frame.onload = resolve; frame.src = path; });
+        const doc = frame.contentDocument;
+        assert(doc.documentElement.scrollWidth <= frame.clientWidth, `Portal sem transbordamento: ${path} ${width}`);
+        assert(doc.querySelectorAll('h1').length === 1, `Título do portal: ${path}`);
+        assert(!doc.querySelector('.cta'), `Sem chamada comercial genérica: ${path}`);
+      }
+      messages.push(`PASS coleção editorial ${path}`);
+    }
+    await new Promise(resolve => { frame.onload = resolve; frame.src = '/conteudos/?tema=topografia&formato=guias#biblioteca'; });
+    assert([...frame.contentDocument.querySelectorAll('#biblioteca [data-category]')].filter(card => !card.hidden).length === 1, 'Filtro carregado pelo endereço');
     const contacts = [
       ['/geo/', 'gpr-localizar-tubulacoes', 'alvo', 'Tubulações e estruturas enterradas'],
       ['/geo/', 'geofisica-agua-subterranea-poco', 'alvo', 'Água subterrânea'],

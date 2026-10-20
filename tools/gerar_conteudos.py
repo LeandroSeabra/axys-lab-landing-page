@@ -13,8 +13,20 @@ import xml.etree.ElementTree as ET
 
 DOMAIN = 'https://axysgeosolucoes.com'
 SLUG = re.compile(r'[a-z0-9]+(?:-[a-z0-9]+)*')
-TYPES = ('Artigos e guias', 'Notícias')
+TYPES = ('Artigos e guias', 'Notícias', 'Na prática')
 AREAS = ('Geofísica', 'Monitoramento', 'Topografia', 'Axys Lab', 'Institucional')
+
+TOPICS = {
+    'geologia': ('Geologia', 'Estruturas, materiais e processos que ajudam a interpretar o território.'),
+    'geofisica': ('Geofísica', 'Medições, métodos e limites da investigação por propriedades físicas.'),
+    'agua-subterranea': ('Água subterrânea', 'Investigação do subsolo e informações para discutir a pesquisa de água.'),
+    'mineracao': ('Mineração', 'Conceitos e métodos ligados à investigação de alvos minerais.'),
+    'topografia': ('Topografia e território', 'Levantamento de limites, georreferenciamento e documentação técnica.'),
+    'monitoramento': ('Monitoramento', 'Investigações e acompanhamento de estruturas, com seus limites de interpretação.'),
+    'instrumentacao': ('Instrumentação', 'Tecnologia e equipamentos aplicados à aquisição de dados.'),
+}
+DEFAULT_TOPIC = {'Geofísica': 'geofisica', 'Topografia': 'topografia', 'Monitoramento': 'monitoramento', 'Axys Lab': 'instrumentacao'}
+RESERVED = {'index', 'noticias', 'temas', 'politica-editorial'}
 
 def e(value):
     return escape(str(value), quote=True)
@@ -24,7 +36,7 @@ def read_posts(root):
     posts = []
     for file in sorted((root / 'content/posts').glob('*.json')):
         data = json.loads(file.read_text(encoding='utf-8'))
-        if not SLUG.fullmatch(file.stem) or file.stem == 'index':
+        if not SLUG.fullmatch(file.stem) or file.stem in RESERVED:
             raise ValueError(f'Endereço inválido: {file.name}')
         if data.get('published') is not True:
             continue
@@ -36,6 +48,17 @@ def read_posts(root):
             continue
         if data.get('type') not in TYPES or data.get('area') not in AREAS:
             raise ValueError(f'{file.name}: tipo ou área inválida')
+        topics = data.get('topics', [DEFAULT_TOPIC[data['area']]] if data['area'] in DEFAULT_TOPIC else [])
+        if not isinstance(topics, list) or any(not isinstance(topic, str) or topic not in TOPICS for topic in topics) or len(set(topics)) != len(topics):
+            raise ValueError(f'{file.name}: tema editorial inválido ou repetido')
+        data['topics'] = topics
+        if data.get('updated'):
+            updated = datetime.strptime(data['updated'], '%Y-%m-%d').date()
+            if not day <= updated <= today:
+                raise ValueError(f'{file.name}: atualização fora do período publicado')
+        for field in ('reviewer', 'correction_note'):
+            if field in data and not isinstance(data[field], str):
+                raise ValueError(f'{file.name}: {field} deve ser texto')
         image = data['image']
         if not image.startswith('/') or image.startswith('//') or '..' in Path(image).parts or '?' in image or '#' in image:
             raise ValueError(f'{file.name}: imagem deve ser um caminho local absoluto')
@@ -92,18 +115,19 @@ def read_posts(root):
 
 def card(post):
     url = f'/conteudos/{post["slug"]}/'
-    return f'''<article class="card" data-category="{e(post['type'])}" data-search="{e(post['area']+' '+post['title']+' '+post['description'])}"><a class="image-link" href="{url}" tabindex="-1" aria-hidden="true"><img src="{e(post['image'])}" alt="" loading="lazy" width="800" height="520"></a><div class="meta"><span>{e(post['area'])}</span><span>{e(post['type'])}</span></div><h3><a href="{url}">{e(post['title'])} <span aria-hidden="true">↗</span></a></h3><p>{e(post['description'])}</p><div class="read-meta"><time datetime="{post['date']}">{post['display_date']}</time><span>{post['minutes']} min de leitura</span></div></article>'''
+    return f'''<article class="card" data-category="{e(post['type'])}" data-topics="{e(" ".join(post["topics"]))}" data-search="{e(post['area']+' '+post['title']+' '+post['description']+' '+' '.join(TOPICS[t][0] for t in post['topics']))}"><a class="image-link" href="{url}" tabindex="-1" aria-hidden="true"><img src="{e(post['image'])}" alt="" loading="lazy" width="800" height="520"></a><div class="meta"><span>{e(post['area'])}</span><span>{e(post['type'])}</span></div><h3><a href="{url}">{e(post['title'])} <span aria-hidden="true">↗</span></a></h3><p>{e(post['description'])}</p><div class="read-meta"><time datetime="{post['date']}">{post['display_date']}</time><span>{post['minutes']} min de leitura</span></div></article>'''
 
 def build(root):
     root = Path(root)
     posts = read_posts(root)  # Valide todos os conteúdos antes de alterar as páginas.
-    templates = {name: Template((root / 'tools/templates' / (name + '.html')).read_text(encoding='utf-8')) for name in ('shell', 'listing', 'article')}
+    templates = {name: Template((root / 'tools/templates' / (name + '.html')).read_text(encoding='utf-8')) for name in ('shell', 'listing', 'article', 'collection', 'policy')}
     out = root / 'conteudos'
     out.mkdir(exist_ok=True)
     pages = {}
     def shell(title, description, path, image, content, structured=None):
         schema = '' if structured is None else '<script type="application/ld+json">'+json.dumps(structured, ensure_ascii=False).replace('<', '\\u003c')+'</script>'
         html = templates['shell'].substitute(title=e(title), description=e(description), url=DOMAIN+path, image=DOMAIN+image, og_type='article' if structured else 'website', schema=schema, content=content)
+        html = html.replace(f'<a href="{path}">', f'<a href="{path}" aria-current="page">', 1)
         if structured:
             html = re.sub(r'<section class="cta">.*?</section>', '', html, flags=re.S)
         # A versão acompanha o conteúdo de cada asset, sem alterar páginas não relacionadas.
@@ -114,18 +138,45 @@ def build(root):
             return f'{path}?v={digest}"'
         return re.sub(r'(/assets/(?:css|js)/[^"?]+\.(?:css|js))"', version, html)
     feature = ''
+    featured_slug = ''
     if posts:
         post = next((p for p in posts if p.get('featured')), posts[0])
+        featured_slug = post['slug']
         url = f'/conteudos/{post["slug"]}/'
-        feature = f'''<section class="feature wrap" aria-labelledby="featured-title"><a class="feature-photo" href="{url}" tabindex="-1" aria-hidden="true"><img src="{e(post['image'])}" alt="" width="800" height="520"></a><div class="feature-copy"><span class="eyebrow">EM DESTAQUE · {e(post['area'])}</span><h2 id="featured-title"><a href="{url}">{e(post['title'])}</a></h2><p>{e(post['description'])}</p><div class="read-meta">{e(post['type'])} · {post['minutes']} min de leitura</div><a class="text-link" href="{url}">Explorar o conteúdo ↗</a></div></section>'''
-    listing = templates['listing'].substitute(feature=feature, cards=''.join(map(card, posts)), count=len(posts))
+        feature = f'''<section class="feature wrap" aria-labelledby="featured-title"><a class="feature-photo" href="{url}" tabindex="-1" aria-hidden="true"><img src="{e(post['image'])}" alt="" width="800" height="520"></a><div class="feature-copy"><span class="eyebrow">EM DESTAQUE · {e(post['area'])}</span><h2 id="featured-title"><a href="{url}">{e(post['title'])}</a></h2><p>{e(post['description'])}</p><div class="read-meta">{e(post['type'])} · {post['display_date']} · {post['minutes']} min de leitura</div><a class="text-link" href="{url}">Explorar o conteúdo ↗</a></div></section>'''
+    active_topics = {key: value for key, value in TOPICS.items() if any(key in post['topics'] for post in posts)}
+    topic_links = ''.join(f'<a href="/conteudos/temas/{key}/">{e(label)}</a>' for key, (label, _) in active_topics.items())
+    topic_cards = ''.join(f'<a class="topic-card" href="/conteudos/temas/{key}/"><span>{e(label)} ↗</span><p>{e(description)}</p><small>{sum(key in post["topics"] for post in posts)} {"publicação" if sum(key in post["topics"] for post in posts) == 1 else "publicações"}</small></a>' for key, (label, description) in active_topics.items())
+    options = ''.join(f'<option value="{key}">{e(label)}</option>' for key, (label, _) in active_topics.items())
+    starters = [item for item in posts if item['slug'] != featured_slug][:3]
+    latest = ''.join(f'<a class="portal-brief" href="/conteudos/{post["slug"]}/"><span>{e(post["area"])} · {post["minutes"]} min</span><h3>{e(post["title"])}</h3><span aria-hidden="true">↗</span></a>' for post in starters)
+    news = [post for post in posts if post['type'] == 'Notícias']
+    news_content = '<div class="cards">'+''.join(map(card, news[:3]))+'</div>' if news else '<div class="portal-news-empty"><p>Ainda não há notícias publicadas.</p><p>Enquanto isso, explore os artigos sobre métodos, aplicações e dúvidas da área.</p><a class="text-link" href="#biblioteca">Consultar os artigos ↗</a></div>'
+    listing = templates['listing'].substitute(feature=feature, latest=latest, topic_links=topic_links, topics=topic_cards, topic_options=options, news=news_content, cards=''.join(map(card, posts)), count=len(posts))
     if len(posts) == 1:
         listing = listing.replace('1 conteúdos para explorar', '1 conteúdo para explorar')
     if not posts:
-        listing = listing.replace('<div id="empty" hidden>', '<div id="empty">').replace('Nenhum conteúdo encontrado.', 'Os primeiros conteúdos chegam em breve.').replace('Tente outro assunto ou selecione “Todos”.', 'Enquanto isso, conheça nossas áreas de atuação.')
-    pages['index.html'] = shell('Conteúdos: conhecimento que vem do campo', 'Artigos e notícias sobre geofísica, monitoramento, topografia e instrumentação. Conhecimento sobre o terreno, a partir da Amazônia.', '/conteudos/', '/assets/og/home.jpg', listing)
+        listing = listing.replace('<div id="empty" hidden>', '<div id="empty">').replace('Nenhum conteúdo encontrado.', 'Os primeiros conteúdos chegam em breve.')
+    pages['index.html'] = shell('Axys Conhecimento: geologia, geofísica e território', 'Artigos, guias e notícias sobre geologia, geofísica, água subterrânea, topografia e monitoramento. Um portal da Axys Geo Soluções.', '/conteudos/', '/assets/og/home.jpg', listing)
+    def collection(path, title, description, selected, eyebrow):
+        empty = '' if selected else '<div class="portal-news-empty"><h2>Ainda não há notícias publicadas.</h2><p>Você pode consultar os artigos e guias já disponíveis no portal.</p><a class="text-link" href="/conteudos/#biblioteca">Explorar os artigos ↗</a></div>'
+        content = templates['collection'].substitute(label=e(title), title=e(title), description=e(description), eyebrow=e(eyebrow), count=len(selected), count_label='publicação' if len(selected) == 1 else 'publicações', cards=''.join(map(card, selected)), empty=empty)
+        pages[path+'index.html'] = shell(title+' — Axys Conhecimento', description, '/conteudos/'+path, '/assets/og/home.jpg', content)
+    for key, (label, description) in active_topics.items():
+        collection('temas/'+key+'/', label, description, [post for post in posts if key in post['topics']], 'EXPLORE POR TEMA')
+    collection('noticias/', 'Notícias', 'Acontecimentos, pesquisas e atualizações da área, com contexto e fontes identificadas.', news, 'AXYS CONHECIMENTO')
+    pages['politica-editorial/index.html'] = shell('Sobre o portal e política editorial — Axys Conhecimento', 'Conheça a relação com a Axys, os critérios de fontes, autoria, revisão, correções e uso de imagens.', '/conteudos/politica-editorial/', '/assets/og/home.jpg', templates['policy'].substitute())
     for post in posts:
         values = {k: e(v) for k, v in post.items() if isinstance(v, (str, int))}
+        values['topic_tags'] = '<nav class="article-topics" aria-label="Assuntos desta publicação">'+''.join(f'<a href="/conteudos/temas/{key}/">{e(TOPICS[key][0])}</a>' for key in post['topics'])+'</nav>'
+        meta = []
+        if post.get('updated'):
+            meta.append('Atualizado em <time datetime="'+post['updated']+'">'+datetime.strptime(post['updated'], '%Y-%m-%d').strftime('%d/%m/%Y')+'</time>')
+        if post.get('reviewer'):
+            meta.append('Revisão técnica: '+e(post['reviewer']))
+        values['editorial_meta'] = '<p class="editorial-meta">'+' · '.join(meta)+'</p>' if meta else ''
+        if post.get('correction_note'):
+            values['editorial_meta'] += '<p class="correction-note"><strong>Nota de correção:</strong> '+e(post['correction_note'])+'</p>'
         credit = post['image_credit']
         values['caption'] = e(post.get('caption', '')) + ' Foto: ' + e(credit['creator']) + ' · <a href="' + e(credit['source']) + '">' + e(credit['title']) + '</a> · <a href="' + e(credit['license_url']) + '">' + e(credit['license']) + '</a>. Redimensionada; pode haver recorte de exibição.'
         values['toc'] = ''.join(f'<a href="#secao-{i}">{i:02d} &nbsp; {e(s["heading"])}</a>' for i, s in enumerate(post['sections'], 1))
@@ -145,7 +196,7 @@ def build(root):
         if references:
             values['toc'] += '<a href="#referencias">Referências e fontes</a>'
             items = ''.join(f'<li id="referencia-{i}"><span>{e(ref["institution"])} · {e(ref["year"])}</span><a href="{e(ref["url"])}">{e(ref["title"])}</a></li>' for i, ref in enumerate(references, 1))
-            values['references'] = '<section class="article-references" id="referencias"><h2>Referências e fontes</h2><ol>'+items+'</ol><p class="reference-note">Artigo de divulgação técnica com referências institucionais e científicas. Fontes consultadas em '+e(post.get('sources_checked', post['display_date']))+'.</p></section>'
+            values['references'] = '<section class="article-references" id="referencias"><h2>Referências e fontes</h2><ol>'+items+'</ol><p class="reference-note">Publicação com referências institucionais e científicas. Fontes consultadas em '+e(post.get('sources_checked', post['display_date']))+'.</p></section>'
         cta = post.get('cta')
         destination = urlsplit(cta['url']) if cta else None
         contact_url = '' if not cta else destination.path+'?artigo='+post['slug']+('#'+destination.fragment if destination.fragment else '')
@@ -156,6 +207,9 @@ def build(root):
         values['related'] = '<section class="related wrap"><h2>Continue explorando</h2><div class="cards">'+''.join(map(card, related))+'</div></section>' if related else ''
         path = f'/conteudos/{post["slug"]}/'
         structured = {'@context':'https://schema.org', '@type':'NewsArticle' if post['type']=='Notícias' else 'BlogPosting', 'headline':post['title'], 'description':post['description'], 'datePublished':post['date'], 'author':{'@type':'Organization','name':post['author']}, 'publisher':{'@type':'Organization','name':'Axys Geo Soluções','url':DOMAIN}, 'image':DOMAIN+post['image'], 'mainEntityOfPage':DOMAIN+path, 'inLanguage':'pt-BR'}
+        if post.get('updated'):
+            structured['dateModified'] = post['updated']
+        structured['articleSection'] = [TOPICS[key][0] for key in post['topics']]
         if references:
             structured['citation'] = [ref['url'] for ref in references]
         pages[post['slug']+'/index.html'] = shell(post['title'], post['description'], path, post['image'], templates['article'].substitute(values), structured)
@@ -167,7 +221,7 @@ def build(root):
         target.write_text(html, encoding='utf-8')
     for name in set(previous) - set(pages):
         # Remova apenas páginas anteriormente geradas, nunca diretórios ou arquivos manuais.
-        if re.fullmatch(r'[a-z0-9]+(?:-[a-z0-9]+)*/index\.html', name):
+        if re.fullmatch(r'(?:temas/)?[a-z0-9]+(?:-[a-z0-9]+)*/index\.html', name):
             target = out / name
             if target.is_file(): target.unlink()
     manifest.write_text(json.dumps(sorted(pages), indent=2)+'\n', encoding='utf-8')
@@ -177,7 +231,7 @@ def build(root):
     for item in list(sitemap.getroot()):
         if (item.findtext(f'{{{ns}}}loc') or '').startswith(DOMAIN+'/conteudos/'):
             sitemap.getroot().remove(item)
-    for path in ['/conteudos/'] + [f'/conteudos/{p["slug"]}/' for p in posts]:
+    for path in ['/conteudos/'+name.removesuffix('index.html') for name in pages]:
         item = ET.SubElement(sitemap.getroot(), f'{{{ns}}}url')
         ET.SubElement(item, f'{{{ns}}}loc').text = DOMAIN+path
     ET.indent(sitemap, space='  ')

@@ -15,7 +15,7 @@ class ContentBuildTest(unittest.TestCase):
         self.root = Path(self.temp.name)
         for name in ('content/posts', 'tools/templates', 'assets/css'):
             (self.root / name).mkdir(parents=True)
-        for name in ('listing.html', 'article.html', 'shell.html'):
+        for name in ('listing.html', 'article.html', 'shell.html', 'collection.html', 'policy.html'):
             (self.root / 'tools/templates' / name).write_text((ROOT / 'tools/templates' / name).read_text())
         (self.root / 'sitemap.xml').write_text('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://axysgeosolucoes.com/</loc></url></urlset>')
         self.post = dict(title='Título <script>alert(1)</script>', description='Resumo', type='Artigos e guias', area='Geofísica', author='Equipe Axys', date='2026-01-01', published=True, image='/assets/og/geo.jpg', image_alt='Terreno', caption='Acervo', image_credit=dict(title='Foto', creator='Autor', source='https://example.org/foto', license='CC BY 4.0', license_url='https://creativecommons.org/licenses/by/4.0/'), summary='Resumo central', sections=[dict(heading='Contexto', text='Texto <img src=x onerror=alert(1)>\n\nOutro parágrafo.')])
@@ -108,6 +108,39 @@ class ContentBuildTest(unittest.TestCase):
         self.assertIn('/geo/?artigo=artigo#contato', result)
         self.assertNotIn('Outro tema', result)
         self.assertNotIn('Continue explorando', result)
+
+    def test_portal_topics_news_and_editorial_policy(self):
+        self.write(topics=['geofisica', 'geologia'])
+        self.write('noticia-real', title='Notícia de teste', type='Notícias', topics=['geologia'], updated='2026-02-01', reviewer='Revisor de teste')
+        self.write('aplicacao', title='Aplicação documentada', type='Na prática', topics=['geofisica'])
+        build(self.root)
+        topic = (self.root / 'conteudos/temas/geofisica/index.html').read_text()
+        self.assertIn('Título &lt;script&gt;', topic)
+        self.assertNotIn('Notícia de teste', topic)
+        news = (self.root / 'conteudos/noticias/index.html').read_text()
+        self.assertIn('Notícia de teste', news)
+        self.assertNotIn('Título &lt;script&gt;', news)
+        self.assertNotIn('DO CONHECIMENTO À PRÁTICA', news)
+        self.assertTrue((self.root / 'conteudos/politica-editorial/index.html').is_file())
+        article = (self.root / 'conteudos/noticia-real/index.html').read_text()
+        self.assertIn('Revisor de teste', article)
+        self.assertIn('dateModified', article)
+        self.assertIn('NewsArticle', article)
+        self.assertIn('/conteudos/temas/geologia/', (self.root / 'sitemap.xml').read_text())
+        self.write(topics=['geofisica'])
+        self.write('noticia-real', published=False)
+        build(self.root)
+        self.assertFalse((self.root / 'conteudos/temas/geologia/index.html').exists())
+        self.assertNotIn('Notícia de teste', (self.root / 'conteudos/noticias/index.html').read_text())
+
+    def test_portal_rejects_unknown_topics_reserved_routes_and_bad_updates(self):
+        self.write(topics=['inventado'])
+        with self.assertRaises(ValueError): build(self.root)
+        self.write(updated='2025-01-01')
+        with self.assertRaises(ValueError): build(self.root)
+        self.write()
+        self.write('noticias')
+        with self.assertRaises(ValueError): build(self.root)
 
     def test_deterministic_output(self):
         self.write()

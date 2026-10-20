@@ -81,5 +81,9 @@
     "source": "https://www.usgs.gov/media/images/spillway-lookout-point-dam",
     "license": "Domínio público",
     "license_url": "https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits"
-  }
+  },
+  "topics": [
+    "monitoramento",
+    "geofisica"
+  ]
 }
