@@ -33,7 +33,7 @@ window.AXYS = {
     geral: "lab@axysgeosolucoes.com",
     geofisica: "lab@axysgeosolucoes.com",
     safe: "lab@axysgeosolucoes.com",
-    topo: "lab@axysgeosolucoes.com",
+    topo: "lab@axysgeosolucoes.com", // AXYS TERRA: chave legada preservada.
     lab: "lab@axysgeosolucoes.com",
   },
 

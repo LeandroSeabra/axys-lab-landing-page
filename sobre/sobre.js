@@ -7,7 +7,7 @@
     inicio: ["../", "página inicial"],
     geo: ["../geo/", "Axys Geofísica"],
     safe: ["../safe/", "Axys Safe"],
-    topo: ["../topo/", "Axys Topo"],
+    topo: ["../topo/", "Axys Terra"],
     lab: ["../lab/", "Axys Lab"],
     "en-geo": ["../en/geo/", "Axys Geofísica (English)"],
     "en-lab": ["../en/lab/", "Axys Lab (English)"],

@@ -80,7 +80,7 @@
     "o-que-e-geofisica": { area: "geofisica", route: "/geo/", subject: "Investigação geofísica" },
     "geofisica-agua-subterranea-poco": { area: "geofisica", route: "/geo/", subject: "Investigação de água subterrânea", field: "alvo", value: "Água subterrânea" },
     "gpr-localizar-tubulacoes": { area: "geofisica", route: "/geo/", subject: "GPR para tubulações e estruturas enterradas", field: "alvo", value: "Tubulações e estruturas enterradas" },
-    "georreferenciamento-imovel-rural-sigef": { area: "topo", route: "/topo/", subject: "Georreferenciamento de imóvel rural", field: "imovel", value: "Rural" },
+    "georreferenciamento-imovel-rural-sigef": { area: "topo", route: "/topo/", subject: "Georreferenciamento de imóvel rural — AXYS TERRA", field: "servico", value: "Topografia e georreferenciamento" },
     "monitoramento-geofisico-barragens": { area: "safe", route: "/safe/", subject: "Investigação geofísica de barragens" },
   };
   const articleSlug = new URLSearchParams(location.search).get("artigo") || location.pathname.match(/^\/conteudos\/([^/]+)\//)?.[1];
@@ -88,7 +88,7 @@
   const contextForm = context && document.querySelector(`form[data-area="${context.area}"]`);
   const onArticle = context && location.pathname === `/conteudos/${articleSlug}/`;
   const activeContext = context && (contextForm || onArticle) ? context : null;
-  const contextMessage = activeContext ? `Olá! Li o artigo da Axys e gostaria de conversar sobre ${activeContext.subject.toLowerCase()}.` : "";
+  const contextMessage = activeContext ? `Olá! Li o artigo da Axys${activeContext.area === "topo" ? " e tenho interesse na AXYS TERRA" : ""}. Gostaria de conversar sobre ${activeContext.subject.toLowerCase()}.` : "";
   const articleUrl = activeContext ? `${location.origin}/conteudos/${articleSlug}/` : "";
   const contextContactUrl = activeContext ? `${activeContext.route}?artigo=${articleSlug}#contato` : "";
   if (activeContext) {
@@ -109,8 +109,13 @@
     const subjectInput = document.createElement("input");
     subjectInput.name = "assunto";
     subjectInput.value = subjectInput.defaultValue = activeContext.subject;
-    label.append(subjectInput);
-    contextForm.prepend(label);
+    if (contextForm.hasAttribute("data-context-compact")) {
+      subjectInput.type = "hidden";
+      contextForm.append(subjectInput);
+    } else {
+      label.append(subjectInput);
+      contextForm.prepend(label);
+    }
     const originInput = document.createElement("input");
     originInput.type = "hidden";
     originInput.name = "artigo_origem";

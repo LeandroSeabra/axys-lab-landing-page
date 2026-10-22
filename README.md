@@ -10,7 +10,7 @@ Site estático (HTML, CSS e JavaScript), com geração editorial em Python, publ
 | `/` | `index.html` | Página principal: as quatro áreas e o seletor "O que você precisa?" |
 | `/geo/` | `geo/` | Axys Geofísica: levantamentos geofísicos |
 | `/safe/` | `safe/` | Axys Safe: monitoramento de barragens e segurança geológica |
-| `/topo/` | `topo/` | Axys Topo: topografia e regularização de imóveis |
+| `/topo/` | `topo/` | Axys Terra: regularização territorial e ambiental (endereço preservado) |
 | `/lab/` | `lab/` | Axys Lab: instrumentos geofísicos |
 | `/conteudos/` | `conteudos/` | Artigos e notícias, gerados a partir dos arquivos editoriais |
 | `/admin/` | `admin/` | Acesso ao Decap CMS (ativação OAuth pendente) |
@@ -18,6 +18,8 @@ Site estático (HTML, CSS e JavaScript), com geração editorial em Python, publ
 | `/privacidade/` | `privacidade/` | Política de privacidade (LGPD) |
 | `/en/geo/`, `/en/lab/` | `en/` | Versões em inglês da Geofísica e do Lab |
 | qualquer endereço inexistente | `404.html` | Página "não encontrada" |
+
+A AXYS TERRA mantém `/topo/` e a chave `emails.topo` para preservar os links e os contatos existentes. O formulário solicita cinco informações e usa o envio Web3Forms quando houver `formularioChave`; sem essa chave, prepara um e-mail para conclusão no aplicativo do visitante. O WhatsApp só aparece quando seu número estiver cadastrado em `assets/js/config.js`. A apresentação PDF anterior da Topo não é oferecida na nova página.
 
 ## Como o código está organizado
 

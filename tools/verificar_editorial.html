@@ -53,7 +53,92 @@
       }
       messages.push(`PASS ${width}px ${path}`);
     }
-    for (const route of ['/geo/', '/topo/', '/en/geo/']) {
+    for (const width of [320, 375, 768, 1024, 1440]) {
+      frame.style.width = `${width}px`;
+      await new Promise(resolve => { frame.onload = resolve; frame.src = '/topo/'; });
+      const doc = frame.contentDocument;
+      assert(doc.documentElement.scrollWidth <= frame.clientWidth, `AXYS TERRA sem transbordamento: ${width}px`);
+      assert(doc.title === 'AXYS TERRA | Regularização Territorial e Ambiental', 'Título AXYS TERRA');
+      assert(doc.querySelectorAll('h1').length === 1, 'Um título principal na Terra');
+      assert(doc.querySelectorAll('.t-service').length === 3, 'Três grupos de serviços');
+      assert(doc.querySelectorAll('.t-service li').length === 12, 'Doze serviços descritos');
+      assert(doc.querySelectorAll('.t-audience li').length === 4 && doc.querySelectorAll('.t-steps li').length === 4, 'Públicos e etapas');
+      for (const link of doc.querySelectorAll('a[href^="#"]')) assert(doc.getElementById(link.hash.slice(1)), `Âncora da Terra: ${link.hash}`);
+      const fields = [...doc.querySelectorAll('form > label')].map(label => label.querySelector('input, select, textarea').name);
+      assert(fields.join(',') === 'nome,contato,municipio,servico,mensagem', 'Cinco campos solicitados');
+      assert(doc.querySelector('form').action.startsWith('mailto:'), 'Alternativa de envio real por e-mail');
+      assert(doc.querySelector('[type="submit"]').textContent === 'Preparar e-mail', 'Envio por aplicativo explícito');
+      assert(doc.querySelector('[data-wa-block]').hidden, 'WhatsApp ausente sem número cadastrado');
+      assert([...doc.images].filter(image => image.loading !== 'lazy').every(image => image.complete && image.naturalWidth > 0), 'Ilustração inicial carregada');
+      const vertex = doc.querySelector('.t-vertex');
+      assert(doc.querySelectorAll('.t-vertex').length === 5, 'Cinco vértices editáveis');
+      const originalPoints = doc.querySelector('[data-lot]').getAttribute('points');
+      const originalArea = doc.querySelector('[data-area]').textContent;
+      const originalMemorial = doc.querySelector('[data-doc-text]').textContent;
+      const originalX = Number(vertex.getAttribute('aria-valuenow'));
+      vertex.dispatchEvent(new frame.contentWindow.KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true }));
+      assert(doc.querySelector('[data-area]').textContent !== originalArea, 'Mover vértice altera a área');
+      assert(doc.querySelector('[data-doc-text]').textContent !== originalMemorial && doc.querySelectorAll('[data-doc-rows] tr').length === 5, 'Memorial e tabela acompanham o desenho');
+      const normalStep = Number(vertex.getAttribute('aria-valuenow')) - originalX;
+      vertex.dispatchEvent(new frame.contentWindow.KeyboardEvent('keydown', { key: 'ArrowRight', shiftKey: true, bubbles: true }));
+      assert(Number(vertex.getAttribute('aria-valuenow')) - originalX === normalStep * 5, 'Shift permite movimento maior');
+      doc.querySelector('[data-map-reset]').click();
+      assert(doc.querySelector('[data-lot]').getAttribute('points') === originalPoints && doc.querySelector('[data-area]').textContent === originalArea, 'Restaurar desenho e medidas');
+      const scenario = doc.querySelector('[data-env-scenario]');
+      scenario.value = 'industria'; scenario.dispatchEvent(new frame.contentWindow.Event('change'));
+      assert(!doc.querySelector('[data-env-scene="industria"]').hasAttribute('hidden') && doc.querySelector('[data-env-heading]').textContent.includes('industrial'), 'Cenário industrial altera mapa e perguntas');
+      scenario.value = 'mineracao'; scenario.dispatchEvent(new frame.contentWindow.Event('change'));
+      const water = doc.querySelector('[data-env-layer="agua"]');
+      water.checked = false; water.dispatchEvent(new frame.contentWindow.Event('change'));
+      assert(doc.querySelector('[data-env-visual="agua"]').hasAttribute('hidden') && doc.querySelector('[data-env-summary]').textContent.includes('2 camadas'), 'Desligar uma camada atualiza mapa e resumo');
+      assert(doc.querySelectorAll('[data-env-questions] li').length === 3, 'Perguntas acompanham as camadas ativas');
+      const contactForm = doc.querySelector('form');
+      contactForm.elements.mensagem.value = 'Descrição já informada.';
+      doc.querySelector('[data-env-contact]').click();
+      assert(contactForm.elements.servico.value === 'Regularização ambiental' && contactForm.elements.mensagem.value.includes('Extração mineral'), 'Cenário levado ao formulário');
+      assert(contactForm.elements.mensagem.value.startsWith('Descrição já informada.'), 'Texto existente do visitante preservado');
+      doc.querySelector('[data-env-contact]').click();
+      assert(contactForm.elements.mensagem.value.split('Tenho interesse em uma avaliação ambiental').length === 2, 'Clique repetido não duplica a sugestão');
+      scenario.value = 'rural'; scenario.dispatchEvent(new frame.contentWindow.Event('change'));
+      doc.querySelector('[data-env-contact]').click();
+      assert(!contactForm.elements.mensagem.value.includes('Extração mineral') && contactForm.elements.mensagem.value.includes('Imóvel rural'), 'Trocar cenário atualiza apenas a sugestão anterior');
+      contactForm.reset(); doc.querySelector('[data-env-reset]').click();
+      assert([...doc.querySelectorAll('[data-env-layer]')].every(input => input.checked) && doc.querySelector('[data-env-summary]').textContent.includes('3 camadas'), 'Recomeçar restaura o explorador');
+      if (width < 860) {
+        const toggle = doc.querySelector('.menu-toggle');
+        toggle.click();
+        assert(toggle.getAttribute('aria-expanded') === 'true', 'Abrir menu móvel da Terra');
+        doc.dispatchEvent(new frame.contentWindow.KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+        assert(toggle.getAttribute('aria-expanded') === 'false' && doc.activeElement === toggle, 'Fechar menu com Esc e devolver foco');
+      }
+      messages.push(`PASS AXYS TERRA ${width}px: vértices, memorial, cenários, camadas, contato e menu`);
+    }
+    // Configuração de teste restrita a este iframe; nenhum dado é enviado a serviços externos.
+    const terraSource = await (await fetch('/topo/')).text();
+    const fixtureConfig = { emails: { topo: 'teste@example.invalid' }, whatsapp: '00000000000', mostrarEspacosReservados: false, formularioChave: 'teste-local-sem-envio' };
+    const fixture = terraSource.replace('<head>', '<head><base href="/topo/">').replace(/<script src="[^\"]*config\.js[^\"]*" defer><\/script>/, `<script>window.AXYS=${JSON.stringify(fixtureConfig)};window.fetch=async(url,options)=>{window.terraRequest={url,payload:JSON.parse(options.body)};return {ok:!window.terraFail,json:async()=>({success:!window.terraFail})}};<\/script>`);
+    await new Promise(resolve => { frame.onload = resolve; frame.srcdoc = fixture; });
+    const terraDoc = frame.contentDocument;
+    const terraForm = terraDoc.querySelector('form');
+    const whatsapp = new URL(terraDoc.querySelector('[data-wa-link]').href);
+    assert(whatsapp.hostname === 'wa.me' && whatsapp.searchParams.get('text').includes('AXYS TERRA'), 'WhatsApp identifica a Terra quando configurado');
+    assert(terraDoc.querySelector('[type="submit"]').textContent === 'Enviar solicitação', 'Envio direto quando configurado');
+    const fillTerra = () => {
+      for (const [name, value] of Object.entries({ nome: 'Teste local', contato: 'teste@example.invalid', municipio: 'Município de teste, UF', servico: 'Regularização ambiental', mensagem: 'Verificação local sem transmissão.' })) terraForm.elements[name].value = value;
+    };
+    fillTerra(); terraForm.requestSubmit();
+    await new Promise(resolve => setTimeout(resolve, 0));
+    assert(frame.contentWindow.terraRequest.url === 'https://api.web3forms.com/submit', 'Integração usa o endpoint real');
+    const payload = frame.contentWindow.terraRequest.payload;
+    assert(payload.contato === 'teste@example.invalid' && payload.servico === 'Regularização ambiental' && payload.subject.includes('AXYS TERRA'), 'Campos e assunto preservados no envio');
+    assert(!('botcheck' in payload) && !terraForm.elements.nome.value, 'Antispam removido e formulário limpo após sucesso');
+    frame.contentWindow.terraFail = true;
+    fillTerra(); terraForm.requestSubmit();
+    await new Promise(resolve => setTimeout(resolve, 0));
+    assert(terraDoc.querySelector('[data-form-status]').dataset.kind === 'error' && terraForm.elements.nome.value, 'Falha informada sem apagar os dados');
+    frame.removeAttribute('srcdoc');
+    messages.push('PASS AXYS TERRA: WhatsApp, envio configurado e falha (requisições interceptadas localmente)');
+    for (const route of ['/geo/', '/en/geo/']) {
       frame.style.width = '320px';
       await new Promise(resolve => { frame.onload = resolve; frame.src = route; });
       const doc = frame.contentDocument;
@@ -85,7 +170,7 @@
       ['/geo/', 'gpr-localizar-tubulacoes', 'alvo', 'Tubulações e estruturas enterradas'],
       ['/geo/', 'geofisica-agua-subterranea-poco', 'alvo', 'Água subterrânea'],
       ['/geo/', 'o-que-e-geofisica', 'alvo', ''],
-      ['/topo/', 'georreferenciamento-imovel-rural-sigef', 'imovel', 'Rural'],
+      ['/topo/', 'georreferenciamento-imovel-rural-sigef', 'servico', 'Topografia e georreferenciamento'],
       ['/safe/', 'monitoramento-geofisico-barragens', 'estrutura', ''],
     ];
     for (const [route, slug, field, value] of contacts) {
@@ -95,7 +180,7 @@
       assert(form.elements[field].value === value, `Interesse preservado: ${slug}`);
       assert(form.elements.assunto.value && form.elements.mensagem.value, `Assunto e mensagem: ${slug}`);
       assert(form.elements.artigo_origem.value.endsWith(`/conteudos/${slug}/`), `Origem: ${slug}`);
-      assert(!form.elements.nome.value && !form.elements.email.value, `Sem dados pessoais inventados: ${slug}`);
+      assert(!form.elements.nome.value && !(form.elements.email || form.elements.contato).value, `Sem dados pessoais inventados: ${slug}`);
       const mail = new URL(doc.querySelector('[data-mail]').href);
       assert(mail.searchParams.get('body').includes(slug), `Contexto no e-mail: ${slug}`);
       const fallback = new URL(doc.querySelector('.wa-float').href);
