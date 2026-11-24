@@ -2,7 +2,8 @@
 (async () => {
   const result = document.querySelector('#result');
   const frame = document.querySelector('iframe');
-  const paths = ['o-que-e-geofisica', 'geofisica-agua-subterranea-poco', 'gpr-localizar-tubulacoes', 'georreferenciamento-imovel-rural-sigef', 'monitoramento-geofisico-barragens'];
+  const newsSlug = 'mapa-hidrogeologico-para-aguas-subterraneas';
+  const paths = ['o-que-e-geofisica', 'geofisica-agua-subterranea-poco', 'gpr-localizar-tubulacoes', 'georreferenciamento-imovel-rural-sigef', 'monitoramento-geofisico-barragens', newsSlug];
   const checks = [[320, '/conteudos/'], [768, '/conteudos/'], [1024, '/conteudos/'], [1440, '/conteudos/'], ...paths.map(path => [320, `/conteudos/${path}/`])];
   const assert = (value, message) => { if (!value) throw Error(message); };
   const messages = [];
@@ -16,16 +17,17 @@
       for (const anchor of doc.querySelectorAll('a[href^="#"]')) assert(doc.getElementById(anchor.hash.slice(1)), `Âncora inexistente: ${anchor.hash}`);
       if (path === '/conteudos/') {
         const input = doc.querySelector('#search');
-        const visible = () => [...doc.querySelectorAll('[data-category]')].filter(card => !card.hidden).length;
-        assert(visible() === 5, 'Listagem inicial');
+        const visible = () => [...doc.querySelectorAll('#biblioteca [data-category]')].filter(card => !card.hidden).length;
+        assert(visible() === 6, 'Listagem com cinco guias e uma notícia');
+        assert(doc.querySelector('.feature a').getAttribute('href') === `/conteudos/${newsSlug}/`, 'Primeira notícia em destaque');
         doc.querySelector('[data-filter="Notícias"]').click();
-        assert(visible() === 0 && !doc.querySelector('#empty').hidden, 'Filtro sem resultados');
+        assert(visible() === 1 && doc.querySelector(`#biblioteca [data-category="Notícias"] h3 a`).getAttribute('href') === `/conteudos/${newsSlug}/`, 'Filtro Notícias exibe a matéria do Pará');
         doc.querySelector('[data-filter="Todos"]').click();
         input.value = 'geofisica'; input.dispatchEvent(new frame.contentWindow.Event('input'));
         assert(visible() >= 1, 'Busca sem acento');
         input.value = 'xyz-inexistente'; input.dispatchEvent(new frame.contentWindow.Event('input'));
         assert(visible() === 0, 'Busca sem resultado');
-        doc.querySelector('#reset').click(); assert(visible() === 5 && doc.activeElement === input, 'Limpar e devolver foco');
+        doc.querySelector('#reset').click(); assert(visible() === 6 && doc.activeElement === input, 'Limpar e devolver foco');
         const topic = doc.querySelector('#topic-filter'); topic.value = 'topografia';
         topic.dispatchEvent(new frame.contentWindow.Event('change'));
         assert(visible() === 1, 'Filtro por assunto');
@@ -33,13 +35,20 @@
         doc.querySelector('[data-filter="Notícias"]').click();
         assert(visible() === 0, 'Combinação de assunto e formato');
         doc.querySelector('#reset').click();
-        assert(topic.value === 'Todos' && visible() === 5, 'Limpar assunto e formato');
+        assert(topic.value === 'Todos' && visible() === 6, 'Limpar assunto e formato');
         doc.querySelector('[data-filter="Na prática"]').click();
         assert(visible() === 0 && new URL(frame.contentWindow.location.href).searchParams.get('formato') === 'pratica', 'Formato Na prática sem casos fictícios');
+        assert(!doc.querySelector('.portal-news [data-category="Notícias"]').hidden, 'Filtros da biblioteca não ocultam a seção de notícias');
         doc.querySelector('#reset').click();
 
       } else {
-        assert(doc.querySelectorAll('.article-conversion').length === 1, `Uma chamada contextual: ${path}`);
+        const isNews = path === `/conteudos/${newsSlug}/`;
+        assert(doc.querySelectorAll('.article-conversion').length === (isNews ? 0 : 1), `Chamada comercial apenas nos guias: ${path}`);
+        if (isNews) {
+          assert(doc.querySelector('.related a').getAttribute('href') === '/conteudos/geofisica-agua-subterranea-poco/', 'Leia também preservado');
+          assert(JSON.parse(doc.querySelector('script[type="application/ld+json"]').textContent)['@type'] === 'NewsArticle', 'Marcação de notícia');
+          assert(doc.querySelector('.prose').textContent.includes('26 de novembro de 2026, às 9h'), 'Data e hora do lançamento');
+        }
         assert(doc.querySelector('.article-references li'), `Referências presentes: ${path}`);
         const creditLinks = doc.querySelectorAll('.article-cover figcaption a');
         assert(creditLinks.length === 2 && [...creditLinks].every(link => link.protocol === 'https:'), `Fonte e licença da foto: ${path}`);

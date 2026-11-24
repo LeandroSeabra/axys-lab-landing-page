@@ -6,7 +6,7 @@
   "author": "Equipe editorial Axys",
   "date": "2026-10-20",
   "published": true,
-  "featured": true,
+  "featured": false,
   "image": "/assets/fotos/geofisica-resistividade.jpg",
   "image_alt": "Equipamento e cabos de um levantamento de resistividade em campo",
   "caption": "Levantamento de resistividade elétrica realizado pelo USGS em 2006. Imagem de terceiro, sem vínculo com projetos da Axys.",

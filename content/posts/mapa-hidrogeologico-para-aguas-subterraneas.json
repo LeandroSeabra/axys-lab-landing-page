@@ -1,0 +1,55 @@
+{
+  "title": "Pará terá novo mapa das águas subterrâneas. O que ele ajuda a descobrir?",
+  "description": "SGB programa lançamento do Mapa Hidrogeológico do Pará para 26 de novembro de 2026. Entenda como a visão regional se relaciona com a investigação de poços.",
+  "type": "Notícias",
+  "area": "Geofísica",
+  "author": "Equipe editorial Axys",
+  "date": "2026-11-23",
+  "published": true,
+  "featured": true,
+  "image": "/assets/fotos/agua-subterranea.jpg",
+  "image_alt": "Técnicos medindo o nível de água em um poço próximo a Lame Deer, Montana, nos Estados Unidos",
+  "caption": "Imagem ilustrativa de monitoramento de um poço em Montana, EUA. Não representa o mapa do Pará nem o evento de lançamento.",
+  "summary": "O novo mapa reúne informações regionais sobre os aquíferos do Pará. A escolha de um ponto de perfuração exige avaliar o terreno e os dados locais; vazão e qualidade da água dependem de verificações próprias.",
+  "sections": [
+    {
+      "heading": "Lançamento em Belém",
+      "text": "Quando uma comunidade depende de poços para se abastecer, conhecer o subsolo ajuda a decidir onde vale a pena investigar. O Serviço Geológico do Brasil (SGB) programou para 26 de novembro de 2026, às 9h, na Assembleia Legislativa do Pará, em Belém, o lançamento do Mapa Hidrogeológico do Estado do Pará. O material reúne informações sobre os aquíferos e a disponibilidade de água subterrânea no estado.",
+      "references": [1]
+    },
+    {
+      "heading": "Aquíferos, abastecimento e monitoramento",
+      "text": "Aquíferos são formações geológicas capazes de armazenar e transmitir água. Conhecer sua distribuição ajuda gestores a planejar o abastecimento e o monitoramento. O SGB também prevê, no lançamento, a assinatura de protocolos de intenções com a Cosanpa e a Águas do Pará. A cooperação inclui o monitoramento da água subterrânea e a melhoria do cadastro de poços.",
+      "references": [1]
+    },
+    {
+      "heading": "E para quem precisa perfurar um poço?",
+      "text": "O mapa oferece uma visão regional. Para escolher um ponto de perfuração, a equipe precisa avaliar as condições do terreno e os dados de poços vizinhos. Quando adequada ao local, a sondagem elétrica vertical (SEV) investiga como a resistividade do subsolo varia com a profundidade e ajuda a identificar camadas que merecem investigação. Depois da perfuração, o teste de bombeamento avalia a vazão, e a análise da água verifica sua qualidade para consumo.",
+      "references": [2]
+    }
+  ],
+  "references": [
+    {
+      "title": "Aviso de pauta: Serviço Geológico do Brasil lança Mapa Hidrogeológico do Pará na Assembleia Legislativa do Estado",
+      "institution": "Serviço Geológico do Brasil (SGB)",
+      "url": "https://sgb.gov.br/w/aviso-de-pauta-servico-geologico-do-brasil-lanca-mapa-hidrogeologico-do-para-na-assembleia-legislativa-do-estado",
+      "year": "2026"
+    },
+    {
+      "title": "Avaliação do potencial hidrogeológico da área urbana do distrito de Extrema, município de Porto Velho (RO)",
+      "institution": "CPRM — Serviço Geológico do Brasil",
+      "url": "https://rigeo.sgb.gov.br/bitstreams/117f6aaf-19a4-4f52-9aed-ace401775883/download",
+      "year": "1999"
+    }
+  ],
+  "sources_checked": "23/11/2026",
+  "related": ["geofisica-agua-subterranea-poco"],
+  "image_credit": {
+    "title": "Measuring the groundwater level in a well near Lame Deer, Montana",
+    "creator": "Rodney R. Caldwell / USGS",
+    "source": "https://www.usgs.gov/media/images/measuring-groundwater-level-a-well-near-lame-deer-montana",
+    "license": "Domínio público",
+    "license_url": "https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits"
+  },
+  "topics": ["agua-subterranea", "geofisica"]
+}
