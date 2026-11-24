@@ -27,9 +27,34 @@ TOPICS = {
 }
 DEFAULT_TOPIC = {'Geofísica': 'geofisica', 'Topografia': 'topografia', 'Monitoramento': 'monitoramento', 'Axys Lab': 'instrumentacao'}
 RESERVED = {'index', 'noticias', 'temas', 'politica-editorial'}
+METHODS = {
+    'geofisica': ('Conhecer os métodos geofísicos', '/geo/#metodos'),
+    'agua': ('Conhecer a investigação geofísica para água', '/geo/#alvo'),
+    'terra': ('Conhecer topografia e regularização', '/topo/#servicos'),
+    'monitoramento': ('Conhecer o monitoramento de estruturas', '/safe/'),
+    'instrumentos': ('Conhecer os instrumentos Axys Lab', '/lab/'),
+}
 
 def e(value):
     return escape(str(value), quote=True)
+
+def validate_image(root, image, alt, credit, filename):
+    if not isinstance(alt, str) or not alt.strip():
+        raise ValueError(f'{filename}: informe a descrição acessível da imagem')
+    if not isinstance(image, str) or not image.startswith('/') or image.startswith('//') or '\\' in image or '..' in Path(image).parts or '?' in image or '#' in image:
+        raise ValueError(f'{filename}: imagem deve ser um caminho local absoluto')
+    target = (root / image.lstrip('/')).resolve()
+    if not target.is_relative_to(root.resolve()) or not target.is_file() or target.suffix.lower() not in ('.jpg', '.jpeg', '.png', '.webp'):
+        raise ValueError(f'{filename}: imagem ausente ou formato inválido')
+    if not isinstance(credit, dict) or not all(isinstance(credit.get(k), str) and credit[k].strip() for k in ('title', 'creator', 'source', 'license', 'license_url')):
+        raise ValueError(f'{filename}: informe autoria, fonte e licença da imagem')
+    for key in ('source', 'license_url'):
+        url = urlsplit(credit[key])
+        if url.scheme != 'https' or not url.hostname or url.username or url.password or any(c.isspace() for c in credit[key]):
+            raise ValueError(f'{filename}: crédito de imagem deve usar HTTPS')
+
+def image_caption(caption, credit):
+    return e(caption or '') + ' Foto: ' + e(credit['creator']) + ' · <a href="' + e(credit['source']) + '">' + e(credit['title']) + '</a> · <a href="' + e(credit['license_url']) + '">' + e(credit['license']) + '</a>. Redimensionada; pode haver recorte de exibição.'
 
 def read_posts(root):
     today = datetime.now(ZoneInfo('America/Sao_Paulo')).date()
@@ -59,25 +84,20 @@ def read_posts(root):
         for field in ('reviewer', 'correction_note'):
             if field in data and not isinstance(data[field], str):
                 raise ValueError(f'{file.name}: {field} deve ser texto')
-        image = data['image']
-        if not image.startswith('/') or image.startswith('//') or '..' in Path(image).parts or '?' in image or '#' in image:
-            raise ValueError(f'{file.name}: imagem deve ser um caminho local absoluto')
-        target = (root / image.lstrip('/')).resolve()
-        if not target.is_relative_to(root.resolve()) or not target.is_file() or target.suffix.lower() not in ('.jpg', '.jpeg', '.png', '.webp'):
-            raise ValueError(f'{file.name}: imagem ausente ou formato inválido')
-        credit = data.get('image_credit')
-        if not isinstance(credit, dict) or not all(isinstance(credit.get(k), str) and credit[k].strip() for k in ('title', 'creator', 'source', 'license', 'license_url')):
-            raise ValueError(f'{file.name}: informe autoria, fonte e licença da imagem')
-        for key in ('source', 'license_url'):
-            url = urlsplit(credit[key])
-            if url.scheme != 'https' or not url.hostname or url.username or url.password or any(c.isspace() for c in credit[key]):
-                raise ValueError(f'{file.name}: crédito de imagem deve usar HTTPS')
+        validate_image(root, data['image'], data['image_alt'], data.get('image_credit'), file.name)
+        if data.get('method') not in (None, '', 'none', *METHODS):
+            raise ValueError(f'{file.name}: método relacionado inválido')
         sections = data.get('sections')
         if not isinstance(sections, list) or not sections:
             raise ValueError(f'{file.name}: inclua ao menos uma seção')
         for section in sections:
             if not isinstance(section, dict) or not all(isinstance(section.get(k), str) and section[k].strip() for k in ('heading', 'text')):
                 raise ValueError(f'{file.name}: seção incompleta')
+            inline = section.get('image')
+            if inline:
+                if not isinstance(inline, dict):
+                    raise ValueError(f'{file.name}: imagem de seção inválida')
+                validate_image(root, inline.get('src'), inline.get('alt'), inline.get('credit'), file.name)
         references = data.get('references', [])
         if not isinstance(references, list):
             raise ValueError(f'{file.name}: referências devem ser uma lista')
@@ -178,11 +198,14 @@ def build(root):
         if post.get('correction_note'):
             values['editorial_meta'] += '<p class="correction-note"><strong>Nota de correção:</strong> '+e(post['correction_note'])+'</p>'
         credit = post['image_credit']
-        values['caption'] = e(post.get('caption', '')) + ' Foto: ' + e(credit['creator']) + ' · <a href="' + e(credit['source']) + '">' + e(credit['title']) + '</a> · <a href="' + e(credit['license_url']) + '">' + e(credit['license']) + '</a>. Redimensionada; pode haver recorte de exibição.'
+        values['caption'] = image_caption(post.get('caption', ''), credit)
         values['toc'] = ''.join(f'<a href="#secao-{i}">{i:02d} &nbsp; {e(s["heading"])}</a>' for i, s in enumerate(post['sections'], 1))
         sections = []
         for i, section in enumerate(post['sections'], 1):
             content = ''.join('<p>'+e(paragraph).replace('\n', '<br>')+'</p>' for paragraph in re.split(r'\n\s*\n', section['text'].strip()))
+            inline = section.get('image')
+            if inline:
+                content += '<figure class="article-inline-image"><img loading="lazy" src="'+e(inline['src'])+'" alt="'+e(inline['alt'])+'"><figcaption>'+image_caption(inline.get('caption', ''), inline['credit'])+'</figcaption></figure>'
             table = section.get('table')
             if table:
                 content += '<div class="article-table-scroll" tabindex="0" role="region" aria-label="'+e(section['heading'])+'"><table><thead><tr>'+''.join('<th scope="col">'+e(cell)+'</th>' for cell in table['headers'])+'</tr></thead><tbody>'+''.join('<tr>'+''.join('<td>'+e(cell)+'</td>' for cell in row['cells'])+'</tr>' for row in table['rows'])+'</tbody></table></div>'
@@ -201,6 +224,8 @@ def build(root):
         destination = urlsplit(cta['url']) if cta else None
         contact_url = '' if not cta else destination.path+'?artigo='+post['slug']+('#'+destination.fragment if destination.fragment else '')
         values['conversion'] = '' if not cta else '<section class="article-conversion" aria-label="Próximo passo"><span class="eyebrow">APLIQUE AO SEU PROJETO</span><h2>'+e(cta['heading'])+'</h2><p>'+e(cta['text'])+'</p><a class="button" href="'+e(contact_url)+'">'+e(cta['label'])+' ↗</a></section>'
+        method = METHODS.get(post.get('method'))
+        values['method_link'] = '' if not method else '<aside class="article-method" aria-label="Método relacionado"><span class="eyebrow">CONHEÇA A AXYS</span><p>Explore a abordagem técnica relacionada a este assunto.</p><a class="text-link" href="'+method[1]+'">'+method[0]+' ↗</a></aside>'
         # Só exiba leituras escolhidas editorialmente; não complete com assuntos aleatórios.
         published = {p['slug']: p for p in posts if p['slug'] != post['slug']}
         related = [published[slug] for slug in post.get('related', []) if slug in published][:2]

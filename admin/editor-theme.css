@@ -1,0 +1,69 @@
+/* Tema do Decap 3.18.0. Os seletores usam nomes de componentes, sem hashes gerados. */
+.editor-shell { background: var(--bg); color: var(--ink); font: 14px/1.55 var(--font-text); }
+.editor-brand { padding-block: 20px; }
+.editor-main { width: min(1560px, calc(100% - 48px)); margin: 0 auto 36px; }
+.editor-heading { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 32px 0 28px; }
+.editor-back { color: var(--muted); font-size: 12px; text-decoration: none; display: inline-flex; align-items: center; min-height: 36px; }
+.editor-heading h1 { font-size: clamp(25px, 3vw, 36px); letter-spacing: -.04em; line-height: 1.2; margin: 8px 0; }
+.editor-heading p { font-size: 14px; color: var(--muted); }
+.editor-environment { border: 1px solid var(--line); padding: 10px 14px; border-radius: 4px; color: var(--accent); font-size: 10px; letter-spacing: .08em; max-width: 290px; }
+.editor-workspace { border: 1px solid var(--line); border-radius: 8px; background: var(--surface); overflow: hidden; }
+.editor-shell .editor-notice { padding: 40px; color: var(--muted); }
+.editor-shell .editor-notice h1 { color: var(--ink); font-size: 28px; margin-bottom: 16px; }
+.editor-shell .editor-notice p { margin-bottom: 24px; }
+.editor-shell .editor-notice a { color: var(--accent); }
+/* O bloco contém também os elementos fixos do CMS e mantém o cabeçalho Axys visível. */
+.editor-shell #nc-root { min-height: 640px; height: max(640px, calc(100dvh - 280px)); position: relative; transform: translateZ(0); overflow: auto; background: var(--bg); color: var(--ink); color-scheme: dark; }
+.editor-shell :is(#nc-root, .ReactModalPortal) { font-family: var(--font-text); }
+.editor-shell :is(#nc-root, .ReactModalPortal) :is(h1,h2,h3,h4,label,legend) { color: var(--ink); }
+.editor-shell :is(#nc-root, .ReactModalPortal) :is(button,input,textarea,select) { font-family: var(--font-text); }
+.editor-shell :is(#nc-root, .ReactModalPortal) :is(input:not([type=checkbox]):not([type=radio]),textarea,select) { background: var(--bg); color: var(--ink); border-color: var(--line); caret-color: var(--accent); }
+.editor-shell :is(#nc-root, .ReactModalPortal) :is(input,textarea)::placeholder { color: var(--muted); opacity: 1; }
+.editor-shell :is(#nc-root, .ReactModalPortal) :is(a,button,input,textarea,select,[tabindex]):focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.editor-shell :is(#nc-root, .ReactModalPortal) :is(button,[role=button]) { color: var(--ink); }
+.editor-shell :is(#nc-root, .ReactModalPortal) button { background-color: var(--surface-2); border-color: var(--line); }
+.editor-shell :is(#nc-root, .ReactModalPortal) button:hover { background-color: #2a3c44; }
+.editor-shell #nc-root a { color: var(--ink); }
+.editor-shell #nc-root a:hover { color: var(--accent); }
+.editor-shell #nc-root [class*="AppHeaderContent"],
+.editor-shell #nc-root [class*="AppMainContainer"],
+.editor-shell #nc-root [class*="EditorContainer"],
+.editor-shell #nc-root [class*="SidebarContainer"] { background-color: var(--bg); color: var(--ink); }
+.editor-shell #nc-root [class*="AppHeaderContent"] { border-bottom: 1px solid var(--line); }
+.editor-shell #nc-root header { background: var(--bg); }
+.editor-shell #nc-root [class*="AppHeaderNavLink"],
+.editor-shell #nc-root [class*="AppHeaderSiteLink"] { color: var(--muted); }
+.editor-shell #nc-root [class*="SidebarNavLink"].sidebar-active { color: var(--accent); background-color: var(--surface); }
+.editor-shell :is(#nc-root, .ReactModalPortal) [class*="Card"],
+.editor-shell :is(#nc-root, .ReactModalPortal) [class*="ControlPaneContainer"],
+.editor-shell :is(#nc-root, .ReactModalPortal) [class*="ControlTopbar"],
+.editor-shell :is(#nc-root, .ReactModalPortal) [class*="ToolbarContainer"],
+.editor-shell :is(#nc-root, .ReactModalPortal) [class*="StyledList"],
+.editor-shell :is(#nc-root, .ReactModalPortal) [class*="DropdownList"],
+.editor-shell :is(#nc-root, .ReactModalPortal) [class*="SearchResultContainer"],
+.editor-shell :is(#nc-root, .ReactModalPortal) [class*="TopBarContainer"],
+.editor-shell :is(#nc-root, .ReactModalPortal) [class*="StyledFileUploadContainer"],
+.editor-shell :is(#nc-root, .ReactModalPortal) [class*="StyledContainer"],
+.editor-shell :is(#nc-root, .ReactModalPortal) [class*="StyledHeader"],
+.editor-shell :is(#nc-root, .ReactModalPortal) [class*="StyledModal"] { background-color: var(--surface); color: var(--ink); border-color: var(--line); }
+.editor-shell :is(#nc-root, .ReactModalPortal) [class*="FieldLabel"] { background-color: var(--surface-2); }
+.editor-shell :is(#nc-root, .ReactModalPortal) [class*="FieldLabel"]::after { background-color: var(--surface); }
+.editor-shell :is(#nc-root, .ReactModalPortal) [class*="ControlContainer"] { border-color: var(--line); }
+.editor-shell :is(#nc-root, .ReactModalPortal) :is([class*="ControlHint"],[class*="CardDate"],[class*="SidebarHeading"]) { color: var(--muted); }
+.editor-shell :is(#nc-root, .ReactModalPortal) :is([class*="CardTitle"],[class*="CardHeading"],[class*="ListCardTitle"]) { color: var(--ink); }
+.editor-shell :is(#nc-root, .ReactModalPortal) :is([class*="CollectionTopNewButton"],[class*="AppHeaderQuickNewButton"],[class*="SaveButton"],[class*="PublishButton"],[class*="LoginButton"],[class*="StyledButtonPrimary"],[class*="UploadButton"]) { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.editor-shell :is(#nc-root, .ReactModalPortal) :is([class*="DeleteButton"],[class*="FileWidgetButtonRemove"]) { background: #3c2226; color: #ffb6bd; border-color: #795057; }
+.editor-shell :is(#nc-root, .ReactModalPortal) [role=alert] { color: #ffb6bd; }
+.editor-shell :is(#nc-root, .ReactModalPortal) :is([class$="-control"],[class$="-menu"],[class$="-option"]) { background-color: var(--surface-2); color: var(--ink); border-color: var(--line); }
+.editor-shell :is(#nc-root, .ReactModalPortal) :is([class$="-singleValue"],[class$="-input"],[class$="-multiValueLabel"]) { color: var(--ink); }
+.editor-shell :is(#nc-root, .ReactModalPortal) [class$="-multiValue"] { background: #2a3c44; }
+.editor-shell .ReactModalPortal :is(.ReactModal__Content,[role=dialog]) { background: var(--surface) !important; color: var(--ink); border: 1px solid var(--line) !important; }
+@media (max-width: 800px) {
+  .editor-main { width: calc(100% - 24px); }
+  .editor-heading { padding: 20px 8px; flex-wrap: wrap; gap: 14px; }
+  .editor-environment { max-width: 100%; }
+  .editor-shell #nc-root { height: 75dvh; min-height: 560px; }
+  .editor-shell #nc-root [class*="EditorContainer"] { min-width: 0; }
+  .editor-shell #nc-root [class*="ToolbarContainer"] { min-width: 0; overflow-x: auto; }
+  .editor-shell .editor-notice { padding: 24px; }
+}

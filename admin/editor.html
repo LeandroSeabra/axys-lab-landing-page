@@ -1,5 +1,42 @@
 <!doctype html>
-<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Publicação de conteúdos — Axys</title><link rel="icon" href="/favicon.svg"><link rel="cms-config-url" type="text/yaml" href="/admin/config.yml"></head><body>
-<noscript>Ative o JavaScript para abrir o painel de publicação.</noscript>
-<script src="https://cdn.jsdelivr.net/npm/decap-cms@3.13.0/dist/decap-cms.js"></script>
-</body></html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#0e1317">
+  <title>Editor | Portal Axys</title>
+  <link rel="icon" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@800&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="cms-config-url" type="text/yaml" href="/admin/config.yml">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/admin/admin.css">
+  <link rel="stylesheet" href="/admin/editor-theme.css">
+  <script>window.CMS_MANUAL_INIT=true;</script>
+  <script src="/admin/settings.js" defer></script>
+  <script src="/admin/methods.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/decap-cms@3.18.0/dist/decap-cms.js" defer></script>
+  <script src="/admin/editor.js" defer></script>
+</head>
+<body class="editor-shell">
+  <a class="skip-link" href="#editor-workspace">Pular para o editor</a>
+  <header class="members-header editor-brand">
+    <a class="wordmark" href="/admin/" aria-label="Axys, área de membros">Axys</a>
+    <span>PORTAL AXYS / ÁREA DE MEMBROS</span>
+    <a href="/conteudos/" target="_blank" rel="noopener">Ver portal ↗</a>
+  </header>
+  <main class="editor-main">
+    <section class="editor-heading" aria-labelledby="editor-title">
+      <div><a class="editor-back" href="/admin/">← Área de membros</a><h1 id="editor-title">Editor de publicações.</h1><p>Uma nova história, com a identidade da Axys.</p></div>
+      <span id="editor-mode" class="editor-environment">EDITOR DO PORTAL AXYS</span>
+    </section>
+    <section id="editor-workspace" class="editor-workspace" aria-label="Editor do Portal Axys" tabindex="-1">
+      <noscript><p class="editor-notice">Ative o JavaScript para usar o editor.</p></noscript>
+      <div id="editor-message" class="editor-notice" role="status">Carregando editor…</div>
+      <div id="nc-root"></div>
+    </section>
+  </main>
+</body>
+</html>

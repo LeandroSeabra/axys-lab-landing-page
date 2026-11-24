@@ -120,3 +120,8 @@ img[src$="/gpr-campo.jpg"] { object-position: 50% 68%; }
 }
 @media (max-width: 400px) { .topic-grid { grid-template-columns: 1fr; } .topic-select { flex-wrap: wrap; } }
 @media (prefers-reduced-motion: reduce) { .feature-photo img { transition: none; } }
+.article-inline-image { margin: 32px 0; }
+.article-inline-image img { width: 100%; height: auto; border-radius: 4px; }
+.article-inline-image figcaption { margin-top: 12px; color: var(--muted); font-size: 12px; }
+.article-method { border: 1px solid var(--line); padding: 28px; margin: 40px 0; background: var(--surface); }
+.article-method p { margin-block: 12px 20px; }

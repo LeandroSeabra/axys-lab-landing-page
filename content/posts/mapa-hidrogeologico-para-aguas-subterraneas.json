@@ -15,17 +15,23 @@
     {
       "heading": "Lançamento em Belém",
       "text": "Quando uma comunidade depende de poços para se abastecer, conhecer o subsolo ajuda a decidir onde vale a pena investigar. O Serviço Geológico do Brasil (SGB) programou para 26 de novembro de 2026, às 9h, na Assembleia Legislativa do Pará, em Belém, o lançamento do Mapa Hidrogeológico do Estado do Pará. O material reúne informações sobre os aquíferos e a disponibilidade de água subterrânea no estado.",
-      "references": [1]
+      "references": [
+        1
+      ]
     },
     {
       "heading": "Aquíferos, abastecimento e monitoramento",
       "text": "Aquíferos são formações geológicas capazes de armazenar e transmitir água. Conhecer sua distribuição ajuda gestores a planejar o abastecimento e o monitoramento. O SGB também prevê, no lançamento, a assinatura de protocolos de intenções com a Cosanpa e a Águas do Pará. A cooperação inclui o monitoramento da água subterrânea e a melhoria do cadastro de poços.",
-      "references": [1]
+      "references": [
+        1
+      ]
     },
     {
       "heading": "E para quem precisa perfurar um poço?",
       "text": "O mapa oferece uma visão regional. Para escolher um ponto de perfuração, a equipe precisa avaliar as condições do terreno e os dados de poços vizinhos. Quando adequada ao local, a sondagem elétrica vertical (SEV) investiga como a resistividade do subsolo varia com a profundidade e ajuda a identificar camadas que merecem investigação. Depois da perfuração, o teste de bombeamento avalia a vazão, e a análise da água verifica sua qualidade para consumo.",
-      "references": [2]
+      "references": [
+        2
+      ]
     }
   ],
   "references": [
@@ -43,7 +49,9 @@
     }
   ],
   "sources_checked": "23/11/2026",
-  "related": ["geofisica-agua-subterranea-poco"],
+  "related": [
+    "geofisica-agua-subterranea-poco"
+  ],
   "image_credit": {
     "title": "Measuring the groundwater level in a well near Lame Deer, Montana",
     "creator": "Rodney R. Caldwell / USGS",
@@ -51,5 +59,9 @@
     "license": "Domínio público",
     "license_url": "https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits"
   },
-  "topics": ["agua-subterranea", "geofisica"]
+  "topics": [
+    "agua-subterranea",
+    "geofisica"
+  ],
+  "method": "agua"
 }

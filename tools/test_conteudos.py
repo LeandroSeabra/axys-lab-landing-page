@@ -38,6 +38,29 @@ class ContentBuildTest(unittest.TestCase):
         self.assertIn('href="https://example.org/foto"', page)
         self.assertIn('creativecommons.org/licenses/by/4.0/', page)
 
+    def test_inline_images_are_validated_and_escaped(self):
+        image = dict(src=self.post['image'], alt='Terreno <teste>', caption='Vista & área', credit=self.post['image_credit'])
+        self.write(sections=[dict(heading='Imagem', text='Contexto', image=image)])
+        build(self.root)
+        page = (self.root / 'conteudos/artigo/index.html').read_text()
+        self.assertIn('class="article-inline-image"', page)
+        self.assertIn('alt="Terreno &lt;teste&gt;"', page)
+        self.write(sections=[dict(heading='Imagem', text='Contexto', image=image | {'src':'/../secret.jpg'})])
+        with self.assertRaises(ValueError): build(self.root)
+        self.write(sections=[dict(heading='Imagem', text='Contexto', image=image | {'credit':None})])
+        with self.assertRaises(ValueError): build(self.root)
+
+    def test_method_links_only_use_selected_known_destinations(self):
+        self.write(method='agua')
+        build(self.root)
+        page = (self.root / 'conteudos/artigo/index.html').read_text()
+        self.assertIn('href="/geo/#alvo"', page)
+        self.write(method='none')
+        build(self.root)
+        self.assertNotIn('class="article-method"', (self.root / 'conteudos/artigo/index.html').read_text())
+        self.write(method='https://example.org')
+        with self.assertRaises(ValueError): build(self.root)
+
     def test_only_published_nonfuture_posts_and_escape(self):
         self.write()
         self.write('rascunho', published=False)

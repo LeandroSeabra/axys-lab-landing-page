@@ -1,9 +1,8 @@
+# Login GitHub: configure o provedor em admin/settings.js. Veja PUBLICACAO.md.
 backend:
   name: github
   repo: LeandroSeabra/axys-lab-landing-page
   branch: main
-# Configure o provedor OAuth antes de usar em produção; veja PUBLICACAO.md.
-# Para servidor próprio, acrescente backend.base_url e backend.auth_endpoint.
 publish_mode: editorial_workflow
 site_url: https://axysgeosolucoes.com
 locale: pt
@@ -13,103 +12,305 @@ slug:
   encoding: ascii
   clean_accents: true
 collections:
-  - name: posts
-    label: Portal Axys
-    label_singular: Conteúdo
-    folder: content/posts
-    create: true
-    format: json
-    extension: json
-    slug: '{{slug}}'
-    identifier_field: title
-    summary: '{{title}} · {{type}} · {{date}}'
-    preview_path: 'conteudos/{{slug}}/'
+- name: posts
+  label: Publicações
+  label_singular: Publicação
+  folder: content/posts
+  create: true
+  format: json
+  extension: json
+  slug: '{{slug}}'
+  identifier_field: title
+  summary: '{{title}} · {{type}} · {{date}}'
+  preview_path: conteudos/{{slug}}/
+  fields:
+  - label: Título
+    name: title
+    widget: string
+  - label: Destaque na central
+    name: featured
+    widget: boolean
+    default: false
+    required: false
+    hint: Mantenha apenas um conteúdo em destaque.
+  - label: Data da consulta das fontes
+    name: sources_checked
+    widget: string
+    required: false
+    hint: Formato DD/MM/AAAA
+  - label: Resumo e descrição para busca
+    name: description
+    widget: text
+  - label: Tipo
+    name: type
+    widget: select
+    options:
+    - Artigos e guias
+    - Notícias
+    - Na prática
+    default: Notícias
+  - label: Área
+    name: area
+    widget: select
+    options:
+    - Geofísica
+    - Monitoramento
+    - Topografia
+    - Axys Lab
+    - Institucional
+  - label: Assuntos da publicação
+    name: topics
+    widget: select
+    multiple: true
+    min: 1
+    options:
+    - label: Geologia
+      value: geologia
+    - label: Geofísica
+      value: geofisica
+    - label: Água subterrânea
+      value: agua-subterranea
+    - label: Mineração
+      value: mineracao
+    - label: Topografia e território
+      value: topografia
+    - label: Monitoramento
+      value: monitoramento
+    - label: Instrumentação
+      value: instrumentacao
+  - label: Data de atualização relevante
+    name: updated
+    widget: datetime
+    format: YYYY-MM-DD
+    date_format: DD/MM/YYYY
+    time_format: false
+    required: false
+  - label: Revisão técnica por
+    name: reviewer
+    widget: string
+    required: false
+    hint: Informe apenas quem efetivamente revisou a publicação.
+  - label: Nota de correção
+    name: correction_note
+    widget: text
+    required: false
+  - label: Autor ou equipe responsável
+    name: author
+    widget: string
+    default: Equipe editorial Axys
+  - label: Data de publicação
+    name: date
+    widget: datetime
+    format: YYYY-MM-DD
+    date_format: DD/MM/YYYY
+    time_format: false
+  - label: Visível no site
+    name: published
+    widget: boolean
+    default: false
+    hint: 'Desativado: rascunho fora do portal. Ativado: aparece após salvar/publicar e gerar o site. Localmente, não envia nada ao
+      GitHub.'
+  - label: Imagem de capa
+    name: image
+    widget: image
+    allow_multiple: false
+    choose_url: false
+  - label: Descrição da imagem para acessibilidade
+    name: image_alt
+    widget: string
+  - label: Legenda e contexto da imagem
+    name: caption
+    widget: text
+    required: false
+  - label: Direitos da imagem
+    name: image_credit
+    widget: object
+    hint: Use somente imagens com autorização documentada ou licença compatível com uso comercial. Atribuição não substitui autorização.
     fields:
-      - {label: Título, name: title, widget: string}
-      - {label: Destaque na central, name: featured, widget: boolean, default: false, required: false, hint: Mantenha apenas um conteúdo em destaque.}
-      - {label: Data da consulta das fontes, name: sources_checked, widget: string, required: false, hint: "Formato DD/MM/AAAA"}
-      - {label: Resumo e descrição para busca, name: description, widget: text}
-      - {label: Tipo, name: type, widget: select, options: [Artigos e guias, Notícias, Na prática], default: Artigos e guias}
-      - {label: Área, name: area, widget: select, options: [Geofísica, Monitoramento, Topografia, Axys Lab, Institucional]}
-      - label: Assuntos da publicação
-        name: topics
-        widget: select
-        multiple: true
-        min: 1
-        options:
-          - {label: Geologia, value: geologia}
-          - {label: Geofísica, value: geofisica}
-          - {label: Água subterrânea, value: agua-subterranea}
-          - {label: Mineração, value: mineracao}
-          - {label: Topografia e território, value: topografia}
-          - {label: Monitoramento, value: monitoramento}
-          - {label: Instrumentação, value: instrumentacao}
-      - {label: Data de atualização relevante, name: updated, widget: datetime, format: 'YYYY-MM-DD', date_format: DD/MM/YYYY, time_format: false, required: false}
-      - {label: Revisão técnica por, name: reviewer, widget: string, required: false, hint: Informe apenas quem efetivamente revisou a publicação.}
-      - {label: Nota de correção, name: correction_note, widget: text, required: false}
-      - {label: Autor ou equipe responsável, name: author, widget: string, default: Equipe Axys}
-      - {label: Data de publicação, name: date, widget: datetime, format: 'YYYY-MM-DD', date_format: DD/MM/YYYY, time_format: false}
-      - {label: Visível no site, name: published, widget: boolean, default: false, hint: Ative após revisar. Datas futuras só aparecem na próxima geração após a data escolhida.}
-      - {label: Imagem de capa, name: image, widget: image, allow_multiple: false, choose_url: false}
-      - {label: Descrição da imagem para acessibilidade, name: image_alt, widget: string}
-      - {label: Legenda e contexto da imagem, name: caption, widget: text, required: false}
-      - label: Direitos da imagem
-        name: image_credit
+    - label: Título original da foto
+      name: title
+      widget: string
+    - label: Autor ou instituição
+      name: creator
+      widget: string
+    - label: Página de origem (HTTPS)
+      name: source
+      widget: string
+    - label: Licença ou autorização
+      name: license
+      widget: string
+    - label: Página da licença (HTTPS)
+      name: license_url
+      widget: string
+  - label: Ideia central
+    name: summary
+    widget: text
+    required: false
+    hint: Opcional. Se deixar em branco, o resumo será usado como ideia central.
+  - label: Seções do artigo
+    name: sections
+    widget: list
+    min: 1
+    summary: '{{fields.heading}}'
+    hint: Adicione os blocos da notícia. Separe parágrafos com uma linha em branco. Não é necessário usar HTML ou Markdown.
+    fields:
+    - label: Subtítulo
+      name: heading
+      widget: string
+    - label: Texto
+      name: text
+      widget: text
+    - label: Imagem desta seção
+      name: image
+      widget: object
+      required: false
+      collapsed: true
+      fields:
+      - label: Imagem
+        name: src
+        widget: image
+        choose_url: false
+        allow_multiple: false
+      - label: Descrição acessível
+        name: alt
+        widget: string
+      - label: Legenda
+        name: caption
+        widget: text
+        required: false
+      - label: Créditos da imagem
+        name: credit
         widget: object
         hint: Use somente imagens com autorização documentada ou licença compatível com uso comercial. Atribuição não substitui autorização.
         fields:
-          - {label: Título original da foto, name: title, widget: string}
-          - {label: Autor ou instituição, name: creator, widget: string}
-          - {label: Página de origem (HTTPS), name: source, widget: string}
-          - {label: Licença ou autorização, name: license, widget: string}
-          - {label: Página da licença (HTTPS), name: license_url, widget: string}
-      - {label: Ideia central, name: summary, widget: text}
-      - label: Seções do artigo
-        name: sections
-        widget: list
+        - label: Título original da foto
+          name: title
+          widget: string
+        - label: Autor ou instituição
+          name: creator
+          widget: string
+        - label: Página de origem (HTTPS)
+          name: source
+          widget: string
+        - label: Licença ou autorização
+          name: license
+          widget: string
+        - label: Página da licença (HTTPS)
+          name: license_url
+          widget: string
+    - label: Referências desta seção
+      name: references
+      widget: list
+      required: false
+      hint: Números correspondentes à ordem das referências do artigo.
+      field:
+        label: Número
+        name: number
+        widget: number
+        value_type: int
         min: 1
-        summary: '{{fields.heading}}'
-        hint: Cole o texto revisado de IA nas seções. Separe parágrafos com uma linha em branco. HTML e Markdown são exibidos como texto.
-        fields:
-          - {label: Subtítulo, name: heading, widget: string}
-          - {label: Texto, name: text, widget: text}
-
-          - label: Referências desta seção
-            name: references
-            widget: list
-            required: false
-            hint: Números correspondentes à ordem das referências do artigo.
-            field: {label: Número, name: number, widget: number, value_type: int, min: 1}
-          - label: Tabela comparativa
-            name: table
-            widget: object
-            required: false
-            collapsed: true
-            fields:
-              - {label: Títulos das colunas, name: headers, widget: list}
-              - label: Linhas
-                name: rows
-                widget: list
-                fields:
-                  - {label: Células da linha, name: cells, widget: list, hint: Uma célula por coluna, na mesma ordem dos títulos.}
-      - label: Referências e fontes
-        name: references
+    - label: Tabela comparativa
+      name: table
+      widget: object
+      required: false
+      collapsed: true
+      fields:
+      - label: Títulos das colunas
+        name: headers
         widget: list
-        required: false
-        summary: '{{fields.institution}} — {{fields.title}}'
+      - label: Linhas
+        name: rows
+        widget: list
         fields:
-          - {label: Título da publicação, name: title, widget: string}
-          - {label: Autores ou instituição, name: institution, widget: string}
-          - {label: Ano ou s.d., name: year, widget: string}
-          - {label: Link HTTPS da fonte, name: url, widget: string, pattern: ['^https://[^ ]+$', 'Informe uma URL HTTPS válida.']}
-      - label: Próximo passo para o leitor
-        name: cta
-        widget: object
-        required: false
-        collapsed: true
-        fields:
-          - {label: Título, name: heading, widget: string}
-          - {label: Explicação, name: text, widget: text}
-          - {label: Texto do botão, name: label, widget: string}
-          - {label: Destino, name: url, widget: select, options: ['/geo/', '/geo/#contato', '/topo/#contato', '/safe/#contato', '/lab/#contato', '/#contato']}
-      - {label: Leituras relacionadas, name: related, widget: list, required: false, hint: Nomes dos arquivos sem .json para priorizar as sugestões.}
+        - label: Células da linha
+          name: cells
+          widget: list
+          hint: Uma célula por coluna
+          na mesma ordem dos títulos.: null
+  - label: Referências e fontes
+    name: references
+    widget: list
+    required: false
+    summary: '{{fields.institution}} — {{fields.title}}'
+    fields:
+    - label: Título da publicação
+      name: title
+      widget: string
+    - label: Autores ou instituição
+      name: institution
+      widget: string
+    - label: Ano ou s.d.
+      name: year
+      widget: string
+    - label: Link HTTPS da fonte
+      name: url
+      widget: string
+      pattern:
+      - ^https://[^ ]+$
+      - Informe uma URL HTTPS válida.
+  - label: Método Axys relacionado
+    name: method
+    widget: select
+    required: false
+    default: none
+    hint: Escolha somente quando houver relação com o assunto. A prévia mostra o link que o leitor encontrará.
+    options:
+    - label: Sem link de método
+      value: none
+    - label: Métodos geofísicos (SEV, GPR e outros)
+      value: geofisica
+    - label: Investigação de água subterrânea
+      value: agua
+    - label: Topografia e regularização — AXYS TERRA
+      value: terra
+    - label: Monitoramento de estruturas — AXYS SAFE
+      value: monitoramento
+    - label: Instrumentação — AXYS LAB
+      value: instrumentos
+  - label: Próximo passo para o leitor
+    name: cta
+    widget: object
+    required: false
+    collapsed: true
+    fields:
+    - label: Título
+      name: heading
+      widget: string
+    - label: Explicação
+      name: text
+      widget: text
+    - label: Texto do botão
+      name: label
+      widget: string
+    - label: Destino
+      name: url
+      widget: select
+      options:
+      - /geo/
+      - /geo/#contato
+      - /topo/#contato
+      - /safe/#contato
+      - /lab/#contato
+      - /#contato
+  - label: Leituras relacionadas
+    name: related
+    widget: list
+    required: false
+    hint: Nomes dos arquivos sem .json para priorizar as sugestões.
+  delete: true
+  view_filters:
+  - label: Notícias
+    field: type
+    pattern: Notícias
+  - label: Rascunhos
+    field: published
+    pattern: '^false$'
+  sortable_fields:
+  - title
+  - date
+  - type
+  - published
+display_url: https://axysgeosolucoes.com
+logo:
+  src: /favicon.svg
+  show_in_header: true
